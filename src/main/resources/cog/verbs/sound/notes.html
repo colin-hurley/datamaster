@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Sound Verbs</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Sound Verbs</H2><HR>
+
+<A name=pitch><H4 style="margin-top:0">Sound Pitch</H4></A>
+
+The normal pitch of a sound is 1. To give the sound a higher pitch, use <A href="changesoundpitch.html">ChangeSoundPitch()</A> and give the
+sound's channel a higher pitch like 1.5. To make the sound lower, use a lower number like 0.7. JK will ignore the command if you try to give
+the sound a pitch of zero. And when changing the pitch (especially lowering it), JK may choke and slow down. <SUP>1</SUP>
+
+<A name=ampan><H4>Ambience and Panning</H4></A>
+
+<EM>Ambient</EM> means all-surrounding. Ambient sounds play on both speakers with equal volume. Other sounds
+play with varying volume on each speaker to simulate hearing a sound from a direction. So if a raildet exploded
+to your right, you would hear the explosion on your right speaker. This creates a panoramic sound effect known as
+<EM>panning</EM>.
+<P>
+Because <A href="playsoundlocal.html">PlaySoundLocal()</A> and <A href="playsoundglobal.html">PlaySoundGlobal()</A> don't use an
+origin, you can enter the panning for a sound. A value of -1 will make the sound play only on the left speaker, and a value of 1 will make
+the sound play on the right. Using a value of zero will make the sound neutral. You may use any flex from -1 to +1 for the panning you want.
+
+<A name=dist><H4>Sound Distances</H4></A>
+
+<A href="playsoundpos.html">PlaySoundPos()</A> and <A href="playsoundthing.html">PlaySoundThing()</A> both use a maximum and
+minimum radius. The minrad distance is the distance from the sound's origin at which you can hear the sound at full volume. The maxrad distance
+is the distance at which you can hear the sound. Inside the maximum radius, the sound will fade out as you move away from the origin. A
+picture is helpful:
+
+<P>
+<CENTER><IMG style="border: thick double gray" src="../../../pics/minmaxrad.jpg"></CENTER>
+<P>
+
+Unlike other distances in JK, minrad and maxrad are not measured in JKUs. Their unit is close to 1/10.5 of a JKU when the sound is played
+at full volume. Making the radii -1 will make JK use a default distance.
+<P>
+The default distance for the minrad is about 5 and the default for the maxrad is about 25.<SUP>2</SUP> If you don't
+want to use one of the radii, use a value of 0.
+<P>
+<HR>
+<SUP>1</SUP>This was tested on a 1.1 Ghz. computer, but with mainboard-integrated sound.<BR>
+<SUP>2</SUP>These numbers are based on origin_dist * 10.5. The default distances are not exact because the conversion ratio
+is not exact.
+<BR><HR></BODY></HTML>

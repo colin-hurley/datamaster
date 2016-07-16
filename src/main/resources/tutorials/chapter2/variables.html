@@ -1,0 +1,302 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Variables</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head>
+<body onLoad="top.main.chapter.document.form.select2.selectedIndex = 4;" onUnload="top.main.chapter.document.form.select2.selectedIndex = 0;">
+
+<h2 style="margin-bottom:0">Variables</h2><hr>
+
+Variables (or symbols) are like storage places with a name. We store values in variables. These values
+can be numbers or text. All variables should be declared in the symbols section. A symbol
+declaration tells JK to reserve memory for the value that the variable will be given
+in the code section. With most variables, you can assign an initial value when you declare the
+variable.
+<p>
+On this page, I'm going to explain how to declare and use the different types of variables that JK uses.
+For more technical information on variable types, look in the <A href="../../cog/symbols/types_frame.html">Symbol Types</A> section
+of this reference.
+
+<h4>Integers</h4>
+
+An integer is a whole number - a number without a fractional portion. You'll use integers more than
+anything else when writing cogs. A typical declaration looks like this:
+
+<pre class="code">
+int     yourInt=1
+</pre>
+
+int is short for integer. With every variable that you define, the variable's type will come first. Next
+is the variable's name - in this case, <i>yourInt</i>. In this declaration, the integer is given an
+initial value of 1. You can also add arguments after the declaration which tell JK how to use the
+variable - we'll cover that later on this page.
+
+<h4>Floating Point Numbers</h4>
+
+Floating point numbers, or floats, are numbers with a fractional portion. They're called floats because the
+decimal point is said to "float" between digits (note that it's a mistake to say that it's a "decimal point" because
+there's nothing about a floating point that's restricted to base 10).
+<p>
+JK has two floating point types: float and flex. Apparently, both types are exactly the same. Float is the standard
+programming term, but flex is more commonly used in Cog. Their declarations look like this:
+
+<pre class="code">
+float     yourFloat=1.1
+flex      yourFlex=1.2
+</pre>
+
+Floats are most often used to store physics variables like speed, mass, and vector axes.
+
+<h4>Templates</h4>
+
+Templates are defined by giving the template's name as it's listed in its JKL file. Template variables
+are usually used to get a reference to a specific template since you won't normally refer to a template by
+name in the code section. A declaration looks like this:
+
+<pre class="code">
+template     yourTemp=+tempName
+</pre>
+
+A template contains an integer value. This integer is the template's number in its JKL's listing. For the static.jkl,
+there is an offset number that's added to the list number.
+
+<h4>Vectors</h4>
+
+Vectors are special variables that store three floating point numbers. Vectors do not accept an initial value
+in the symbols section but you can pass a value to them from a JKL. Their declaration looks like this:
+
+<pre class="code">
+vector     yourVec
+</pre>
+
+A vector's value can be expressed in several different ways, but when passing a value from a JKL, you'll
+use the form <code>(x/y/z)</code>.
+
+<h4>File Variables</h4>
+
+File variables are used to get a reference to a resource file (to save space and time, all of the variables
+that just load resource files are grouped together here). They are declared like this:
+
+<pre class="monocode">
+ai        yourAI=example.ai
+material  yourMat=example.mat
+sound     yourSound=example.wav
+keyframe  yourKey=example.key
+model     yourModel=example.3do
+</pre>
+
+Notice that no path is given. JK will look for these files in their respective resource subfolders. All of these variable
+types contain integer values. This value will be the number of the resource in its JKL's list for that file type. In some cases,
+JK will add a resource that's not already in the JKL's list.
+
+<h4>Cog</h4>
+
+Cog variables do not refer to an actual .cog file. Remember from before that cogs are useless to us as a piece of text.
+Cog variables hold an integer - this integer is the cog's index number in the jkl's list. This is why cogs aren't given an
+initial value, their value needs to be passed from the level - because the level knows exactly what a cog's number will be.
+The declaration looks like:
+
+<pre class="code">
+cog     yourCog
+</pre>
+
+<h4>Messages</h4>
+
+Messages are declared in the symbols section to tell JK what events the cog is listening for. Messages aren't "used" in the
+code section like other variables. Their declaration looks like this:
+
+<pre class="code">
+message     startup
+</pre>
+
+Message variables must be given message names (refer the the <A href="../../cog/message/messages_frame.html">Messages Section</A> for a listing). Like most variables, messages hold
+integer values, but these values are set within JK's executable. Messages are only declared so that JK will see the declarations, you
+can tell by printing the value of an undeclared message that the cog already knows what a message's value is.
+
+<h4>Thing</h4>
+
+A thing declaration looks like this:
+
+<pre class="code">
+thing	     yourThing
+</pre>
+
+Things have integer values - the number of the thing in the thing list. You can give them initial values just like integers, but it's not that helpful
+from the cog itself. A thing that's already placed in the level should be left open for the level's JKL to define.
+
+<h4>Surface</h4>
+
+Surface variables contain the integer number of surfaces in the JKL's list. Their declaration looks like this:
+
+<pre class="code">
+surface    yourSurf
+</pre>
+
+Surfaces should be left open for the level to define.
+
+<h4>Sector</h4>
+
+A sector is a group of surfaces that form a room. Level geometry is created by adjoining (combining) sectors.
+Like surfaces, sectors are integers containing the value of a sector in the JKL's list. Their declarations look like:
+
+<pre class="code">
+sector     yourSec
+</pre>
+
+Sectors should be left open for the level to define.
+
+<h4>String</h4>
+
+Cog doesn't really have a string symbol type, but in the code section you can assign strings to string values,
+and they will keep the value. We know that there is no string symbol type that you can use in the symbols section
+because it would be written in the exe with the other types.
+<p>
+
+<h2 style="margin-bottom:0">More About Variables</h2><hr>
+
+<h4>Passing from a JKL</h4>
+
+Level cogs receive their events from things that the level defines for them. Let's say our cog's symbols looks like this:
+
+<pre class="code">
+symbols
+
+thing     myThing
+
+message  created
+
+end
+</pre>
+
+And the cog's listing in the level JKL looks like this:
+
+<pre class="code">
+Section: cogs
+World cogs 10
+#Num	Script          Symbol values
+0:	yourCog.cog 18
+end
+</pre>
+
+The value of 18 is being passed to the variable myThing. So when the level finishes loading, myThing will have a value
+of 18. This is how the level defines variables.
+<p>
+When the level passes a thing, sector, or surface value to one of its cogs, it associates the cog with that object. In our
+example above, yourCog will receive the created message from myThing.
+<p>
+If you don't want to define a variable in the JKL, or you do but don't want to receive its events, you'll need to add
+symbol extensions after your variable.
+
+<h4>Symbol Extensions</h4>
+
+After a variable's declaration, you can add arguments that tell JK how to use the variable. These arguments will be refered to
+as symbol extensions in this reference. And they are: desc, local, mask, linkid, and nolink.
+<p>
+<b>Desc</b> serves only to add commenting to a variable. A typical use would look like:
+
+<pre class="code">
+thing     myThing     desc=this_is_my_thing
+</pre>
+
+JK won't complain either way, but it's considered bad syntax to have spaces or special characters in the description.
+<p>
+<b>Local</b> is the most common extension used in cog. This extension tells JK that the variable will not be given a value by the JKL.
+For example, let's say your symbols looks like this:
+
+<pre class="code">
+symbols
+
+thing     myThing
+int       myVar     local
+thing     myOtherThing
+
+message  created
+
+end
+</pre>
+
+And your JKL looks like this:
+
+<pre class="code">
+Section: cogs
+World cogs 10
+#Num	Script          Symbol values
+0:	yourCog.cog 18 20
+end
+</pre>
+
+myThing will be given a value of 18, and myOtherThing will be given the value of 20. Because myVar had the local extension,
+JK skipped over it when it assigned the JKL's values.
+<p>
+<b>Mask</b> is used to limit the events that the cog receives from a thing. All events have source and a sender. The source is the thing
+that caused the event. And the sender is the thing that the event happened to. When the event happens to the sender, it will
+send a message out to its cogs telling them what's happened. The message includes the thing that caused the event - the source.
+<p>
+<A href="../../flags/thingtypemask/thingtypemask_frame.html">Mask Flags</A> are used to block messages that have irrelevant sources. Let's say you want your cog to listen for the touched event
+of a thing so that your cog can do something when the thing is shot. If the thing is touched by the player, you don't want him to
+do anything. Instead of adding extra code to your cog to make sure the source of the touched event is a laser, you can use mask
+flags to block out events caused by players.
+<p>
+For this example, the declaration would look like:
+
+<pre class="code">
+thing     myThing     mask=0x8
+</pre>
+
+Flags have not been covered yet, so it's ok if 0x8 makes no sense. The 0x8 flag tells JK that only the cog will only receive messages
+of events that were caused by a weapon. If we wanted the reverse - if we wanted only events caused by the player and nothing else,
+the flag would be 0x400. If we wanted both players and weapons, the flag would be 0x408.
+<p>
+Remember that there are default masks for things, sectors, and surfaces. These are explained in the symbols documentation.
+By using the mask extension, you are overriding this default. To receive all the messages that a thing sends, use a flag of 0xfff.
+<p>
+<b>Linkid</b> is used to make a group out of a bunch of symbols so that it's easier to refer to them in the code section. A declaration looks like:
+
+<pre class="code">
+thing     myThing     linkid=1
+thing     myOtherThing     linkid=1
+</pre>
+
+Then in the code section, you'd be able to refer to all the objects that have a linkid of 1 instead of having to write the variable name of
+every one of the objects in your group.
+<p>
+<b>Nolink</b> is used when you want to define a thing in the JKL, but you don't want to listen to any of its events. Its declaration looks like:
+
+<pre class="code">
+thing     myThing     nolink
+</pre>
+
+
+Remember that all of these symbol extensions are only useful in level cogs. To class and inventory cogs, these are useless. However, it's
+considered proper syntax to add local to all of a class or inventory cog's variables. This is a way of telling the reader
+that all of the variables are being defined within the cog.
+
+<h4>Naming Conventions</h4>
+
+In all of the examples with variables, names like oneWordTwoWord and redFishBlueFish are used. The first character is lowercase to show
+that it's a variable - and the beginning of every other word in the name is capitalized to make it easier to read. This method of writing variable
+names is often called camel-hump notation.
+<p>
+Another common method is to use underscores: one_word_two_word and red_fish_blue_fish. In the author's opinion, this is worse because
+underscores make you type out more characters, and you get more typos trying to shift-hit the underscore key.
+<p>
+A constant is a variable that's given a value in the symbols section and never changed in the code section. To make it clear that a constant
+shouldn't have its value changed, many programmers use all capital letters: ONEWORDTWOWORD and REDFISHBLUEFISH. This is a good
+rule to follow, but it can be an eyesore.
+<p>
+Keywords, symbol types, and symbol extensions are most often written with lowercase letters. Some programmers prefer to capitalize the first
+letter, but it's just not worth your time for keywords that you'll use in most of your cogs.
+
+<h4>Undeclared Variables</h4>
+
+You should always have your variables declared in the symbols section, not doing this is considered to be sloppy coding. But this doesn't mean undeclared
+variables won't work. JK is nice enough to recognize that a variable hasn't been declared, so it will declare the variable when
+it finds an assignment for it in the code section. Also, JK will convert a variable's type to the type of the value it's assigned to - this is something
+you should never do, but be aware that JK does this for you. If you try to retrieve the value of an undeclared variable, JK will return -1 as the value.
+<p>
+There are memory limits to how many variables you can have in the symbols section. It's not known how these limits work, but declaring
+your variables can solve some memory problems.
+<p>
+<a href="code.html">Continue</a>
+<p>
+<hr>
+</body></html>

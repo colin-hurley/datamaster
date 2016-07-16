@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SetThingTimer</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SetThingTimer</H2><HR>
+Sets a timer event for a thing. This is similar to a timer set by <A href="settimer.html">SetTimer()</A>, but it is treated
+as an event and  the <A href="../../message/timer.html">timer</A> message will be sent
+to all of the thing's associated cogs. Only a cog that receives the thing's messages can
+set a thing timer for the thing. The timer will not be stopped if the thing dies. Syntax:
+<P>
+<CODE>SetThingTimer(thing, flex_delay);</CODE>
+<P>
+To stop the thing timer, use:
+<P>
+<CODE>SetThingTimer(same_thing, 0);</CODE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../../message/timer.html">Timer
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="setpulse.html">SetPulse()
+	<OPTION value="settimer.html">SetTimer()
+	<OPTION value="settimerex.html">SetTimerEx()
+	<OPTION value="setthingpulse.html">SetThingPulse()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

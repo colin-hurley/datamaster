@@ -1,0 +1,22 @@
+<HTML><HEAD><TITLE>0x10000 Weapon Flag</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>0x10000 Weapon Flag</H2><HR>
+
+The 0x10000 Weapon Flag is seemingly an improvement on 0x2000's effect.
+The direct effect of both flags is to remove the weapon after creation and
+create an explosion at its expected destination.
+<P>
+The difference between the flags is their effect when used with 0x8000. With
+the 0x18000 flags, the weapon will use its trailcylradius and trailrandangle
+properties (as well as trailthing and range) to give the trailthings a semi-random
+effect.
+<P>
+JK's force_lightning is well-known example. Notice that each lightning piece veers
+off from the projectile's path (according to trailrandangle), but a piece never goes farther
+astray than the trailcylradius distance. Also note that the engine "connects" the trailthings
+so that the ending point of the last trailthing is the starting point of the next.
+<P>
+As with 0x2000, elementsize and range must be used for this flag.
+
+<HR><BODY></HTML>

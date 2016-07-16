@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Sleep</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>Sleep</H2><HR>
+Pauses code execution for the given delay. The next line of code will not run until the delay has ended. Syntax:
+<P>
+<CODE>Sleep(flex_delay);</CODE>
+<P>
+Note that you may not have more than four simultaneous sleeps in a cog.
+Some example code with Sleep():
+
+<PRE class=code>
+activated:
+     if(on) Return;
+     on=1;
+     PlaySoundLocal(wav, 1, 0, 0);
+     Sleep(GetSoundLen(wav));
+     on=0;
+
+Return;
+</PRE>
+
+<FORM name="relform" class=rel>
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="settimer.html">SetTimer()
+	<OPTION value="settimerex.html">SetTimerEx()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

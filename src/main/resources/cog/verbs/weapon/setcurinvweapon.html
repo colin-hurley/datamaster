@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SetCurInvWeapon</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SetCurInvWeapon</H2><HR>
+Sets the current weapon. This verb works much the same as <A href="setcurweapon.html">SetCurWeapon()</A>, except that SetCurInvWeapon()
+wants a bin number. Syntax:
+<P>
+<CODE>SetCurInvWeapon(player, weap_bin);</CODE>
+<P>
+Making the weapon "current" tells the engine which weapon to send the <A href="../../message/activated.html">activated</A>,
+<A href="../../message/fire.html">fire</A>, and <A href="../../message/deactivated.html">deactivated</A> messages to.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="getcurweapon.html">GetCurWeapon()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="setcurweapon.html">SetCurWeapon()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SetPOVShake</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>SetPOVShake</H2><HR>
+Changes the angle and position of the internal camera and then resets them. LEC used this
+in their weapon cogs to simulate kickback. Syntax:
+<P>
+<CODE><NOBR>SetPOVShake(pos_offset, angle_offset, pos_reset_speed, angle_reset_speed);</NOBR></CODE>
+<P>
+<SPAN class=param>pos_offset:</SPAN> This is an offset vector that moves the POV camera away from the original
+camera position. Offset vectors like this one are usually written in this form: <SPAN class=exam>'x y z'</SPAN>.
+<P>
+<SPAN class=param>angle_offset:</SPAN> This offset vector changes the pitch, yaw, and roll of the view. It is usually written as
+<SPAN class=exam>'p y r'</SPAN>, but you can use a vector variable instead.
+<P>
+<SPAN class=param>pos_reset_speed:</SPAN> This is the speed with which the camera returns to its original position.
+<P>
+<SPAN class=param>angle_reset_speed:</SPAN> This is the speed with which the camera returns to its original angle.
+<P>
+Here's how SetPOVShake() is used in weap_bryar.cog:
+<BLOCKQUOTE><SPAN class=code>SetPOVShake('0.0 -.003 0.0', '1.0 0.0 0.0', .05, 80.0);</SPAN></BLOCKQUOTE>
+<HR>
+<BR>
+SetPOVShake() is used to reset the position and angle of the internal camera. If the reset speeds are zero, the camera's position and
+angle will not be reset. This can be very useful if you want to change the view of the internal camera. The downside is that you cannot
+see external-only models (like the player) and the internal weapon model will stay with the camera.
+<BR><HR></BODY></HTML>

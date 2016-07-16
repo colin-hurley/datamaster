@@ -1,0 +1,42 @@
+<HTML><HEAD><TITLE>Geometry Mode Description</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>Geometry Modes</H2><HR>
+
+Geo Modes control how surfaces are rendered in JK. They are assigned to sector surfaces,
+3dos meshes, 3do faces, and things. But ultimately, Geo Modes are used by individual surfaces.
+<P>
+Modes 1 & 2 are seperate from the rest. They cannot be set by any other way than the
+advanced display settings. In these display settings, there's a box for geometry
+settings which allows you to select vertex, wireframe, solid, or texture.
+<P>
+But when you set the Geo Mode for all surfaces this way, the engine does not update
+each surfaces' mode. So the settings set by the advanced display options
+cannot be retrieved through Cog.
+<P>
+However, Geo Mode 3 shows that the Geometry settings in the advanced display options
+are Geo Modes even though they do not reset the surfaces' modes. Geo Mode 3 can
+be set and retrieved through Cog. But when it is set in the display options, mode 3 is
+not given to the surfaces. This proves that the Geo Modes set by the display options
+are not given to individual surfaces. So we can safely assume the modes 1 & 2 are
+Geo Modes that do have a purpose.
+<P>
+There are no Geo Modes greater than 4. For a while, there was popularly thought to be
+a Geo Mode 5 that had the same effect as mode 4, but that's because setting any mode
+greater than 4 has the same effect as mode 4.
+
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Verbs Used:
+	<OPTION value="../../cog/verbs/surface/getfacegeomode.html">GetFaceGeoMode()
+	<OPTION value="../../cog/verbs/thingmode/getthingcurgeomode.html">GetThingCurGeoMode()
+	<OPTION value="../../cog/verbs/thingmode/getthinggeomode.html">GetThingGeoMode()
+	<OPTION value="../../cog/verbs/surface/setfacegeomode.html">SetFaceGeoMode()
+	<OPTION value="../../cog/verbs/thingmode/setthingcurgeomode.html">SetThingCurGeoMode()
+	<OPTION value="../../cog/verbs/thingmode/setthinggeomode.html">SetThingGeoMode()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR><BODY></HTML>

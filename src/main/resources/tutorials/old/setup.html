@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Setting up</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/tut.css"></HEAD>
+<body onLoad="top.main.chapter.document.form.select4.selectedIndex = 12;" onUnload="top.main.chapter.document.form.select4.selectedIndex = 0;">
+<H2 style="margin-bottom:0">Setting up</H2><HR>
+
+This text will explain how to set up your files for JK editing. Much of the stuff explained here is about
+convenience. When you're working on a patch, you will have to run JK hundreds of times. The better
+you have everything set up, the easier this will be.
+<P>
+<H4>Where To Install Jedi Knight</H4>
+
+JK should be installed in an easy-to-reach directory. For many editing programs, you'll have to search through the directories
+to find files in your JK dir. If you install JK to C:\Jedi Knight, it won't take too long. But if you install JK to C:\Program Files\Programs\Games\Jedi Knight,
+it's going to take a lot longer.
+<P>
+Some editors install JK to their desktop folder for this reason.
+
+<H4>Unneeded Files</H4>
+
+There are a lot of files and folders in the JK directory that you won't need to use. Hiding them will save time. You should hide
+everything but the JK.exe and the Resource and Episode folders. To do this, view the file's properties and click the "Hidden" attribute.
+
+<H4>Patch Directories</H4>
+
+When working on patches, you should create a seperate directory for each project. Say you have a project called Host Commander. Create
+a folder inside your JK folder called host. Then create a shortcut to the JK.exe and view its properties. Add <I>-path host</I> to the end
+of the target line of the shortcut.
+<P>
+When you run JK with this shortcut, it will search your patch directory before it looks in the Episode and Resource folders.
+
+<H4>Quick Launch Bar</H4>
+
+To make it easier to access your JK folder, Cog references, and other editing resources, you should put a link to them
+in the Quick Launch bar. Drag the program into the bar and Windows will create a shortcut to it.
+
+<H4>Send To</H4>
+
+The folder C:\windows\sendto contains links to the programs that should appear in the right-click Send To menu. If you have more
+than one program for editing a file type, this feature can be useful. You can have a cog open with one program, and if you need
+to open the cog with another program, you can use the Send To menu to conveniently make the other program open it.
+<P>
+Doing this is only helpful in Windows 95 and 98, because in newer versions of Windows, you can use the Open With menu instead.
+<p>
+<HR></BODY></HTML>

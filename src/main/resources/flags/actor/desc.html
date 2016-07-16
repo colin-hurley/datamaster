@@ -1,0 +1,23 @@
+<HTML><HEAD><TITLE>Actor Flags Description</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>Actor Flags</H2><HR>
+
+Both players and AI actors use Actor Flags as their typeflags. These typeflags are initially set in the creature's
+template. Some of these flags are only for players, only for actors, or for both. Note that flags which are used
+by both thing types don't always have the same effect with each type.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Verbs Used:
+	<OPTION value="../../cog/verbs/thingflags/clearactorflags.html">ClearActorFlags()
+	<OPTION value="../../cog/verbs/thingflags/cleartypeflags.html">ClearTypeFlags()
+	<OPTION value="../../cog/verbs/thingflags/getactorflags.html">GetActorFlags()
+	<OPTION value="../../cog/verbs/thingflags/gettypeflags.html">GetTypeFlags()
+	<OPTION value="../../cog/verbs/thingflags/setactorflags.html">SetActorFlags()
+	<OPTION value="../../cog/verbs/thingflags/settypeflags.html">SetTypeFlags()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR><BODY></HTML>

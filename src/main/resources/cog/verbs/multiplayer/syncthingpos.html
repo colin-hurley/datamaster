@@ -1,0 +1,14 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SyncThingPos</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>SyncThingPos</H2><HR>
+Synchronizes the local position of a thing with other computers in an MP game. The command
+can be run from a client or server's computer. Syntax:
+<P>
+<CODE>SyncThingPos(thing);</CODE>
+<P>
+When the other computers in a game receive the new position sent by SyncThingPos(), they
+do not simply set the thing's position to the new position. If the distance is less than half a JKU,
+they will apply enough force to the thing to move it to its more correct position in about a
+second. Otherwise, the thing will be moved instantly.
+
+<HR></BODY></HTML>

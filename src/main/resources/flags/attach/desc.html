@@ -1,0 +1,30 @@
+<HTML><HEAD><TITLE>Attach Flags Description</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD><BODY>
+<H2>Attach Flags</H2><HR>
+
+Attach Flags are used as settings for an attachment of one thing to another.
+<A href="../../cog/verbs/thingact/attachthingtothing.html">AttachThingToThing()</A> attaches a thing
+to a base thing with a 0x4 attachment. <A href="../../cog/verbs/thingact/attachthingtothingex.html">AttachThingToThingEx()</A>
+also creates a 0x4 attachment, but allows you to add flags to the attachment with the third parameter. The "Used with"
+category is added to clarify that 0x4 is always used with a thing to thing attachment.
+<P>
+You may also use <A href="../../cog/verbs/thingflags/setthingattachflags.html">SetThingAttachFlags(),
+<A href="../../cog/verbs/thingflags/clearthingattachflags.html">ClearThingAttachFlags()</A>, and
+<A href="../../cog/verbs/thingflags/getthingattachflags.html">GetThingAttachFlags()</A> to work with
+Attach Flags. But be careful, manually setting and clearing these flags can crash the game.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Verbs Used:
+	<OPTION value="../../cog/verbs/thingact/attachthingtosurf.html">AttachThingToSurf()
+	<OPTION value="../../cog/verbs/thingact/attachthingtothing.html">AttachThingToThing()
+	<OPTION value="../../cog/verbs/thingact/attachthingtothingex.html">AttachThingToThingEx()
+	<OPTION value="../../cog/verbs/thingflags/clearthingattachflags.html">ClearThingAttachFlags()
+	<OPTION value="../../cog/verbs/thingflags/getthingattachflags.html">GetThingAttachFlags()
+	<OPTION value="../../cog/verbs/thingflags/setthingattachflags.html">SetThingAttachFlags()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+
+<HR><BODY></HTML>

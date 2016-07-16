@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>GetSurfaceAnim</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>GetSurfaceAnim</H2><HR>
+Returns the number of the surface animation that a surface is using. If the surface is not using
+an animation, GetSurfaceAnim() will return -1. Syntax:
+<P>
+<SPAN class=return>retval</SPAN>=<CODE>GetSurfaceAnim(surface);</CODE>
+<P>
+The engine gives a special ID number to each surface playing an animation. The number starts
+at 1 and ends at the number of surface anims currently being played. GetSurfaceAnim() returns
+this ID number when given one of the surfaces. This number is useless
+except to show that the surface does have a playing anim.
+<P>
+<FORM name="relform" class=rel><SELECT name="selection" size=1>
+<OPTION value="">Related:
+<OPTION value="surfaceanim.html">SurfaceAnim()
+<OPTION value="notes.html#anims">Surface - Material Anims
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()"></FORM>
+<HR></BODY></HTML>

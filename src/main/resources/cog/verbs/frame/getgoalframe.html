@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>GetGoalFrame</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>GetGoalFrame</H2><HR>
+Returns the frame that a path-controlled object is moving to - not counting intermediate
+frames. The goal_frame is 0 when the object is not moving to a frame.
+<P>
+Use <A href="../thingact/isthingmoving.html">IsThingMoving()</A> to see if the object is moving
+to frame 0 or if the object is not moving but has a goal_frame of 0. Syntax:
+<P>
+<SPAN class=return>goal_frame</SPAN>=<CODE>GetGoalFrame(object);</CODE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="getcurframe.html">GetCurFrame()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

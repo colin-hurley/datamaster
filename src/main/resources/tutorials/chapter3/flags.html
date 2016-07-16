@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Jedi Knight Flags</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head>
+<body onLoad="top.main.chapter.document.form.select3.selectedIndex = 8;" onUnload="top.main.chapter.document.form.select3.selectedIndex = 0;">
+
+<H2 style="margin-bottom:0">Jedi Knight Flags</h2><hr>
+
+<h4>Introduction</h4>
+
+This is just going to be a small tutorial focused on flags and hexadecimal. For a tutorial that covers binary, octal,
+decimal, hex, and the related math, read the <a href="../old/bases.html">Numerical Bases</a> tutorial. Here, we're
+only going to cover the basics of flags.
+
+<h4>Bits & Boolean Values</h4>
+
+A <i>bit</i> is the smallest unit of storage that computers use. It holds either a 0 or a 1. Remember from the
+Variables tutorial that the Boolean type needs only a 0 or 1 to hold a true or false value. Cog doesn't have
+a boolean type, and even if it did it would take up more than one bit.
+<p>
+So what we'll do is use all the bits in a regular integer to hold these true / false values. Cog's integers
+have are 4 bytes long - that's 32 bits and boolean values we can store with one number.
+<p>
+Cog programmers commonly refer to a number used for boolean values as a <i>flag</i>. Flags aren't restricted
+to any base (e.g., decimal, hex), they're just integer numbers.
+<p>
+Before we get to hex, go to the Flags Section of the DM, and look at a few pages. The numbers are given in hex,
+but the point is that each line in the table is a true or false value that requires one bit to be turned on or off in the
+flag that we use.
+
+<h4>Hexadecimal</h4>
+
+Hex is a base for displaying a number. The number itself is just an idea of how many things are there. To write
+or speak a number, you have to limit yourself to a base. Base 10 is what we use, but computers use Base 2
+(binary). Hex, which is Base 16, is easily converted to and from binary, and it's more readable if not easier
+to learn.
+<p>
+The reason hex is easily converted to binary is that each digit in hex can display any combination of four digits
+in binary. This is because binary displays 2 values per digit while hex can display 16 (notice that I have to use
+decimal to write these numbers).
+<p>
+Here's a chart I'm borrowing from the bases tutorial:
+<P>
+<TABLE>
+<TR><TH width="70">Decimal</TH><TH width="70">Binary</TH><TH width="70">Hexadecimal</TH></TR>
+<TR><TD>0</TD><TD>0</TD><TD>0</TR></TD>
+<TR><TD>1</TD><TD>1</TD><TD>1</TR></TD>
+<TR><TD>2</TD><TD>10</TD><TD>2</TR></TD>
+<TR><TD>3</TD><TD>11</TD><TD>3</TR></TD>
+<TR><TD>4</TD><TD>100</TD><TD>4</TR></TD>
+<TR><TD>5</TD><TD>101</TD><TD>5</TR></TD>
+<TR><TD>6</TD><TD>110</TD><TD>6</TR></TD>
+<TR><TD>7</TD><TD>111</TD><TD>7</TR></TD>
+<TR><TD>8</TD><TD>1000</TD><TD>8</TR></TD>
+<TR><TD>9</TD><TD>1001</TD><TD>9</TR></TD>
+<TR><TD>10</TD><TD>1010</TD><TD>A</TR></TD>
+<TR><TD>11</TD><TD>1011</TD><TD>B</TR></TD>
+<TR><TD>12</TD><TD>1100</TD><TD>C</TR></TD>
+<TR><TD>13</TD><TD>1101</TD><TD>D</TR></TD>
+<TR><TD>14</TD><TD>1110</TD><TD>E</TR></TD>
+<TR><TD>15</TD><TD>1111</TD><TD>F</TR></TD>
+</TABLE>
+<P>
+You can see that hex uses letters after it runs out of numerals to use. Look at 1, 2, 4, and 8 in that table. Notice
+that each number uses only one bit. This means that we can add any combination of these numbers, and no
+matter what it is, we can disassemble it back to what we added up. E.g., 1 and 8 make 9. You can only subtract
+each of our key numbers once, so: 9 - 1 = 8. C - 4 = 8. Try it on your own.
+<p>
+Although we can write flags in decimal, bits don't evenly fit into decimal's digits, so doing simple addition gets
+complicated. Let's say we have the flag 0x80F. The 0x at the beginning means that the number is being displayed
+in hex. This is important because if you type a hex number without it, JK won't know it's in hex and will mistake
+it for decimal or a variable name.
+<p>
+But back to 0x80F. An F means that the first digit has all four bits on - these would be listed as 0x1, 0x2, 0x4, and 0x8 in
+the Flags Section of the DM. The third digit only has the the last bit turned on, and it's 0x800 by itself.
+
+<h4>Using Flags</h4>
+
+There are many different types of flags in JK. Each type has a name like Actor Flags, Thing Flags, Physics Flags, etc.
+Let's use Thing Flags as an example. These are flags which are assigned to players and they're just store settings
+that relate to every type of thing that JK works with (e.g., weapons, powerups, players).
+<p>
+These flags can be assigned with the verb SetThingFlags() and cleared with the verb ClearThingFlags(). SetThingFlags()
+doesn't reset the flag, it just adds to it. You must use ClearThingFlags() to turn off bits in the flag. If you need to retrieve
+the value of a flag, you'd use GetThingFlags().
+<p>
+And that's pretty much it for this tutorial. You don't have to know that much about bases to be great with flags. If you want
+to learn more though, read the bases tutorial.
+
+<p>
+<a href="parsing.html">Continue</a>
+<p>
+
+<hr></body></html>

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Dispstats</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../css/popup.css">
+</HEAD><BODY>
+<H2>Dispstats</H2><HR>
+
+When using either the command line switch or the console command, dispstats
+will display two lines of information at the top of the screen while your playing a level.
+It will look like this:
+
+<pre style="font: 10pt arial; font-weight:bold; text-align:center;">
+XX.XXX [XXX%]f Xs Xa Xz Xp X curSector X fo
+     force: XXX, item: none, force: none,
+</pre>
+
+Every capitalized 'x' in the code above is a variable depending on the conditions
+in the level you load. Here's what each part of this means:
+<p>
+<b>XX.XXX [XXX%]f</b>: the first number is the framerate or frames per second. The second
+number inside brackets is the percentage that the current framerate is of the max framerate.
+The letter 'f' at the end stands for 'framerate.'
+<p>
+<b>Xs</b>: this is the number of sectors that JK is rendering. The 's' stands
+for 'sector.'
+<p>
+<b>Xa</b>: This is the number of architecture things that JK is rendering (0x8 TF). The 'a' may stand
+for 'architectures'.
+<p>
+<b>Xz</b>: this seems to be the number of thing models that JK is rendering. It's not clear
+what the 'z' stands for.
+<p>
+<b>Xp</b>: this is the number of polygons that JK is rendering. The 'p' stands for 'polygons'.
+<p>
+<b>X curSector</b>: this number is the current sector that the player is inside of.
+<p>
+<b>X fo</b>: this number is the number of unused thing variables in the level's array. E.g., if
+the level has a thing limit of 200, and the level has only the walkplayer and a stormtrooper in
+it, then this number will be 198. The 'fo' may stand for 'freed objects.'
+<p>
+<b>force: XXX</b>: this is the mana (amount of force ammo) that the player has.
+<p>
+<b>item: none</b>: this is the item that the player has selected.
+<p>
+<b>force: none</b>: this is the force power that the player has selected.
+<hr>
+</BODY></HTML>

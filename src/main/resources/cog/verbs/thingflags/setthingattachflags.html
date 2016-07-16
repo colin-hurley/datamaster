@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SetThingAttachFlags</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SetThingAttachFlags</H2><HR>
+Adds <A href="../../../flags/attach/attach_frame.html" target="main">Attach Flags</A> to a thing. Syntax:
+<P>
+<CODE>SetThingAttachFlags(thing, flags);</CODE>
+<P>
+SetThingAttachFlags() can be a dangerous verb to use, and it will crash JK if the thing is not attached. Before LEC created
+<A href="../thingact/attachthingtothingex.html">AttachThingToThingEx()</A>, they used SetThingAttachFlags() and
+<A href="../thingact/attachthingtothing.html">AttachThingToThing()</A> together to create a 0x8 attachment. Like this:
+<BLOCKQUOTE><CODE>
+AttachThingToThing(thing1, thing2);
+<BR>SetThingAttachFlags(thing1, 0x8);
+</CODE></BLOCKQUOTE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="clearthingattachflags.html">ClearThingAttachFlags()
+	<OPTION value="getthingattachflags.html">GetThingAttachFlags()
+	<OPTION value="notes.html#attach">Attach Flags
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

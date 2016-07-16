@@ -1,0 +1,32 @@
+<HTML><HEAD><TITLE>Thing Type Description</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>Thing Types</H2><HR>
+
+Each thing type has a number assigned to it. Knowing this number is useful because
+if you needed to find the type of a thing ingame, the only way to do it is to get the thing's
+type number. You would use code similar to:
+<P>
+<CODE>if(GetThingType(potential) == 10) // then thing is a player</CODE>
+<P>
+With <A href="../../cog/verbs/thingprop/setthingtype.html">SetThingType()</A>, it is possible to
+change a thing's type ingame. But this is <I>not</I> recommended.
+<P>
+The first two thing types listed here, free and camera, are not known to function and were
+never used. But they are in an exe listing of thing types. And this listing is in order of their
+thing type number.
+<P>
+Note that these thing types are not related to message types. Message type
+values are a property of messages and are not used with things directly.
+
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Verbs Used:
+	<OPTION value="../../cog/verbs/thingprop/getthingtype.html">GetThingType()
+	<OPTION value="../../cog/verbs/thingprop/setthingtype.html">SetThingType()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR><BODY></HTML>

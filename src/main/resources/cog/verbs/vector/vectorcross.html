@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>VectorCross</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>VectorCross</H2><HR>
+Two vectors that don't have the same direction<SUP>1</SUP> will form a plane. VectorCross() returns a vector
+which is perpendicular to this plane. The length of the cross product is the sine of the angle between the vectors
+multiplied by their lengths (see the math below). Syntax:
+<P>
+<SPAN class=return>crossvec</SPAN>=<CODE>VectorCross(vector1, vector2);</CODE>
+<HR>
+<H5>The Right Hand Rule</H5>
+There are two directions that are perpendicular to a plane - right and left. The <EM>right hand rule</EM> determines
+which direction the cross product will have.
+<P>
+<IMG src="../../../pics/handrule.jpg" align=left>
+The direction of the cross product is determined by placing vector1 and vector2 tail-to-tail, flattening the right hand, extending
+it in the direction of vector1,  and then curling the fingers in the direction that the angle vector1 makes with vector2. The thumb
+then points in the direction of the cross product.
+<BR clear=left>
+<HR>
+<H5>The Math</H5>
+<SPAN class=math>crossvec=(y1*z2 - y2*z1, x2*z1 - x1*z2, x1*y2 - x2*y1);</SPAN>
+<P>
+The formula for the length of the cross product is: <SPAN class=math>sin&theta; * |v1| * |v2|</SPAN>.<BR>
+Where &theta; is the angle between the vectors.<BR>
+And |v1| is the length of vector1.<BR>
+And |v2| is the length of vector2.
+<HR>
+<H5>Geometrical Application</H5>
+<IMG src="../../../pics/vectorcross.gif" align=left style="margin-right:10">
+
+The green vector is the cross product of the red and blue vectors. Because the sine of 90 degrees is 1 and the red
+and blue vectors have a length of one, the length of the cross product is one.
+<P>
+The right hand rule shows that the vector points upwards on the z axis and not in the negative direction.
+
+<BR clear=left>
+<HR>
+<SUP>1</SUP>That is, the two vectors are not colinear. If they are, there will be no angle between them and the cross
+product will be the zero vector.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="notes.html#sincos">Sin & Cos
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

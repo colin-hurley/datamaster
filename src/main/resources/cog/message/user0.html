@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>User0</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>User0</H2><HR>
+User0 is the first in a 0-7 series of user messages. These messages are used by cogs to send special
+messages to each other. <A href="../verbs/message/sendmessage.html">SendMessage()</A> and
+<A href="../verbs/message/sendmessageex.html">SendMessageEx()</A> are used to send the message.
+SendMessageEx() can also send parameters with the message and accept a return value. Each cog may have
+its own set of user messages.
+<P>
+<TABLE class=msg width=90% bgcolor=#D2D2D2>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD width=30% class=left>Sender</TD><TD class=left>The cog that sent the message.</TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>The player that sent the message.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sender Type</TD><TD class=left>Cog (9).</TD></TR>
+<TR><TD class=left>Source Type</TD><TD class=left>Thing (3).</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Param0</TD><TD class=left>Third param of SendMessageEx().</TD></TR>
+<TR><TD class=left>Param1</TD><TD class=left>Fourth param of SendMessageEx().</TD></TR>
+<TR><TD class=left>Param2</TD><TD class=left>Fifth param of SendMessageEx().</TD></TR>
+<TR><TD class=left>Param3</TD><TD class=left>Sixth param of SendMessageEx().</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+</TABLE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../verbs/message/sendmessage.html">SendMessage()
+	<OPTION value="../verbs/message/sendmessageex.html">SendMessageEx()
+	<OPTION value="../verbs/message/returnex.html">ReturnEx()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="trigger.html">Trigger
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

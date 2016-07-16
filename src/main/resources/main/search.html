@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>DataMaster Search</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../script/catsearch.java"></SCRIPT>
+<SCRIPT TYPE="text/javascript" SRC="../script/verbsearch.java"></SCRIPT>
+<SCRIPT TYPE="text/javascript">
+	function Startup()
+	{
+		document.searchform.keywords.focus();
+		return;
+	}
+	function StartSearch()
+	{
+		if(document.searchform.radioset[0].checked) VerbSearch();
+		else CatSearch();
+		return;
+	}
+</SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../css/main.css">
+</HEAD><BODY onLoad=Startup()>
+
+<HR><H2 style="margin-bottom:5; margin-top:0; font: bold 22px Times New Roman;">DataMaster Verb Search</H2>
+
+<CENTER>
+This search is not case-sensitive.<BR>
+If you give the full verb name, do not use parentheses.<BR>
+<BR>
+<FORM name="searchform" onSubmit="StartSearch()" style="margin:0">
+	<INPUT type="radio" name="radioset" value="verb">Return Verbs.
+	<INPUT type="radio" name="radioset" value="cat">Return Verb Categories (default).<P>
+	<INPUT type="text" name="keywords" value="" maxlength=40>
+	<INPUT type="button" name="go" Value="Search" onClick="StartSearch()">
+</FORM>
+<P>
+This engine searches 451 Jedi Knight verb entries.</CENTER>
+<HR></BODY></HTML>

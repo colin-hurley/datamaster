@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>RotatePivot</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>RotatePivot</H2><HR>
+
+Rotates a thing to the orientation of one of its frames. The thing will be rotated
+around the position of the frame used. If only the orientation of the thing should be changed,
+then the thing and its frame should have the same position. Note that the movement needed to
+orient the thing to the PYR of one of its frames is determined by the thing's starting PYR
+and position - so the thing will always make the same movement when orienting itself to one
+of its frames.
+<P>
+When the command is given, the current frame of the thing is set to 0. If another
+RotatePivot() command is given before the first finishes, the thing is given a current
+frame of -1 and the old command is discarded. The new command will start where
+the old one left off, and the original exactness will be lost. When the rotation is complete,
+the thing will arrive, and its current frame will be 0. Syntax:
+<P>
+<CODE>RotatePivot(thing, frame, time);</CODE>
+<P>
+<SPAN class=param>time:</SPAN> This is the flex time in seconds that the thing is given to complete the rotation.
+Using a negative time will make the object reverse its movement, but still complete its movement in the given time
+as if it were not negative. If you use a time of 0, RotatePivot() will use a second instead.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="rotate.html">Rotate()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

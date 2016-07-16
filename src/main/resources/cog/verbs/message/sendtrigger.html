@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SendTrigger</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SendTrigger</H2><HR>
+Sends a trigger to all cogs on one or more computers depending on the destination. Syntax:
+<P>
+<CODE>SendTrigger(dest, ID, param0, param1, param2, param3);</CODE>
+<P>
+<SPAN class=param>dest:</SPAN> The destination controls which computers in the game the trigger
+will be sent to. Read the table below for the destination values.
+<P>
+<SPAN class=param>ID:</SPAN> The ID of a trigger becomes the sourceref of the trigger message.
+<P>
+<SPAN class=param>paramX:</SPAN> These four parameters will become the four parameters of the trigger message.
+<P>
+You can't send triggers with a player thing destination in SP until an MP game has been played (without exiting JK inbetween).
+Something done for multiplayer levels initializes JK's player array, and until that happens you can't send a trigger to a player
+in SP. This is something you need to keep in mind for writing cogs to work in both MP and SP.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../../message/trigger.html">Trigger
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="sendmessage.html">SendMessage()
+	<OPTION value="sendmessageex.html">SendMessageEx()
+	<OPTION value="../misc/skilltarget.html">SkillTarget()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR>
+<TABLE class=small align=center width=100% bgcolor=silver cellpadding=3 border=1>
+<TR><TH colspan=4 class=big>Trigger Destinations</TH></TR>
+<TR><TH width=30%>Destination</TH><TH class=left>Player that receives the message:</TH></TR>
+<TR><TD>0, 1, 2, etc.</TD><TD class=left>If this is MP and there's a player with this thing number, the message is sent to him. Otherwise, no one receives it.</TD></TR>
+<TR><TD>-1, -2, -3, etc </TD><TD class=left>Everyone.</TD></TR>
+</TABLE>
+<HR></BODY></HTML>

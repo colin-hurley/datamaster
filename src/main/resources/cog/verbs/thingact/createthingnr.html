@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>CreateThingNR</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>CreateThingNR</H2><HR>
+Creates a thing at the location of another thing.  Unknown what the "NR" means, but there is no known difference from
+<A href="creatething.html">CreateThing()</A>. Syntax:
+<P>
+<SPAN class=return>new_thing</SPAN>=<CODE>CreateThingNR(template, location_thing);</CODE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="destroything.html">DestroyThing()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="creatething.html">CreateThing()
+	<OPTION value="createthingatpos.html">CreateThingAtPos()
+	<OPTION value="createthingatposnr.html">CreateThingAtPosNR()
+	<OPTION value="../weapon/fireprojectile.html">FireProjectile()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

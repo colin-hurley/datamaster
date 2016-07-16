@@ -1,0 +1,49 @@
+<HTML><HEAD><TITLE>Sound Flags Description</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>Sound Flags</H2><HR>
+
+Sound Flags are used to control the different types of sounds that can be played in JK. They are:
+Thing, Class, Position, Local, and Global sounds. Here's a description of each:
+<UL>
+<B>Thing:</B> These sounds are played at the position of a thing with
+<A href="../../cog/verbs/sound/playsoundthing.html">PlaySoundThing()</A>. But
+without the 0x80 Sound Flag, a Thing sound is little more than a Position sound.
+<P>
+<B>Class:</B> Class sounds are played by a thing's soundclass (*.snd). These flags act like
+Thing sounds, but are much different. <A href="../../cog/verbs/sound/playsoundclass.html">PlaySoundClass()</A>
+can be used to play these sounds.
+<P>
+<B>Position:</B> Position sounds are played by Cog with <A href="../../cog/verbs/sound/playsoundpos.html">PlaySoundPos()</A>.
+<P>
+<B>Local:</B> Local sounds are played by Cog with <A href="../../cog/verbs/sound/playsoundlocal.html">PlaySoundLocal()</A>.
+Unlike Thing and Position sounds, Local sounds have no origin. Therefore they can be heard from anywhere
+in the level at the same volume.
+<P>
+<B>Global:</B> Global sounds are the same as Local sounds except that they are played
+on all computers in a multiplayer game. Hence the "local" and "global" designations.
+</UL>
+Not all Sound Flags apply to all types of sounds. If a Sound Flag only works with a few
+sound types, then it will list them in its description. But if the description does not list
+any sound types, then it is meant to work with all sounds.
+<P>
+There is no way with Cog to access a sound's flags ingame, but doubtless the engine can. So perhaps
+some of the unknown flags are used by the engine alone for the purpose of playing the sound.
+Also, some of the unknown Sound Flags (such as 0x2) may affect the CD music. But JK does have
+problems changing the music's volume on some systems, so it is possible that some of the unknown
+flags will work only on some systems.
+
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Verbs Used:
+	<OPTION value="../../cog/verbs/sound/playsoundclass.html">PlaySoundClass()
+	<OPTION value="../../cog/verbs/sound/playsoundglobal.html">PlaySoundGlobal()
+	<OPTION value="../../cog/verbs/sound/playsoundlocal.html">PlaySoundLocal()
+	<OPTION value="../../cog/verbs/sound/playsoundpos.html">PlaySoundPos()
+	<OPTION value="../../cog/verbs/sound/playsoundthing.html">PlaySoundThing()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR><BODY></HTML>

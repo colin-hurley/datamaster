@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>MaterialAnim</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>MaterialAnim</H2><HR>
+Animates a material directly instead of animating a surface which uses the material. The Material Animation will
+not affect surfaces that have a cel value other than -1. Syntax:
+<P>
+<SPAN class=return>animID</SPAN>=<CODE>MaterialAnim(mat, CPS, flags);</CODE>
+<P>
+<SPAN class=param>mat:</SPAN> This is the multi-celled material.
+<P>
+<SPAN class=param>CPS:</SPAN> Cels per second. This is the number of cels to cycle through each second.
+<P>
+<SPAN class=param>flags:</SPAN> These are the <A href="../../../flags/surfaceanim/surfaceanim_frame.html" target="main">Surface Animation Flags</A>
+to use with the animation.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="stopanim.html">StopAnim()
+	<OPTION value="notes.html#anims">Surface - Material Anims
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="surfaceanim.html">SurfaceAnim()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

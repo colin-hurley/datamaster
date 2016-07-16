@@ -1,0 +1,14 @@
+<HTML><HEAD><TITLE>0x100 Actor Flag</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>0x100 Actor Flag</H2><HR>
+
+Force powers such as Grip and Blinding have the condition:
+<P>
+<CODE>&& !(GetActorFlags(potential) & 0x100)</CODE>
+<P>
+in their target-finding code. Actors that shouldn't be affected by these
+force powers, such as probedroids and ATSTs, are
+given this flag so the powers can't be used on them.
+
+<HR><BODY></HTML>

@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Arrays</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head>
+<body onLoad="top.main.chapter.document.form.select2.selectedIndex = 8;" onUnload="top.main.chapter.document.form.select2.selectedIndex = 0;">
+
+<h2 style="margin-bottom:0">Arrays</h2><hr>
+
+In your code, you'll often need to access a variable without knowing its name. Arrays allow you store values in an array
+of variables. Then you can use a variable's index number instead of its name to retrieve the value of the variable.
+<P>
+Cog does not have a true array system like most programming languages. Instead, all the variables in the array must be listed
+consecutively in the symbols section (array variables can be declared in the code section, but that's not recommended).
+The array index number is used to find the variable so many variables down from the top of the list.
+<P>
+Note that if you try to access an array variable that does not exist, JK will crash. Arrays aren't unstable, you just have to
+be careful when using them.
+<P>
+Here's a typical list of variables used in an array:
+
+<PRE class=code>
+int     array0     local
+int     array1     local
+int     array2     local
+int     array3     local
+int     array4     local
+int     array5     local
+</PRE>
+
+By convention, all variables in the array have the same name and end with the index number that is used to find them.
+<P>
+To retrieve the value of one of the variables in the array, first list the top variable in the array. In this case it's array0. After
+that variable, put the array index number enclosed in brackets. So you would use array0[5] to access the array5 variable.
+<P>
+Now lets assign a value to each of the array variables:
+
+<PRE class=code>
+int     array0=0     local
+int     array1=1     local
+int     array2=2     local
+int     array3=3     local
+int     array4=4     local
+int     array5=5     local
+</PRE>
+
+And in the code section, the value of the array4 will be printed:
+
+<PRE class=code>
+#-----------------------------
+startup:
+   Sleep(1);
+   PrintInt(array0[4]);
+
+Return;
+#-----------------------------
+</PRE>
+
+That code will print 4 to the screen on startup.
+<P>
+It's convenient to have the variable's name match up with the index number that is used to call it.
+But variables don't have to be named that way. For example:
+
+<PRE class=code>
+int     var        local
+int     red        local
+int     green     local
+int     blue       local
+int     yellow    local
+int     orange   local
+</PRE>
+
+In this case, var[4] can be used to access the variable, yellow.
+<P>
+Arrays are most useful when used in combination with loops. Lets say you have ten surfaces (0 - 9) defined in the symbols section
+and you need to change their material. Look at this example:
+
+<PRE class=code>
+#-----------------------------
+activated:
+   for(i=0; i < 10; i=i+1) SetSurfaceMat(surf0[i], newmat);
+
+Return;
+#-----------------------------
+</PRE>
+
+Here, one line of code did the work that would have taken ten lines if arrays and loops had not been used.
+
+<p>
+<a href="writing.html">Continue</a>
+<p>
+
+
+<HR>
+<P>
+<SPAN class=credit>*Special thanks to Fardreamer for information on Cog's array system.*</SPAN>
+
+</body></html>

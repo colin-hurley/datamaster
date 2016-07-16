@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SetSectorThrust</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SetSectorThrust</H2><HR>
+Sets the thrust of a sector. Syntax:
+<P>
+<CODE>SetSectorThrust(sector, thrust_vec, thrust_speed);</CODE>
+<P>
+<SPAN class=param>thrust_vec:</SPAN> This is the vector direction that the thrust should travel. Use
+a vector variable or the 'x y z' form to express the vector.
+<P>
+<SPAN class=param>thrust_speed:</SPAN> This is the flex speed of the thrust. The thrust_vec will be
+scaled by this value.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="getsectorthrust.html">GetSectorThrust()
+	<OPTION value="notes.html#thrust">Sector Thrusts
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

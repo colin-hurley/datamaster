@@ -1,0 +1,21 @@
+<HTML><HEAD><TITLE>Camera State Flags Description</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD><BODY>
+<H2>Camera State Flags</H2><HR>
+
+Camera State Flags control some of the actions of the player's camera. These flags values
+are not lost when a new level is loaded. They are stored until JK is exited.
+<P>
+0x1 seems to be the only functional flag. Any other flag simply stops the camera's idle rotation when it
+is set. Only clearing 0x1 makes the camera resume its rotation.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Verbs Used:
+	<OPTION value="../../cog/verbs/camera/getcamerastateflags.html">GetCameraStateFlags()
+	<OPTION value="../../cog/verbs/camera/setcamerastateflags.html">SetCameraStateFlags()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+
+<HR><BODY></HTML>

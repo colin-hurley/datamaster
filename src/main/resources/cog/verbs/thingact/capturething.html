@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>CaptureThing</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>CaptureThing</H2><HR>
+Makes the cog that ran the command the capture cog of the given thing. The capture cog will receive the messages of the thing
+it captured. It is not necessary for one cog to release a thing before another captures it. The last cog that ran the command becomes
+the capture cog. Syntax:
+<P>
+<CODE>CaptureThing(thing);</CODE>
+<P>
+Read the Thing Property Notes for more information on capture cogs. CaptureThing() performs the same function as
+<A href="../thingprop/setthingcapturecog.html">SetThingCaptureCog()</A> except that the cog is not specified.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="releasething.html">ReleaseThing()
+	<OPTION value="../thingprop/notes.html#cogs">Thing Cogs
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="../thingprop/setthingcapturecog.html">SetThingCaptureCog()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

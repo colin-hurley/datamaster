@@ -1,0 +1,25 @@
+<HTML><HEAD><TITLE>Cogscript Flags Description</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>Cogscript Flags</H2><HR>
+
+Cogscripts Flags control how the engine handles a cog - especially in multiplayer. Cogscript Flags can be given to a cog by an
+assignment just above the symbols section. Such as:
+<P>
+<CODE>flags=0x40</CODE>
+<P>
+Note that this is a special assignment - unlike assignments in the code section. The flags assignment
+does not end with a semicolon and spaces are not allowed. Should you use spaces or incompatible flags, the engine will
+print an error when it tries to use the cog saying that the cog has been "disabled" and that the message sent to it was
+ignored.
+<P>
+Cogs have default flags. These flags are assigned to cogs by the engine and cannot be removed in JK. When
+a cog is given flags via the flags assignment, the default flags are not overwritten. Instead, the flags are added.
+<P>
+There are basically three types of cogs: item cogs which are used by the items.dat, class cogs which are used by
+templates, and JKL or level cogs which are used by a JKL for level-specific purposes. The engine treats
+each type of cog differently when assigning default flags.
+
+<HR><BODY></HTML>

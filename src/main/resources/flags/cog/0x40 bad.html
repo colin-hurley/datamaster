@@ -1,0 +1,14 @@
+<HTML><HEAD><TITLE>0x40 Cog Flag</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>0x40 Cog Flag</H2><HR>
+
+When a cog has this flag, it will run on all computers. Because each computer in an MP game
+is responsible for the things it creates (0x100 Thing Flag), events cannot occur on all computers.
+A thing's events occur only on the computer that created it. When a cog has the 0x40 Cog Flag,
+it will send a duplicate message out to all of the other computers in the game so that their cogs
+can also handle the event.
+<P>
+The engine will assign this flag to all item and class cogs by default.
+
+<HR><BODY></HTML>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SetCurWeapon</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SetCurWeapon</H2><HR>
+Makes a weapon the current weapon. This tells the engine in which cog to call the <A href="../../message/activated.html">activated</A>,
+<A href="../../message/fire.html">fire</A>, and <A href="../../message/deactivated.html">deactivated</A> messages. Syntax:
+<P>
+<CODE>SetCurWeapon(player, weap_num);</CODE>
+<P>
+Note that SetCurWeapon() wants a weapon number and not a bin number. For example, if you add a new weapon with bin 116 (0x4 bin flag),
+you can use SetCurWeapon(player, 11) to select it.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="getcurweapon.html">GetCurWeapon()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="setcurinvweapon.html">SetCurInvWeapon()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

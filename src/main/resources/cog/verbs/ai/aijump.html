@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>AIJump</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>AIJump</H2><HR>
+Makes an actor jump towards a position. If the actor does not reach the position
+with his jump, he will walk the rest of the way. Syntax:
+<P>
+<SPAN class=code>AIJump(actor, pos_vector, jumpspeed_multiplier);</SPAN>
+<P>
+<SPAN class=param>pos_vector:</SPAN> This is the position that you want to make an actor jump to.
+<P>
+<SPAN class=param>jumpspeed_multiplier:</SPAN> This flex will be multiplied by the actor's jumpspeed template setting, and
+the result will be the speed the actor jumps with.
+<P>
+Although this verb will work regardless of an actor's puppet, you must have a jump keyframe listed in
+the actor's puppet file to make him jump correctly. Without this key, the actor will be rammed into the ceiling. You do not
+need to have any special instincts (such as jump) in the actor's ai file.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="aisetmovepos.html">AISetMovePos()
+	<OPTION value="aisetmovething.html">AISetMoveThing()
+	<OPTION value="../velocity/applyforce.html">ApplyForce()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

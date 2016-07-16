@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Vector Symbol Type</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Vector Symbol Type</H2><HR>
+The vector type can be used for many purposes. It's designed to hold three numbers in one variable.
+Variables of this type are used for positions, vectors, RGB tints, etc - anything that
+can use three numbers. Syntax:
+<PRE class=sym>vector      vec1</PRE>
+<P>
+You cannot directly assign a value to a vector in the symbols section, but vector values can be passed
+to the variable from a JKL. Use the form: <SPAN class=exam>(x/y/z)</SPAN>.
+<P>
+Also, you cannot directly compare one vector to another. This example:
+<P>
+<code>if(vector1 == vector2) // then whatever</code>
+<P>
+will not work. You will have to compare each axis of the vectors seperately. With MotS, you have
+VectorEqual() to solve this inconvenience.
+
+<HR></BODY></HTML>

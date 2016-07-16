@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Cog Code</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head>
+<body onLoad="top.main.chapter.document.form.select2.selectedIndex = 5;" onUnload="top.main.chapter.document.form.select2.selectedIndex = 0;">
+
+<H2 style="margin-bottom:0">Cog Code</h2><hr>
+
+With the Variables tutorial, you learned most of what you need to know about the symbols section. Coding, however, is a lot more diverse. So in this
+tutorial, I'm going to give a general explanation of everything the code section does. Then in the more advanced tutorials, we'll cover some of the same
+topics in a lot more detail.
+
+<h4>Message Handing</h4>
+
+When we refer to messages in the symbols section, they're just variables that need to be declared. Messages in the code section are much different.
+When something specific happens in the game - when an event occurs - a message is sent by JK to any cogs that are listening for it. JK looks in the
+event object's associated cogs to see if they're listening for messages about that kind of event. If a cog is listening, then JK will look in that cog's code section for
+a label to start code execution. A typical message handler in the code section looks like this:
+
+<pre class="code">
+startup:
+	// do something
+
+return;
+</pre>
+
+Although some commonly refer to a block of code beginning with a message name and ending with a return as a "message," this is a misuse of the
+term. It should be called a message handler. The message itself is what JK sends to the cog. The cog's code will "handle" that message. A message
+name ended with a colon in the code section is called a label. Labels are like starting points in the code section. JK will start executing code right
+after a label and stop executing when the return command is given or when JK reaches the end of the cog.
+<p>
+The engine is not the only thing that can send messages. There are commands that we can use to send messages to cogs the same way the engine
+does.
+
+<h4>Statements</h4>
+
+A <i>statement</i> can be loosely defined as the syntax needed to form a complete command. In the next few sections, you'll learn about assignments,
+loops, and conditions. These are all statements usually ending with a semicolon. Up until now, we've been refering to lines of code as <i>commands</i>,
+but once you're familiar with what real code looks like, we'll use more proper terminology.
+
+<h4>Operations</h4>
+
+An operation is one of the most basic things that Cog does. Operations involve operators and operands (pretty basic, huh). An operator is symbol representing the type of
+operation to be performed - e.g., addition or multiplication. An operand is the value (or variable) on which the operation will be performed - e.g., 1 or var1. An assignment
+is an operation which looks like this:
+
+<pre class="code">
+var2 = var1;
+</pre>
+
+The '=' is the operator and var1 and var2 are the operands. The semicolon at the end marks the end of the statement.
+Here's a more complicated example:
+
+<pre class="code">
+var2 = var1 * var3;
+</pre>
+
+Here there are two operations: the assignment of var2 and the multiplication of var1 and var3. The multiplication has a higher precedence (refer to
+the <A href="../../cog/operator/operators.html#precedence">Precedence Chart</A>) and will be performed first. Then JK will assign var2 to the resultant value. You
+should already be familiar with mathmatical operations involving multiple operators and parentheses.
+<p>
+Assignments are easy to use as examples because they form a statement and nothing else has to be explained for you to
+understand them. Some languages treat assignments as operations that return a value - so you could write y = x = 1, and y would get the value of 1. Cog does
+not allow this, though.
+<p>
+You'll see operations used in many places throughout cog. In any place in the code section that you can input a value, you can give an equation, a variable, or a verb
+that returns a value (a function - which we'll cover later).
+
+<h4>Keywords</h4>
+
+Keywords are special, reserved words that JK will look for in your code. You've already seen how <code>return</code> works to end code execution, and how
+<code>end</code> ends both the code and symbols sections. Other common keywords include if, for, while, do, else, and call. These other keywords
+will be covered later on.
+
+<h4>Verbs</h4>
+
+Cog's verbs are the commands that do the work in JK. <i>Verb</i> is another programming term that's been borrowed from language terminology.
+In programming, a verb is kind of like another name for the object methods (subroutines belonging to a complex variable). But with cog, all of the
+commands you'll use can be referred to as verbs.
+<p>
+But you will also hear these commands refered to as <i>procedures</i> or <i>functions</i>. A 
+procedure is a command that simply performs an action, and a fuction is a command that performs an action and then returns a value
+to whatever is assigned to it.
+<p>
+A typical procedure will look like this:
+
+<pre class="code">
+DoSomething();
+</pre>
+
+The syntax here is simple. The procedure has a name, followed by a set of parentheses to enclose its parameters, and then a semicolon to end
+the command. The standard naming convention for verbs is camel-hump notation with the first letter capitalized - at least, that's what this reference
+will use.
+<p>
+All verbs have a set of parentheses to enclose their parameters. In programming, a parameter is an allotted space for an argument (variable or value)
+to be <i>passed to</i> the verb. When an argument is passed to a verb, the verb will use that value to perform whatever command it is meant to do.
+It is important to remember that a parameter is only a space for a type of variable; parameters do not have a value - arguments are the values. The
+example procedure above has no parameters, but it still must have the parentheses. This procedure has three parameters:
+
+<pre class="code">
+DoSomethingMore(1, 2, var3);
+</pre>
+
+The first two arguments are given directly as numbers, but the third argument is a variable. The value of this variable will be used by the procedure -
+the variable will not be changed (this is known as <i>passing by value</i>). When used by themselves, verbs form a complete statement and end 
+with a semicolon.
+<p>
+A function works much the same as a procedure, but the function will return a value to any variable assigned to it. A typical function will look like:
+
+<pre class="code">
+myVar = ReturnSomething();
+</pre>
+
+myVar is a variable that you have declared in your symbols section. The equals sign is cog's assignment operator - the value taken from the right
+will be given to the variable on the left (right-to-left <a href="../../cog/operator/operators.html#precedence">Associativity</a>). The function does not need to have a variable assigned to it. Although it's considered bad syntax, you can
+leave out the variable assignment and the function will work the same as a procedure.
+<p>
+When cog reads a verb's parameters, it will start from the right and go to the left. Cog will ignore any extra parameters on the left, and any ones
+not entered will have a default value of -1. It's not bad syntax to leave out arguments if they should be given the default value.
+
+<h4>Code Blocks</h4>
+
+In some cases you'll need to group a bunch of statements together so you can treat all of the statements as a group - called a code block. You can do
+this by writing an opening curly bracket just before the first statement and a closing curly bracket after the last statement's semicolon. Here's an example:
+
+<pre class="code">
+startup:
+	statement1;
+	{
+		statement2;
+		statement3;
+	}
+	statement4;
+
+Return;
+</pre>
+
+Statements 1 and 4 are outside of the block, and statements 2 and 3 are inside. Although we haven't gone over any reasons to use code blocks, you will
+need to understand them before going on to the conditions tutorial. Just remember that code blocks are used to group many statements so they can be
+treated as a whole.
+<p>
+The example above is properly indented, but this is not a syntax requirement. This last example will look the same as the first to JK:
+
+<pre class="code">
+startup:
+	statement1;
+	{statement2;statement3;}
+	statement4;
+Return;
+</pre>
+
+<p>
+<a href="conditions.html">Continue</a>
+<p>
+<hr></body></html>

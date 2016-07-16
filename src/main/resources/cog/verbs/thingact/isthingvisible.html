@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>IsThingVisible</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>IsThingVisible</H2><HR>
+Checks to see if the current camera can see the given thing and returns a boolean result. Syntax:
+<P>
+<SPAN class=return>boolean</SPAN>=<CODE>IsThingVisible(thing);</CODE>
+<P>
+For example, with the normal external camera, the player is visible and IsThingVisible(player) would return 1. But with internal camera,
+the player is no longer visible, and IsThingVisible(player) would return 0.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="../creature/haslos.html">HasLOS()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

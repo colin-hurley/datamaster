@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Thing Mode Verbs</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Thing Mode Verbs</H2><HR>
+
+All of the modes covered in this section have a mode and then a current mode. Remember to make a distinction between
+the current mode and the mode.
+
+<A name=geo><H4>Thing Geo Modes</H4></A>
+
+The current <A href="../../../flags/geomode/geomode_frame.html" target="main">Geo Mode</A> of a thing is the value
+that the thing will use. The Geo Mode seems to be simply a stored value for the thing. Setting the current Geo Mode
+of a thing has no effect on the Geo Mode and setting the Geo Mode has no effect on the current Geo Mode. The default
+Geo Mode and current Geo Mode for a thing is 4.
+
+<A name=light><H4>Thing Light Modes</H4></A>
+
+Setting the current <A href="../../../flags/lightmode/lightmode_frame.html" target="main">Light Mode</A> of a thing has
+no effect on the thing or the Light Mode, and any new value is quickly overwritten. Setting the Light Mode of a thing
+changes the thing, and after a very small delay, it changes the current Light Mode. Changing the Light Mode of the
+player has no effect on the weapon mesh. The default Light Mode and current Light Mode for a thing is 3.
+
+<A name=tex><H4>Thing Texture Modes</H4></A>
+
+The thing tex mode verbs do change a thing's <A href="../../../flags/texmode/texmode_frame.html" target="main">Texture Mode</A>, but the
+visual appearance of the thing is not changed. The engine does not seem to care what a thing's texture mode values are,
+they will be rendered with perspective texturing regardless. Even when the advanced display options are used to change
+the engine's overall texturing mode, things are rendered perspectively.
+<P>
+<A href="setthingtexmode.html">SetThingTexMode()</A> changes the <A href="../../../flags/texmode/texmode_frame.html" target="main">Tex Mode</A>,
+and after a very short delay, it changes the current Tex Mode. Setting the current Tex Mode has no effect and the value
+is quickly changed back. The default Tex Mode for a thing is 2, while the current Tex Mode has a default of 1.
+<HR></BODY></HTML>

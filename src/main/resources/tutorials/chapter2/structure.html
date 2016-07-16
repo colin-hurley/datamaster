@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Cog Structure</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head>
+<body onLoad="top.main.chapter.document.form.select2.selectedIndex = 3;" onUnload="top.main.chapter.document.form.select2.selectedIndex = 0;">
+
+<h2 style="margin-bottom:0">Cog Structure</h2><hr>
+
+<h4>Hello World</h4>
+
+Now it's time to start looking at how cog files are put together. Almost every
+language has someway of addressing the human world, and Cog is no exception.
+This tutorial will proudly continue with the tradition of beginning a coding tutorial
+with the infamous Hello World.
+
+<PRE class="code">
+# HelloWorld.cog
+#
+# Print "Hello World" on the screen when the level starts.
+#
+# [SM]
+#==============================================#
+symbols
+
+message startup
+
+end
+#==============================================#
+code
+#-----------------------------------
+startup:
+   Sleep(1);
+   Print("Hello World"); // Print the string
+
+return;
+#-----------------------------------
+end
+</PRE>
+
+All this cog does is print "Hello World" to the screen when a level is loaded. The first command in the code
+section is <code>Sleep(1)</code>. This tells the cog to wait for 1 second before doing anything. The next command is
+<code>Print("Hello World")</code>. This prints the text to screen. The next command is <code>return</code>. This command tells JK
+to stop reading the cog.
+
+<h4>Comments</h4>
+
+When JK reads a cog, it will ignore any text to the right of a pound sign or two forward slashes. This
+gives you a way to add comments to your code. You can use the pound sign anywhere in both the
+symbols and code sections (explained below), but the forward slashes can only be used in the code section. Otherwise,
+there's no difference between them.
+<p>
+Comments are added to a cog to either improve its structure or to explain what a command is doing.
+Comments can visually improve a cog's structure so that it's easier to see where one part of a cog
+ends and another begins - this is done in the cog above with pound signs and dashes.
+<p>
+Other comments explain something that isn't obvious when read. Although the print command is
+very easy to understand, the comment beside it is only there as an example.
+
+<h4>The Header</h4>
+
+A header is a bunch of comments that come before the symbols section to give the reader some basic information
+about the cog - such as: file name, purpose, and author. It might also contain the cog's version, a history of its updates,
+and the date it was last updated. The header is optional, but every cog you write should have one.
+
+<h4>Symbols Section</h4>
+
+The symbols section begins with the keyword <code>symbols</code> and ends with the keyword <code>end</code>.
+In the symbols section, every variable that the cog uses will be defined and optionally given an initial
+value. Don't worry about variables yet, we'll cover them in much more detail later on.
+
+<h4>Code Section</h4>
+
+The code section contains all of the commands that a cog can perform. When an event happens
+in a game, a message is sent out to associated cogs. If the cogs are listening for that message (if
+they have it declared in their symbols section), then JK will look for that message's name in the code
+section and execute any code that comes after it until it finds a return command.
+<p>
+You're given a lot of freedom when it comes to whitespace (spaces, tabs, and line breaks) in
+the code section. With the symbols section, each variable declaration must be on its own line.
+But JK allows you to write everything between <code>code</code> and <code>end</code> on one line if you want. But you should
+always try to make your code as readable as possible. This means lots of comments and proper
+indentation.
+<p>
+It's easy to think that you'll never need comments to understand what you've written. But that's far
+from the truth. It doesn't matter how good your memory is, once you have to come back to a cog
+you've written a few weeks before, you'll find that you have no memory of most of the cog. It's much
+better to leave comments for yourself, than to waste time later by trying to figure out what you've
+already done.
+<p>
+<a href="variables.html">Continue</a>
+<p>
+<hr>
+</body></html>

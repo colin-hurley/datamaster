@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SetThingType</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SetThingType</H2><HR>
+Sets the <A href="../../../flags/thingtypeval/thingtypeval_frame.html" target="main">Thing Type</A> of a thing. There
+are different properties associated with each thing type. Changing from one type to another will make the thing
+assume the properties of another type. Syntax:
+<P>
+<CODE>SetThingType(thing, type);</CODE>
+<P>
+For example, a property of the item type is no collision. You can walk right through them. Change a stormtrooper to
+an item type and he will lose his collision. But then his AI will not function correctly.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="getthingtype.html">GetThingType()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

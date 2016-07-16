@@ -1,0 +1,32 @@
+H1 {text-align: center}
+H2 {text-align: center; font: 23px Times New Roman; font-weight:bold}
+H3 {text-align: center}
+H4 {text-align: center; font: 17px Times New Roman; font-weight:bold}
+H5 {text-align: center}
+H6 {text-align: center}
+
+BODY {font: 11px Verdana; background: silver}
+BODY.grayback {font: 10pt Times; background: gray}
+
+SPAN.temp {color: red}
+SPAN.exam {color: green}
+SPAN.var {color: #844; font-weight: bold}
+SPAN.title {color: red; font-size: 11pt; font-weight: bold}
+SPAN.search {color: red; font: 9pt Verdana}
+
+PRE.exam {color: green; font: 9pt Verdana}
+PRE.smallcode {color: green; font: 8pt Verdana}
+
+TABLE.small {font: 8pt verdana}
+TABLE.search {font: 9pt verdana}
+TABLE.cmd {font: 8pt Verdana}
+
+TH.big {font-size: 15pt; text-align: center}
+TD.searchNum {font: 11pt Verdana; font-weight: bold; text-align: center}
+
+A:link {color: #6600FF; text-decoration: none}
+A:visited {color: #6600FF; text-decoration: none}
+A:hover {color: #000099}
+A:active {color: #000099}
+
+CODE {color: blue; font: 8pt Verdana}

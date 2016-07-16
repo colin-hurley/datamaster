@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Deselected</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>Deselected</H2><HR>
+<B>1)</B> Deselected is sent by a weapon's bin when a player selects a different weapon.
+<P>
+<TABLE class=msg width=90% bgcolor=#D2D2D2>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD width=20% class=left>Sender</TD><TD class=left>Although a senderref is mentioned in weap_bryar, it is not used.</TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>The player who selected a new weapon.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sender Type</TD><TD class=left>System (1).</TD></TR>
+<TR><TD class=left>Source Type</TD><TD class=left>Thing (3).</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+</TABLE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../verbs/weapon/assignweapon.html">AssignWeapon()
+	<OPTION value="../verbs/weapon/selectweapon.html">SelectWeapon()
+	<OPTION value="selected.html">Selected
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<P>
+<B>2)</B> Deselected is also sent by a force power's bin when it is deselected in the force power selection box.
+<P>
+<TABLE class=msg width=90% bgcolor=#D2D2D2>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD width=30% class=left>Sender</TD><TD class=left>The bin of the power that was deselected.</TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>The player who deselected the power.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sender Type</TD><TD class=left>1 if the player selects the power to the right, or 0 if he selects to the left.</TD></TR>
+<TR><TD class=left>Source Type</TD><TD class=left>Thing (3).</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+</TABLE>
+<P>
+<FORM name="relform2" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="selected.html">Selected
+</SELECT><INPUT type="button" value="Travel" onClick="Travel3()">
+</FORM>
+<HR></BODY></HTML>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Sound Flags</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../../script/option.java"></SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/flags.css">
+</HEAD><BODY>
+
+<TABLE border="1" width="100%" cellpadding=3>
+<TR><TH colspan=3 class=big><A href="desc.html" onclick="ShowPage(this.href); return false" class="title">Sound Flags</A></TH></TR>
+<TR><TH width="15%">Hex</TH><TH width="*">Purpose</TH></TR>
+<TR><TD>0x1</TD><TD>Sound loops when finished.</TD></TR>
+<TR><TD>0x2</TD><TD>Unknown. Used in later rhanlines cogs.</TD></TR>
+<TR><TD>0x4</TD><TD>Thing or Position sound is ambient (non-directional).</TD></TR>
+<TR><TD>0x8</TD><TD>Unknown. Used in rail.snd.</TD></TR>
+<TR><TD><A href="0x10.html" onclick="ShowPage(this.href); return false">0x10</A></TD><TD>Sound plays with minimal volume.</TD></TR>
+<TR><TD><A href="0x20.html" onclick="ShowPage(this.href); return false">0x20</A></TD><TD>Sound delays before playing with minimal volume.</TD></TR>
+<TR><TD>0x40</TD><TD>Class sound's origin does not move with its soundclass' associated thing.</TD></TR>
+<TR><TD>0x80</TD><TD>Thing sound's origin moves with its associated thing.</TD></TR>
+<TR><TD><A href="0x100.html" onclick="ShowPage(this.href); return false">0x100</A></TD><TD>Sound will have priority over other sounds.</TD></TR>
+<TR><TD>0x200</TD><TD>Sound will play ASAP without regard to quality.</TD></TR>
+<TR><TD>0x400</TD><TD>Class sound will not play if the .wav is already playing ingame.</TD></TR>
+<TR><TD>0x800</TD><TD>Class sound will not play if its soundclass is already playing the .wav.</TD></TR>
+<TR><TD>0x1000</TD><TD>Unknown.</TD></TR>
+<TR><TD><A href="0x2000.html" onclick="ShowPage(this.href); return false">0x2000</A></TD><TD>Position, Thing, or Class sound's volume will fade quickly outside of its minimum radius.</TD></TR>
+<TR><TD>0x4000</TD><TD>Unknown. Often used with player walk, player hurt, and AI alert class sounds.</TD></TR>
+<TR><TD>0x8000</TD><TD>Unknown.</TD></TR>
+<TR><TD><A href="0x10000.html" onclick="ShowPage(this.href); return false">0x10000</A></TD><TD>Class or Thing sounds with this flag cannot be played simultaneously.</TD></TR>
+</TABLE>
+
+</BODY></HTML>

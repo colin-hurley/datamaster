@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>for</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css"></HEAD><BODY>
+<H2>for</H2><HR>
+The for statement is used to run a statement or code block continuously as long as a condition is true. 
+Be careful to make sure that your condition will eventually be false, or the loop will not end. Syntax:
+<P>
+<CODE>for([statement1[, statement1]]; [condition]; statement2[, statement2]) // code to run</CODE>
+<P>
+<SPAN class=param>statement1:</SPAN> Optional. These statements at the beginning of the for loop are executed
+only once before the loop begins. More than one statement can be written by seperating the statements with a comma.
+These first statements are usually used to initialize a counting variable. For example, i=0.
+<P>
+<SPAN class=param>condition:</SPAN> Optional. Before executing the loop's code, this condition is checked. If the
+condition is true, then the loop's code will be executed. If the condition is false, then the loop will end. If you do not
+enter a condition, then the condition will be always true. Then loop's code will keep running until a return or break (in MotS)
+command is found in the loop's code and executed.
+<P>
+<SPAN class=param>statement2:</SPAN> After the loop's code has been run, the last group of statements in the for
+loop will be executed. Unlike the first statements, at least one statement must be entered. But like the first statements,
+you may have more than one statement by seperating them with a comma. These statements are usually used to
+increment a counting variable. For example, i=i+1.
+<P>
+Although the for loop is usually used to loop code, this is not always the case. The for loop may be ended with
+a semicolon and no loop code will be expected. The for loop is a versatile tool, but you should always try to
+structure the for loop in such a way that it is easy to read. You should never write something like the last example
+below. It's hard to tell by reading it that the output would be 5, 1, 2, 3.
+<HR>
+Here's are a few working examples of the for loop:
+<P>
+<CODE>for(i=0; i < 5; i=i+1) PrintInt(i);<BR>
+for(; i < 5; i=i+1) { PrintInt(i); }<BR>
+for(; i < x; i=i+1, PrintInt(i));<BR>
+x=5;
+for(i=1, j=1, PrintInt(x); i=i+1, PrintInt(i), j=j+2)
+{
+	PrintInt(j);
+	if(i > 1) Return;
+}
+</CODE>
+<HR></BODY></HTML>

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Selected</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>Selected</H2><HR>
+<B>1)</B> Selected is sent by a weapon bin when the weapon is selected.
+<P>
+<TABLE class=msg width=90% bgcolor=#D2D2D2>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD width=30% class=left>Sender</TD><TD class=left>The sender will be 0 when selected and 1 when assigned.<SUP>1</SUP></TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>The player selecting the weapon.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sender Type</TD><TD class=left>System (1).</TD></TR>
+<TR><TD class=left>Source Type</TD><TD class=left>Thing (3).</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+</TABLE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../verbs/weapon/assignweapon.html">AssignWeapon()
+	<OPTION value="../verbs/weapon/selectweapon.html">SelectWeapon()
+	<OPTION value="deselected.html">Deselected
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<P>
+<B>2)</B> Selected is also sent by a force power's bin when the power is selected in the force
+power selection box.
+<P>
+<TABLE class=msg width=90% bgcolor=#D2D2D2>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD width=30% class=left>Sender</TD><TD class=left>The bin of the force power.</TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>The player selecting the power.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sender Type</TD><TD class=left>1 if the player selected the power to the right, or 0 if he selected to the left.</TD></TR>
+<TR><TD class=left>Source Type</TD><TD class=left>Thing (3).</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+</TABLE>
+<P>
+<FORM name="relform2" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="deselected.html">Deselected
+</SELECT><INPUT type="button" value="Travel" onClick="Travel3()">
+</FORM>
+<HR><SUP>1</SUP>Weapons can be assigned rather than mounted with the verb, <A href="../verbs/weapon/assignweapon.html">AssignWeapon().</A>
+This is used in weap_saber so the weapon will not play the mounting animations when the weapon is assigned to the player at the start of a level.
+<BR><HR></BODY></HTML>

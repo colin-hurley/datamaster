@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SetThingPos</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SetThingPos</H2><HR>
+Sets the position of a thing. Syntax:
+<P>
+<CODE>SetThingPos(thing, pos);</CODE>
+<P>
+<SPAN class=param>pos:</SPAN> The position is given in coordinate form.
+<P>
+The major problem with SetThingPos() is that it does not update the thing's sector when it moves it. That means
+if the thing is moved out of its current sector, there will be sector errors - sector thing counts will
+be wrong, you won't be able to see the object, if the camera is focused on this object you'll get HOM, etc.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="getthingpos.html">GetThingPos()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="teleportthing.html">TeleportThing()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

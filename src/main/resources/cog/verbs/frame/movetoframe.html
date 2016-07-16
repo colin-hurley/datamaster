@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>MoveToFrame</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>MoveToFrame</H2><HR>
+Makes a path-controlled object move to a frame position at the given speed. MoveToFrame() will
+send the object to any "intermediate" frames on the path to the destination frame; read the rules below. Syntax:
+<P>
+<CODE>MoveToFrame(object, frame, speed_flex);</CODE>
+<P>
+<B>An Example:</B>  Say you have the path-controlled object at frame 2 out of five. If you use MoveToFrame() to send
+the object to the fifth frame, the object will go to the third, fourth, and then fifth frame.
+<P>
+<B>A Few Rules:</B>
+<P>
+If you send an object to a frame greater (in number) than the one it's on,<SUP>1</SUP> the object will move to any
+intermediate frames greater than the one it's on and less than the destination frame before arriving at the destination.
+<P>
+If you send an object to the frame it's on, the object will go directly to frame 1 and then go through any intermediates to
+reach its frame again.
+<P>
+If you send an object to a frame less than the one it's on, the object will pass through any frames less than the one it's on
+and greater than the target frame as it travels to the destination.
+<P>
+Frame 0 is seperated from the rest. MoveToFrame() will not use it unless you send the object specifically to it. When you do this,
+MoveToFrame() will send the object through any intermediate frames on the way to zero.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="getcurframe.html">GetCurFrame()
+	<OPTION value="getgoalframe.html">GetGoalFrame()
+	<OPTION value="pathmovepause.html">PathMovePause()
+	<OPTION value="pathmoveresume.html">PathMoveResume()
+	<OPTION value="waitforstop.html">WaitForStop()
+	<OPTION value="../../message/arrived.html">Arrived
+	<OPTION value="../../message/blocked.html">Blocked
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="jumptoframe.html">JumpToFrame()
+	<OPTION value="skiptoframe.html">SkipToFrame()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR>
+<SUP>1</SUP>The frame that the object is "on" is the current frame. See <A href="getcurframe.html">GetCurFrame()</A>.
+<HR></BODY></HTML>

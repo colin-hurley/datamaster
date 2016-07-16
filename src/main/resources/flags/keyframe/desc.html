@@ -1,0 +1,29 @@
+<HTML><HEAD><TITLE>Keyframe Flags Description</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>Keyframe Flags</H2><HR>
+
+Keyframe Flags are used to control things' keyframe animations. They are set when the animation
+is started and cannot be modified or retrieved afterwards. All of these flags with the exception of
+0x10 are used for both internal and external animations.
+<P>
+With <A href="../../cog/verbs/keyframe/playkey.html">PlayKey()</A> and
+<A href="../../cog/verbs/keyframe/jkplaypovkey.html">jkPlayPOVKey()</A>, you can reference
+the key file and set the flags with the verb. But with other verbs such as
+<A href="../../cog/verbs/keyframe/playmode.html">PlayMode()</A>, the number
+of the submode in the thing's puppet file is used. And the Keyframe Flags set
+in the puppet are used.
+
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Verbs Used:
+	<OPTION value="../../cog/verbs/keyframe/jkplaypovkey.html">jkPlayPOVKey()
+	<OPTION value="../../cog/verbs/keyframe/jkstoppovkey.html">jkStopPOVKey()
+	<OPTION value="../../cog/verbs/keyframe/playkey.html">PlayKey()
+	<OPTION value="../../cog/verbs/keyframe/stopkey.html">StopKey()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR><BODY></HTML>

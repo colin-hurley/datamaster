@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Resources</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head>
+<body onLoad="top.main.chapter.document.form.select1.selectedIndex = 7;" onUnload="top.main.chapter.document.form.select1.selectedIndex = 0;">
+
+<h2 style="margin-bottom:0">Resources</h2><hr>
+
+
+<h4>Gob Files</h4>
+
+Gob files are containers that hold JK's resources. Gob files contain a directory system just like windows' folders. You will need
+a special program to open gobs and display their directories and files. When JK is searching for resources, it will look in both the gob
+directories and the windows' folders. For example, if JK is looking for example.cog in the resource directory, it will look for it in
+both resource\cog and resource\res2.gob\cog. You can take files out of the gob file and put them in their respective windows
+folders and JK will find them just the same.
+
+<h4>Resource Priorities</h4>
+
+When JK is loading resources, it will look for them in several locations. When it finds a file with a matching name, it will stop
+there and load that file. So the order in which it searches directories is important to us.
+<p>
+There are four directories that JK will search for the subfolders containing resources. In order of priority they are: the install dir of JK,
+the folder given with the path switch, the episode folder, and then the resource folder.
+<p>
+The installation dir of JK is the folder containing jk.exe. It does not normally contain resource subfolders (such as cog, mat, etc), but
+if you add them, JK will look through them for every resource before going on to the path dir (if it's used). The path dir is only given to JK
+if the path switch is used. Just like with the install dir, JK will look for the resource subfolders in the path dir for every resource it
+loads before going to the episode or resource folders.
+<p>
+The episode folder contains all of JK's level files inside of gobs. Episode is different in that the resources must be inside the gob file
+or JK will not see them. JK does not search episode for all resources - only the ones loaded by the level's jkl. And if the level's jkl
+lists a resource that is not in the level's gob file, then JK will go to the resource dir.
+<p>
+Resource is the fourth place JK checks for resources listed in the level's jkl (including the jkl if it's not in episode), but the third place for resources listed
+in the items.dat and static.jkl - because JK doesn't check the level gob.
+<p>
+In the install dir, the path dir, and in resource, you can use gob files as well as actual windows folders. JK will search the windows
+directories before searching the gob files. So if you have a cog\weap_bryar.cog and a test.gob\cog\weap_bryar.cog both in JK's
+install directory, JK will choose the one outside the gob.
+
+<h4>No-CD JK</h4>
+The Jedi Knight CD has a file called jk_.cd which is in the gamedata\resource directory. By copying that file from the CD to your
+own resource folder on the hard drive, you can run JK without using a CD. You must have a complete installation for this to work.
+And if you want the movies as well, you can copy the video folder to your hard drive and JK will play them.
+<P>
+JED (a .jkl editing program) will ask you for a CD to make sure you really have JK, but all it wants is the first two smacker cutscenes
+- 01-02A.smk and 03-04A.smk. To fix that, create a gamedata\resource\video\ directory on one of your drives, put those two movies
+in it, and tell JED that's your CD drive. You can also use a mapped drive if you want. Another thing about the movies is that the first
+one gets really aggravating after a while - it's the opening cutscene. To skip that, just delete 01-02A.smk or rename it.
+
+<h4>JK.exe</h4>
+The real Jedi Knight program is jk.exe, you should never use the launcher. Just to save time, you should hide everything inside
+your JK install dir except for jk.exe, resource, and episode - you'll never have to use any of the other files.
+
+<h4>CMD Switches</h4>
+
+JK.exe accepts special program commands called switches. Create a shortcut to JK.exe and view its properties. In the Shortcut
+tab, you'll see a box called "target". This is the command that windows will run when you click the shortcut (picture a command prompt).
+After the original command that the shortcut has, you can add special commands for JK. The most important one for editing is
+the path command. To use it, write "-path folder" with no quotes after the shortcut command. This will make JK look for resources
+inside a folder named "folder" before it searches the other resource directories. This is how you can make JK load patches.
+<p>
+<a href="review.html">Continue</a>
+<p>
+<hr></body></html>

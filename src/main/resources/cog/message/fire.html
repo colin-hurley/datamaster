@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Fire</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>Fire</H2><HR>
+<B>1)</B> The fire message is sent by a weapon bin when the weapon is activated with the
+verb, <A href="../verbs/weapon/activateweapon.html">ActivateWeapon()</A>. The fire message will loop after the delay (second param of
+ActivateWeapon()) has passed. <A href="../verbs/weapon/changefirerate.html">ChangeFireRate()</A> is used to change that delay,
+and <A href="../verbs/weapon/deactivateweapon.html">DeactivateWeapon()</A> stops the fire message.
+<P>
+<TABLE class=msg width=90% bgcolor=#D2D2D2>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD width=30% class=left>Sender</TD><TD class=left>The mode of fire (third param of ActivateWeapon()).</TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>The player who is firing.<SUP>1</SUP></TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sender Type</TD><TD class=left>System (1).</TD></TR>
+<TR><TD class=left>Source Type</TD><TD class=left>Thing (3).</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+</TABLE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../verbs/weapon/activateweapon.html">ActivateWeapon()
+	<OPTION value="../verbs/weapon/changefirerate.html">ChangeFireRate()
+	<OPTION value="../verbs/weapon/deactivateweapon.html">DeactivateWeapon()
+	<OPTION value="../verbs/weapon/setfirewait.html">SetFireWait()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<P>
+<B>2)</B> Fire is also sent by a force power's bin when <A href="../verbs/weapon/activatebin.html">ActivateBin()</A>
+is used to start its fire message. <A href="../verbs/weapon/deactivatebin.html">DeactivateBin()</A> will stop the fire
+message.
+<P>
+<TABLE class=msg width=90% bgcolor=#D2D2D2>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD width=30% class=left>Sender</TD><TD class=left>The bin of the force power.</TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>The player who is firing.<SUP>2</SUP></TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sender Type</TD><TD class=left>System (1).</TD></TR>
+<TR><TD class=left>Source Type</TD><TD class=left>Thing (3).</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+</TABLE>
+<P>
+<FORM name="relform2" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../verbs/weapon/activatebin.html">ActivateBin()
+	<OPTION value="../verbs/weapon/deactivatebin.html">DeactivateBin()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel3()">
+</FORM>
+<P>
+<B>3)</B> Fire is also sent by AI actors when the actor fires.
+<P>
+<TABLE class=msg width=90% bgcolor=#D2D2D2>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD width=30% class=left>Sender</TD><TD class=left>The actor who is firing.</TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>The projectile that the actor fired.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sender Type</TD><TD class=left>Thing (3).</TD></TR>
+<TR><TD class=left>Source Type</TD><TD class=left>Thing (3).</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+</TABLE>
+<P>
+<HR><SUP>1</SUP>The player is taken from the first param of <A href="../verbs/weapon/activateweapon.html">ActivateWeapon()</A>
+only the first time fire runs. The next time fire runs, it will have the value of the local player.<BR>
+<SUP>2</SUP>Taken from the first param of <A href="../verbs/weapon/activatebin.html">ActivateBin()</A>. If ActivateBin() does not
+have the correct player, the fire message will not loop.
+<BR><HR></BODY></HTML>

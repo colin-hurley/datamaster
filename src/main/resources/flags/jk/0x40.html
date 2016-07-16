@@ -1,0 +1,18 @@
+<HTML><HEAD><TITLE>0x40 Jedi Knight Flag</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>0x40 Jedi Knight Flag</H2><HR>
+
+Unlike the rest of the Jedi Knight Flags, it seems that 0x40 is for actors only. It
+is set by some actors' saber attack keyframes to allow the actor to damage a player
+twice in the same keyframe. Keyframe marker 14 triggers this flag to be set.
+<P>
+After 0x40 has been set, the 0x2 flag can be set and the player can be damaged
+by the next part of the keyframe. But if 0x40 is not set, keyframe marker 4 (which
+triggers 0x2 to be set) will not cause 0x2 to be added and no damage will be done
+to the player.
+<P>
+The 0x40 flag is not used in the player's saber keyframes because it doesn't seem
+to be needed for players. Marker 4 can set the 0x2 flag again regardless.
+
+<HR><BODY></HTML>

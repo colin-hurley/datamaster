@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>DamageThing</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>DamageThing</H2><HR>
+Damages a thing. Remember that the damaged message in the thing's class and capture cogs may change the damage amount. Syntax:
+<P>
+<SPAN class=return>undamage</SPAN>=<CODE>DamageThing(thing, damage, flags, damager);</CODE>
+<P>
+<SPAN class=return>undamage:</SPAN> This is the amount of damage that was not applied to the thing.
+<P>
+<SPAN class=param>damage:</SPAN> This is the amout of health to subtract from the thing. This becomes the first parameter
+of the damaged message.
+<P>
+<SPAN class=param>flags:</SPAN> This is the <A href="../../../flags/damage/damage_frame.html" target="main">Damage Flag</A> for the damage. This
+tells the engine and the damaged message the type of the damage. This flag becomes the second parameter of the damaged message.
+<P>
+<SPAN class=param>damager:</SPAN> This is the thing that caused the damage. This thing becomes the source of the damaged
+message.
+<HR>
+<P>
+Aside from the class and capture cogs, the 0x10 <A href="../../../flags/inventory/inventory_frame.html" target="main">Inventory Flag</A> will make the local
+player's damaged message run in an items.dat cog.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../../message/damaged.html">Damaged
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="../creature/setthinghealth.html">SetThingHealth()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

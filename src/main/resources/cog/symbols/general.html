@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Symbols General</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/main.css"></HEAD><BODY>
+<H2 style="margin-bottom:0">Symbols General</H2><HR>
+
+The symbols section is used to list variables and give them an initial value. It is not necessary to declare variables in the symbols,
+but because LEC did, it's considered proper Cog programming. Each cog has a limit on the number of variables of each symbol type
+that it can store.
+<P>
+There are basically three types of variables: integer, flex, and vector. Sectors, things, surfaces, models, etc all boil
+down to an integer number.
+<P>
+The symbols sections of cogs listed in the items.dat and the static.jkl are loaded only once when JK starts. They are not reloaded with
+every level. Cogs loaded by the level's JKL will be loaded every time the level is loaded. Also, the values of each cog's variables are
+stored until you exit JK entirely. When a variable is listed in the symbols section, it is given a value of zero by default.
+<P>
+If you declare two variables with the same name in the symbols section, only the first will be recognized; this is regardless of the
+variables' types. If you give a variable the same name as a Cog verb, that verb will not work in the cog.
+<P>
+A variable's type will be reset to match whatever type you assign it to. For example, if you define an integer in the
+symbols section and then assign that integer to a vector value of '1 2 3', the integer will be turned into a vector to accommodate this new value.
+<P>
+You cannot define a variable in one cog and retrieve its value in another. Even though cog has a variable extension
+called "local," ommitting this extension will not allow you to access variables in other cogs.
+
+<H4>Defining Variables from the Level</H4>
+
+If the cog is listed in the cogs section (not the cogscripts section) of a .jkl, the JKL can pass values to the variables
+in the symbols section. This is how JED gives values to variables in placed cogs. Here's an excerpt from the cogs
+section of a JKL:
+<P>
+<HR width=400 align=left>
+<TABLE class=small cellpadding=3 class=small>
+<TR><TD>0:</TD><TD>00_door.cog</TD><TD>4</TD><TD>-1</TD><TD>-1</TD><TD>-1</TD><TD>8</TD><TD>2</TD><TD>0.5</TD></TR>
+<TR><TD>1:</TD><TD>00_std_elev.cog</TD><TD>839</TD><TD>854</TD><TD>6</TD><TD>0.25</TD><TD>2</TD><TD>4</TD><TD>&nbsp;</TD></TR>
+<TR><TD>2:</TD><TD>01_funicularA.cog</TD><TD>12</TD><TD>1539</TD><TD>1550</TD><TD>8</TD><TD>4</TD><TD>2</TD><TD>4</TD></TR>
+<TR><TD>3:</TD><TD>01_funicularB.cog</TD><TD>16</TD><TD>1748</TD><TD>8</TD><TD>4</TD><TD>2</TD><TD>4</TD><TD>&nbsp;</TD></TR>
+<TR><TD>4:</TD><TD>01_cargoelev2.cog</TD><TD>1919</TD><TD>21</TD><TD>2</TD><TD>2</TD><TD>&nbsp;</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>5:</TD><TD>00_door.cog</TD><TD>23</TD><TD>-1</TD><TD>-1</TD><TD>-1</TD><TD>8</TD><TD>2</TD><TD>0.5</TD></TR>
+</TABLE>
+<HR width=400 align=left>
+<P>
+The code below is from the first cog listed above, 00_door.cog:
+
+<PRE class=smallcode>
+symbols
+
+message startup		
+message activate	
+message arrived		
+message timer		
+message blocked		
+
+thing   door0     linkid=0 mask=0x405
+thing   door1     linkid=1 mask=0x405
+thing   door2     linkid=2 mask=0x405
+thing   door3     linkid=3 mask=0x405
+
+float    moveSpeed=8.0
+float    sleepTime=2.0
+float    lightValue=0.5
+
+sector doorSector       local
+int       numDoors=0    local
+int       doorStatus       local
+int       moveStatus      local
+int       i                      local
+
+end
+</PRE>
+Notice that the seven values listed in the JKL correspond to the seven variables in the symbols section without the "local" extension.
+The messages listed in the symbols are variables, but they are ignored when JK passes variable values from a JKL.
+<P>
+It is convenient to define level-specific things like the doors in the level so that simple cogs like 00_door become generic.
+This value-passing does not work with the static.jkl.
+<P>
+When an object's value is passed from a JKL, the cog will receive messages sent by that object. This is the only way to receive
+messages sent by sectors and surfaces.
+
+<!-- <H4>Declaring Messages</H4>
+
+	Messages tutorial supercedes this.
+
+Messages are special variables. They are predefined constants with an integer value, but they must be
+declared in the symbols so that JK knows they exist in the code section. If you give a variable the same name as
+a message and the message is not declared in the symbols, then the variable will override this predefined message.
+ -->
+ 
+ <HR></BODY></HTML>

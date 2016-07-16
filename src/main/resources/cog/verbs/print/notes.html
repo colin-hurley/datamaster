@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Print Verbs</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Print Verbs</H2><HR>
+
+<A name=formspec><H4 style="margin-top:0">Format Specifiers</H4></A>
+
+Format specifiers are used by two of the concat verbs to insert values into
+a string. You can use different format specifiers to concatenate the value
+in a different form. Syntax:
+<P>
+<CODE class="code">%[-][+][ ][#][0][width][.size][prefix]specifier</CODE>
+<P>
+<SPAN class="param">[-]</SPAN></SPAN> Optional. Add the minus sign to make the value
+align to the left inside the width. The default alignment is to the right.
+<P>
+<SPAN class="param">[+]</SPAN></SPAN> Optional. If used with a specifier that works with
+signed numbers, the '+' sign will be put before positive numbers to show their positivity.
+<P>
+<SPAN class="param">[ ]</SPAN></SPAN> Optional. If used with a specifier that works with
+signed numbers, numbers outputted with no sign will have a space put before them.
+<P>
+<SPAN class="param">[#]</SPAN></SPAN> Optional. Octal numbers will be prefixed with a 0,
+and hex numbers will be prefixed with a 0x. When used with flex specifiers, a decimal point
+will always be outputted.
+<P>
+<SPAN class="param">[0]</SPAN></SPAN> Optional. When used, all of the width's digits to the left
+of the number will be ouputted as zeros instead of being left blank.
+<P>
+<SPAN class="param">[width]</SPAN> Optional. This sets the minimum width for the concatenated
+value. All of the value's significant digits will be outputted though this may exceed the width.
+<P>
+<SPAN class="param">[.size]</SPAN> Optional. For integer specifiers, this is the minimum size for the number. For
+flex specifiers (other than %g), this is the number of decimal digits to output (default of six). Size digits unused by
+the value will be outputted as zeros.
+<P>
+<SPAN class="param">[prefix]</SPAN> Optional. This is a specifier prefix used to modify the output
+value type. These prefixes are of little use to Cog, because the concat verbs' parameters have set
+types. Refer to the chart below.
+<P>
+<SPAN class="param">specifier</SPAN> This is the format specifier to use. The charts below
+show which specifiers are used by integers and flexes.
+<P>
+<TABLE class=small align=center width="100%" bgcolor=silver cellpadding=3 border=1>
+<TR><TH colspan=4 class=big>Specifier Prefixes</TH></TR>
+<TR><TH width="17%">Prefix</TH><TH class=left>Format</TH></TR>
+<TR><TD>l</TD><TD class=left>Longint or double.</TD></TR>
+<TR><TD>L</TD><TD class=left>Long double.</TD></TR>
+<TR><TD>h</TD><TD class=left>Shortint.</TD></TR>
+</TABLE>
+<P>
+<TABLE class=small align=center width="100%" bgcolor=silver cellpadding=3 border=1>
+<TR><TH colspan=4 class=big>Integer Format Specifiers</TH></TR>
+<TR><TH width="17%">Specifier</TH><TH class=left>Format</TH></TR>
+<TR><TD><A href="%c.html">%c</A></TD><TD class=left>ASCII character.</TD></TR>
+<TR><TD>%d</TD><TD class=left>Signed decimal integer.</TD></TR>
+<TR><TD>%i</TD><TD class=left>Signed decimal integer.</TD></TR>
+<TR><TD>%o</TD><TD class=left>Unsigned octal integer.</TD></TR>
+<TR><TD>%u</TD><TD class=left>Unsigned decimal integer.</TD></TR>
+<TR><TD><A href="%x.html">%x, %X</A></TD><TD class=left>Unsigned hexadecimal integer.</TD></TR>
+<TR><TD>%%</TD><TD class=left>'%' character.</TD></TR>
+</TABLE>
+<P>
+<TABLE class=small align=center width="100%" bgcolor=silver cellpadding=3 border=1>
+<TR><TH colspan=4 class=big>Flex Format Specifiers</TH></TR>
+<TR><TH width="17%">Specifier</TH><TH class=left>Format</TH></TR>
+<TR><TD><A href="%e.html">%e, %E</A></TD><TD class=left>Signed decimal flex in scientific notation.</TD></TR>
+<TR><TD><A href="%g.html">%g, %G</A></TD><TD class=left>Signed decimal flex in short form.</TD></TR>
+<TR><TD>%f</TD><TD class=left>Signed decimal flex.</TD></TR>
+</TABLE>
+<P>
+Specifiers that are "unsigned" do not accept negative values. Using an unsigned specifier with a signed
+value will cause the engine to output meaningless numbers.
+<P>
+These format specifiers are from Visual C++, they are not part of Cog. Cog is able to use them because
+the concat verbs pass the string and argument to the VC++ engine. 
+<P>
+In doing that, format specifiers lose some of the their functionality because Cog cannot pass more than
+those two arguments. The above description of the syntax and use of the specifiers has been somewhat
+simplified because the excluded information doesn't apply to Cog's use of the specifiers.
+
+<A name=concat><H4>Concatenation</H4></A>
+
+To <EM>concatenate</EM> is to link together. In Cog, concatenation refers to linking values together into a string that is printed with
+<A href="jkstringoutput.html">jkStringOutput()</A>. When you concatenate a value, JK adds it to the end of a stored string.
+<A href="jkstringclear.html">jkStringClear()</A> clears the stored string for a new series of concatenations. Each computer has its
+own concatenated string.
+<P>
+Here's an example of concat verbs in use:
+
+<PRE class=code>
+jkStringClear();
+jkStringConcatAsciiString("The number of players in this game is: ");
+jkStringConcatInt(GetNumPlayers());
+jkStringOutput(-3, -1);
+</PRE>
+
+Notice in that example that <A href="jkstringclear.html">jkStringClear()</A> is run before the concatenation. Even after the string
+has been outputted, it is still in memory. But because all concatenation code in cog clears the string before the concatenation,
+this will not cause problems.
+
+<A name=strings><H4>Strings</H4></A>
+
+A <EM>string</EM>, in programming terms, is a collection of letters, numbers, and odd characters which is enclosed by quotation marks
+when written. There is no string symbol type to store a string with, but JK does store one string for concatenation. Uni files store generic
+strings. The two uni files that can be accessed by cog are jkstrings.uni and cogstrings.uni.
+<P>
+The jkstrings.uni holds strings that will be used during normal gameplay in any level. Strings like "Using Bacta" and "Fists" are
+stored in this file. Cogstrings.uni is a level file that holds the strings that are to be used by an episode. "Locked!" and "This looks interesting!"
+come from the cogstrings of <EM>The Force Within</EM>.
+<P>
+In both of these files, strings are defined like this: <SPAN class=exam>"COG_x" 0 "string"</SPAN> - where x is the number of the string. It is this number that cog verbs use
+to locate the string. If you give a verb the number to a string that does not exist, you'll see "COG_yourNum" print on the screen.
+
+<A name=dests><H4>Destinations</H4></A>
+
+<TABLE class=small align=center width="100%" bgcolor=silver cellpadding=3 border=1>
+<TR><TH colspan=4 class=big>Output Destinations</TH></TR>
+<TR><TH width="30%">Destination</TH><TH class=left>Player that receives the message:</TH></TR>
+<TR><TD>0, 1, 2, etc.</TD><TD class=left>If there's a player with the thingref of this dest, the message is sent to him. Otherwise, it's local.</TD></TR>
+<TR><TD>-1</TD><TD class=left>Local player.</TD></TR>
+<TR><TD>-2</TD><TD class=left>Unknown.</TD></TR>
+<TR><TD>-3</TD><TD class=left>Everyone.</TD></TR>
+</TABLE>
+
+<A name=debug><H4>Debugging</H4></A>
+
+The print verbs are the most useful tools for debugging. <A href="verb_print.html">Print()</A> can tell you if a message runs, and
+<A href="printflex.html">PrintFlex()</A> can print variable values. When you have a problem with a cog, one of the first
+things you should do is print something. The print verbs (not the concat verbs) were most likely created just for debugging purposes.
+
+<BR><HR></BODY></HTML>

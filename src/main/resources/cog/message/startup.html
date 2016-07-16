@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Startup</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>Startup</H2><HR>
+Startup is sent to all cogs after a level has loaded and just before you can see anything. It is called
+shortly before the <A href="loading.html">loading</A> message.
+<P>
+<TABLE class=msg width=90% bgcolor=#D2D2D2>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD width=30% class=left>Sender</TD><TD class=left>None.</TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>None.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sender Type</TD><TD class=left>None.</TD></TR>
+<TR><TD class=left>Source Type</TD><TD class=left>None.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+</TABLE>
+<P>
+Because startup runs <EM>before</EM> the game fully sets up, there are certain things that
+cannot be done at startup - such as working with models. If you encounter one of these
+problems, use a short sleep to wait until the game has finished loading. However, do not
+assume that putting a sleep in the startup message is a fix-all solution for errors.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives
+	<OPTION value="loading.html">Loading
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Command Line Options & Cheats</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../css/main.css">
+<SCRIPT TYPE="text/javascript" SRC="../script/option.java"></SCRIPT>
+<style>
+th {text-align:left; }
+h4 {text-align:left; text-indent:10; font: 13px Verdana; font-weight:bold; border:thin double black; width:250; background:silver; margin-left:0}
+</style>
+</HEAD><BODY>
+<H2 style="margin-bottom:0">Command Line Switches & Console Commands</H2><HR><p>
+
+<table class="cmd" width="100%" cols="3">
+<tr><th colspan="3" style="text-align:center; font:11pt verdana; font-weight:bold; padding-bottom:10; ">Jedi Knight Command Line Switches</th></tr>
+<tr><th width="10%">Switch</th><th width="15%">Example</th><th>Description</th></tr>
+<tr><td>?<td>-?<br>/?</td><td>Although this is listed as a command in the exe, it's either not supposed to do anything or it doesn't work.</td>
+<tr><td>debug con<td>-debug con<br>/debug con</td><td>Outputs JK's debugging text to a console window. Closing the console closes JK, and vice versa.</td>
+<tr><td>debug log<td>-debug log<br>/debug log</td><td>Outputs JK's debugging text to a .log file in JK's install directory.</td>
+<tr><td>debug none<td>-debug none<br>/debug none</td><td>This is a valid switch, but apparently it doesn't do anything.</td>
+<tr><td>devmode<td>-devmode<br>devmode</td><td>A [debug] list will appear in the SP section allowing you to play MP levels without hosting. This switch also enables the advanced display options. Note that devmode doesn't use a forward slash.</td>
+<tr><td>displayconfig<td>-displayconfig<br>/displayconfig</td><td>The display options will have an 'advanced' set of selections allowing you to change the engine's rendering.</td>
+<tr><td>dispstats<td>-dispstats<br>/dispstats</td><td>Jedi Knight will display ingame statistics about the level and the player at the top of the screen. <A href="dispstats.html" onclick="Popup(this.href); return false">Notes</A>.</td>
+<tr><td>framerate<td>-framerate<br>/framerate</td><td>Jedi Knight will display the game's framerate at the top of the screen.</td>
+<tr><td>nohud<td>-nohud<br>/nohud</td><td>This is a valid switch, but when JK first tries to render a frame in the game, it will crash.</td>
+<tr><td>path</td><td>-path folder<br>/path folder</td><td>Jedi Knight will search for resources in the given folder before looking at the resource and episode folders. This folder is assumed to be in JK's install directory.</td></tr>
+<tr><td>verbose<td>-verbose<br>/verbose</td><td>This is a valid switch, but JK crashes when it's used.</td>
+<tr><td>windowgui<td>-windowgui<br>/windowgui</td><td>Menus and cutscenes will be displayed inside a window instead of being fullscreen. Ingame windowing isn't changed.</td>
+</table><hr><p>
+
+
+<table class="cmd" width="100%" cols="4">
+<tr><th colspan="4" style="text-align:center; font:11pt verdana; font-weight:bold; padding-bottom:10; ">Jedi Knight Console Commands</th></tr>
+<tr><th width="10%">Command</th><th width="12%">Example</th><th width="8%">SP / MP</th><th>Description</th></tr>
+<tr><td>5858lvr</td><td>5858lvr</td><td>SP</td><td>All map. Every thing in the game will be visible on the map.</td></tr>
+<tr><td>bactame</td><td>bactame</td><td>SP</td><td>Heal. The player will be given full health and shields.</td></tr>
+<tr><td>coords</td><td>coords</td><td>both</td><td>Prints out the player's position, PYR, and sector in this form: POS [X, Y, Z] PYR [P, Y, R] Sector: X.</td></tr>
+<tr><td>deeznuts</td><td>deeznuts</td><td>SP</td><td>Level up. Gives the player 100 mana and ups his force ranking by 2 - if you're at rank 8 and you use this command, you will go back to rank 2 with 100 mana.</td></tr>
+<tr><td>dispstats</td><td>dispstats</td><td>both</td><td>Jedi Knight will display ingame statistics about the level and the player at the top of the screen. <A href="dispstats.html" onclick="Popup(this.href); return false">Notes</A>.</td></tr>
+<tr><td>endlevel</td><td>endlevel</td><td>MP</td><td>Ends the current level. Host only.</td></tr>
+<tr><td><a href="eriamjh.html" onclick="Popup(this.href); return false">eriamjh</a></td><td>eriamjh</td><td>SP</td><td>Fly mode. The player will not be affected by gravity. Pressing the Jump and Crouch keys will make the player move up and down. Type the command again to turn fly mode off.</td></tr>
+<tr><td>framerate</td><td>framerate</td><td>both</td><td>Jedi Knight will display the game's framerate at the top of the screen.</td></tr>
+<tr><td>hyper</td><td>hyper #</td><td>SP</td><td>Warps the player to walkplayers placed throughout the level - hence the template name of 'walkplayer.' The number given is 1 for the first walkplayer, 2 for the next, and so on.</td></tr>
+<tr><td>imayoda</td><td>imayoda</td><td>SP</td><td>Light Master. Gives the player a force ranking of 2, 100 mana, and one star on all of the light and neutral powers.</td></tr>
+<tr><td>jediwannabe</td><td>jediwannabe on<br>jediwannabe off</td><td>SP</td><td>Invulnerability. Player can only be damaged by surface collision.</td></tr>
+<tr><td>kick</td><td>kick player</td><td>MP</td><td>Kicks the given player. Host only.</td></tr>
+<tr><td>kill</td><td>kill</td><td>both</td><td>Kills the player.</td></tr>
+<tr><td>pinotnoir</td><td>pinotnoir #</td><td>SP</td><td>Ends the current level and takes you to the specified level in the episode. E.g., if you type 'pinotnoir 1' you will be taken to the first level in the episode.</td></tr>
+<tr><td>players</td><td>players</td><td>both</td><td>Prints out the walkplayer numbers and some information about them - sadly, only the last four show.</td></tr>
+<tr><td>racoonking</td><td>racoonking</td><td>SP</td><td>Uber Jedi. Gives the player a force ranking of 2, 100 mana, and one star on every force power.</td></tr>
+<tr><td>red5</td><td>red5</td><td>SP</td><td>Gives the player all weapons, full ammo, and 100 mana.</td></tr>
+<tr><td>sithlord</td><td>sithlord</td><td>SP</td><td>Dark Master. Gives the player a force ranking of 2, 100 mana, and one star on all of the dark and neutral powers.</td></tr>
+<tr><td>slowmo</td><td>slowmo on<br>slowmo off</td><td>SP</td><td>Slow Motion. Slow's the gamespeed down.</td></tr>
+<tr><td>team</td><td>team #</td><td>MP</td><td>Changes your team to the given number.</td></tr>
+<tr><td>thereisnotry</td><td>thereisnotry</td><td>SP</td><td>Ends the current level as a success.</td></tr>
+<tr><td>tick</td><td>tick</td><td>MP</td><td>Displays the current tick rate.</td></tr>
+<tr><td>trackshots</td><td>trackshots on<br>trackshots off</td><td>both</td><td>Shows you what surface, sector, and material your projectiles hit.</td></tr>
+<tr><td>version</td><td>version</td><td>both</td><td>Displays the Jedi Knight version (1.0) and release date.</td></tr>
+<tr><td>wamprat</td><td>wamprat</td><td>SP</td><td>All Items. Gives the player the maximum amount he can carry of each item.</td></tr>
+<tr><td>warp</td><td>warp x y z</td><td>SP</td><td>Warps the player to the given coordinates.</td></tr>
+<tr><td>whiteflag</td><td>whiteflag on<br>whiteflag off</td><td>SP</td><td>Disable AI. Turning whiteflag on will stop the AI from reacting to the player.</td></tr>
+<tr><td>yodajammies</td><td>yodajammies</td><td>SP</td><td>Mana. Gives the player 400 mana. Remember that force_well regulates mana so at lower ranks it will be taken away from you.</td></tr>
+</table><hr><p>
+
+<h4>Using Switches</h4>
+
+To use a switch, add it after the command that launches JK.exe. You can do this with the Windows run box, with a batch file,
+a console, or a shortcut. Shortcuts are easiest. Just create a shortcut to JK.exe and view its properties. On the shortcut tab,
+find the target line. There you'll see the path of the Jedi Knight executable. Write in the switch after the path. For example:
+<i>C:\games\jedi knight\jk.exe -windowgui</i>
+<p>
+You can use as many switches as you need, and the order isn't important. As you can see in the examples, the character used
+to make the text as a switch can be either a dash or a forward slash - JK will recognize them both. The only exception is devmode,
+which doesn't have the forward slash.
+
+<h4>Using Console Commands</h4>
+
+To run console commands, just press the talk key (usually 't') in a singleplayer game, and type the command. For commands in multiplayer,
+press the talk key and then press tab to enter the command. This should be obvious, but it's explained here just to make sure everything's
+covered.
+
+<HR></BODY></HTML>

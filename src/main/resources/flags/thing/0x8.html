@@ -1,0 +1,41 @@
+<HTML><HEAD><TITLE>0x8 Thing Flag</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>0x8 Thing Flag</H2><HR>
+
+The 0x8 Thing Flag affects the way things are rendered behind translucent surfaces.
+LEC used the 0x8 flag to mark things that should or might be rendered behind
+translucency. And they used it mainly with things used for the level or as part of level
+architecture. The 0x8 Thing Flag provides a way to raise the priorty of a thing for the
+rendering engine, but does not completely solve the problem.
+<P>
+Below are three pictures which show three elevators on their side. The two in front
+have translucent 3dos. In this picture, all elevs have the 0x8 flag:
+<P>
+<IMG src="../../pics/3_all0x8.jpg">
+<P>
+The effect ingame of giving all the elevs 0x8 is similar to looking at HOM through a translucent suface.
+In this next picture, none have the 0x8 flag:
+<P>
+<IMG src="../../pics/3_none.jpg">
+<P>
+As you can see, the result is terrible. The 0x8 flag must be given to the back elevator:
+<P>
+<IMG src="../../pics/3_back0x8.jpg">
+<P>
+Now, the result isn't perfect. JK has problems with rendering
+through more than one translucent surface. This next set of examples uses only two
+elevs. Only the one in front is translucent. Here, both have the 0x8 flag:
+<P>
+<IMG src="../../pics/2_both0x8.jpg">
+<P>
+Clearly, 0x8 should not be given to the translucent elev. In this picture, 0x8 is given only
+to the back elevator:
+<P>
+<IMG src="../../pics/2_back0x8.jpg">
+<P>
+JK handles this flawlessly. There are no clipping problems at any angle. So to sumarize,
+<B>the 0x8 Thing Flag should be given to all things which do not have translucent
+surfaces and are used for a level or as level architecture.</B>
+
+<HR><BODY></HTML>

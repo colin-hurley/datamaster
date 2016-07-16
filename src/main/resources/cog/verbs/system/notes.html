@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on System Verbs</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on System Verbs</H2><HR>
+<A name=bit><H4 style="margin-top:0">Bitwise Verbs</H4></A>
+
+The Bitwise verbs are useful when you want to use hex numbers as flags. You can
+use the <A href="../../operator/operators.html#bitwise" target="main">Bitwise Operator</A>
+'&' instead of <A href="bittest.html">BitTest()</A>.
+
+<A name=master><H4>Master Cogs</H4></A>
+
+A cog can be designated as the master cog so that other cogs in the game can use <A href="getmastercog.html">GetMasterCog()</A> to
+reference it. These other cogs would use a command like <A href="../message/sendmessage.html">SendMessage(GetMasterCog(), user0);</A>
+to send a message to the master. Endlevel and startup cogs are usually made the master so they can easily receive messages from other cogs
+in the level.
+
+<A name=load><H4>Load Resource Verbs</H4></A>
+
+The LoadRes verbs allow you to get a reference to sounds, models, keyframes, and templates without using the symbols section.
+There is no known difference between a resource loaded with the symbols and a resource loaded by the LoadRes verbs. They will
+both work the same. But with these verbs, you do not have to define an intermediate variable. So instead of:
+<PRE class=code>
+temp=LoadTemplate("shieldrecharge");
+CreateThing(temp, player);
+</PRE>
+You can use:
+<PRE class=code>
+CreateThing(LoadTemplate("shieldrecharge"), player);
+</PRE>
+
+<A name=heap><H4>Heap Verbs</H4></A>
+
+The heap verbs are used to dynamically create storage for variable values. You don't often need to do this in cog, but it is useful
+when you don't know exactly how many values that you'll have to store. Unfortunatly, the heap verbs cannot be used to create
+global variables - each cog works with its own heap, and no other cog can access it.
+<P>
+Let's say that you want to create five storage slots in memory. You would use <A href="heapnew.html">HeapNew(5)</A> to create
+the five new slots. Imagine that it looks like this:
+<P>
+<CENTER><IMG style="border:thick double gray" src="../../../pics/heap.gif"></IMG></CENTER>
+<P>
+The last memory slot in the heap is slot 4. The five memory slots that we created range from 0 to 4.
+<P>
+In advanced programming languages, special "pointer" variables are used to store memory addresses. These variables point
+to a location in memory. But in Cog, it is not so complicated. Pointers are regular integers which hold the value
+of a slot number. However, these integers will still be called pointers in this reference.
+<P>
+None of the slots have a value until you use <A href="heapset.html">HeapSet(pointer, value)</A> to assign a value to one of
+the slots. If you try to use <A href="heapget.html">HeapGet()</A> to return the value of a slot before it has been assigned a
+value, JK will crash (or if there is no heap, it will return zero). This next diagram shows the result of HeapSet(0, 999):
+<P>
+<CENTER><IMG style="border:thick double gray" src="../../../pics/heapval.gif"></IMG></CENTER>
+<P>
+Now, the value 999 is stored in the first memory slot. To retrieve it, use <A href="heapget.html">HeapGet(0)</A>.
+<P>
+Suppose that you need to erase the heap's memory slots. You would use <A href="heapfree.html">HeapFree()</A>. This verb
+will remove all of the storage space that JK has allotted for the cog. A cog's heap is not affected by
+<A href="reset.html">Reset()</A>.
+
+<BR><HR></BODY></HTML>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>ThingViewDot</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>ThingViewDot</H2><HR>
+Returns the cosine of the angle between the look_thing's lookvector and a lookvector looking directly at the see_thing. Syntax:
+<P>
+<SPAN class=return>dot</SPAN>=<CODE>ThingViewDot(look_thing, see_thing);</CODE>
+<HR>
+Here's a picture:
+<P>
+<CENTER><IMG style="border:thick double gray" src="../../../pics/thingviewdot.gif"></IMG></CENTER>
+<P>
+The gray lines around the look_thing that extend to the gray circle indicate the direction that the look_thing is looking in.
+Notice that this simple picture parallels the <A href="../vector/notes.html#cosine">cosine chart</A> in the Vector Section's notes
+(remember that the look_thing-to-see_thing lvec should be placed on the +x of the cosine graph).
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../vector/notes.html#sincos">Sin & Cos
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="../vector/vectordot.html">VectorDot()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

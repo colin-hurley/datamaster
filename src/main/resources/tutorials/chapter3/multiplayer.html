@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Multiplayer</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head>
+<body onLoad="top.main.chapter.document.form.select3.selectedIndex = 6;" onUnload="top.main.chapter.document.form.select3.selectedIndex = 0;">
+
+<H2 style="margin-bottom:0">Multiplayer</h2><hr>
+
+<h4>Introduction</h4>
+
+Multiplayer coding is one of the hardest things to do in JK. The code itself isn't difficult to write - the hard part is making sure your cog
+is running in sync on all computers. Most well-designed multiplayer cogs use a client / server system so that one cog is designated to
+keep the other cogs in sync with it.
+
+<h4>Multiplayer Flags</h4>
+
+To control how your cogs will run in multiplayer games, there are several <a href="../../flags/cog/cog_frame.html">Cog Flags</a> you can use.
+Take your time to read up on these flags - remember that cogs have default flags, and each type of cog has its own defaults. The main flags
+we'll use are 0x40 and 0x200. 0x80 is also important, but we're not going to cover MotS.
+<p>
+Jedi Knight will sync a lot of things in the game. No one knows exactly what it does sync, but there are obvious things like the player's position
+(btw, if the player is not significantly moving, the game won't sync his pos). That type of syncing is stuff that the engine takes care of, cog has
+nothing to do with that. But other things like thing creation and changing models are synced with other computers only because the verb (FireProjectile()
+and SetThingModel()) will take care of the syncing for you. Not all verbs will do this, and some verbs don't need to because JK is already syncing
+whatever it changes.
+<p>
+Because multiplayer testing requires a few computers, and preferably a few people, not that much multiplayer research has been done. So you're
+pretty much on your own for figuring out what JK syncs and what verbs do the syncing for you - usually you can make a good guess and you'll be
+right.
+<p>
+What the 0x200 flag does is it stops verbs from syncing their changes with other computers. So if we have a cog that's going to run on every
+client, we don't need it to waste time and bandwidth trying to sync changes with other clients that are doing the same thing. So we'd add 0x200
+so that each client cog will only make changes locally.
+<p>
+By default, cogs run only on the server - in singleplayer, the computer is assumed to be the server. Class and inventory cogs are given the 0x40
+flag by default so that they'll run locally on every computer - client and server. This is needed because your weapon cogs, for example, would be
+useless if they only ran on the server's computer.
+<p>
+A combination of both of these flags (0x240) will make a cog run locally on every computer and not sync its changes. Most multiplayer cogs are
+given this flag. But remember, if you have a simple server cog that needs to sync its changes (and the verbs you're using can do it), you won't
+be using either of these flags (0x40 is useless to the server anyway).
+<p>
+There is no good way to find out what flags your cog has in JK - there's no verb to do it with. The only way we can guess at the purpose of JK's
+flags is to test in MotS, and since MotS is slightly different, there's not a good way to make sure the flag info's accurate.
+
+<h4>Client / Server Versions</h4>
+
+<i>Latency</i> is the term used to describe the time it takes for one computer to send information to another. Most people just call this "lag time."
+High latency can cause a lot of problems for our code because the goal of multiplayer cogs is to sync information between computers. And
+when we have bad latency (depending on how much we need to sync), the difference between the server's information and the client's can
+get bad enough to make your patch unplayable.
+<p>
+Let's say for example that you have exploding barrels that are created on a conveyor belt. This conveyor goes to a bunch of places in your level.
+One of the things that JK doesn't sync is throwable objects, so if we want our barrels to be the same on all computers, we're going to have to
+do that manually. And to make it harder, we want players to be able to score by killing other players with the barrels' explosions.
+<p>
+This kind of example is going to require a lot of communication, and if the barrels are not in the same places on all computers, then one player
+may see a barrel blow up right in front of his target (because explosion effects are local), but on the target's computer, the barrel may be way
+too far away to damage him - he'll see the explosion over there.
+<p>
+That is how latency causes problems for us. Suppose we have a latency of 200 milliseconds - this would be 56k dialup connection. This may
+not seem like much time, but since our barrels are on a conveyor, we're going to see the barrels hopping all over the place as clients receive
+old positions from the server. You'll see the client's barrel move smoothly down the conveyor, and as soon as your cog receives a trigger
+with the new position, you'll see the barrel hop somewhere nearby.
+<p>
+And it gets worse. If you're only syncing the position, the barrel may be pushed off the conveyor on a client, and it's movement will be stopped.
+But the server will still send it position updates according to the server barrel's movement. Barrels can move a lot in a fifth of a second, so that
+could look really bad.
+<p>
+So although we had a good idea and it can work pretty well, you're going to have to explain that your patch won't work over the internet on slow
+connections.
+
+<h4>Communication</h4>
+
+The different methods of communicating between cogs are covered in the comm tutorial, but the only one we're concerned with here is triggers.
+Briefly, triggers are sent out to one or all computers with SendTrigger() and received with a trigger handler. Triggers are sent with an ID so that
+you can tell them apart. They're our only option for multiplayer comm, but they're not too bad.
+<p>
+Make sure you put plenty of comments beside your triggers. Although we've talked about client-side and server-side code as being in seperate
+cogs, you can easily put them in the same cog, and many editors do. Take a look at this example:
+
+<pre class="code">
+pulse:
+	// pulse is run only by the serving computer.
+
+	for(i=0; i < maxBarrels - 1; i=i+1)
+	{
+		// just to make the code easier to read.
+		pos = GetThingPos(barrel0[i]);
+		// send out the trigger to all computers (us too).
+		// can't send a whole vector, so we'll break it up.
+		SendTrigger(-1, 35, VectorX(pos), VectorY(pos), VectorZ(pos), i);
+		// we don't want to flood our network with
+		// triggers, so sleep for a very short while.
+		Sleep(broadcast_interval);
+	}
+
+return;
+
+trigger:
+	// if this is a trigger this local cog is sending, ignore it.
+	if(GetSenderRef() == GetSelfCog()) return;
+
+	if(GetSourceRef() == 35)
+	{
+		// receiving a barrel pos update from a server.
+		// first, rebuild the vector.
+		pos = VectorSet(GetParam(0), GetParam(1), GetParam(2));
+		// now set the local barrel's pos.
+		SetThingPos(barrel0[GetParam(3)], pos);
+	}
+
+return;
+</pre>
+
+Something not obvious in the example above is that the thing numbers of things created in the game after startup will not
+be the same on all computers. That's why we have to keep an array of all of the barrels we create. And when we send
+out pos updates, the index number is sent. So as long as we make sure our arrays are set up correctly, there won't be a
+problem.
+<p>
+This example for the scenario we worked with earlier shows how a cog must be prepared
+to be run on several different computers. Only the server will use the pulse message, and it will ignore updates
+that it sends to itself. However, all of the clients will respond to the trigger and reset their barrels' positions.
+<p>
+Our example's cog is assumed to have the 0x40 flag which must be added if it's not going to be an inventory cog. Cog does have
+a syncing verb for positions, but it doesn't just set the new position - it tries to move them to their new position sometimes making
+the situation worse.
+
+<p>
+<a href="threads.html">Continue</a>
+<p>
+
+<hr></body></html>

@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>TeleportThing</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>TeleportThing</H2><HR>
+Teleports one thing to the position of another. Syntax:
+<P>
+<CODE>TeleportThing(move_thing, location_thing);</CODE>
+<P>
+Note that TeleportThing() gives the move_thing the sector of the location_thing. Since the thing's sector is updated when
+it is moved, there will not be any sector problems.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="setthingpos.html">SetThingPos()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

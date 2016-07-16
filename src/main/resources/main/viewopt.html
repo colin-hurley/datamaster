@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Set Your View Option</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../script/option.java"></SCRIPT>
+<SCRIPT TYPE="text/javascript">
+function Check()
+{
+	if(navigator.appName == 'Opera')
+	{
+		alert("As of version 6.1, Opera does not accept local cookies. \nThis prevents the view option from working with Opera.");
+		self.close();
+	}
+	return;
+}
+</SCRIPT>
+</HEAD><BODY onload="PrepareForm(); Check();">
+<H2>Set Your View Option</H2><HR>
+Individual comments on verbs, messages, and symbol types can be shown in a popup window or a
+frame on the same page. Use the form below to choose the way you want to view these comments.
+<P>
+Opera does not accept local cookies, so you will have to use the default setting. And if you use Opera,
+make sure that you set it to indentify itself as Opera. Otherwise, popup pages will appear too far down
+on the screen.
+
+<BLOCKQUOTE>
+<FORM name="optionform">
+<INPUT type="radio" name="radioset" value="frames">Use Frames.<BR>
+<INPUT type="radio" name="radioset" value="popups">Use Popups (default).<P>
+<INPUT type="submit" name="submit" value="Set Option" onclick="SetOption()">
+</FORM>
+</BLOCKQUOTE>
+
+You must have cookies enabled on your browser for this option to work. With the buttons below, you can look
+at the cookie or delete it.
+
+<BLOCKQUOTE style="margin-bottom:0"><FORM name="checkform" style="margin-bottom:0">
+<INPUT type="button" name="showbutton" value="Show Cookie" onclick="ShowCookie()">
+<INPUT type="button" name="delbutton" value="Delete Cookie" onclick="DeleteCookie()">
+</FORM></BLOCKQUOTE>
+<HR></BODY></HTML>

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Symbol Types</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Symbol Types</H2><HR>
+
+<H4 style="margin-top:0">Symbol Examples</H4>
+
+The examples of symbol type syntax given in this section do not have
+symbol extensions. But all symbol types with the exception of messages
+can use at least the "local" and "desc" symbol extension. Symbol types for objects
+that send messages can use all of the symbol extensions.
+<P>
+Also, most of the examples show the symbol being given an initial value.
+No variable has to be given an initial value, it is only done in the examples
+to show that a variable accepts one.
+
+<H4>Integer Values</H4>
+
+Cog's integers are signed 4-byte values. The maximum value is 2,147,483,647 and the minimum value
+is -2,147,483,648.
+<P>
+<B>When giving integer values (e.g., operands, arguments):</B> If you exceed the maximum integer, then the integer will
+"wrap around" to its lowest value and will add from there. If you exceed the minimum integer, then the
+integer will be given its maximum value and will subtract from there.
+<P>
+<B>When using integers in an operation (e.g, 2147483647 + 10):</B> If the resultant integer exceeds the maximum
+or minimum integers, Cog will change the result to 2147483648 - note that this number is unsigned and is 1 greater
+than the maxint.
+
+<H4>Floating-point Values</H4>
+
+Cog's floating-point types (flexes and floats) are also signed 4-byte values. With no decimal point, these
+numbers have the same minimum and maximum values as integers (and the same rules apply). But the
+more decimal digits a float has, the less precise the float will be. Note that this description of "floating-point
+values" applies to floating-point operations (e.g., modulo) as well.
+<P>
+Precision is a quality of floating-point numbers that describes how many significant digits a variable type
+can hold. As mentioned above, precision is not constant. The more decimal digits you have, the less
+precise the number will be.
+<P>
+Cog's floats have a maximum precision of about 9 digits - which means that at the most, a float can store
+and use 9 significant digits with no loss of precision. The minimum precision is 6 digits (with all significant digits
+being to the right of the point), but remember that Cog only displays the first 6 decimal digits.
+<P>
+This precision factor is caused by the way fractional numbers are stored in memory. Unlike positive numbers,
+they are stored approximately - and after so many digits of precision, the accuracy of the stored number will
+fail. Since floating-point numbers cannot always be trusted, we have to be careful with what operations we
+use them in.
+<P>
+<H4>Floating-point Operations</H4>
+
+As was just said above, floating-point numbers spanning more than six digits may suffer a loss of precision.
+Here are two examples:
+<P>
+<CODE>PrintFlex(111.222333 * 1000);</CODE>
+<BR>"111222.335958" prints.
+<P>
+<CODE>PrintFlex(111222333 % 1000);</CODE>
+<BR>"336.000000" prints.
+<P>
+In both examples, you can see the limit of the precision of floating-point numbers.
+
+<HR></BODY></HTML>

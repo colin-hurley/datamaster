@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Symbol Extensions</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/main.css">
+<SCRIPT type="text/javascript" src="../../script/option.java"></SCRIPT>
+</HEAD><BODY>
+<H2 style="margin-bottom:0">Symbol Extensions</H2>
+
+<HR><SPAN class=title>local</SPAN><BLOCKQUOTE>
+
+	local is the most common symbol extension. It means that the variable is local to the cog and is not given a value in the
+	level's .jkl file. This doesn't mean that if you leave out the local, the variable will be global and accessible to all cogs.
+	<P>
+	If a symbol does not have the local extension and its cog is defined in the cogs section of a JKL, then the symbol
+	can be given an initial value from the JKL (see the <A href="general.html">Symbols General</A> document). Example:
+
+	<PRE class=exam>int	 integer	local</PRE>
+
+</BLOCKQUOTE><HR><SPAN class=title>desc</SPAN><BLOCKQUOTE>
+
+	desc is short for description. It is used to comment on a symbol. Example:
+
+	<PRE class=exam>thing	 item	 desc=powerup</PRE>
+
+</BLOCKQUOTE><HR><SPAN class=title>mask</SPAN><BLOCKQUOTE>
+
+	Mask is used to assign <A href="../../flags/thingtypemask/thingtypemask_frame.html">Mask Flags</A> to a symbol. The Mask Flags control
+	which messages from the symbol are received by the cog. The symbol type descriptions explain the effect of Mask Flags on each symbol
+	type. Mask Flags can only be used with objects whose values are passed from the level's JKL. Example:
+	<P>
+	Symbols of types that can send messages have default <A href="../../flags/thingtypemask/thingtypemask_frame.html">Mask Flags</A>. The
+	mask entension is used to reset the Mask Flags, so the defaults are overwritten.
+
+	<PRE class=exam>sector	sec1	mask=0x4</PRE>
+
+</BLOCKQUOTE><HR><SPAN class=title><A name=linkid>linkid</A></SPAN><BLOCKQUOTE>
+
+	Linkid provides a way to assign an ID to a symbol that generates messages. This ID can be retrieved in messages sent by the object
+	with <A href="" onClick="FramePage('../verbs/message/message.html', '../verbs/message/getparam.html', 150); return false">GetSenderID()</A>.
+	Linkids can only be used with objects whose values are passed from the level's JKL. Example:
+
+	<PRE class=exam>sector	sec1	linkid=1</PRE>
+
+</BLOCKQUOTE><HR><SPAN class=title><A name=nolink>nolink</A></SPAN><BLOCKQUOTE>
+
+	Nolink blocks the messages sent by a symbol from being received by its cog. Nolink is only used with symbols whose
+	value is passed from a level's JKL. Example:
+
+	<PRE class=exam>sector	sec1	nolink</PRE>
+
+</BLOCKQUOTE><HR></BODY></HTML>

@@ -1,0 +1,14 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SyncThingState</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>SyncThingState</H2><HR>
+This verb should synchronize the local state of a thing with other computers in multiplayer,
+but the only apparent affect is to sync the thing's position. This verb can be run from a
+client or server's computer. Syntax:
+<P>
+<CODE>SyncThingState(thing);</CODE>
+<P>
+Unlike <A href="syncthingpos.html">SyncThingPos()</A>, SyncThingState() syncs the thing's position instantly. It is difficult to
+tell what SyncThingState() may really sync. These verbs were designed to sync effects
+that occurred before a player had joined. But because JK completely syncs every thing in
+the level for joining players anyway, this verb is not useful for that pursose.
+<HR></BODY></HTML>

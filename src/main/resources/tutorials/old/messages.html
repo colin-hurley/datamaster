@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Understanding Messages</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/tut.css"></HEAD>
+<body onLoad="top.main.chapter.document.form.select4.selectedIndex = 9;" onUnload="top.main.chapter.document.form.select4.selectedIndex = 0;">
+<H2 style="margin-bottom:0">Understanding Messages</H2><HR>
+
+This tutorial is intended to explain in detail how the engine treats messages and to help beginners understand message concepts.
+
+<H4>Predefined Messages</H4>
+
+Every message known to the engine becomes a variable in your cog automatically. Even when you don't declare a message
+in a cog's symbols section, it is still there and it has a value. Say, for example, that you did not declare user0 in the
+symbols. If you had PrintInt(user0); in the code section, it would print 27 when it was run. That is because all messages
+are predefined constants. It is this fact that lets us use code such as:
+<P>
+<CODE>SendMessage(otherCog, user0);</CODE>
+<P>
+when user0 has not been declared in the cog that sent the message. Now to explain the 27.
+
+<H4>The Value of a Message</H4>
+
+Messages, while being of type message, have integer values. When you use a variable in an expression, the engine first finds
+the variable's value. When you use a message name in an expression, the engine does the same. It finds the <I>value</I> of the
+message and uses this value (instead of the name of the message) to know which message was intended.
+<P>
+This means that it is also possible to reference a message by its number. For example, this code:
+<P>
+<CODE>SendMessage(GetSelfCog(), 27);</CODE>
+<P>
+will call the user0 message.
+
+<H4>Called Messages and Values</H4>
+
+The call keyword is used to manually call messages. Because call is used to run custom messages that have no
+predefined value, call cannot use the value of the message. It must search the code section for a message name
+matching the name that was given to it.
+
+<H4>Why Declare Messages?</H4>
+
+Knowing that every message is predefined in the cog, you may wonder why message <I>are</I> declared in the cog.
+This is probably because the engine requires messages to be defined in the symbols so it can know if a message exists in the code
+section without searching the entire code section for it. If the engine had to search cogs for every message that was called, it would
+consume a lot more processing power than it if looked up the message in a small array of messages that the cog had declared.
+
+<H4>Messages as Starting Points</H4>
+
+It is often helpful to think of a messages as a single entity - as a body of code. And indeed, the term "message" is often used
+to refer to the code between a message name and the next return. But this way of thinking can be deceptive to beginners.
+Messages are only starting points in the code section. The engine will start executing code after the name of the message and continue
+until it reaches the next return statement. Not understanding this, the question of "Can a message be run again while it is sleeping?"
+becomes confusing.
+
+<H4>Message Properties</H4>
+
+Now that we know messages are only starting points, lets examine message properties. In theory, a message's
+property is retrieved from "inside" the message. But since a message is <I>only</I> a starting position, these
+properties are given to the cog when the message is received. So it is the cog that holds the current message
+properties for verbs like GetSenderRef() to retrieve. Look at this example:
+
+<PRE class=code>
+#--------------------------------------------------------
+activated:
+	call custom;
+
+Return;
+#--------------------------------------------------------
+custom:
+	player=GetSourceRef();
+
+Return;
+#--------------------------------------------------------
+</PRE>
+
+Even though the engine is running code "inside" the custom message, it can retrieve the sourceref from the activated message
+because calling the custom message does not overwrite the message properties that activated gave to the cog. The next
+time a message is received and handled by the cog, new message properties will be assigned to it - overwriting the values
+that activated gave.
+
+<p>
+<a href="playlvec.html">Continue</a>
+<p>
+
+</BODY></HTML>

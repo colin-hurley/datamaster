@@ -1,0 +1,469 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>JK Level Files</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head>
+<body onLoad="top.main.chapter.document.form.select1.selectedIndex = 4;" onUnload="top.main.chapter.document.form.select1.selectedIndex = 0;">
+
+<h2 style="margin-bottom:0">JK Level Files</h2><hr>
+
+A Jedi Knight Level File (jkl) contains all of the information JK needs to create the level architecture and listings of all of the other resources
+that it needs to load - such as cogs, textures, models, etc. JKLs are important to cogging because they're responsible for loading level and
+class cogs. So you'll need to be familiar with the basics of a .jkl file.
+<P>
+There are two types of JKLs: level JKLs which are stored in the gob files in the episode folder, and the static.jkl which is stored in the
+res2 gob in the resource folder. Level JKLs are typical JKL files with level information, but the static.jkl is mostly empty and is loaded
+with every level. This makes the static.jkl ideal for editing purposes.
+<P>
+JKLs are divided into sections that begin with a "section" keyword and end with an "end" keyword. There are a lot of sections, but only
+three are important to us: cogscripts, cogs, and templates. It's ambigous to have both a cogscripts and a cogs section, but
+JK does use them for different purposes. Cogscripts is a listing of all the cogs that the level needs to load, and cogs is a listing of
+all the cogs that the level will pass values to.
+<P>
+A typical level JKL can be well over 40,000 lines, so there's only an outline of one below. But that's really all we need to go over:
+
+<pre style="font:7pt courier new;">
+#********** World file D:\Jedi\Products\JK\RELEASE\Episode\JK1\Jkl\01narshadda.jkl ***** Created 9/2/1997 10:21am **********
+
+######    JK  information ######
+SECTION: JK
+# Jedi Knight specific data
+################################
+
+
+#### Copyright information #####
+SECTION: COPYRIGHT
+................................
+................@...@...@...@...
+.............@...@..@..@...@....
+................@.@.@.@.@.@.....
+@@@@@@@@......@...........@.....
+@@@@@@@@....@@......@@@....@....
+@@.....@.....@......@@@.....@@..
+@@.@@@@@......@.....@@@......@@.
+@@@@@@@@.......@....@@.....@@...
+@@@@@@@@.........@@@@@@@@@@.....
+@@@@@@@@..........@@@@@@........
+@@.....@..........@@@@@.........
+@@.@@@@@.........@@@@@@.........
+@@.....@.........@@@@@@.........
+@@@@@@@@.........@@@@@@.........
+@@@@@@@@.........@@@@@@@........
+@@@...@@.........@@@@@@@........
+@@.@@@.@.........@.....@........
+@@..@..@........@.......@.......
+@@@@@@@@........@.......@.......
+@@@@@@@@.......@........@.......
+@@..@@@@.......@........@.......
+@@@@..@@......@.........@.......
+@@@@.@.@......@.........@.......
+@@....@@........................
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@.@@@@@@@@@@@@@@@@@@
+@@.@@..@@@@@..@@@@@@@@@@.@@@@@@@
+@@.@.@.@@@@.@.@@@.@..@@...@@@..@
+@@..@@@@@@....@@@..@@@@@.@@@@.@@
+@@@@@@@@...@@.@@@.@@@@@..@@...@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@.copyright.(c).1997.lucasarts.@
+@@@@@@..entertainment.co..@@@@@@
+################################
+
+
+###### Header information ######
+SECTION: HEADER
+# version and global constant settings
+Version          1
+World Gravity    4.00
+Ceiling Sky Z    20.000000
+Horizon Distance 200.000000
+Horizon Pixels per Rev 768.000000
+Horizon Sky Offset   0.000000 0.000000
+Ceiling Sky Offset   0.000000 0.000000
+MipMap Distances	1.000000	2.000000	3.000000	4.000000
+LOD Distances		0.300000	0.600000	0.900000	1.200000
+Perspective distance 2.00
+Gouraud distance 2.00
+################################
+
+
+###### Sound information  ######
+SECTION: SOUNDS
+World sounds 245
+example.wav
+end
+################################
+
+##### Material information #####
+SECTION: MATERIALS
+World materials 560
+#num:	mat:		xTile:		yTile:
+0:	example.mat	1.000000	1.000000
+end
+################################
+
+#### Geomtry Resources Info ####
+SECTION: GEORESOURCE
+
+#------ Palette Subsection -----
+World Colormaps	2
+0:	example.cmp
+
+#----- Vertices Subsection -----
+World vertices 4360
+#num:	vertex:
+0:	5.299998	6.699994	7.199998
+
+#-- Texture Verts Subsection ---
+World texture vertices 10574
+#num:	u:	v:
+0:	135.000061	137.999893
+
+#------ Adjoins Subsection -----
+World adjoins 1206
+#num:	flags:	mirror:	dist:
+0:	0x7	50	2.00
+
+#----- Surfaces Subsection -----
+World surfaces 4595
+#num:	mat:	surfflags:	faceflags:	geo:	light:	tex:	adjoin:	extralight:	nverts:	vertices:			intensities:
+0:	410	0x4		0x0		4	3	1	-1	0.00		7	0,0	1,1	2,2	3,3	4,4	5,5	6,6	0.577673	0.118668	0.741789	1.162032	0.992560	0.175367	0.947318	
+
+#--- Surface normals ---
+0:	0.000000	1.000000	0.000000
+
+################################
+
+###### Sector information ######
+Section: SECTORS
+World sectors 462
+
+SECTOR	0
+FLAGS	0x0
+AMBIENT LIGHT	0.37
+EXTRA LIGHT	0.00
+COLORMAP	0
+TINT	0.00	0.00	0.00
+BOUNDBOX	4.899998 6.699994 5.299998 5.699998 10.700008 7.599998
+CENTER	5.299998 8.700001 6.449998
+RADIUS	2.341480
+VERTICES	55
+0:	6
+1:	5
+2:	4
+3:	2
+4:	1
+5:	0
+6:	7
+7:	8
+8:	9
+9:	10
+10:	11
+11:	12
+12:	15
+13:	43
+14:	16
+15:	46
+16:	17
+17:	48
+18:	18
+19:	51
+20:	19
+21:	53
+22:	20
+23:	22
+24:	44
+25:	49
+26:	50
+27:	52
+28:	54
+29:	21
+30:	42
+31:	14
+32:	26
+33:	41
+34:	27
+35:	40
+36:	28
+37:	39
+38:	29
+39:	38
+40:	30
+41:	37
+42:	31
+43:	36
+44:	32
+45:	35
+46:	33
+47:	34
+48:	25
+49:	3
+50:	13
+51:	23
+52:	24
+53:	45
+54:	47
+SURFACES	0	30
+
+######### AI Classes ###########
+Section: AICLASS
+World AIClasses 16
+0:	example.ai
+end
+################################
+
+###### Models information ######
+Section: MODELS
+World models 122
+0:	example.3do
+end
+################################
+
+###### Sprite information ######
+Section: SPRITES
+World sprites 18
+0: example.spr
+end
+################################
+
+##### Keyframe information #####
+Section: KEYFRAMES
+World keyframes 201
+0:	example.key
+end
+################################
+
+###### Animation Classes #######
+Section: ANIMCLASS
+World puppets 12
+0:	ky.pup
+end
+################################
+
+#### Sound (foley) Classes #####
+Section: Soundclass
+World soundclasses 42
+0:	example.snd
+end
+################################
+
+########## COG scripts #########
+Section: cogscripts
+World scripts 65
+0:	example.cog
+end
+################################
+
+######### COG placement ########
+Section: cogs
+World cogs 91
+#Num	Script          Symbol values
+0:	example.cog	4 -1 -1 -1 8.000000 2.000000 0.500000 
+end
+################################
+
+##### Templates information ####
+Section: TEMPLATES
+World templates 210
+#Name:           Based On:        Params:
+_actor           none             orient=(0.000000/0.000000/0.000000) type=actor collide=1 move=physics thingflags=0x20000000 mass=150.000000 physflags=0x4a4f maxrotvel=200.000000 maxvel=1.000000 health=40.00 maxhealth=40.00 maxrotthrust=180.00 jumpspeed=1.50 eyeoffset=(0.000000/0.000000/0.037000) minheadpitch=-80.00 maxheadpitch=80.00 lightoffset=(0.000000/0.070000/0.040000) lightintensity=0.80 
+walkplayer       _actor           type=player thingflags=0x20000401 light=0.200000 model3d=ky.3do size=0.065000 movesize=0.065000 puppet=ky.pup soundclass=ky.snd cog=kyle.cog surfdrag=3.000000 airdrag=0.500000 staticdrag=0.300000 health=100.00 maxhealth=100.00 maxthrust=2.00 typeflags=0x1 error=0.50 fov=0.71 chance=1.00 
+end
+################################
+
+######## Thing placement #######
+Section: Things
+World things 552
+#num template:       name:         	X:		Y:		Z:		Pitch:		Yaw:		Roll:		Sector:
+  0: walkplayer      walkplayer     	-10.443433	-5.455094	-1.129886	0.000000	-59.994259	0.000000	339	
+end
+################################
+</pre>
+
+You can see that each section begins with <i>Section: name</i> and ends with <i>end</i>. The line directly under the section name tells JK how many things
+will be in the list (e.g., <i>world things 552</i>). In this example, all of the world counts haven't been changed, but in a real JKL, the world count must match
+(or exceed for some sections) the number of items in the list below.
+<p>
+In the cog section, the example cog has a list of numbers after it. These numbers are variables that the level is giving to the cog. Most level cogs are fairly generic
+- they'll work with any level, but they need a few key variables. Let's say you're adding an elevator cog to your level. The cog will need to know the thing number
+(the number of the thing in the thing section) of the elevator, how quickly you want the elevator to move, how many stopping points the elevator will have, and
+other things like that. Level cogs will leave these variables open for the level to define. And by listing these values after the cogs definition, the level is assigning
+values to the variables left open for it. In the next chapter, when you see how the cog leaves these variables open, it should make more sense.
+<P>
+The world things number is important to us because it is the limit on how many things we can create in the level. The most the thing limit should be is 600 -
+going over that is usually unstable.
+<P>
+The static.jkl is short enough that nothing has to be abbreviated, so we'll review it as it is:
+
+<pre style="font: 7pt courier new">
+#********** World file D:\jedi\Products\JK\Release\Jkl\static.jkl ***** Created 10/30/1996 6:32pm **********
+
+#### Copyright information #####
+SECTION: COPYRIGHT
+................................
+................@...@...@...@...
+.............@...@..@..@...@....
+................@.@.@.@.@.@.....
+@@@@@@@@......@...........@.....
+@@@@@@@@....@@......@@@....@....
+@@.....@.....@......@@@.....@@..
+@@.@@@@@......@.....@@@......@@.
+@@@@@@@@.......@....@@.....@@...
+@@@@@@@@.........@@@@@@@@@@.....
+@@@@@@@@..........@@@@@@........
+@@.....@..........@@@@@.........
+@@.@@@@@.........@@@@@@.........
+@@.....@.........@@@@@@.........
+@@@@@@@@.........@@@@@@.........
+@@@@@@@@.........@@@@@@@........
+@@@...@@.........@@@@@@@........
+@@.@@@.@.........@.....@........
+@@..@..@........@.......@.......
+@@@@@@@@........@.......@.......
+@@@@@@@@.......@........@.......
+@@..@@@@.......@........@.......
+@@@@..@@......@.........@.......
+@@@@.@.@......@.........@.......
+@@....@@........................
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@.@@@@@@@@@@@@@@@@@@
+@@.@@..@@@@@..@@@@@@@@@@.@@@@@@@
+@@.@.@.@@@@.@.@@@.@..@@...@@@..@
+@@..@@@@@@....@@@..@@@@@.@@@@.@@
+@@@@@@@@...@@.@@@.@@@@@..@@...@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@.copyright.(c).1997.lucasarts.@
+@@@@@@..entertainment.co..@@@@@@
+################################
+
+
+###### Header information ######
+SECTION: HEADER
+# version and global constant settings
+Version 1
+World Gravity 4.00
+Ceiling Sky Z    3.000000
+Horizon Distance 100.000000
+Horizon Pixels per Rev 768.000000
+Horizon Sky Offset   0.000000 0.000000
+Ceiling Sky Offset   0.000000 0.000000
+MipMap Distances	1.000000	2.000000	3.000000	4.000000
+LOD Distances		0.300000	0.600000	0.900000	1.200000
+Perspective distance 2.00
+Gouraud distance 2.00
+################################
+
+
+###### Sound information  ######
+SECTION: SOUNDS
+World sounds 60
+end
+################################
+
+
+##### Material information #####
+SECTION: MATERIALS
+World materials 160
+end
+################################
+
+
+Section: Soundclass
+World soundclasses 1
+0:	ky.snd
+end
+
+###### Models information ######
+Section: MODELS
+
+World models 32
+
+0:	bryv.3do
+1:	bryg.3do
+2:	sabv.3do
+3:	sabg.3do
+4:	rldv.3do
+5;	rldg.3do
+6:	conv.3do
+7:	cong.3do
+8:	strv.3do
+9:	strg.3do
+10: rptv.3do
+11: rptg.3do
+12: detv.3do
+13: detg.3do
+14: seqv.3do
+15: seqg.3do
+16: fistv.3do
+17: fistg.3do
+18: bowv.3do
+19: bowg.3do
+20: ky.3do
+21: bry0.3do
+22: con0.3do
+23: dflt.3do
+24: rep0.3do
+25: det0.3do
+26: seqp.3do
+27: rld0.3do
+end
+################################
+
+
+###### Sprite information ######
+Section: SPRITES
+
+World sprites 20
+0: bryx.spr
+1: detx.spr
+2: bowx2.spr
+3: bowx.spr
+4: rptx.spr
+5: seqx2.spr
+6: debrisx.spr
+7: rldx.spr
+8: conx.spr
+end
+################################
+
+
+##### Keyframe information #####
+Section: KEYFRAMES
+
+World keyframes 128
+end
+################################
+
+
+###### Animation Classes #######
+Section: ANIMCLASS
+
+World puppets 16
+0:	ky.pup
+end
+################################
+
+
+########## COG scripts #########
+Section: cogscripts
+World scripts 50
+end
+################################
+
+
+######### COG placement ########
+Section: cogs
+World cogs 50
+#Num	Script          Symbol values
+end
+################################
+</pre>
+
+Notice that the static.jkl is missing a lot of sections. That's because the static.jkl was originally intended to load only the standard resources
+that every level would use.
+<P>
+The great thing about this file is that we can add a template section to it. We can also add cogs and some of the other resource
+files. This allows us to load resources and templates for a patch without having to change the level JKL.
+<p>
+<a href="templates.html">Continue</a>
+<p>
+<hr></body></html>

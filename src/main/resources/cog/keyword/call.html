@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>call</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css"></HEAD><BODY>
+<H2>call</H2><HR>
+Call is used to manually run a message. Syntax:
+<P>
+<CODE>call newmsg;</CODE>
+<P>
+Call is the only way to run custom messages. Call can be used to loop messages,
+but it can loop a message no more than five times. Example:
+<PRE class=code style="margin-bottom:0">
+activated:
+     Print("Activated");
+     call activated;
+
+Return;
+</PRE>
+<HR></BODY></HTML>

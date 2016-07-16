@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Multiplayer Verbs</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Multiplayer Verbs</H2><HR>
+
+<A name=pack><H4 style="margin-top:0">The Backpack System</H4></A>
+
+A backpack is a special powerup that usually contains the weapons and ammo of a dead
+player. Backpacks are created with <A href="createbackpack.html">CreateBackpack()</A>.
+This verb will add all items whose inventory bin has the 0x80
+<A href="../../../flags/inventory/inventory_frame.html" target="main">Inventory Flag</A> to the backpack.
+<P>
+<A href="pickupbackpack.html">PickupBackpack()</A> is used to add all of the items in the
+backpack to a player's inventory. But PickupBackpack() was probably created to replace a
+more complicated system using the NthBackpack verbs. Should you want to use those
+obsolete verbs, or just learn the system, here's a chart showing how they work:
+<P>
+<TABLE class=small align=center width=70% bgcolor=silver cellpadding=3 border=1>
+<TR><TH colspan=4>Item Storage In A Backpack</TH></TR>
+<TR><TH>Item Number</TH><TH>Bin</TH><TH>Amount</TH><TH>This would be:</TH></TR>
+<TR><TD>1</TD><TD>2</TD><TD>1</TD><TD class=left>Bryar.</TD></TR>
+<TR><TD>2</TD><TD>7</TD><TD>1</TD><TD class=left>Rail Detonator.</TD></TR>
+<TR><TD>3</TD><TD>10</TD><TD>1</TD><TD class=left>Lightsaber.</TD></TR>
+<TR><TD>4</TD><TD>11</TD><TD>50</TD><TD class=left>Energy ammo.</TD></TR>
+<TR><TD>5</TD><TD>15</TD><TD>6</TD><TD class=left>Rail charges.</TD></TR>
+</TABLE>
+<P>
+The number of items in a backpack is returned by <A href="numbackpackitems.html">NumBackpackItems()</A>.
+Once you know how many items are in a backpack, how do you find out what they are?
+<A href="nthbackpackbin.html">NthBackpackBin()</A> will return the bin ID of an item. And once you have the
+bin number, you can find out how much is in the bin with <A href="nthbackpackvalue.html">NthBackpackValue()</A>.
+This verb returns the amount of the given item.
+
+<A name=team><H4>Team System</H4></A>
+
+When teamplay is used in a normal multiplayer game, four teams can be used: red, yellow, blue, and green.
+When teamplay is not checked, all players will have a team of 0 which cannot be changed. Remember that
+whether teamplay is on or not, players always have a team.
+
+<A name=team><H4>Sync Verbs</H4></A>
+
+The Sync Verbs are used to synchronize information on one computer with the other computers
+in a multiplayer game. This is mostly done for joining players to sync effects created before
+they joined.
+<P>
+Once a Sync Verb has been run in a cog, it will run automatically when another player joins to sync
+the effect again for another joining player.
+
+<BR><HR></BODY></HTML>

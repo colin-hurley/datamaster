@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>PathMovePause</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>PathMovePause</H2><HR>
+Makes a path-controlled object pause as it moves or skips to a frame position. You cannot
+move or skip an object while it is paused. To make the object resume its movement, use <A href="pathmoveresume.html">PathMoveResume()</A>.
+Syntax:
+<P>
+<CODE>PathMovePause(object);</CODE>
+<P>
+If the object is not moving, PathMovePause() will have no effect. Also, <A href="jumptoframe.html">JumpToFrame()</A> will not be affected by
+PathMovePause().
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="pathmoveresume.html">PathMoveResume()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

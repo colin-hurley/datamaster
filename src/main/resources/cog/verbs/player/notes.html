@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Player Verbs</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Player Verbs</H2><HR>
+
+<A name=index><H4 style="margin-top:0">Player Index</H4></A>
+
+All players in a game, whether SP or MP, have an <EM>index number</EM>. The following table
+shows how index numbers are assigned.
+<P>
+<TABLE class=small align=center width="50%" bgcolor=silver cellpadding=3 border=1>
+<TR><TH colspan=4>Index Number Assignment</TH></TR>
+<TR><TH width="30%">Number</TH><TH width=*>Player</TH></TR>
+<TR><TD>0</TD><TD class=left>Host or SP player.</TD></TR>
+<TR><TD>1</TD><TD class=left>First player to join.</TD></TR>
+<TR><TD>2</TD><TD class=left>Second joiner</TD></TR>
+<TR><TD>3</TD><TD class=left>Third joiner</TD></TR>
+<TR><TD>etc.</TD><TD class=left>etc.</TD></TR>
+</TABLE>
+<P>
+<A href="getplayernum.html">GetPlayerNum()</A> takes the player's thing number and returns his index number.
+<A href="getplayerthing.html">GetPlayerThing()</A> takes the index number and returns the thing number of a player.
+
+<A name=align><H4>Player's Alignment</H4></A>
+
+Until the SP player reaches a level of type DECIDE in an episode, he won't have made the choice between
+the light and dark sides. When the player reaches the decision screen, the engine looks at the
+player's alignment bin (#75) to determine if the player has been good or bad in the levels.
+<P>
+If the player has been bad (killed a lot of civvies and chosen dark powers), he will be "seduced by the dark side"
+and go the the appropriate dark side levels (as defined in the episode.jk of the episode).
+<P>
+If the player has been good to civvies and chosen light powers, he'll go to the light side - and play the light side
+levels. <A href="jkgetchoice.html">jkGetChoice()</A> returns 0 before the DECIDE level, and afterwards returns 1 if the player joins the light side,
+or 2 if he joins the dark side.
+<P>
+When a pedestrian is created in the game, bin 73 (peds_total) is upped one. And when one
+of these peds dies, bin 72 (peds_killed) is incremented. Now when the player finishes the level,
+the engine calculates the player's alignment based on total peds and peds killed. The engine then stores
+this alignment value in bin 75.
+<P>
+If the alignment is positive, the player favors the light side; if the alignment
+value is negative the player favors the dark side. This alignment value is what the engine looks at
+when the player reaches the decision screen (the DECIDE level).
+
+<A name=goals><H4>Goals and their Flags</H4></A>
+
+Goals, also called objectives, serve no purpose in gameplay except to be displayed in the objectives
+window. The verbs that manipulate these goals are <A href="setgoalflags.html">SetGoalFlags()</A>
+and <A href="cleargoalflags.html">ClearGoalFlags()</A>. Each goal can have <A href="../../../flags/goal.html" target="main">Goal Flags</A>
+assigned to it which tell the engine how to display the goal. Goals numbers start at zero, so the first
+goal has a number of 0 and is called goal 0.
+<P>
+In the Episode's .gob file, there is a misc folder that contains cogstrings.uni. Among other things, cogstrings
+contains the text to be displayed for each level's goals. A typical goal description in cogstrings looks like this:
+<P>
+<PRE class=exam>"GOAL_01000"  0  "Find 8t88 before he escapes with your father's data disc."   # Goal 0</PRE>
+<P>
+Goals numbers must begin at the string offset of a level - it is 1000 in the example. By convention, the first level in an Episode
+has a string offset of 1000, the second level has 2000, the third 3000, etc. If there were another goal in the above example,
+it would have a number of 1001, and the next goal would have 1002, and so on. Remember to update the message count
+at the top of cogstrings when you add new goals.
+<P>
+The string offset of a level is stored in bin 99 of the items.dat. So you would use SetInv(player, 99, 1000); to set
+the string offset for the first level.
+<P>
+You may wonder why the GoalFlags verbs have the player as a parameter. At first, it seems that goals belong
+more to the level than the player. But the truth is that the GoalFlags verbs are only setting inventory bins.
+They need the player's number to access his inventory. Bins 100 to 115 contain the flags that the goals
+are to be displayed with. And yes, you can use regular inventory verbs (like <A href="../inventory/setinv.html">SetInv()</A>) with these bins. Just
+remember that you're working with hexadecimal numbers.
+<P>
+Note that there is no way to retrieve the Goal Flags of a goal with the GoalFlags verbs. But you can use <A href="../inventory/getinv.html">GetInv()</A>
+to retrieve these flags:
+<P>
+<SPAN class=return>flags</SPAN>=<CODE>GetInv(player, 100 + goal_num);</CODE>
+
+<A name=handle><H4>A Handle on the Player</H4></A>
+
+A handle, in editing terms, is the number of something (just about everything is numbered). In SP, it's simple to get
+a handle on the player; use <A href="getlocalplayerthing.html">GetLocalPlayerThing()</A> or
+or <A href="getplayerthing.html">GetPlayerThing(0)</A>. But in multiplayer, when there's more than one player, the problem becomes more difficult.
+Remember that GetLocalPlayerThing(), when run on different machines, will return the different local players; this is often forgotten and is a common
+multiplayer bug.
+<P>
+To get the value of the player that you want, you'll have to decide how he relates to the situation. Here's a few examples:
+<P>
+<UL>
+<LI>Suppose that a player has fired a raildet. And you need to find who fired it in the created message of the raildet's template cog
+(which is 00_smoketrail). Of course, GetLocalPlayerThing() will not work. And there's no sourceref for the created message.
+<P>
+But because the player who fired the raildet will be its <A href="../thingprop/notes.html#parent">parent</A>, you can use
+<A href="../thingprop/getthingparent.html">GetThingParent(raildet)</A> to return the player who fired the raildet (the sender
+of created will be the raildet).
+<P>
+<LI>In another case, suppose you need to get the thing number of the host. GetPlayerThing() is very handy for this purpose.
+Simply use GetPlayerThing(0) to return the thing number of the host.
+<P>
+<LI>Say you need to find which player activated a hotkey in the activated message of the hotkey's cog. Now because the local
+player must have activated the hotkey (you can't activate other people's hotkeys over the 'net), you can use GetLocalPlayerThing()
+to return the player who pressed the hotkey. The soureref of activated is also the player who pressed the key.
+</UL>
+<P>
+One of the most common mistakes new editors make is to assume that <A href="../message/getsourceref.html">GetSourceRef()</A>
+returns the value of a player. The sourceref is a property of a message. GetSourceRef() will return different things depending in what
+message it was run. The message descriptions list the source and sender of each message.
+<HR></BODY></HTML>

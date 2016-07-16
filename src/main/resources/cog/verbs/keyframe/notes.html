@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Keyframes</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Keyframes</H2><HR>
+In this text, the term <EM>keyframe</EM> or <EM>key</EM> will be used to refer to the .key file or the variable that is assigned to it. An
+<EM>animation</EM> refers to the keyframe when it is being played on a thing.
+
+<A name=how><H4>How Animations Work</H4></A>
+
+A keyframe is a collection of frames that mark the position of each part of a 3do. When a keyframe is played, the parts of
+a 3do are moved to their respective positions in first frame, then the second, and so on.
+<P>
+Animations can be combined. The engine looks at the animation's priority and combines the animations giving the higher-priority animations more
+control over the parts of the model that they use. Puppet files use a low to high priority that ranges from 0 to 5, but using a
+priority as high as three will block out other animations and any higher will not normally be noticed.
+<P>
+JK will not let you play more than four animations simultaneously, and it reserves at least one of them for animations such as walking,
+running, standing, etc.
+
+<A name=mmodes><H4>Puppet Major Modes</H4></A>
+
+<P>
+Puppet files (.pup) contain a listing of keyframes that are played when certain events happen to a thing. A puppet has six (0-5) modes -
+also called major modes. This table explains their use:
+<P>
+<TABLE class=small bgcolor=silver cellpadding=3 border=1 width=100%>
+<TR><TH width=10%>Mode</TH><TH width=*>Purpose</TH></TR>
+<TR><TD>0</TD><TD class=left>Default. Used for fists, detonators, and other modes are usually based on it.</TD></TR>
+<TR><TD>1</TD><TD class=left>Aimed Weapon. This mode is used for guns.</TD></TR>
+<TR><TD>2</TD><TD class=left>Saber. This mode is used when the creature is armed with a saber.</TD></TR>
+<TR><TD>3</TD><TD class=left>Swimming. This mode is used when the creature has fists or detonators and is in water.</TD></TR>
+<TR><TD>4</TD><TD class=left>Gun Swimming. This mode is used when the creature is swimming with a gun.</TD></TR>
+<TR><TD>5</TD><TD class=left>Saber Swimming. This mode is used when the creature is swimming with a saber.</TD></TR>
+</TABLE>
+<P>
+A Major Mode redefines the keyframes of the thing for certain actions that need to be changed. Puppets also define the flags and priority
+of the animation. <A href="playmode.html">PlayMode()</A> and <A href="../weapon/fireprojectile.html">FireProjectile()</A> both play a keyframe
+that is already listed in the puppet.
+<P>
+Each keyframe in the .pup has a number. This is called the submode number. Keyframes are not listed in order of their submode number,
+but in ky.pup, a comment beside each key lists its number. Refer to the <A href="submodes.html">Submode Listing</A>.
+
+<A name=symbolkey><H4>Keyframe Symbols</H4></A>
+
+You cannot directly reference a keyframe file when you need to play it. Keyframes, like ai and model files, must be loaded and assigned
+to a variable first. Then use the variable where you need a reference to the file. So have something like this in the symbols section:
+<PRE class=exam>keyframe     yourName=yourKey.key     local</PRE>
+And then in the code section, use your variable:
+<PRE class=exam>PlayKey(player, yourName, 1, 0x38);</PRE>
+You can also use <A href="../system/loadkeyframe.html">LoadKeyframe()</A> to return a keyframe reference.
+<BR><HR></BODY></HTML>

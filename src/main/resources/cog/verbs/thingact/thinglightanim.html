@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>ThingLightAnim</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>ThingLightAnim</H2><HR>
+Animates a thing's lighting. When the animation begins, the thing's light will be set to the min_light. Then the thing's light will
+gradually change to the max_light during the fade_time. When the light reaches the maximum, it returns to the minimum and
+continues the cycle. Use <A href="../animcel/stopanim.html">StopAnim()</A> to stop Thing Light Animations. Syntax:
+<P>
+<SPAN class=return>animID</SPAN>=<CODE>ThingLightAnim(thing, min_light, max_light, fade_time);</CODE>
+<P>
+<SPAN class=param>min_light:</SPAN> This is the minimum light that the thing will have during the animation.
+<P>
+<SPAN class=param>max_light:</SPAN> This is the maximum light that the thing will have.
+<P>
+<SPAN class=param>fade_time:</SPAN> This is the time in seconds that it takes for the light to fade from one light value to the other.
+<P>
+This verb is similar to <A href="../animcel/surfacelightanim.html">SurfaceLightAnim()</A>, but ThingLightAnim() does
+repeat while SurfaceLightAnim() does not.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../animcel/stopanim.html">StopAnim()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="../thingprop/setthinglight.html">SetThingLight()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>GetPrimaryFocus</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>GetPrimaryFocus</H2><HR>
+Returns the thing that the given camera is looking at. It seems that LEC originally intended
+this verb to get the focus of the internal view, but later extended GetPrimaryFocus() to cover both cameras and did
+away with <A href="getsecondaryfocus.html">GetSecondaryFocus()</A>.
+<P>
+Make cam_int 1 to return the focus_object of the external camera or 0 to return the focus_object of the internal
+camera. Syntax:
+<P>
+<SPAN class=return>focus_object</SPAN>=<CODE>GetPrimaryFocus(cam_int);</CODE>
+<P>
+<FORM name="relform" class=rel><SELECT name="selection" size=1>
+<OPTION value="">Related:
+<OPTION value="setcamerafocus.html">SetCameraFocus()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()"></FORM>
+<HR></BODY></HTML>

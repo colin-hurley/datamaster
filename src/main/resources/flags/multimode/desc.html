@@ -1,0 +1,26 @@
+<HTML><HEAD><TITLE>MP Mode Flags Description</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>MP Mode Flags</H2><HR>
+
+Multiplayer Mode Flags control the functions of a game related to multiplayer. These flags
+are heavily relied on by the CTF system and may have been created expressly for CTF
+gameplay.
+<P>
+Some of these mode flags have their limitations - such as having to be set
+on startup or not being changeable at all. But if not mentioned otherwise, JK will look
+at these flags when the related event occurs. So you can set and clear the flag
+ingame.
+
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Verbs Used:
+	<OPTION value="../../cog/verbs/multiplayer/clearmultimodeflags.html">ClearMultiModeFlags()
+	<OPTION value="../../cog/verbs/multiplayer/getmultimodeflags.html">GetMultiModeFlags()
+	<OPTION value="../../cog/verbs/multiplayer/setmultimodeflags.html">SetMultiModeFlags()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR><BODY></HTML>

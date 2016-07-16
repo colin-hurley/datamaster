@@ -1,0 +1,12 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Frame Verbs</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Frame Verbs</H2><HR>
+A path-controlled object moves along a set path. The points that mark the path are called frames. These frames are positions + orientations
+that are set in the Things Section of a .jkl file. Objects can move from one frame to another instantly or at a given speed depending on what
+verb is used.
+<P>
+An object's frames are defined in its entry in the Things Section of a level file. The parameter, <SPAN class=temp>numframes=x</SPAN>, specifies
+the number of frames the object will have. The actual frames are defined with <SPAN class=temp>frame=(x/y/z:p/y/r)</SPAN> - where
+<SPAN class=exam>x/y/z</SPAN> is the position and <SPAN class=exam>p/y/r</SPAN> is the pitch, yaw, and roll
+that the object will have at that frame. The position is measured in JKUs, and the orientation in degrees.
+<HR></BODY></HTML>

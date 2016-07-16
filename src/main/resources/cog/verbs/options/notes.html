@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Option Verbs</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Option Verbs</H2><HR>
+<A name=verbs><H4 style="margin-top:0">"Automatic" Option Verbs</H4></A>
+
+In the gameplay options menu, there are two columns for three groups of settings. One column is for SP and the other for MP.
+The three groups are "Automatic Pickup Weapon," "Automatic Switch Weapon," and "Automatic Reload Weapon" respectively.
+<P>
+The Pickup and Switch settings can be accessed through cog as sets of flags. The SetAuto verbs <EM>do not</EM> act like
+normal verbs that set flags. Most flag verbs only add flags, but the SetAuto verbs set the total flags.
+<P>
+For example, if you use SetAutoReload(player, 0x8), the 4th Weapon Pickup<SUP>1</SUP> checkbox will be checked, and the
+other three will be unchecked no matter what they were before.
+<P>
+Because the SetAuto verbs don't work correctly, there is no known way to set the Reload Weapon options. There's
+a seperate column of checkboxes for the SP and MP options. The option verbs will use the appropriate column depending whether the
+game is SP or MP.
+<P>
+Unless the player opens up the gameplay options and saves them, the settings changed by the SetAuto verbs will not be saved
+when the game is exited.
+<HR>
+<SUP>1</SUP>No error there. Despite the verb's name, <A href="setautoreload.html">SetAutoReload()</A> really sets the Weapon Pickup options.
+<HR></BODY></HTML>

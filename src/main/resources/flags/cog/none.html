@@ -1,0 +1,22 @@
+<HTML><HEAD><TITLE>No Flags</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>No Flags</H2><HR>
+
+When a cog has no flags, not even the default flags given to item and class cogs, it will
+have these multiplayer characteristics:
+<P>
+Server only / Forwarded event messages: The cog will forward event messages to the server. Messages
+that are sent to all cogs on a client computer (such as startup) will not be forwarded - they will still be
+handled locally. But messages like damaged, entered, and created will be sent to the server to
+be handled.
+<P>
+Some events, such as created, occur on all computers in a game (global events), but when clients forward
+this event message to the server, the server will only see it as one message. And the created event
+need not occur on the server's computer for him to recognize the forwarded message.
+<P>
+Synced effects: Normally, a cog will broadcast information to the other computers
+in a game to sync certain events - like the creation of a thing. But note that not all events are meant
+to be synced or work on other players' computers.
+
+<HR><BODY></HTML>

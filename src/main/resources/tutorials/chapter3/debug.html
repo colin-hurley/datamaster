@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Debugging</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head>
+<body onLoad="top.main.chapter.document.form.select3.selectedIndex = 5;" onUnload="top.main.chapter.document.form.select3.selectedIndex = 0;">
+
+<H2 style="margin-bottom:0">Debugging</h2><hr>
+
+In this tutorial, we're going to go over the basic decision process of debugging something you've written.
+Once you get used to it, this will all seem pretty easy, but it takes most editors a while to learn how to
+debug their code. Too many beginners go straight to a message board or chat room because they
+don't know how to debug properly.
+
+<h4>Print Verbs</h4>
+
+The print verbs that JK provides are probably the most helpful debugging tool. If you've just typed out
+a small cog and nothing's happening in the game (definitely the most common problem you'll face), put
+a print statement in the startup handler to make sure your cog is actually running. Remember that you'll
+need to use a sleep of about two seconds depending on how long your machine takes to start the game
+after startup.
+<p>
+Although Print() is the most common, there's a ton of <a href="../../cog/verbs/print/print_frame.html">Print Verbs</a>
+available to you. These verbs are pretty self exaplanatory, so I don't want to write a tutorial just for them, but
+they are very useful for debugging so I'll squeeze them in here.
+<p>
+<i>Concatenation</i> means to link or join together IRL. In programming, concatenation (or just concat for short)
+is the term we use to describe adding strings together. In some languages, the '+' operator is overloaded (given
+another purpose) to concatenate strings. So you'd be able to write: <code>stringVar = 'word1' + 'word2';</code>
+And stringVar would have a value of "word1word2".
+<p>
+But we're not that fortuneate with Cog. Instead, we're given the same functionality with the concat verbs. JK keeps
+a string set aside in its memory for use with these verbs. And this string is not cleared unless you clear it. So the
+first thing you do when you concat strings is to clear whatever was left over from the last concat operation. To do
+that, we use JKStringClear().
+<p>
+We can concat ASCII strings, flexes, ints, players' names, UNI strings, spaces, and vectors - we're given a lot
+of flexibility. Concatting (author's terminology, not to be repeated. :) ASCII (think of this as a simple computer alphabet)
+strings are entered as strings, e.g., <code>JKStringConcatASCIIString("yourTextHere");</code>
+<p>
+For flexes and integers, you can either concat them the same way the regular print verbs display them, or you can
+use the ConcatFormatted verbs which allow you to use format specifiers - these give you a lot of options for
+customizing how the numbers will appear. Format specifiers aren't part of Cog, but of Visual C++. The <a href="../../cog/verbs/print/print_frame.html">Print Verbs</a>
+notes includes a complete description of the specifiers that Cog can use. The best use of these specifiers is to
+output numbers in hexadecimal - very useful for checking flags.
+<p>
+The Concat verbs are the only way to retreive a player's name, but there's not much you can do with it except
+to print it. This isn't helpful for debugging - just for displaying scores. Concatting a UNI string is pretty useless because
+there's already a UNI print verb, and there's not any reason to want to concat a predefined string.
+<p>
+Concatting a space is also pretty useless because you can do that with the ConcatASCII verb. Concatting a vector
+is very usefull for debugging when you need to look at several vectors at once. If you just printed them out, they'd
+all appear in the same column and you wouldn't be able to tell them apart. But with the concat verbs, you can print
+as many as you need in one line.
+
+<h4>Results of Print</h4>
+
+So your cog's not working right, and you've just tried putting a print in the startup handler. If nothing printed (and you had
+a sleep of at least two seconds), then first make sure you correctly declared the startup message. If that's there,
+then you need to make sure that your cog is being loaded. If your cog is correctly listed in either the items.dat or the cogs
+section of a JKL, then you must have a syntax error.
+<p>
+The most common syntax error is a missing semicolon somwhere in your cog. Or maybe you've got a missing code or end
+keyword. Sometimes the error will be subtle - like having spaces in the flags assignment - the cog looks fine, but when JK
+parsed (read through) the cog, it found something it didn't expect and this caused it to read in garbage.
+<p>
+Now if the print did work, then you know the cog is being loaded and your syntax is (for the most part) correct. If you ever
+see the print appear twice, then your cog is being loaded twice - check for duplicate entries.
+<p>
+Once you're done with that basic troubleshooting step, how to proceed depends on your situation. Say you have a certain
+message handler that's not running. You've put a print in that handler but nothing's printing. It's probably an event message
+for an event that's not occuring (or the cog is not associated with the object(s) it happened to).
+<p>
+If you know for a fact that
+the event did occur to an associated object, then the cog may be blocked from receiving that message. Mask flags are the
+most common cause (the defaults are very restrictive). In a class or inventory cog, you can do nothing; the only way to change mask flags is to use a level
+cog and the mask symbol extension to allow any sourceref for that event message.
+<p>
+They key to effectively solving problems with portions of your code not working, is to start by putting print commands at
+startup and work down to where the problem is. Once you find the point of no return in your code, check the surrounding
+syntax - you might have missed something easy like a semicolon right after an if statement. If it's not obvious then check
+your references for any comments on the verbs or keywords you're using. If you have questions about a verb or its syntax,
+most of the time it's a common enough question to be in a reference somewhere.
+
+<h4>Flow Control Errors</h4>
+
+<i>Flow control</i> is a phrase that programmers use to describe how code execution flows down through your code.
+Sleeps, Calls, Pulses, Loops, and If-else statements are all methods to allow programmers to change the normal top-down flow control of
+a program or script. Normally, an event is received by a cog and code execution starts right after the label and ends when the
+return command is given.
+<p>
+A Sleep() pauses code execution, but it's a lot more complicated than that because JK has to remember where it stopped
+in the code and what it was doing at the time. In the Threads tutorial, this is gone over in a lot more depth, but basically
+you have a limit on how many sleeps you can have simultaneously. Putting a sleep in a pulse handler (which is always
+a bad idea) where the sleep is longer than the pulse interval will result in what the author will call a thread overflow -
+basically JK is trying to run the pulse handler, but it already has so many paused code executions in memory that it has
+no more room to create more. Timers do not have this problem and should be used instead of sleeps if possible.
+<p>
+Calls are similar to sleeps in that current code execution is paused while JK calls on another handler. If you nest one call
+inside another so many times that you hit the thread limit, the oldest thread will be deleted. So code execution will never
+resume in the handler that made the first call.
+<p>
+Loops, in all their different forms, have a block of code that's run, and a condition that's evaluated to see if that code
+should be run again. If the condition is true, then the flow of code execution resumes at the beginning of the loop's
+code block or statement.
+<p>
+If statements, especially ones that are deeply nested with elses, can also be a source of errors if you don't use proper
+indentation. Flow control can be difficult to imagine as you're reading your code if you can't clearly see which
+else belongs to which if.
+<p>
+To avoid errors like these, try to keep in mind how JK will read through your code and make decisions instead of just
+how the code reads to you. Some operations that seem simple to read might have a lot of hidden overhead that JK nicely
+hides from us.
+
+<p>
+<a href="multiplayer.html">Continue</a>
+<p>
+
+<hr></body></html>

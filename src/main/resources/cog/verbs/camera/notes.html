@@ -1,0 +1,13 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Camera Verbs</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Camera Verbs</H2><HR>
+<A name=crash><H4 style="margin-top:0">Crashing</H4></A>
+One of the most common things that crashes JK is when the object of focus for a camera is removed
+from the game. Keep in mind that you can reset the camera with the removed message in a thing's cog.
+So if you set a camera to watch a projectile, you can safely set the camera back to the player when
+the <A href="../../message/removed.html">removed</A> message is called and not have to worry about instability or crashing.
+<P>
+Also, JK will only crash if you are using the view that no longer has an object. If you set the internal
+camera to watch an object that is about to be removed and you are using the external camera, JK will
+not crash when the object is removed. But switch to internal, and JK crashes.
+<HR></BODY></HTML>

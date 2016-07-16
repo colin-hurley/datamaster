@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SetPulse</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SetPulse</H2><HR>
+Calls the <A href="../../message/pulse.html">pulse</A> message after the delay has elapsed. After the pulse message runs, it will be called again after the delay ends.
+The message will continue to "pulse" until it is stopped. Syntax:
+<P>
+<CODE>SetPulse(flex_delay);</CODE>
+<P>
+To stop the pulse, use:
+<P>
+<CODE>SetPulse(0);</CODE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../../message/pulse.html">Pulse
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="settimer.html">SetTimer()
+	<OPTION value="settimerex.html">SetTimerEx()
+	<OPTION value="setthingpulse.html">SetThingPulse()
+	<OPTION value="setthingtimer.html">SetThingTimer()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

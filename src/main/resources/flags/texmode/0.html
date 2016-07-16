@@ -1,0 +1,17 @@
+<HTML><HEAD><TITLE>Texture Mode 0</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>Texture Mode 0</H2><HR>
+
+With affine texturing, there is no consideration for a surface's depth. In reality, each
+vertex of a surface is more or less distant from a viewpoint than another. But with affine
+texturing, the whole surface is rendered as if all points were the same distance from the
+viewpoint. The surfaces are textured as if they directly faced the player.
+<P>
+This is something like the rendering of sprites. With affine texturing, surfaces appear
+to bulge because the textures don't seem to follow the contour of the surfaces that use them.
+<P>
+Affine texturing cannot be used with 3d acceleration. JK will always use perspective texturing
+when this setting is enabled.
+
+<HR><BODY></HTML>

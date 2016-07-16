@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SetCurrentCamera</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SetCurrentCamera</H2>
+<HR>
+Changes the player's view from the current camera to the given camera. Make cam_int 1 for external view or
+0 for the internal view. JK will not recognize that the camera has been switched when you use SetCurrentCamera().<SUP>1</SUP>
+Syntax:
+<P>
+<SPAN class=code>SetCurrentCamera(cam_int);</SPAN>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="getcurrentcamera.html">GetCurrentCamera()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="cyclecamera.html">CycleCamera()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR><SUP>1</SUP>Say you switched the camera from internal to external with SetCurrentCamera(). When you press F1 to change
+the view, JK will print "external" and reset the view to external because it did not recognize that the camera had been switched.
+<A href="cyclecamera.html">CycleCamera()</A> does not have this problem.
+<HR></BODY></HTML>

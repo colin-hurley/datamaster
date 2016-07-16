@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>CreateThingAtPos</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>CreateThingAtPos</H2><HR>
+Creates a thing at a position. If the template's model has an insert offset, then that offset will be added to the position. Syntax:
+<P>
+<SPAN class=return>new_thing</SPAN>=<CODE>CreateThingAtPos(template, sector, position, 'p y r');</CODE>
+<P>
+<SPAN class=param>sector:</SPAN> It is important to give the thing the correct sector to avoid sector problems. Use
+the <A href="../../../tutorials/possector.html" target="main">Position's Sector</A> code from the Tutorial Section if you cannot get the sector.
+<P>
+<SPAN class=param>position:</SPAN> This is the position to create the thing at.
+<P>
+<SPAN class=param>'p y r':</SPAN> This is the pitch, yaw, and roll for the created thing's orientation. You can use
+a vector variable or the 'p y r' form.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="destroything.html">DestroyThing()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="creatething.html">CreateThing()
+	<OPTION value="createthingatposnr.html">CreateThingAtPosNR()
+	<OPTION value="createthingnr.html">CreateThingNR()
+	<OPTION value="../weapon/fireprojectile.html">FireProjectile()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

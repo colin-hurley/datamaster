@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>PlaySoundGlobal</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>PlaySoundGlobal</H2><HR>
+Plays a sound on all computers in an MP game. Syntax:
+<P>
+<SPAN class=return>channel</SPAN>=<CODE>PlaySoundGlobal(wav, flex_volume, flex_panning, flags);</CODE>
+<P>
+<SPAN class=param>wav:</SPAN> This is a reference to the wav file that you want to play. This can be a
+variable assigned to the wav in the symbols section or the reference returned by <A href="../system/loadsound.html">LoadSound()</A>.
+<P>
+<SPAN class=param>flex_volume:</SPAN> This is the 0-1 flex volume of the sound.
+<P>
+<SPAN class=param>flex_panning:</SPAN> This is the -1 to +1 flex panning for the sound.
+<P>
+<SPAN class=param>flags:</SPAN> These are the <A href="../../../flags/sound/sound_frame.html" target="main">Sound Flags</A>
+that the sound will be played with.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="stopsound.html">StopSound()
+	<OPTION value="notes.html#ampan">Panning
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="playsoundlocal.html">PlaySoundLocal()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

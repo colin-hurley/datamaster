@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>AmputateJoint</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>AmputateJoint</H2><HR>
+Removes part of a thing's model when given its joint number. Syntax:
+<P>
+<CODE>AmputateJoint(victim, joint_num);</CODE>
+<HR>
+<TABLE class=small align=center width=70% bgcolor=silver cellpadding=3 border=1>
+<TR><TH colspan=4>Standard Joint Numbers for Creatures</TH></TR>
+<TR><TH>Number</TH><TH>H. Node</TH><TH>Description</TH></TR>
+<TR><TD>0</TD><TD>15</TD><TD class=left>head</TD></TR>
+<TR><TD>1</TD><TD>16</TD><TD class=left>neck</TD></TR>
+<TR><TD>2</TD><TD>17</TD><TD class=left>torso</TD></TR>
+<TR><TD>3</TD><TD>12</TD><TD class=left>primary weapon fire</TD></TR>
+<TR><TD>4</TD><TD>12</TD><TD class=left>secondard weapon fire</TD></TR>
+<TR><TD>5</TD><TD>13</TD><TD class=left>primary weapon aiming joint</TD></TR>
+<TR><TD>6</TD><TD>7</TD><TD class=left>secondary weapon aiming joint</TD></TR>
+</TABLE>
+<HR>
+If you're not using a regular actor or player, here's how to find out what the joint number is: open up the puppet of your thing
+and scroll down to the bottom. There should be a section called <EM>joints</EM>. You'll see each joint number assigned to one
+of the 3do's heirarchy nodes.
+<P>
+There may be a comment beside the joint number to tell you what that node is for. If there's not, open the 3do of the thing with
+a text editor and scroll to the bottom. You'll see a list of heirarchy nodes. Look under the <EM>hnodename</EM> category and you'll
+see the specific mesh of the 3do that the node is assigned to.
+<P>
+The name of the mesh should explain what part of the 3do it is. If not, you could open the model with a 3do editor.
+<HR></BODY></HTML>

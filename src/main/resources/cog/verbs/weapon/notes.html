@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Weapon Verbs</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Weapon Verbs</H2><HR>
+
+<A name=model><H4 style="margin-top:0">Weapon Models</H4></A>
+
+Weapons use different models for internal (POV) and external camera views. The internal models are given special
+animation because normal animations do not affect the internal weapon model. The external weapon mesh attaches
+to the player's arm - the player's hand is part of the weapon model. The keyframes that animate the external models
+are listed in the player's puppet file. <A href="fireprojectile.html">FireProjectile()</A> and <A href="../keyframe/playmode.html">PlayMode()</A>
+are usually used to play these.
+<P>
+The 3do files for the weapon models are stored inside the Res2 gob in a 3do directory. There are usually three
+models for each gun. In the case of the bryar, the three are: bryg.3do, bryp.3do, and bryv.3do. They are used
+for the external weapon mesh, the gun's powerup, and the internal weapon model respectively.
+
+<A name=selmode><H4>Selection Modes</H4></A>
+
+<TABLE class=small align=center width=90% bgcolor=silver cellpadding=3 border=1>
+<TR><TH width=15%>Mode</TH><TH>Purpose</TH></TR>
+<TR><TD>-1</TD><TD class=left>Player is mounting the weapon.</TD></TR>
+<TR><TD>0</TD><TD class=left>Next / Prev Weapon keys query the weapon.</TD></TR>
+<TR><TD>1</TD><TD class=left>A miscellanious cog has queried for the best weapon.</TD></TR>
+<TR><TD>2</TD><TD class=left>A powerup cog has queried for the best weapon.</TD></TR>
+</TABLE>
+<P>
+These modes become the senderref of the autoselect message. Some weapons' <A href="../../message/autoselect.html">autoselect</A>
+messages use these modes to determine if they should return -1 or a priority number.
+
+<A name=amodes><H4>Armed Modes</H4></A>
+
+<TABLE class=small align=center width=60% bgcolor=silver cellpadding=3 border=1>
+<TR><TH width=30%>Mode</TH><TH>Use for:</TH></TR>
+<TR><TD>0</TD><TD class=left>Fists and detonators.</TD></TR>
+<TR><TD>1</TD><TD class=left>Aimed weapons.</TD></TR>
+<TR><TD>2</TD><TD class=left>The lightsaber.</TD></TR>
+</TABLE>
+<P>
+When the player is not in water, JK uses the Armed Mode as the player's Puppet Mode. And when the player enters water,
+JK adds three to the Armed Mode for the Puppet Mode. This Puppet Mode (AKA "Major Mode") is returned by
+<A href="../keyframe/getmajormode.html">GetMajorMode()</A>.
+
+<A name=prior><H4>Weapon Priorities</H4></A>
+
+These are the priority numbers that the original weapon cogs return in their <A href="../../message/autoselect.html">autoselect</A> messages
+when they are selectable.
+<P>
+<TABLE class=small align=center width=50% bgcolor=silver cellpadding=3 border=1>
+<TR><TH width=30%>Number</TH><TH class=left>Weapon</TH></TR>
+<TR><TD>100</TD><TD class=left>Fists.</TD></TR>
+<TR><TD>200</TD><TD class=left>Lightsaber.</TD></TR>
+<TR><TD>300</TD><TD class=left>Sequencer Charges.</TD></TR>
+<TR><TD>400</TD><TD class=left>Thermal Detonators.</TD></TR>
+<TR><TD>500</TD><TD class=left>Bryar.</TD></TR>
+<TR><TD>600</TD><TD class=left>Stormtrooper Rifle.</TD></TR>
+<TR><TD>700</TD><TD class=left>Crossbow.</TD></TR>
+<TR><TD>800</TD><TD class=left>Repeater.</TD></TR>
+<TR><TD>900</TD><TD class=left>Rail Detonator.</TD></TR>
+<TR><TD>1000</TD><TD class=left>Concussion Rifle.</TD></TR>
+</TABLE>
+<HR></BODY></HTML>

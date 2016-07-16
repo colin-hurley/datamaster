@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Timers & Pulses</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head>
+<body onLoad="top.main.chapter.document.form.select3.selectedIndex = 10;" onUnload="top.main.chapter.document.form.select3.selectedIndex = 0;">
+
+
+<H2 style="margin-bottom:0">Timers & Pulses</h2><hr>
+
+<h4>Introduction</h4>
+
+As you become familiar with Cog, you'll need to learn how to use timed code to create your effects at a later
+time than the present. With normal programming, this idea would never be considered - when an application needs
+to do something, it will perform the action as soon as it can. But with a virtual environment, you'll need delays in your
+code to make effects seem more natural or continuous.
+<p>
+For creating a delayed effect, Cog provides timers. These are special events which are triggered when a countdown
+timer expires. For creating a continuous effect, Cog provides pulses. Pulses are much like timers, but pulses keep going -
+after the pulse countdown timer expires and the pulse event occurs, the timer is automatically reset.
+
+<h4>Using Timers</h4>
+
+The verbs you'll use to set a timer
+are SetTimerEx(), SetTimer(), and SetThingTimer(). SetTimer() is the simple version - it has one parameter for the delay. You would
+use SetTimer() if you're only going to have one timer at a time. SetTimerEx() allows you to give your timers
+an ID and two parameters along with the delay. And SetThingTimer() works much like SetTimer() except that you're setting
+a timer for a thing instead of setting a timer for a cog.
+<p>
+As soon as a timer is set, JK will start a countdown for the timer's delay. When the countdown ends, the timer
+is said to expire and a timer event message is sent. If this is a simple or extended timer, then only the cog you
+set the timer in will receive the message. If this is a thing timer, then all of the thing's associated cogs will receive
+the message. For extended timers, you can retreive the ID and parameter values with GetSenderID() and GetParam(), or
+if this is a thing timer, you can use GetSenderRef() to find the thing that sent it.
+<p>
+If you need to stop an extended timer before it expires, you can use KillTimerEx() - the one parameter it needs is the timer's ID.
+Timers set by SetTimer() and SetThingTimer() need to be stopped with SetTimer(0) and SetThingTimer(thing, 0) respectively.
+As an example for using timers, we'll look at LEC's xtank1.cog:
+
+<pre class="code">
+damaged:
+   barrel = GetSenderRef();
+   damage = GetParam(0);
+   barrelhealth = GetThingUserData(barrel);
+
+   if(GetParam(1) == 1) Return;              // barrel won't be damaged by damage type impact
+
+   if(barrelhealth <= damage)                // is this enough damage to kill the barrel ?
+   {
+      SetTimerEx(0.5, barrel, 0, 0);         // prepare to kill the barrel in 0.6 second
+      Return;
+   }
+
+   SetThingUserData(barrel, barrelhealth - damage);
+   Return;
+
+# ............................................................................................
+
+timer:
+   KillTimerEx(GetSenderId());
+   CreateThing(barrel_exp, GetSenderId());   // create an explosion
+   DestroyThing(GetSenderId());              // Destroy the barrel
+   Return;
+</pre>
+
+This is the same cog that we mentioned in the threads tutorial when we were talking about sleeps. If we explode the barrel
+immediately after it's damaged, then players won't have time to get away and we'd lose that element of suspense. Using a
+sleep here would be bad because we can easily have more than five barrels blow up at the same time - the thread limit would
+be exceeded and not all of the barrels would blow up.
+<p>
+The solution is to use timers. We need to use IDed timers because more than one barrel can be waiting to explode. To get something
+unique for a timer's ID, we can use the barrel's thing number. And in the timer handler, we can retrieve the ID and use it to identify
+the barrel.
+<p>
+Notice that KillTimerEx() is used to stop a timer that has the same ID as the one that has expired. We're doing this as a safeguard
+in case two timers were set for the same barrel. We can't destroy something twice, but we shouldn't have to worry about the
+consequences. Also, thing numbers are not unique to one object in a game. Once an object is removed from gameplay, a thing
+number is free to be reused. So in some circumstances, you should check a thing's signature to make sure that your thing hasn't been
+destroyed and the number used for something else. <!-- Syntactically incorrect? Probably so, but it sounds ok this way, and
+who cares about traditional grammar? :-/  -->
+
+<h4>Using Pulses</h4>
+
+A pulse works just like a timer set with SetTimer() - the difference is that a pulse automatically resets itself after its timer expires.
+If you need to create a continuous effect for an extended period of time, then it's a given that you'll need to run the same code
+every so many seconds. Pulses are more convenient for us to use because we don't have to reset them, and using a pulse
+frees up our timer messages for other things.
+<p>
+A pulse is set with SetPulse() or SetThingPulse(), and it's stopped with SetPulse(0) and SetThingPulse(0). SetPulse() works with
+just one cog like SetTimer(). SetThingPulse() works with a thing just like SetThingTimer().
+<p>
+Suppose, for example, that you want to create a rain effect in part of your level. What you need to do is create
+rain objects and make them fall towards the floor - as soon as they touch a surface, they can be removed. This is an effect that
+needs the same code to run in short intervals. For the sake of example:
+
+<pre class="code">
+#--------------------------------------------------------
+startup:
+	SetPulse(burstInterval);
+
+Return;
+#--------------------------------------------------------
+pulse:
+	for(i=0; i < numBurstElements; i=i+1) SetTimerEx(Rand(), Rand() * 6, 0, 0);
+
+Return;
+#--------------------------------------------------------
+timer:
+	if(GetSenderID() > 5) Return;	// just in case Rand() actually returns 1
+	parent = ghost0[GetSenderID()];
+	precip=FireProjectile(parent, precipTemp, -1, -1, RandVec(), '0 0 0', elementSpeedMult, 0x1, 0, 0);
+	SetThingVel(precip, VectorSet(xMove, yMove, VectorZ(GetThingVel(precip))));
+
+Return;
+#--------------------------------------------------------
+</pre>
+
+Both pulses and timers are used to create the rain effect. Timer doesn't have to be used, the pulse could be a little bit faster,
+but this rain implementation is using bursts with different intervals than the raindrops in the burst. This example shows that
+by using a pulse, you can use timers for other things.
+
+<p>
+<a href="review.html">Continue</a>
+<p>
+
+<hr></body></html>

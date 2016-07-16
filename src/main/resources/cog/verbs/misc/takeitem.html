@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>TakeItem</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>TakeItem</H2><HR>
+This verb removes or disables an item and calls the taken message in the item's cog. If the item
+has the correct typeflags for respawn, TakeItem() will not destroy the item, but disable it
+until its respawn timer expires. Syntax:
+<P>
+<CODE>TakeItem(item, player);</CODE>
+<P>
+Some Cog programmers have said that in JK, TakeItem() requests permission from the server to take an item. But
+there is no proof for this. In fact, TakeItem() can take an item that does not exist on the server's computer.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../../message/respawn.html">Respawn
+	<OPTION value="../../message/taken.html">Taken
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

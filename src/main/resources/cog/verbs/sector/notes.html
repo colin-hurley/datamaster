@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Sector Verbs</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Sector Verbs</H2><HR>
+
+<A name=cmp><H4 STYLE="margin-top:0">Colormaps</H4></A>
+
+8-bit textures use a pallete to define each of the 256 colors that they use. In JK, these palletes
+are called "colormaps." 16, 24, and 32-bit textures do not use palletes.
+<P>
+In most colormaps, the first 192 colors are about the same (there are exceptions). But the last 64 colors vary from
+one colormap to another. In the default colormap (dflt.cmp), these last 64 colors are a garish purple. When
+you see a texture that has these ugly purple colors in it, it's probably because the default cmp, and not the
+correct one for the texture, is being used.
+<P>
+Apparently, LEC's level editor - known as LEIA - did not save the level's colormaps in order. So the LEC programmers
+did not know what the number of a colormap would be. When they needed a reference to a colormap for <EM>The Challenge
+at Narshaada</EM>, they created a sector that used the colormap that was needed. Here's a modified example
+from c3_fanpuzzle.cog:
+<P>
+<CODE>SetColorMap(signal_sc_sector, GetColorMap(red_colormap_sector));</CODE>
+<P>
+The colormaps that come with JK have a lot of the same colors (the first 192). If you change the cmp of a sector and notice
+no change, it's because the new cmp didn't change the colors that the sector was using.
+
+<A name=thrust><H4>Sector Thrusts</H4></A>
+
+A <EM>sector thrust</EM> is a force that is applied to all moveable things in a sector. A thing must move by physics
+(as opposed to path movement) and not have any inhibiting <A href="../../../flags/physics/physics_frame.html" target="main">Physics Flags</A>
+for the thrust to work on it. Also, sector thrusts won't work on a creature if it's standing on a floor, because the creature is
+attached to the surface it stands on.
+<P>
+When a sector thrust is created by <A href="setsectorthrust.html">SetSectorThrust()</A> the 0x8
+<A href="../../../flags/sector/sector_frame.html" target="main">Sector Flag</A> is assigned to the sector. This flag
+means the sector is using thrust. If you clear this flag with <A href="clearsectorflags.html">ClearSectorFlags()</A>,
+the thrust will no longer be applied. But, the sector still has the thrust assigned to it. Give the sector the 0x8 flag again,
+and the thrust will resume.
+
+<A name=adjoin><H4>Sector Adjoins</H4></A>
+
+<A href="setsectoradjoins.html">SetSectorAdjoins()</A> supposedly "turns off" the adjoins of a sector.
+The apparent results are that rendering through the sector's adjoins is disabled and things cannot see
+through the adjoins. Instead of seeing into the next sector, you'll see a hall of mirrors (HOM).
+<P>
+In certain cases, you will want to disable this rendering to improve your framerate. The most common example
+is a door. When a door is closed, you don't need to see through into the sector beyond it. So, rendering through
+the door's sector is disabled. If you do not disable it, then JK will still try to look into the next sector even though
+the door is in the way; this will bring down your framerate.<SUP>1</SUP>
+<P>
+When the rendering is disabled in a sector, the 0x80 <A href="../../../flags/sector/sector_frame.html" target="main">Sector Flag</A>
+is assigned to the sector. It appears that this flag's only purpose is to show that the adjoins are disabled, but there
+may be more to it. The 0x1 <A href="../../../flags/surfaceadjoin/surfaceadjoin_frame.html" target="main">Surface Adjoin Flag</A> is removed
+from all adjoins in the sector. Also, a strange 0x20 Surface Adjoin Flag is added to the adjoin; it is unknown what
+purpose this flag serves.
+
+<A name=tint><H4>Sector Tints</H4></A>
+
+Sector tints are color effects that begin when the camera enters the sector. The actual camera position, and not the
+position of the object the camera is looking at, has to enter the sector before the tint begins; this is done so that if the
+player enters a water sector with a blue tint, you don't see the water tint until the camera goes under the water.
+Otherwise, it would look wierd if the air suddenly changed blue.
+<P>
+The first color effect (handle of 1) is reserved for tints. Removing this effect
+(with <A href="../color/freecoloreffect.html">FreeColorEffect(1)</A>) will remove all sector tints and disable them.
+<P>
+<HR>
+<SUP>1</SUP>In the author's testing, framerate was doubled when rendering through a Bespin Station door was
+disabled.
+<BR><HR></BODY></HTML>

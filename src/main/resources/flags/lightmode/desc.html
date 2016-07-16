@@ -1,0 +1,33 @@
+<HTML><HEAD><TITLE>Light Mode Description</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>Light Modes</H2><HR>
+
+Light modes are used by 3dos, things, and sector surfaces to determine
+how their faces should be lighted. The default light mode for most objects is
+mode 3 for gouraud lighting.
+<P>
+In the advanced display options, you can set the lighting for all objects
+in the game. But this setting does not directly affect the objects' modes.
+They will still have their original light modes because the engine does not
+update them.
+<P>
+At one time, it was thought that there were other light modes above 3 that
+had the same effect as gouraud. That's because if you use any number
+higher than 3 as a light mode, it will have the same effect as mode 3.
+
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Verbs Used:
+	<OPTION value="../../cog/verbs/surface/getfacelightmode.html">GetFaceLightMode()
+	<OPTION value="../../cog/verbs/thingmode/getthingcurlightmode.html">GetThingCurLightMode()
+	<OPTION value="../../cog/verbs/thingmode/getthinglightmode.html">GetThingLightMode()
+	<OPTION value="../../cog/verbs/surface/setfacelightmode.html">SetFaceLightMode()
+	<OPTION value="../../cog/verbs/thingmode/setthingcurlightmode.html">SetThingCurLightMode()
+	<OPTION value="../../cog/verbs/thingmode/setthinglightmode.html">SetThingLightMode()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR><BODY></HTML>

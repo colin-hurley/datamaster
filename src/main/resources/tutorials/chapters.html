@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Tutorial Menu</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/tut.css">
+<script>
+var pageref="";
+function travel1()
+{
+	var selected=document.form.select1.selectedIndex;
+	pageref = document.form.select1.options[selected].value;
+	if(selected > 1 && top.main.tutorial.location.href.indexOf(pageref) == -1)
+	{
+		top.main.tutorial.location.href = pageref;
+		top.main.tutorial.focus();
+	}
+}
+function travel2()
+{
+	var selected=document.form.select2.selectedIndex;
+	pageref = document.form.select2.options[selected].value;
+	if(selected > 1 && top.main.tutorial.location.href.indexOf(pageref) == -1)
+	{
+		top.main.tutorial.location.href = pageref;
+		top.main.tutorial.focus();
+	}
+}
+function travel3()
+{
+	var selected=document.form.select3.selectedIndex;
+	pageref = document.form.select3.options[selected].value;
+	if(selected > 1 && top.main.tutorial.location.href.indexOf(pageref) == -1)
+	{
+		top.main.tutorial.location.href = pageref;
+		top.main.tutorial.focus();
+	}
+}
+function travel4()
+{
+	var selected=document.form.select4.selectedIndex;
+	pageref = document.form.select4.options[selected].value;
+	if(selected > 1 && top.main.tutorial.location.href.indexOf(pageref) == -1)
+	{
+		top.main.tutorial.location.href = pageref;
+		top.main.tutorial.focus();
+	}
+}
+</script>
+<style>
+form {margin:0; margin-top:5; }
+select {width:200px; background-color:silver; font: 12px fixedsys; }
+</style>
+</HEAD><BODY class="specback">
+
+<CENTER><FORM name="form">
+<SELECT name="select1" size=1 onClick="travel1()">
+	<OPTION value="">Chapter 1:
+	<OPTION value="">-----------------------
+	<OPTION value="chapter1/intro.html">Introduction
+	<OPTION value="chapter1/cogbasics.html">Cog Basics
+	<OPTION value="chapter1/jkls.html">JK Levels
+	<OPTION value="chapter1/templates.html">Templates
+	<OPTION value="chapter1/inventory.html">Inventory
+	<OPTION value="chapter1/resources.html">Resources
+	<OPTION value="chapter1/Review.html">Review
+</SELECT>
+
+<SELECT name="select2" size="1" onClick="travel2()">
+	<OPTION value="">Chapter 2:
+	<OPTION value="">-----------------------
+	<OPTION value="chapter2/intro.html">Introduction
+	<OPTION value="chapter2/structure.html">Cog Structure
+	<OPTION value="chapter2/variables.html">Variables
+	<OPTION value="chapter2/code.html">Cog Code
+	<OPTION value="chapter2/conditions.html">Conditions
+	<OPTION value="chapter2/loops.html">Loops
+	<OPTION value="chapter2/arrays.html">Arrays
+	<OPTION value="chapter2/writing.html">Writing Cogs
+	<OPTION value="chapter2/review.html">Review
+</SELECT>
+
+<SELECT name="select3" size="1" onClick="travel3()">
+	<OPTION value="">Chapter 3:
+	<OPTION value="">-----------------------
+	<OPTION value="chapter3/intro.html">Introduction
+	<OPTION value="chapter3/comm.html">Communication
+	<OPTION value="chapter3/encapsulation.html">Encapsulation
+	<OPTION value="chapter3/debug.html">Debugging
+	<OPTION value="chapter3/multiplayer.html">Multiplayer
+	<OPTION value="chapter3/threads.html">Threads
+	<OPTION value="chapter3/flags.html">Flags
+	<OPTION value="chapter3/parsing.html">Parsing
+	<OPTION value="chapter3/timers.html">Timers & Pulses
+	<OPTION value="chapter3/review.html">Review
+</SELECT>
+
+<SELECT name="select4" size="1" onClick="travel4()">
+	<OPTION value="">Old Tutorials:
+	<OPTION value="">-----------------------
+	<OPTION value="old/bases.html"	>Bases
+	<OPTION value="old/conditions.html">Conditions
+	<OPTION value="old/help.html">More Help
+	<OPTION value="old/hotkeys.html">Hotkeys
+	<OPTION value="old/leadin.html">Aiming Ahead
+	<OPTION value="old/learncog.html"	>Learning Cog
+	<OPTION value="old/loops.html">Loops
+	<OPTION value="old/messages.html">Messages
+	<OPTION value="old/playlvec.html">Player's LVec
+	<OPTION value="old/possector.html">Position's Sector
+	<OPTION value="old/setup.html">Setup
+</SELECT>
+</FORM></CENTER>
+
+</BODY></HTML>

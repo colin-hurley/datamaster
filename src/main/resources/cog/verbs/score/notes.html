@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Score Verbs</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Score Verbs</H2><HR>
+
+<A name=system><H4 style="margin-top:0">Scoring System</H4></A>
+
+Each player has four scoring values assigned to him: deaths, kills, suicides, and his overall score. 
+<P>
+<STRONG>When JK's scoring system is not disabled:</STRONG>
+A player's score will be found by subtracting his suicides from his kills. When the scores
+are refreshed (upon a player's death), the new score value will be used in place of his old score; the old score will be
+discarded. In teamplay, all players in the team have their score added up for the team score. When a player dies, this team
+score is recalculated, and the new team score is substituted for the old one.
+<P>
+<STRONG>When the scoring system is disabled:</STRONG>
+<A href="../multiplayer/setmultimodeflags.html">SetMultiModeFlags(0x4)</A> is used to disable
+JK's scoring for CTF games. When scoring is disabled, the JK engine does not calculate the
+players' scores or team scores. Instead, cogs are used to set the overall scores of the players
+and teams.
+<P>
+The engine does not allow client computers to change the scores - only the server can. And when
+the server modifies a score, it will send the new scores to the clients.
+
+<A name=limit><H4>Score Limits</H4></A>
+
+When a player score exceeds the score limit, he should win and then the game should end. In normal gameplay that would
+be fine, but with Cog verbs it's not. For the new score limit to be recognized by JK, the scores have to be refreshed -
+a player has to die.
+<P>
+Say you set the score limit to 1. Then you used <A href="setplayerscore.html">SetPlayerScore()</A> to set the player's score to 5. The game would not end there -
+the scores have not been refreshed. And when the player dies and the scores are refreshed, a new score will be
+found and then substituted for the score you set. The player's new score might not be over the limit. Keep this in mind when working
+with score limits.
+
+<HR></BODY></HTML>

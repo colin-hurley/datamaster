@@ -1,0 +1,13 @@
+<HTML><HEAD><TITLE>0x1 Camera State Flag</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>0x1 Camera State Flag</H2><HR>
+
+When 0x1 is set before the camera starts idling, the camera will not rotate for the entire
+time the player idles. But when it is set during the idle, it is only temporary. The flag can
+be removed and the camera will resume its rotation.
+<P>
+0x1 is cleared on startup whenever a new level is loaded. It's not cleared when the
+same level is reloaded.
+
+<HR><BODY></HTML>

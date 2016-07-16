@@ -1,0 +1,10 @@
+BODY {font-family: Times; background: gray; margin:0; padding:0}
+
+A:link {color: black}
+A:visited {color: black}
+A:hover {color: green}
+A:active {color: green}
+
+TABLE {background: silver; font: 10pt Verdana}
+TH {text-align:left}
+TH.cent {text-align:center}

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Encapsulation</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head>
+<body onLoad="top.main.chapter.document.form.select3.selectedIndex = 4;" onUnload="top.main.chapter.document.form.select3.selectedIndex = 0;">
+
+<H2 style="margin-bottom:0">Encapsulation</h2><hr>
+
+<h4>Definition</h4>
+
+Encapsulation is kind of a general term used to describe seperating the code needed to perform a specific task
+into its own subroutine or object. This allows you to hide a lot of the lower-level code that you won't want to
+waste your time with, and it makes it easier for you to read and debug your code.
+<p>
+With Object-Oriented Programming, encapsulation takes on almost a whole new meaning. Instead of combining
+all of the code needed to perform one task into a subroutine, you're putting it into the methods of an object. An
+example of an object would be a thing in Jedi Knight gameplay, and an example of a method would be a verb
+that can change the properties of a thing.
+<p>
+Cog is very much Object-Oriented, but it's a scripting language that differs
+a lot from standard OOP as in C++. So if the above description helps you to understand objects and methods,
+that's great. But be aware that true OOP languages have a lot of new syntax for objects and their methods.
+<p>
+We may not be able to encapsulate our code in objects, but we can still use message handlers and even whole
+cog files to do the same thing. Just remember that even though the concept is the same as with other languages,
+the implementation is a lot different.
+
+<h4>Encapsulation with Handlers</h4>
+
+For this example, we're not going to deal with real code, but let's assume that we have a cog that's about 500 lines
+long. The purpose of this cog is to manage an AI starfighter - this cog will do everything needed to get the fighter
+to fly around and attack enemies.
+<p>
+On startup, our cog will start a pulse that needs to: check the fighter's status, search for enemies, and fire at enemies.
+We might also want to evade enemies chasing us, play some engine sounds, and depending on how good our AI needs
+to be, we can fire some ghost projectiles to search for walls.
+<p>
+The simple approach would be to put all the code for this in the pulse message handler. But that would be an incredible
+mess. We'd have one message that's about 400 lines long. This makes it really hard to read and debug your cog. So what
+we need to do is break the cog up...
+<p>
+For each specific task that the pulse handler needs to accomplish, we'll create a new handler and we'll put a call in the
+pulse. Our message names might be <code>fighter_search, fighter_mode, fighter_move, fighter_fire, engineSound,</code>
+etc. 
+<p>
+With the pulse code broken up into many smaller handlers, we now have a much shorter, more readable pulse message. If,
+for example, the fighter isn't moving, we can go to the fighter_move and look for the problem there. This also reduces the
+amount of redundant code in your cogs - if you have the same three commands used in many places throughout your cog,
+you can encapsulate those commands into their own message handler and then use a call statement.
+
+<h4>Encapsulation with Cogs</h4>
+
+Although breaking up large messange handlers into smaller ones makes large cogs more manageable, working with cogs
+that are more than a few hundred lines can still be a headache - it's no fun working on the same cog for weeks at a time
+and forgetting parts of the code as you try to improve it.
+<p>
+So what you can do is create several different cogs that encapsulate the main tasks you're trying to do. Remember our
+grappling hook example from the Writing Cogs tutorial? We could easily have put all of our grappling hook's code into
+the weap_bryar cog, and that's what most editors would do. But what if you have to troubleshoot something, it's really
+awkward when your code is added on to another cog that you already know is working fine.
+<p>
+By giving the grappling hook its own class cog, we have encapsulated all of the grappling hook's tasks into the hook object
+itself - because the class cog is a property of the object. This is much closer to OOP encapsulation that anything else
+you can do in cog.
+<p>
+Another good reason to break up your cogs is when your writing client / server patches. It's much easier to debug
+when you have one cog that contains all of the client-side code, and another that contains all of the server code.
+Multiplayer coding is definitely one of the hardest things you can do in cog, and using proper encapsulation will
+save you some time.
+
+<h4>Redundant Code</h4>
+
+Redundant code is the bane of good programming. In any place that you have the same or similar commands,
+you use loops or calls to make your code shorter. Although this is more work for JK, making your code easier
+to read and debug is well worth it.
+<p>
+But in some cases you'll end up with several cogs that all do pretty much the same thing - and even have most
+of the same code. But each cog has something unique that it does so that you won't be able to just have one
+cog. You may have everything encapsulated nicely - each cog performing its specific, unique task. But what
+if you make an important to change to some of the code that all of the cogs use. Then you have to go to each
+cog and make that change - this is a huge waste of time and there's a good chance that not all of the updates
+make it to all of the cogs - and that's a nightmare.
+<p>
+Let's say for example, that you're making some AI actors that are going to be smarter than the average bear. You don't
+want to just up the stats with AI files, so you're going to use class cog to do a lot of extra work for the AI. But not all
+of the actors you're making are going to be the same: you want humanoids, arachnids, and reptiles. All of these
+actors need to use the same decision process, but their weapons, models, sounds, animations, etc will all be different.
+<p>
+Doubtless the AI code will be the most important, and you should never have to copy large portions of code into
+other cogs. So to fix this, there's a few things we can do. First, we could remove the actors' class cogs and
+create one level cog where we could enter in the different resources that you know the actor will use. But if
+we need to keep the class cogs, we could create a new AI logic cog and have the class cogs send and receive
+user messages - all of the redundant code would now be in one place, but the comm between cogs could be
+a problem. It depends entirely on your situation.
+
+<p>
+<a href="debug.html">Continue</a>
+<p>
+
+<hr></body></html>

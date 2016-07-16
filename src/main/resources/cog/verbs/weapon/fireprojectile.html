@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>FireProjectile</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>FireProjectile</H2><HR>
+This verb's main purpose is to fire projectiles for the weapon cogs, but because of its versatility, this verb can be used
+for other purposes. Syntax:
+<P>
+<SPAN class=return>projectile</SPAN>=<CODE>FireProjectile(fire_thing, template, sound, submode, offset_vec, error_vec,
+extra_flex, proj_flags, AA_FOVX, AA_FOVZ);</CODE>
+<P>
+<SPAN class=param>fire_thing:</SPAN> This is the thing to fire the projectile from. The fired projectile will travel in the
+direction that this thing is looking. And if the fire_thing is a creature, the projectile will travel in the direction of the creature's
+torso, and not the true lookvector of the fire_thing.<SUP>1</SUP>
+<P>
+The fired projectile will be linked to the fire_thing's parent chain. If the fire_thing has itself for a parent, it will become the
+parent of the projectile. Read the <A href="../thingprop/notes.html#parent">Thing Property Notes</A> for more information
+on parents.
+<P>
+<SPAN class=param>template:</SPAN> This is the template to create the projectile from.
+<P>
+<SPAN class=param>sound:</SPAN> This is a sound to play as the projectile is created. Use -1 for this parameter if you
+don't want to play a sound.
+<P>
+<SPAN class=param>submode:</SPAN> This is the submode number of a keyframe in the fire_thing's puppet. When the
+projectile is fired, the keyframe will be played with the fire_thing. The most common submodes used are 8 for small fire
+and 18 for large fire. Use -1 for no animation.
+<P>
+<SPAN class=param>offset_vec:</SPAN> This is an offset from the player's position that the projectile will appear at.
+It is in the form of <SPAN class=exam>'sideways forward upward'</SPAN> and is given in JKUs. Projectiles are usually
+put a little in front and to the right of the fire_thing so that they look better in the POV camera.
+<P>
+<SPAN class=param>error_vec:</SPAN> This vector is used to give aiming error to projectiles. It is given in the form:
+<SPAN class=exam>'upward sideways 0'</SPAN>. The error vector is, of course, 2d because you can't aim in front
+or behind a target.
+<P>
+<SPAN class=param>extra_flex:</SPAN> This flex is used by various
+<A href="../../../flags/projectile/projectile_frame.html" target="main">Projectile Flags</A> to control the projectile.
+<P>
+<SPAN class=param>proj_flags:</SPAN> These <A href="../../../flags/projectile/projectile_frame.html" target="main">Projectile Flags</A>
+control how the projectile is fired.
+<P>
+<SPAN class=param>AA_FOVX:</SPAN> This is the lateral Field of View in degrees. If an enemy is within this FOV,
+the projectile will be aimed at it. The 0x20 <A href="../../../flags/projectile/projectile_frame.html" target="main">Projectile Flag</A>
+must be used to enable auto-aim, and the 0x40 flag must be used to make it work in multiplayer.
+<P>
+<SPAN class=param>AA_FOVZ:</SPAN> This is the vertical Field of View in degrees. Together, the FOVX and FOVZ
+are used to create a 3d cone in front of the player. If the enemy is inside this cone, the projectile that is fired will be
+auto-aimed at it.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="../thingact/creatething.html">CreateThing()
+	<OPTION value="../thingact/createthingatpos.html">CreateThingAtPos()
+	<OPTION value="../thingact/createthingatposnr.html">CreateThingAtPosNR()
+	<OPTION value="../thingact/createthingnr.html">CreateThingNR()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR>
+<SUP>1</SUP>Because of this, projectiles fired from a player have the lookvector of the player's torso. Refer to the
+<A href="../../../tutorials/playlvec.html" target="main">Player's Lookvector</A> Solution in the Tutorial Section for more on this.
+<BR><HR></BODY></HTML>

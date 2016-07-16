@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Rotate</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>Rotate</H2><HR>
+Rotates a path-controlled object 360 degrees with the given direction and velocity. If a thing is given two rotate commands, they will contradict each other.
+When the rotation is finished, the thing will be given an upright lookvector regardless of what it was before. Syntax:
+<P>
+<CODE>Rotate(thing, rot_vel);</CODE>
+<P>
+<SPAN class=param>rot_vel:</SPAN> The rotation velocity is given in vector form. This vector gives the velocity and direction (pitch, yaw, roll)
+of the rotation.
+<P>
+Rotate() sets the current frame of the path-controlled thing to -1 while the thing rotates. When the rotation is completed, the current
+frame is set to 0 regardless of the frame that it was at.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="rotatepivot.html">RotatePivot()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

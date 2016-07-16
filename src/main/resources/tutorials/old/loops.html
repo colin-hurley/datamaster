@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Loops in Cog</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/tut.css"></HEAD>
+<body onLoad="top.main.chapter.document.form.select4.selectedIndex = 8;" onUnload="top.main.chapter.document.form.select4.selectedIndex = 0;">
+<H2 style="margin-bottom:0">Loops In Cog</H2><HR>
+
+Although there are variations, a loop is basically a block of code that is run continuously while a condition is true. In this text, I'll
+explain how to use loops in Cog. Using loops can be dangerous without safeguards. If the loop's condition
+is always true and nothing happens to make it false, the loop will continue indefinitely. So it's a good practice to include
+safeguards in your loops.
+<P>
+<HR><H4 style="margin-top:0">The For Loop</H4>
+
+The for loop looks like this:
+<PRE class=code>
+for(variable assignment; condition; variable incrementation)
+{
+    // run code
+}
+</PRE>
+The for loop consists of three statements which are seperated by two semicolons. The first part is where the
+counting variable is assigned a value. In the second part, the true/false condition is defined. In the third
+statement, another variable assignment is done. This assignment usually increments the counting variable by one.
+<P>
+It is important to remember the order in which the loop's statements are processed. First the variable assignment
+is performed. This is only done once. Next, the condition is tested. If the condition is true, then the code block
+(or a single statement) is run. After the code block is run, the third statement of the loop is processed. Remember that the third
+statement runs <I>after</I> the condition is tested.
+<P>
+In this first example, we have a normal loop which sets an array of five variables to -1.
+
+<PRE class=code>
+for(i=0; i < 5; i=i+1)
+{
+      var[i]=-1;
+}
+</PRE>
+
+Or:
+
+<PRE class=code>
+for(i=0; i < 5; i=i+1) var[i]=-1;
+</PRE>
+
+First, i is set to 0. Next the condition is tested. If i is less than 5, the code will run and var[i] will be set to -1. After var[i] has
+been assigned, i is incremented by one. Then it "loops" and tests the condition again. The loop continues until i is equal to five.
+Then the loop terminates. Our example loop ran five times. If we had used i <= 5, then the loop would have
+run one more time.
+<P>
+For loops can also run internally as in the following example:
+
+<PRE class=code>
+for(i=0; player[i] != GetSenderRef() && i < 10; i=i+1);
+</PRE>
+
+That loop was not used to run a statement or block of code. We needed the loop to return the number of the
+player in our array. When the loop finished, i should have been a number like 5. That would mean that <NOBR>player[5]</NOBR>
+in our array of players was the senderref.
+<P>
+If i reached 10 and the the loop had not yet found a match for the senderref, the loop would terminate because
+i has to be less than 10 for the condition to be true. So if the loop finished leaving i at 10, that would mean the
+senderref was not in our array.
+<P>
+The above description of the for loop is by no means exhaustive. For more information, look up the for keyword
+in the <A href="../cog/keyword/keywords_frame.html">Keywords Section</A>.
+
+<HR><H4 style="margin-top:0">The While Loop</H4>
+
+The while loop runs a statement or block of code as long as a condition is true. For example:
+
+<PRE class=code>
+i=0;
+while(i != 21)
+{
+     var[i]=-1;
+     i=i+1;
+}
+</PRE>
+
+As you can see, the while loop can be made to do the same tasks as the for loop, but the while loop
+does not have the built-in counting variable. The while loop is best used as in the following example:
+
+<PRE class=code>
+findThing=FirstThingInView(player, 180, 5, 0xfff);
+while(findThing != -1)
+{
+     SetThingUserData(findThing, 1);
+     findThing=NextThingInView();
+}
+</PRE>
+
+First, findThing is set to a value other than negative one. This value should be a thing somewhere near the player.
+Because findThing is not equal to -1, the loop begins. The loop sets the userdata of findThing to one. Then
+findThing is assigned to the next thing in view of the player. If there was another thing in view, findThing will not be equal
+to -1 and the while loop will continue. This while loop will set the userdata of all things in view of the player to 1.
+<P>
+When there are no more things in view, NextThingInView() will return -1. findThing will then be equal to -1
+and the condition that the while loop tests will be false. When the condition is false, the loop ends.
+
+<HR><H4 style="margin-top:0">The do..while Loop</H4>
+
+The do..while loop is designed to run a block of code at least once regardless of the loop's condition.
+
+<PRE class=code>
+do
+{
+    // run code
+}
+while(condition);
+</PRE>
+
+The block of code is run before JK checks the condition. If the condition is false, the loop ends. But if the condition is true,
+the loop will continue until the condition is false.
+<P>
+Like other conditional statements, do..while can run a single statement or a code block. For example:
+
+<PRE class=code>
+do var1=var1+1;
+while(var1 < var2);
+</PRE>
+
+Notice that because the code to run is given before the condition, the while() statement ends with a semicolon.
+
+<p>
+<a href="messages.html">Continue</a>
+<p>
+
+<HR></BODY></HTML>

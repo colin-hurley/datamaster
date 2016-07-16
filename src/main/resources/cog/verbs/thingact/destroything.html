@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>DestroyThing</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>DestroyThing</H2><HR>
+Sends a thing's removed message and removes it from the game. Syntax:
+<P>
+<CODE>DestroyThing(thing);</CODE>
+<P>
+Remember that removing the thing that the camera is looking at will crash the game. The camera can be switched to something else
+in the removed message without crashing.
+<P>
+Be careful of the variable that you give to DestroyThing(). If the variable has not been given a value or has a value of zero, it
+will destroy the thing with a number of 0. This thing is usually the player, and if the camera is looking at the player, this will crash the game.
+<P>
+In some cases, checking the signature of a thing before destroying it provides an adequate safeguard against destroying the wrong thing.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="creatething.html">CreateThing()
+	<OPTION value="createthingatpos.html">CreateThingAtPos()
+	<OPTION value="createthingatposnr.html">CreateThingAtPosNR()
+	<OPTION value="createthingnr.html">CreateThingNR()
+	<OPTION value="../thingprop/notes.html#sig">Signature Checking
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="../thingprop/setlifeleft.html">SetLifeLeft()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

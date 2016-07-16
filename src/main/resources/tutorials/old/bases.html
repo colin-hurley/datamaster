@@ -1,0 +1,334 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Numerical Bases</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/tut.css">
+<STYLE>
+H4 {text-align:left; text-indent:10; font: 13px Verdana; font-weight:bold; border:thin double black; width:250; background:silver; margin-left:0}
+UL {margin-top:5; margin-bottom:10}
+SUP {color:black}
+PRE {color:#336600; font: 8pt Courier New}
+</STYLE>
+</HEAD>
+<body onLoad="top.main.chapter.document.form.select4.selectedIndex = 2;" onUnload="top.main.chapter.document.form.select4.selectedIndex = 0;">
+<H2 style="margin-bottom:0">Numerical Bases</H2><HR>
+
+<H4>Introduction</H4>
+
+This tutorial will teach you what bases are and why they are useful. This isn't meant to be a complete or
+perfect description of numerical bases. This tutorial's purpose is to disseminate useful information on bases
+to beginners in an easy-to-understand context.
+
+<H4>Nomenclature</H4>
+
+Here's the definition of a few basic, and somewhat controversial, terms that you'll need to
+understand for base math:
+<P>
+<B>digit</B>
+<UL>
+Any numeral used to express a number, or the column (e.g., ones, tens) which the numeral
+occupies.
+</UL>
+<B>number</B>
+<UL>
+A number is an idea of an amount. You cannot write a number without limiting yourself to
+some form of expression, but the number is the amount that exists.
+</UL>
+<B>numeral</B>
+<UL>
+Numerals are characters which aid in expressing numbers. They are not numbers in themselves,
+but only a form of expression for a number. For example, in decimal 10, the '1' and '0' characters are the
+numerals. The amount of things that the 1 and 0 represent is the number.
+</UL>
+
+We'll use these terms extensively in the following text, so it's important to understand them now.
+
+<H4>What Bases Are</H4>
+
+A <I>base</I> is a system of displaying a number with numerals. It is only a way of displaying the number,
+it does not change the number itself. A number is an idea that represents an amount. For example, 100
+in base 16, 256 in base 10, and 400 in base 8 are all the same number. The only thing that has changed
+is the way the number appears. Note that we say these numbers are <I>in</I> the base that is used to display
+them.
+<P>
+At first, this is necessarily very confusing. Understand that in each base, there is a maximum value that
+each digit can hold before the number must use the next highest digit. In base 10, which seems almost
+natural to us, the maximum value that can be displayed in a digit is 9.
+<P>
+Now to explain the example above. 100 in base 16 is 256 in base 10 because base 16 (as its name implies)
+displays more values in each digit than decimal does. Because it displays 6 more values than decimal
+in each digit, base 16 can display the same value with lesser and often fewer numerals.
+<P>
+You may be wondering now, what base 16 displays those extra numerals as since there are no more numerals
+to use after 9. This is something we'll get to in the next section.
+
+<H4>A Lising of the Bases</H4>
+
+The following table gives a name for each base and lists the characters that it uses:
+<P>
+<TABLE> 
+<TR><TH width="50">Base</TH><TH width="120">Name</TH><TH width="100">Characters</TH></TR>
+<TR><TD>2</TD><TD>binary</TD><TD>0-1</TD></TR>
+<TR><TD>3</TD><TD>ternary</TD><TD>0-2</TD></TR>
+<TR><TD>4</TD><TD>quaternary</TD><TD>0-3</TD></TR>
+<TR><TD>5</TD><TD>quinary</TD><TD>0-4</TD></TR>
+<TR><TD>6</TD><TD>senary</TD><TD>0-5</TD></TR>
+<TR><TD>7</TD><TD>septenary</TD><TD>0-6</TD></TR>
+<TR><TD>8</TD><TD>octal</TD><TD>0-7</TD></TR>
+<TR><TD>9</TD><TD>nonary</TD><TD>0-8</TD></TR>
+<TR><TD>10</TD><TD>decimal</TD><TD>0-9</TD></TR>
+<TR><TD>11</TD><TD>undenary</TD><TD>0-a</TD></TR>
+<TR><TD>12</TD><TD>duodecimal</TD><TD>0-b</TD></TR>
+<TR><TD>13</TD><TD>*tridecimal</TD><TD>0-c</TD></TR>
+<TR><TD>14</TD><TD>*quattuordecimal</TD><TD>0-d</TD></TR>
+<TR><TD>15</TD><TD>*quindecimal</TD><TD>0-e</TD></TR>
+<TR><TD>16</TD><TD>hexadecimal</TD><TD>0-f</TD></TR>
+<TR><TD>17</TD><TD>septendecimal</TD><TD>0-g</TD></TR>
+<TR><TD>18</TD><TD>*octodecimal</TD><TD>0-h</TD></TR>
+<TR><TD>19</TD><TD>*nonadecimal</TD><TD>0-i</TD></TR>
+<TR><TD>20</TD><TD>vigesimal</TD><TD>0-j</TD></TR>
+</TABLE>
+<P>
+Note that although these names are based on common Latin prefixes and roots, they are not all standard
+names. The asterisks are used to mark the names that are more invention than standard. Hexadecimal, while being fairly
+standard, is not the correct name for base 16 according to the Latin system. Had sensibly-minded people
+not intervened, the name would have been something like sexadecimal, but the problem there is obvious.
+<P>
+As you can see in the table, letters are used after the numerical character 9. This is also an invention;
+letters were chosen to represent numbers because they were easily typed and easily displayed by computers.
+<P>
+Also apparent here is that each base name is one greater than its highest digit value. For example, base 2 does not
+use a '2'. This is because each base starts designating numbers at 0. Base 2 is called base 2 because it can display
+2 values per column.
+
+<H4>Thinking From Decimal</H4>
+
+Base 10, known as decimal, is the base that we normally use for math. We use base 10 over the other
+bases because we humans (well most of us) have ten fingers. And because humans learned to count
+with their fingers, base 10 seems natural (if it doesn't, we'll get to that later).
+<P>
+Since we <I>must</I> use a base when displaying, or if the number will use two digits, speaking a number,
+we use decimal. This is how each base is named (e.g., base 16) - according to the decimal display of the
+number of values per digit that the base uses.
+<P>
+So keep in mind that base 16 wouldn't be called that if everyone used it. Because in base 16, the decimal
+16 would be displayed as 10.
+<P>
+Some people go overboard with base 10 - creating the impression that the "real" version of a number is
+its decimal display. This is in the author's opinion a bad mistake to make. You should take care to note
+which base a number is in when working with bases other than decimal.
+
+<H4>Counting on your Fingers</H4>
+
+As easy as this is to understand, it may end up being a source of confusion for some. Despite what you
+and millions of other people may think, your hands use base 11. Think about it, you can display any number
+from 0 to 10. That's base 11.
+<P>
+But here's the rub: In mathmatics, you'll carry over to the next digit after you cannot display anything greater
+in that digit with the base you're using. But you won't when counting on your fingers. You'll display 10
+by holding out all of your fingers - but this would be the same as holding out one finger if you were counting
+in tens.
+<P>
+So in decimal math, there is no inbetween '10' character for the first digit. You'll get to 9 and then carry over.
+But when counting on your fingers, you'll get to 9, and then you can carry over <I>or</I> hold out your tenth finger.
+And holding out all of your fingers displays the same number as does holding out one finger when counting tens.
+
+<H4>Carrying Over</H4>
+
+You know now that higher bases can display the same numbers as lower bases, but with fewer digits and
+lesser numerals. For example, 100 in base 16 is 256 in decimal. For this to make sense, we have to
+understand that the digits in base 16 are <I>worth more</I> than the digits in base 10.
+<P>
+Why? Because base 16 has to count through more digit values before it carries over to the next digit. For example,
+one less than 100 in base 16 is FF. Decimal does not display so many values per digit, so it carries over when it reaches
+9. Hexadecimal, on other hand, goes up to F before it carries over to the next greater digit. This helps us to
+understand why the digits are worth more in higher bases - they are bought at a higher price, so to speak.
+
+<H4>Digital Powers</H4> <!-- And no, it does not mean someone has powerful fingers. :p  -->
+
+Before going on to base conversions, let's look at the decimal power of each digit. Here's a table with the more common bases:
+<P>
+<TABLE>
+<TR><TH width="100">Base</TH><TH width="70">Digit 0</TH><TH width="70">Digit 1</TH><TH width="70">Digit 2</TH></TR>
+<TR><TD>Binary<SUP>&nbsp;</SUP></TD><TD>1 (2<SUP>0</SUP>)</TD><TD>2 (2<SUP>1</SUP>)</TD><TD>4 (2<SUP>2</SUP>)</TD></TR>
+<TR><TD>Octal<SUP>&nbsp;</SUP></TD><TD>1 (8<SUP>0</SUP>)</TD><TD>8 (8<SUP>1</SUP>)</TD><TD>64 (8<SUP>2</SUP>)</TD></TR>
+<TR><TD>Decimal<SUP>&nbsp;</SUP></TD><TD>1 (10<SUP>0</SUP>)</TD><TD>10 (10<SUP>1</SUP>)</TD><TD>100 (10<SUP>2</SUP>)</TD></TR>
+<TR><TD>Hexadecimal<SUP>&nbsp;</SUP></TD><TD>1 (16<SUP>0</SUP>)</TD><TD>16 (16<SUP>1</SUP>)</TD><TD>256 (16<SUP>2</SUP>)</TD></TR>
+</TABLE>
+<!-- The <SUP>&nbsp;</SUP> in the table above are to make the base names line up with their digit values. -->
+<P>
+As you can see, the decimal value of each digit in a base is determined by finding baseNum to the power of digitNum. For example,
+if baseNum were 16 for hexadecimal, and digitNum were 2 for the third digit, the decimal eqivalent of a 1 in digit 2 would be 256.
+That is, the value of a 1 in hexadecimal's digit 2 would be the same as 256 in decimal. This provides us with a tool for conversion
+to and from decimal.
+<P>
+But remember that we're using decimal to do the math so the conversion can only be used with decimal numbers. If we were to
+use other bases with this conversion system, we would have to make another table.
+
+<H4>Base Conversion</H4>
+
+The typical, oxymoron approach is to pop out the Windows calculator and convert your number. But the problem is, Real
+Programmers don't use calculators. So you'll have to learn the conversion algorithms. <!-- Real Programmers don't exist! -->
+<P>
+When converting from one base to another, decimal (being ingrained) will be the base that is used to do the
+math. So you'll be converting from one base to decimal and then to another base if need be.
+<P>
+First, we'll do some simple conversions from octal to decimal using the chart above.
+<PRE>
+Convert the octal number 25 to decimal:
+For digit 1: 2 * 8 = 16. Add 16 to our result.
+For digit 0: 5 * 1 = 5. Add 5 to our result.
+The result is: 21.
+</PRE>
+In that example, we simply multiplied each digit by its decimal value from the chart above, and then added
+the products to find the result. Now let's convert back to octal.
+<PRE>
+Convert the decimal number 21 to octal:
+There are no 64's in our number.
+There are two 8's in our number. Add 20 to our result.
+There is a remainder of 21-16=5.
+There are five 1's left. Add 5 to our result.
+The result is: 25.
+</PRE>
+In this last example, we went through each octal digit in our chart from greatest to least. We found
+two 8's in our number. Because we found these two 8's, we added two 10's to our result because
+10 is decimal's value for digit 1 and the 8 is octal's value for digit 1. Now let's do a conversion from
+decimal to binary.
+<PRE>
+Convert the decimal number 13 to binary:
+There are no 16's in our number.
+There is one 8 in our number. Add 1000 to our result.
+There is a remainder of 13-8=5.
+There is one 4 in our number. Add 100 to our result.
+There is a remainder of 5-4=1.
+There are no 2's in our number.
+There is one 1 in our number. Add 1 to our result.
+The result is: 1101.
+</PRE>
+That example used some binary digits not on our chart, but we know that the numbers for binary digits 3 and 4
+are 8 and 16 respectively. Now let's convert back to decimal.
+<PRE>
+Convert the binary 1101 to decimal:
+For digit 3: 1 * 8 = 8. Add 8 to our result.
+For digit 2: 1 * 4 = 4. Add 4 to our result.
+No value for digit 1.
+For digit 0: 1 * 1 = 1. Add 1 to our result.
+The result is: 13.
+</PRE>
+Now, we'll do a more complicated hexadecimal to decimal conversion in slightly different form.
+<PRE>
+Convert the hexadecimal 2EA.F to decimal:
+result = (2 * 16<SUP>2</SUP>) + (14 * 16<SUP>1</SUP>) + (10 * 16<SUP>0</SUP>) + (15 * 16<SUP>-1</SUP>)
+result = (512) + (224) + (10) + (15/16)
+result = 746 + 0.9375
+result = 746.9375
+</PRE>
+Notice in this last example that a decimal point was used in the hexadecimal number. We'll get to floating-point
+numbers later on.  Also, 16 to the power of -1 is the same as 1/16. Let's convert the number back to hexadecimal.
+<PRE>
+Convert the decimal number 746.9375 to hexadecimal:
+First the 746:
+	There are two 256's in our number. Add 200 to our result.
+	There is a remainder of 746-512=234.
+	There are fourteen 16's in our number. Add E0 to our result.
+	There is a remainder of 10.
+	There are ten 1's left in our number. Add A to our result.
+	The result is now: 2EA.
+Now the fractional portion:
+	result2 = 9375/10000
+	result2 = 15/16 (reduced)
+	There are fifteen 1/16's in our number. Add 0.F to our result.
+The result is 2EA.F.
+</PRE>
+
+There are several important things to note in this example. Because a hexadecimal digit can hold a higher
+value than a decimal digit, having ten 1's and fourteen 16's is reasonable. Because fractions in hexadecimal
+are in sixteenths instead of tenths (as in decimal), 15/16 is the same as 0.F. It's just like having 9/10 in decimal
+- it's the same as 0.9.
+
+<H4>Common Bases and their Uses</H4>
+
+For computing purposes, hexadecimal, octal, and binary are often used.
+Hexadecimal is useful in computer science because it represents numbers in a compact form and because
+it is easily converted to binary and back. With four bits, you can store any hexadecimal character from 0 to F.
+Here's a table:
+<P>
+<TABLE>
+<TR><TH width="70">Decimal</TH><TH width="70">Binary</TH><TH width="70">Hexadecimal</TH></TR>
+<TR><TD>0</TD><TD>0</TD><TD>0</TR></TD>
+<TR><TD>1</TD><TD>1</TD><TD>1</TR></TD>
+<TR><TD>2</TD><TD>10</TD><TD>2</TR></TD>
+<TR><TD>3</TD><TD>11</TD><TD>3</TR></TD>
+<TR><TD>4</TD><TD>100</TD><TD>4</TR></TD>
+<TR><TD>5</TD><TD>101</TD><TD>5</TR></TD>
+<TR><TD>6</TD><TD>110</TD><TD>6</TR></TD>
+<TR><TD>7</TD><TD>111</TD><TD>7</TR></TD>
+<TR><TD>8</TD><TD>1000</TD><TD>8</TR></TD>
+<TR><TD>9</TD><TD>1001</TD><TD>9</TR></TD>
+<TR><TD>10</TD><TD>1010</TD><TD>A</TR></TD>
+<TR><TD>11</TD><TD>1011</TD><TD>B</TR></TD>
+<TR><TD>12</TD><TD>1100</TD><TD>C</TR></TD>
+<TR><TD>13</TD><TD>1101</TD><TD>D</TR></TD>
+<TR><TD>14</TD><TD>1110</TD><TD>E</TR></TD>
+<TR><TD>15</TD><TD>1111</TD><TD>F</TR></TD>
+</TABLE>
+<P>
+As you can see from the table, hexadecimal can represent the same value in much less space than binary
+and decimal. Also, each hexadecimal number is represented by four bits (a nybble). This makes hexadecimal useful
+for displaying memory values in an efficient form.
+<P>
+Hexadecimal is also useful for storing up to four boolean values in a digit. For example, any addition of 1, 2,
+4, or 8 yields a number with known components. For example, 3=1+2, F=8+4+2+1, E=4+8+2, 9=8+1. Any
+combination of 1, 2, 4, and 8 results in a number that can be decomposed into the numbers that add up
+to it. If you look at the table above, you'll see why. It is this fact that Cog makes use of for its flag system.
+<P>
+One last thing about hexadecimal: it can be easily converted to and from binary in a much more simple
+method than the previous conversion examples used. Using the table above, you can convert a binary number
+of four bits to its hexadecimal form. So the number 11110011 is F3. Just seperate the binary number
+into nybbles and use the table above to find the hexadecimal representation for that binary number.
+<P>
+Octal is similar to hexadecimal in that it is used for some of the same reasons. It's maximum digit value
+is 7 which is represented in binary as 111. Only three bits are needed to store an octal digit.
+Like hexadecimal, it is easily converted to and from binary - instead of nybbles, use groups of three bits.
+<P>
+Binary is extremely useful to computers because values of 0 and 1 - true and false - are easy to store and
+transfer. The downside is that they are much less efficient in terms of the space that it takes to store and
+display so many digits. For example, 9 in decimal is 1001 in binary.
+
+<H4>Base Prefixes</H4>
+
+As explained above, using a different base does not change the number you're displaying. It only changes
+the form that it's shown in. When writing numbers, especially with programming, you must give the base
+that a number is written in, if it is other than decimal.
+<P>
+Often enough, you will need to use hexadecimal or octal numbers in your code - for convenience, efficiency,
+or what have you. Say you wrote in 100. When the interpreter/compiler/parser engine reads that, it will assume
+that the number is in decimal form. So if you really meant a hexadecimal 100, you would have made a grave mistake.
+<P>
+To tell the engine what form the number is in, there are two fairly-standard base prefixes which can be put before
+a number. These are '0x' for hexadecimal and '0' for octal. So if you want to give a hexadecimal 100, you would
+write 0x100. Or if you wanted to write 100 in octal, you would write 0100. Other bases will have to be converted
+to decimal. Note that not all compilers or interpreters support these prefixes. Cog, being based on C++, does support
+them.
+
+<H4>Floats and Bases</H4>
+
+Something often confusing to people who are unfamiliar with bases is using floating-point numbers (floats). A
+floating-point number is one that uses a decimal point and numerals to its right to display the fractional portion
+of the number. Calling them 'decimal numbers' is misleading. Because these numbers have a decimal point does
+not mean that they are limited to the decimal base.
+<P>
+A hexadecimal or octal number can have a decimal point just as base 10 numbers do. But, this is hardly
+ever done. And since there is really no reason to have a floating-point number in hexadecimal or octal notation,
+other bases are usually restricted to being integers - they must be whole numbers. In fact, not even the Windows
+calculator allows floating-point numbers in non-decimal bases.
+
+<H4>In Closing</H4>
+
+In this tutorial, I've tried to explain concepts that would be useful to beginners trying to learn other bases
+for programming reasons. It is my hope that this tutorial was understandable and that you learned
+a useful skill from it.
+
+<p>
+<a href="conditions.html">Continue</a>
+<p>
+
+<HR></BODY></HTML>

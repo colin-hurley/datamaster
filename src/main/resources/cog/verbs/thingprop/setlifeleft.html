@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SetLifeLeft</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SetLifeLeft</H2><HR>
+Resets the timer that was set in a thing's template. This verb has no effect on a thing if it does not have a timer
+in its template already. Syntax:
+<P>
+<CODE>SetLifeLeft(thing, seconds);</CODE>
+<P>
+To stop a thing's timer, use:
+<P>
+<CODE>SetLifeLeft(thing, 0);</CODE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="getlifeleft.html">GetLifeLeft()
+	<OPTION value="notes.html#life">Template Timers
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="../message/setthingtimer.html">SetThingTimer() &
+	<OPTION value="../thingact/destroything.html">DestroyThing()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

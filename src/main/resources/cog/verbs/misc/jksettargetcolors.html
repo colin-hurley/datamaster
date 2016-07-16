@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>jkSetTargetColors</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>jkSetTargetColors</H2><HR>
+Sets the colors of each ring in the targeting reticle. Each color value is the number of a color cell in the first sector's colormap.
+<P>
+To find the cell number of the color you want, open the appropriate cmp file with Chomper<SUP>1</SUP>. Hold the cursor over the cell
+of the color you want and Chomper will display the number in its status bar.
+<P>
+Because different levels use different cmps, you need to make sure that you use a color that is the same in all colormaps. Syntax:
+<P>
+<CODE>jkSetTargetColors(color1, color2, color3);</CODE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="jkendtarget.html">jkEndTarget()
+	<OPTION value="jksettarget.html">jkSetTarget()
+	<OPTION value="notes.html#reticle">Targetting Reticle
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR>
+<SUP>1</SUP> Chomper is a .cmp editing program made by the <A href="http://www.code-alliance.ca" target=_blank>Code Alliance</A>.
+<HR></BODY></HTML>

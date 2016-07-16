@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SyncScores</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SyncScores</H2><HR>
+Synchronizes the server's scores with other computers in the game. This command
+seems to be only a failsafe, because the server normally syncs his version of the scores
+with the clients. Syntax:
+<P>
+<CODE>SyncScores();</CODE>
+<P>
+Since JK does not allow client computers to modify the scores, and because the
+server will sync the scores even when the 0x4 MP Mode Flag is used, it is difficult
+to know if SyncScores() will work on all computers or only the server's. It will
+probably function only on the server's computer, and it's really not useful to client
+cogs.
+
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../score/notes.html#system">Scoring System
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

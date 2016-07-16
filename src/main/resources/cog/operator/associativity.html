@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Operator Associativity</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css"></HEAD><BODY>
+<H2>Operator Associativity</H2><HR>
+
+The associativity of an operator is the right-to-left or left-to-right direction
+that an operator works in. An example:
+
+<PRE class=exam>
+var=-5 * 5 * 5;
+</PRE>
+
+Three operators are used there. The negation, because of its precedence, is
+performed first. Since its associativity is right-to-left, it affects the 5 to its
+right. At first this may seem backwards, but think of it from the 5's perspective.
+The 5 is affected by the negation operator to its left because the operator
+has right-to-left associativity.
+<P>
+Because the multiplication operators are all of the same precedence, their
+associativity is used to determine which operation is done first. And since
+their associativity is left-to-right, the -5 * 5 operation is done next. This next
+example uses parentheses to show the order in which the first example
+was evaluated:
+
+<PRE class=exam>
+var=(((-5) * 5) * 5);
+</PRE>
+
+Note that the parentheses did not change the expression here, they only
+show the order in which the expression would have been evaluated.
+The last operation to be performed is the assignment. Since it has the lowest
+precedence it is done last. And because it has right-to-left associativity, it
+assigns the resultant value on the right to the variable on the left.
+
+<HR></BODY></HTML>

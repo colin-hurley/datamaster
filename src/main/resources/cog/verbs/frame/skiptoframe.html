@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SkipToFrame</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SkipToFrame</H2><HR>
+Makes an object travel directly to the given frame. It will not send the object to any
+intermediate frames as <A href="movetoframe.html">MoveToFrame()</A> does. Also, SkipToFrame() does not
+make the object turn to look in the same direction as the frame, nor does it update the
+object's current frame upon arrival.
+<P>
+<CODE>SkipToFrame(object, frame, speed_flex);</CODE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="getgoalframe.html">GetGoalFrame()
+	<OPTION value="pathmovepause.html">PathMovePause()
+	<OPTION value="pathmoveresume.html">PathMoveResume()
+	<OPTION value="waitforstop.html">WaitForStop()
+	<OPTION value="../../message/arrived.html">Arrived
+	<OPTION value="../../message/blocked.html">Blocked
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="jumptoframe.html">JumpToFrame()
+	<OPTION value="movetoframe.html">MoveToFrame()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

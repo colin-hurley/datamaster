@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Conditional Statements</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head>
+<body onLoad="top.main.chapter.document.form.select2.selectedIndex = 6;" onUnload="top.main.chapter.document.form.select2.selectedIndex = 0;">
+
+<h2 style="margin-bottom:0">Conditional Statements</h2><hr>
+
+<h4>If Statement</h4>
+
+The if statement allows you to check something in your cog or in the game and execute code based on the result. Suppose
+that you want to make sure your player is alive before letting him fire his weapon. In this example, the if statement is used to do
+that:
+
+<pre class="code">
+fire:
+	if(GetThingHealth(player) < 1) // end firing and return.
+
+	// continue with firing.
+
+Return;
+</pre>
+
+GetThingHealth() is a verb that returns the value of a thing's health. If this value is less than 1, then we can assume that the player
+has no health and is dead. JK will evaluate this less-than operation and return true if the player's health is less than 1 or false if it's
+not. When the if statement has a true value, it runs the following line or block of code. Here we have a comment to
+explain what code would be there.
+<p>
+Now in some cases you'll need to run code only if the condition was false or you may need to check a few more conditions.
+To do this, you chain if statements together to look like this:
+
+<pre class="code">
+startup:
+	if(var1 == var2) // do this
+	else if(var1 == var3) // do this again
+	else if(var1 == var4) // do this again
+	else if(var1 == var5) // do this again
+	else if(var1 == var6) // do this again
+	else // do that.
+Return;
+</pre>
+
+Or you can use one if statement and the else keyword.
+
+<pre class="code">
+startup:
+	if(var1 == var2) // do this
+	else // do that.
+Return;
+</pre>
+
+The code after an else statement will only run if the last if statement had a false value. As you see in the first example, you can chain
+many if statements with the else keyword. In this last example, if statements are used with code blocks:
+
+<pre class="code">
+if(var1 == 1)
+{
+	// code line 1
+	// code line 2
+}
+else if(var1 == 2)
+{
+	// code line 1
+	// code line 2
+}
+else
+{
+	// code line 1
+	// code line 2
+}
+</pre>
+
+It makes no difference whether you have a single statement or a code block after a conditional statement.
+
+</pre>
+
+<h4>Conditions</h4>
+
+<i>Condition</i> is a word used to refer to the expression used by conditional statements. For the if statement, the condition is enclosed by
+a set of parentheses. This expression can be a lot more complicated than in the examples you've seen.
+<p>
+First, a value of 1 is a true value, and a value of 0 is a false value. There is a variable type specifically for this kind of value called
+boolean. Cog does not use this type, but because it is a programming standard, we commonly refer to a true or false value as being
+boolean. Remember that all conditions must be evaluated to a boolean value.
+<p>
+Most conditions are simple relational tests - one value or variable is compared to another. For example:
+
+<pre class="code">
+if(var1 == 1) // go!
+else if(var1 <= 1) // go!
+else if(var1 >= 1) // go!
+else if(var1 < 1) // go!
+else if(var1 > 1) // go!
+</pre>
+
+These are all relational tests which you should know from your mathmatics classes. But unlike math, we will evaluate a relational test
+and find a boolean value. For this next example, var1 has a value of 1:
+
+<pre class="code">
+if(var1 == 1) // go!
+if(1 == 1) // go!
+if(1) // go!
+</pre>
+
+These three lines of code are intended to show you how JK evaluates a relational test. And since 1 is a true value, we will go!
+Now let's assume that var1 is 5:
+
+<pre class="code">
+if(var1 == 1) // go!
+if(5 == 1) // go!
+if(0) // go!
+</pre>
+
+Because 5 is not equal to 1, the result was 0 - and because 0 is false value, the following code wasn't executed. In this case, had there
+been an else statement, the else statement's code would have been executed.
+
+<h4>Logical Operators</h4>
+
+Now we're going to look at using logical operators in our conditions. A relational test is just a simple comparision, but one condition combine
+many tests and reverse their boolean value.
+<p>
+<b>The "not" operator:</b> This operator is symbolized by an exclamation mark. It's purpose is to reverse the value of a condition. An example:
+
+<pre class="code">
+var=5;
+if(!var < 1) // Do something.
+</pre>
+
+Five is not less than one, so the relational test is false. But, the not operator reverses the value to true. Look at this example:
+
+<pre class="code">
+var=0;
+if(!var) // Run code
+</pre>
+
+Var has a value of zero. And since zero is false, the condition would normally be false and would not run the code. But the not operator
+changes the value to 1, and the code is run. Note that the not operator must be placed at the beginning of the relational test - either inside
+or outside a pair of parentheses. Here are a few more examples that are all true: 
+
+<pre class="code">
+if(!(0)) // Do stuff
+if(!0) // Do stuff
+if(!(5 < 5)) // Run code
+
+if(!7 == 6)
+{
+   // Run code
+}
+</pre>
+
+<b>The "and" operator:</b> This operator, symbolized by two ampersands ( '&&' ), is used to combine two relational tests into one condition.
+For example: 
+
+<pre class="code">
+if(var1 < 5 && var2 < 10) // Do something
+</pre>
+
+The logical "and" operator requires that both relational tests be true for the entire condition to be true. Notice that the relational tests are not
+enclosed by parentheses. LEC and many cog programmers choose to do this, but it is not necessary. Because Logical Operators have a
+lower precedence than Relational Operators, the relational tests are performed first, and then the "and" operators are processed. It is because
+of this that you don't have to enclose relational tests in parentheses to force them to be processed first. If you did enclose the seperate
+conditions, they would look like this: 
+
+<pre class="code">
+if((var1 < 5) && (var2 < 10)) // Run code
+</pre>
+
+When the relational tests in a condition are evaulated, the value of the test is used in place of the relational test. It would look something
+like this: 
+
+<pre class="code">
+if(1 && 0 && 1 && 1 && 1) // Run code
+</pre>
+
+In that example, 1 out of five relational tests was false. Because all tests had to be true for the entire condition to be true, the condition
+was false and the code was not run. Here are two more examples: 
+
+<pre class="code">
+if(var1 == 5 && var2 == 3 && var3 == 0) // Run code
+if(!var1 && var2 && var3 == 10) // Run code
+</pre>
+
+<b>The "or" operator:</b> This operator is denoted with two braces like this, ' || '. This operator will make a condition true if either of two relational
+tests is true. For example: 
+
+<pre class="code">
+if(var1 < 3 || var2 == 10) // Run code
+</pre>
+
+If either relational test was true, then the condition would be true and the code would be run. As with the "and" operator, the relational tests
+are usually enclosed by parentheses, but don't have to be. 
+
+<p>
+<a href="loops.html">Continue</a>
+<p>
+
+<hr></body></html>

@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Programming Errors</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/tut.css"></HEAD><BODY>
+<H2 style="margin-bottom:0">Programming Errors</H2><HR>
+
+The most important debugging tool has to be the Print() command. If you have a cog that simply won't do anything
+ingame, try putting a Sleep() and Print() under the startup message to make sure the cog is running.
+<P>
+If you have a common error that is not in this list, send an email to the address on the main page so that this document can be updated.
+
+<HR><H4 style="margin-top:0">Cog Doesn't Run</H4>
+
+There are several things that could cause this symptom:
+<UL>
+<LI>Syntax error. Check your cog with a syntax checker for this error.
+<P>
+<LI>Listed incorrectly. Make sure your cog is correctly listed in a JKL or the items.dat.
+<P>
+<LI>You loaded a saved game with different cogs.
+</UL>
+
+<HR><H4 style="margin-top:0">Crashes</H4>
+
+A "crash," as it is used in this text, is the sudden termination of Jedi Knight. For a programming language, Cog (and JK in general)
+is amazingly crash-resistant. Syntax errors will stop a cog from running and not crash, you can leave variables undefined,
+mismatch symbol types, declare messages that don't exist, and make many other blunders that just wouldn't work in another
+language. And because of this, it is usually easy to fix a crash or freeze when it happens.
+<P>
+There are, however, special cases when JK will crash for no apparent reason. But even so, when JK crashes, do not assume
+that it was some random error. Almost all of the time, JK will crash because of a programming error.
+<P>
+<B>Crashes during gameplay:</B>
+<UL>
+<LI>Removing the thing that a camera is focused on. This error is most often caused
+when a player is accidentally destroyed.
+<P>
+<LI>Clearing the 0x4 or 0x8 Attach Flags from an attached object. Use DetachThing() to break an attachment.
+<P>
+<LI>Improper use of ParseArg(). Some template settings cannot be modified with ParseArg().
+<P>
+<LI>Trying to access an array variable that does not exist.
+<P>
+<LI>Improper use of the Heap verbs.
+<P>
+<LI>Improper change of a thing's collide setting.
+</UL>
+<B>Crashes when loading JK:</B>
+<UL>
+<LI>Bad syntax in some sections of a JKL.
+</UL>
+<B>Crashes when loading a level:</B>
+<UL>
+<LI>A bin flagged as an item or force power has no icon.
+</UL>
+
+<HR><H4 style="margin-top:0">Freezes</H4>
+
+A freeze occurs when the game suddenly stops and your system does not respond. The only thing to do is reboot.
+<UL>
+<LI>A cog may be running a loop indefinitely.
+</UL>
+
+<HR><H4 style="margin-top:0">Engine Overload</H4>
+
+This type of error occurs when you are taxing the JK engine. When this happens, JK will begin to skip over things.
+For example, projectiles will disappear. Among other things, this could be caused by trying to create too many fine particle trails.
+
+<BR><HR><H4 style="margin-top:0">Cog Runs Twice</H4>
+
+Most likely, you will not know your cog has been loaded twice, but your cog will seem to defy all rules of programming.
+<P>
+Put a Print() statement after a short sleep in the startup message to see if your cog is being loaded twice. If the Print() statement
+prints the string to the screen twice, you will know the cog is being loaded twice. Check where your cog is listed and remove the duplicate
+entry.
+<HR></BODY></HTML>

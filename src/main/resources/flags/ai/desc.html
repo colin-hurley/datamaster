@@ -1,0 +1,25 @@
+<HTML><HEAD><TITLE>AI Mode Flags Description</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD><BODY>
+<H2>AI Mode Flags</H2><HR>
+
+An actor's AI Mode Flags show what the actor's AI is doing. Each of these flags describes an action that
+the AI is performing or a condition that was met.
+<P>
+Mode flags can be used to give actors commands. For example, setting the 0x4 mode flag would cause the
+actor to look for targets. Setting the 0x1 mode flag would make the actor move to his current destination. Clearing
+the 0x1 flag would stop him from going to his destination.
+<P>
+AI Mode Flags can contradict each other. Setting the 0x4 mode flag while the actor is attacking a target is useless.
+So remember that you may need to set or clear certain flags to make the AI do what you want.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Verbs Used:
+	<OPTION value="../../cog/verbs/ai/aiclearmode.html">AIClearMode()
+	<OPTION value="../../cog/verbs/ai/aigetmode.html">AIGetMode()
+	<OPTION value="../../cog/verbs/ai/aisetmode.html">AISetMode()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR><BODY></HTML>

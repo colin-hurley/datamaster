@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>PlaySoundPos</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>PlaySoundPos</H2><HR>
+Plays a sound at a position. Syntax:
+<P>
+<SPAN class=return>channel</SPAN>=<CODE>PlaySoundPos(wav, position, volume, minrad, maxrad, flags);</CODE>
+<P>
+<SPAN class=param>wav:</SPAN> This is a reference to the wav file you want to play; this can be a variable that is assigned
+to a wav in the symbols or the reference returned by <NOBR><A href="../system/loadsound.html">LoadSound()</A></NOBR>.
+<P>
+<SPAN class=param>position:</SPAN> This is the position to play the sound at.
+<P>
+<SPAN class=param>volume:</SPAN> This is the 0-1 flex volume for the sound.
+<P>
+<SPAN class=param>minrad:</SPAN> The minimum radius is the distance from the position at which the sound can
+be heard at full volume.
+<P>
+<SPAN class=param>maxrad:</SPAN> The maximum radius is the distance from the position at which you
+can hear the sound. The sound volume will be reduced as you move farther away from the position between the min
+and max radii.
+<P>
+<SPAN class=param>flags:</SPAN> These are the <A href="../../../flags/sound/sound_frame.html" target="main">Sound Flags</A>
+to play the sound with.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="stopsound.html">StopSound()
+	<OPTION value="notes.html#dist">Sound Distances
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="playsoundthing.html">PlaySoundThing()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

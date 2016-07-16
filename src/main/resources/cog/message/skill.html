@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Skill</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>Skill</H2><HR>
+<A href="../verbs/misc/skilltarget.html">SkillTarget()</A> makes a thing send the skill message to its class cog. SkillTarget()
+sends the type of force power, the player, and the player's rank to the message. The skill message may return a value
+to SkillTarget() with <A href="../verbs/message/returnex.html">ReturnEx()</A>. The skill message will only run in class
+cogs; it will not be called in capture cogs.
+<P>
+<TABLE class=msg width=90% bgcolor=#D2D2D2>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD width=30% class=left>Sender</TD><TD class=left>The thing that force was used on.</TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>The player that used the force.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sender Type</TD><TD class=left>Thing (3).</TD></TR>
+<TR><TD class=left>Source Type</TD><TD class=left>Thing (3).</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Param0</TD><TD class=left>The bin number of the force power used.</TD></TR>
+<TR><TD class=left>Param1</TD><TD class=left>The rank of the player who used the force.</TD></TR>
+<TR><TD class=left>Param2</TD><TD class=left>None.</TD></TR>
+<TR><TD class=left>Param3</TD><TD class=left>None.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+</TABLE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../verbs/misc/skilltarget.html">SkillTarget()
+	<OPTION value="../verbs/message/returnex.html">ReturnEx()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

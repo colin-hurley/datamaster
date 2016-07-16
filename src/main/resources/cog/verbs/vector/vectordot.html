@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>VectorDot</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>VectorDot</H2><HR>
+Returns the dot product of two vectors. This product is the cosine of the angle between the vectors
+multiplied by the lengths of both vectors. The dot product is useful for finding the cosine of the angle
+between two normalized vectors. This gives you -x to x scale of how similar the vectors are. Syntax:
+<P>
+<SPAN class=return>dot_product</SPAN>=<CODE>VectorDot(vector1, vector2);</CODE>
+<HR>
+<H5>The Math</H5>
+<SPAN class=math>dot_product=cos&theta; * |v1| * |v2|</SPAN>
+<P>
+Where &theta; is the angle between the vectors.<BR>
+And |v1| is the length of vector1.<BR>
+And |v2| is the length of vector2.
+<HR>
+<H5>Geometrical Application</H5>
+<IMG src="../../../pics/vectordot.gif" align=left style="margin-right:10">
+The picture is on the 2d plane that the two vectors form. The dot product is -0.5. This is the result
+of <NOBR>-0.5 * 1 * 1</NOBR>. The cosine is negative because the angle ends in the second quadrant.
+<P>
+Note that vector1 is placed on the positive x line, and the direction of vector2 is used to end the angle.
+<BR clear=left>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="notes.html#sincos">Sin & Cos
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="../misc/thingviewdot.html">ThingViewDot()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

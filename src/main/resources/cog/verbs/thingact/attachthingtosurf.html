@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>AttachThingToSurf</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>AttachThingToSurf</H2><HR>
+
+This is a seemingly outdated verb to attach a thing to a surface. AttachThingToSurf()
+is able to attach a thing to a floor surface and add the 0x1 <A href="../../../flags/attach/attach_frame.html" target=main>
+Attach Flag</A>. But it does not work with other surfaces, and it is far easier
+to use the 0x40 Physics Flag instead. Syntax:
+<P>
+<CODE>AttachThingToSurf(thing, surface);</CODE>
+<P>
+AttachThingToSurf() sometimes tries to make the thing move to the z axis
+of the surface - either by a small distance or gradually.
+<HR></BODY></HTML>

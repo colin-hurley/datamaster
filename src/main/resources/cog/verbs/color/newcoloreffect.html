@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>NewColorEffect</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>NewColorEffect</H2><HR>
+Creates a color_effect that will be displayed until <A href="freecoloreffect.html">FreeColorEffect()</A> removes it. Syntax:
+<P>
+<SPAN class=return>effect_handle</SPAN>=<SPAN class=code>NewColorEffect(R1_int, G1_int, B1_int, R2_flex, G2_flex, B2_flex, R3_int, G3_int, B3_int, flex_black);</SPAN>
+<P>
+<SPAN class=param>Group 1:</SPAN> The first RBG group is a 0 <B>or</B> 1 integer that tints the level.
+<P>
+<SPAN class=param>Group 2:</SPAN> The second RGB group is a 0-2 flex that adds a deep tint to the level.
+<P>
+<SPAN class=param>Group 3:</SPAN> The third group is a 0-290 integer that adds a color to the screen.
+<P>
+<SPAN class=param>flex_black:</SPAN> This is a 0 to 1 flex that adds black to the screen. A value of 0 would be fully black.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="freecoloreffect.html">FreeColorEffect()
+	<OPTION value="modifycoloreffect.html">ModifyColorEffect()
+	<OPTION value="notes.html#adding">Adding to the Screen
+	<OPTION value="notes.html#cumulative">Cumulative Effects
+	<OPTION value="notes.html#handle">Effect Handles
+	<OPTION value="notes.html#white">White Effects
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="adddynamicadd.html">AddDynamicAdd()
+	<OPTION value="adddynamictint.html">AddDynamicTint()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

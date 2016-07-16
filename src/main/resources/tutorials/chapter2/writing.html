@@ -1,0 +1,575 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Writing Cogs</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head>
+<body onLoad="top.main.chapter.document.form.select2.selectedIndex = 9;" onUnload="top.main.chapter.document.form.select2.selectedIndex = 0;">
+
+<h2 style="margin-bottom:0">Writing Cogs</h2><hr>
+
+You should now be familiar with the basics of cog syntax, but so far, nothing has been said about actually writing a useful cog.
+So with this tutorial, we're going to write a few cogs.
+
+<h4>Your Programs</h4>
+
+The program you use to write cogs will be your text editor of choice. Sure, there are a few stubborn editors out there who'll extoll notepad to its death,
+but you should be using an editor that's made for what you're doing. There are several available programs designed specifically for writing cogs, but they don't really
+provide good enough features to make their use worthwhile.
+<p>
+In the author's opinion, <A href="http://www.editplus.com/">Editplus</A> is the best text editor for cogs (cog syntax files for Editplus can be downloaded from
+Saber's Domain). The choice is up to you, but you will want to look for features like syntax highlighting and syntax checking. Editors that support syntax highlighting
+will let you assign colors to verbs, keywords, comments, punctuation, etc. Syntax checking requires a program to read through your code and check for errors.
+The best cog syntax checker for JK is Parsec which is available from Saber's Domain.
+<p>
+Another thing you'll want is an advanced find & replace tool. Editplus supports regular expressions which allow you to tell the program to search & replace with
+tabs, line breaks, wildcards, etc. This is not a commonplace feature in text editors, but the more powerful ones usually have something like this. MDIs (multiple
+document interfaces) are very useful for working on more than one file at a time.
+
+<h4>Your References</h4>
+
+The only full-scale references for JK are the JKSpecs from the Code Alliance and the DataMaster (which is what you're probably reading this tutorial in).
+The JKSpecs is an earlier reference that was created to cover all aspects of JK editing. The DataMaster was created later on when more was known about
+JK. Just about everything in the DM was tested prior to its inclusion, so the information is a lot more accurate. But the DM only covers cog and flag information
+- there's nothing about templates or anything not related to cog.
+<p>
+So you'll need to use both references together to get the information you'll need for editing. Before going to the web for help with a problem, you should always
+consult the appropriate reference.
+
+<h4>First Example Cog</h4>
+
+We're assuming here that you have a patch folder inside your JK directory that has these folders already created: cog, ui, and misc.
+<p>
+<b>Intent:</b> First you'll need to decide what you want to do. As you gain experience, you'll learn more about what you can and can't do, but you should
+always pick something that seems simple to start with. For this first example, we're going to let the player walk on any surface. This was done is a patch
+known as Walk on Walls. The creators of this patch butchered a few of JK's cogs and then claimed they'd done something so complicated that they were
+"pushing JK's limits." But in truth, it takes only a few lines of code. Don't be one of those people.
+<p>
+<b>Outline:</b> Now that we know what we want to do, we need to figure out how we'll do it. One of the easiest ways to change anything in JK is to make
+a new hotkey to create your effect - and upon the release of the hotkey, the effect will end. So we know we'll need a simple hotkey cog that we can create
+from scratch. With any new cog, it's just a waste of time to type in the header and the section keywords. If you're using Editplus, you can use its file template
+feature to create a new cog file with the basic stuff already typed in. Or you can use a program like TweakUI to add a file to the windows new file list so you
+can create a new file using the windows right-click menu.
+<p>
+<b>Writing:</b> For the purposes of instruction, we're going to write the cog first and then get JK to use it. So right now we have an outline that looks like this:
+
+<pre class="code">
+# .cog
+#
+#
+#
+# []
+#==============================================================#
+symbols
+
+
+
+end
+#==============================================================#
+code
+#------------------------------------------------------
+
+
+
+#------------------------------------------------------
+end
+</pre>
+
+The first thing we're going to fill out is the header. We're going to save this cog as <i>hotkey_walk.cog</i>, so this is what we'll put as the cog's name on the first
+line. Then on the third line, we'll write out the cog's intent - to enable the player to walk on walls. And on the fifth line, you'll write the screen name that other
+editors will know you by. You can add whatever information you want people to know - such as your email address, the release date, copyright info, or what
+have you.
+<p>
+Next we'll write down the variables we're going to use. Most of the time, you won't know what variables you need until you get to the code section, but we'll
+write the ones we know we need before going to the code. Because this is a hotkey cog that will use the activated and deactivated messages, we need to add
+them. We'll also add a variable named player because we know from our intent we're going to need it.
+<p>
+For now, that's it for the symbols. We'll go on to the code section and add the message handlers. We won't write anything in them yet, because we want to have
+all the basic things written out first. Our cog should now look like this:
+
+<pre class="code">
+# hotkey_walk.cog
+#
+# This cog will let the player walk on any surface he touches.
+#
+# [SreenName]
+#==============================================================#
+symbols
+
+message  activated
+message  deactivated
+
+thing     player
+
+end
+#==============================================================#
+code
+#------------------------------------------------------
+activated:
+
+
+return;
+#------------------------------------------------------
+deactivated:
+
+
+return;
+#------------------------------------------------------
+end
+</pre>
+
+Now that we have a way to start and stop the effect with a script, we need to find out how we want to create the effect.
+Pretty much the easiest way to do this is to change a few Physics Flags that tell JK how to make the player attach to surfaces.
+When you reach this decision process on your own, you will need to look through your references to find a solution. Remember
+that there's nothing wrong with looking at someone else's code to figure out how it can be done.
+<p>
+The <a href="../../flags/physics/physics_frame.html">Physics Flags</a> that we're going to use are 0x1 for gravity, 0x10 for thing alignment, and 0x80 for making things attach to all
+surfaces. Physics Flags are assigned to things that use them. We're going to remove the 0x800 flag from the player so that he'll
+be able to attach to wall surfaces without sliding down, and we're going to add 0x10 and 0x80 (0x90) to make the player attach to wall surfaces and align
+himself to them. It's alright if you don't understand flags at this point - they'll be covered in the next chapter. For now, just understand
+that they're like settings for objects.
+<p>
+The first line will go in the activated handler. Here we'll define the player variable as the local player. GetLocalPlayerThing() will return
+the thing number of the player and the assignment operator will assign that value to the player variable. Next we'll add the 0x90 Physics
+Flags and remove (clear) the 0x800 flag. Since we haven't run the cog yet, we'll put a Print() command in the message so that if we don't
+see anything happen but we see the printed text, we'll know the cog did run but our code was wrong.
+<p>
+The deactivated handler will do the opposite of activated. We'll set the flags we cleared, and clear the flags we set. Player does not have
+to be redefined because the cog will store the value of a variable for other message handlers. We'll also add a print to the deactivated
+handler so that we'll know when the effect has ended. Our cog should now look like this:
+
+<pre class="code">
+# hotkey_walk.cog
+#
+# This cog will let the player walk on any surface he touches.
+#
+# [SreenName]
+#==============================================================#
+symbols
+
+message  activated
+message  deactivated
+
+thing     player
+
+end
+#==============================================================#
+code
+#------------------------------------------------------
+activated:
+	player=GetLocalPlayerThing();
+	SetPhysicsFlags(player, 0x90);
+	ClearPhysicsFlags(player, 0x800);
+	Print("beginning");
+
+return;
+#------------------------------------------------------
+deactivated:
+	ClearPhysicsFlags(player, 0x90);
+	SetPhysicsFlags(player, 0x800);
+	Print("ending");
+
+return;
+#------------------------------------------------------
+end
+</pre>
+
+At this point, we'll save our cog as hotkey_walk.cog in the cog folder. Now we're going modify some of JK's resource files to make JK treat
+this cog as a hotkey cog. We'll need to edit the items.dat from res2.gob and jkstrings.uni from res1hi.gob. Extract both of these files using
+ConMan or some other gob extraction program.
+<p>
+Put the items.dat in the misc folder of your patch dir and open it up. Near the end of the file, add this line just before hotkeyOffset:
+
+<pre class="code">
+f_speed	116		1	1	0x122	cog=hotkey_walk.cog
+</pre>
+
+You should recognize this from the inventory tutorial of the first chapter. Our bin is named f_speed because in order to make use of the deactivated
+message in the cog, we must make our bin an inventory item's bin. We can do this by adding the 0x2 flag to the bin, but we'll also need an icon to go
+along with the bin. Instead of going through the trouble of creating a new icon file, we can just use the name of a bin that we know has an icon. Now
+save the items.dat and you're done with it.
+<p>
+Now take the jkstrings.uni and put it in the ui folder. Open it and search for "Activate16". Right under that line, add this:
+
+<pre class="code">
+   "ACTIVATE17" 0 "Surface Walking"
+</pre>
+
+This part of the jkstrings is where JK gets the text to put in the set hotkeys box. Adding another activate in this list will make JK look for another bin
+in the items.dat that has the 0x100 flag. The 0 is just there as a divider, and the text in quotation will show up in the box as the hotkey's name. After
+pasting this line in the file, save and close it.
+<p>
+That's all you need to use this cog. Using the path command with a shortcut, run your patch and see how it works.
+
+<h4>Second Example Cog</h4>
+
+Now that you know to write a new hotkey cog, let's look at making a new level cog. Let's say that you want a goal to be completed when a
+boss is killed. So we'll need our cog to set up the goal, and then complete it when the actor dies.
+<p>
+The goal will be set up on startup, and it will be completed when the boss is killed, so we'll need to listen for the startup message and the killed message
+of the boss. Because goals are part of the player's inventory system, we'll need a player variable. We'll need to have the boss variable left open for the level
+to define because we need to listen for the boss' killed message. For a goal completetion sound, we'll add a variable named doneSnd. Our outline should
+look like this:
+
+<pre class="code">
+# level_boss.cog
+#
+# Set up a goal and complete it when a boss is killed.
+#
+# [ScreenName]
+#==============================================================#
+symbols
+
+message  startup
+message  killed
+
+thing      player      local
+thing      boss
+
+sound    doneSnd
+
+end
+#==============================================================#
+code
+#------------------------------------------------------
+startup:
+
+
+return;
+#------------------------------------------------------
+killed:
+
+
+return;
+#------------------------------------------------------
+end
+</pre>
+
+For the startup message, we're going to initialize our goal. First, we'll define the player, then tell 99 her offset number 1000 (this will correspond to
+the goal number in cogstrings.uni), and then set the first goal's flag to 0x1 so that it will be visible in the game's objectives window.
+<p>
+For the killed message, we'll set the goal's flag to 0x2 to make it completed, and we'll play a sound so that you'll be able to tell you completed
+the objective without looking at them. Our cog will now look like:
+
+<pre class="code">
+# level_boss.cog
+#
+# Set up a goal and complete it when a boss is killed.
+#
+# [ScreenName]
+#==============================================================#
+symbols
+
+message  startup
+message  killed
+
+thing      player      local
+thing      boss
+
+sound    doneSnd
+
+end
+#==============================================================#
+code
+#------------------------------------------------------
+startup:
+	// define the player.
+	player = GetLocalPlayerThing();
+	// set the level's string offset.
+	SetInv(player, 99, 1000);
+	// make the first goal visible.
+	SetGoalFlags(player, 0, 0x1);
+
+return;
+#------------------------------------------------------
+killed:
+	// complete the first goal.
+	SetGoalFlags(player, 0, 0x2);
+	// play our goal-completion sound.
+	PlaySoundLocal(doneSnd, 1, 0, 0);
+
+return;
+#------------------------------------------------------
+end
+</pre>
+
+And that's it for our cog. Now we'll work on setting up the level to use it. For instructional purposes, we'll assume that you have
+a patch folder with the jkl, cog, and misc folders already created. The jkl folder should contain a simple jedi knight level (theboss.jkl) with
+thing 0 being the player and thing 1 being the boss.
+<p>
+In the misc folder, you'll create the cogstrings.uni and paste this text into it:
+
+<pre class="code">
+MSGS 4
+
+"GOAL_01000" 0 "Kill teh boss!"
+"THEBOSS" 0 "Teh 1337 Boss Killing L3v3L"
+"THEBOSS_TEXT_00" 0 "Kill teh uber boss...."
+"THEBOSS_TEXT_01" 0 "and then stand there and look stupid."
+
+END
+
+</pre>
+
+This file will give JK some text to display while the level loads and text for the first goal. Notice the goal offset number is 1000. The extra
+line at the end of the file is important - don't leave it out. The jkl's name must be named <i>theboss.jkl</i>. If you change the jkl name, change
+"THEBOSS" to whatever the new name is. Now that we have the cog and the goal text set up, we need to get the level to load the cog. So
+open up the jkl and go to the cogsscripts section. Add this line at the end of the cogscripts section:
+
+<pre class="code">
+16: level_boss.cog
+</pre>
+
+This is assuming that there were already fifteen cogs in that section - just add your cog to the end of the list. After that, remember to up the
+cogscripts count. Now go to the cogs section right below it. Here, we're going to pass some arguments to the cog we just added. Add this
+line:
+
+<pre class="code">
+0: level_boss.cog 1 accomplish1.wav
+</pre>
+
+If there are already cogs in this section, just add yours to the end of the list. With this line, we're giving a value of 1
+to the cog's first variable and giving the number of a sound to the cog's second variable. The sound name is not passed as text, instead JK will get the
+sound's number from the sound listing and pass that. When a thing variable is given a value from the level, JK will associate that thing with
+the cog - this is how we'll get the boss' killed message. Remember to update the cogs count after adding this line - it should be whatever
+the cogscript count is plus one.
+<p>
+The last file you need to create is the episode.jk - this is the file which tells JK what levels can be loaded from this episode. Create this file in the root of your path
+directory and then paste this text into it:
+
+<pre class="code">
+"Teh Boss Killing Episode"
+
+TYPE  1
+
+SEQ   1
+
+10:      1     1        LEVEL    theboss.jkl   0           0           -1    -1
+
+end
+
+</pre>
+
+After you save and close this file, everything should now be set up for you to test the cog. Create a shortcut and run the patch using the path command.
+Just so you know what you're really doing, this section explains how to set up the cog without using a level editing program like JED or JKEdit. In reality, you'll
+hardly ever have to manually edit a .jkl file. But since you need to know about these sections and how they work - and because this tutorial shouldn't have
+to explain how to use a level editor - you've been shown the manual way to add a level cog.
+
+<h4>Third Example Cog</h4>
+
+For your next trick, we're going to make the secondary fire of the bryar pistol into a grappling hook. There isn't going to be that much finesse - the bryar
+is going to shoot some sort of projectile, and then the player is going to be pulled towards it. So you'll start by creating your patch folder in the JK directory
+and the cog and jkl resource subfolders.
+<p>
+Since we're going to be modifying the bryar pistol, we'll take its cog (weap_bryar.cog) out of the res2.gob and put it in our patch's cog folder. And since
+we'll need to make a template for the grappling hook, we'll also need to extract the static.jkl and put that in our JKL folder. Now we'll want to decide how
+we're going to do this. The simple way to do it is to have a pulse somewhere that makes the player move towards the grappling hook. We could have this
+code inside of weap_bryar, but that's already a weapon cog, and adding extra code to it would be messy. A cleaner approach would be to give the grappling
+hook a class cog. So that's what we'll do.
+<p>
+All weap_bryar needs to do is fire a new secondary projectile, so we'll need to add a new template variable for the projectile:
+
+<pre class="code">
+template     grappleTpl=+grapple     local	
+</pre>
+
+Now we can skip down to the fire message. Right under the player assignment, we'll add:
+
+<pre class="code">
+	mode = GetSenderRef();
+</pre>
+
+The sender of the fire message is the mode of fire - 0 for primary and 1 for secondary. Next there's some code that checks the player's health, and
+right under that is where we'll add our firing code:
+
+<pre class="code">
+	if(mode == 1)
+	{
+		FireProjectile(player, grappleTpl, fireSound, 8, '0 0 0', '0 0 0', 0, 0x0, 0, 0);
+		SetPOVShake('0.0 -.003 0.0', '1.0 0.0 0.0', .05, 80.0);
+		jkPlayPOVKey(player, povfireAnim, 1, 0x38);
+		return;
+	}
+</pre>
+
+This code checks to make sure it's the secondary mode of fire and then fires the grappling hook. FireProjectile() is a do-it-all verb that creates
+the hook in the game, plays a sound, does the firing animation, and bunch of other things we don't need to use. The POV verbs will create
+an animation for the internal camera. After that, we'll need to return because we don't want to run the bryar's original firing code.
+<p>
+Now if we don't have any energy ammo, and we still want to use the bryar's grappling hook, we'll need to fix the autoselect message so that
+we can select a gun that has no ammo. So right under the player assignment in autoselect, we'll add this code:
+
+<pre class="code">
+	if(GetSenderRef() == -1)
+	{
+		ReturnEx(1);
+		return;
+	}
+</pre>
+
+The autoselect message's sender tells you what type of query the autoselect handler is supposed to answer. A sender of -1 means the player
+is trying to mount the weapon - so the autoselect message is being asked if the player has the gun and ammo to use it. We don't really care if the
+player has either, so we're going to let the player select it regardless. The ReturnEx() verb is used to return a value to whatever sent the message.
+<p>
+So we're going to return a value of 1 meaning the weapon is selectable. After this we'll return so the original code won't run. And that's all you need
+to change in the bryar cog. Let's go ahead and create our weapon template. Open up the static.jkl and paste this text at the end:
+
+<pre class="code">
+Section: templates
+World templates 2
+
+_base          none         orient=(0/0/0) type=weapon collide=1 move=physics thingflags=0x400 timer=10 mass=5 
++grapple      _base       model3d=mana1.3do vel=(0/8/0) cog=class_grapple.cog typeflags=0x180
+
+end
+</pre>
+
+The first template in a jkl must be a base template because JK doesn't allow cogs to use the first template - the reason is unclear. So we'll make
+the first template a base for our +grapple template. When JK loads these templates, weap_bryar will be able to create grappling hooks in the game
+from them. For us, the most important part of this template is its class cog (class_grapple.cog) - which we'll write shortly. Now go up to the
+cogscripts section and add an entry for class_grapple.cog.
+
+<pre class="code">
+Section: cogscripts
+World scripts 51
+0: class_grapple.cog
+end
+</pre>
+
+Remember to up both the cogscripts and cogs counts. Now we're ready to start writing the cog that will do all of the work. First we'll think of the events
+that we'll need to act on. When the hook is created, we'll need to start our effect - so that's a message we'll add. A pulse is the easiest way to create
+a continuous effect, so we'll add that too for lack of a better idea. And to stop the effect, we'll add a removed message so that when the hook is taken
+out of the game, the effect will end.
+<p>
+Now that we have our events, we need to find out what objects we'll be working with. Since we're only moving the player to the hook, we have two
+things we know we'll need before starting with the code. Our symbols section should look like this:
+
+<pre class="code">
+symbols
+
+message	created
+message	pulse
+message	removed
+
+thing		grapple		local
+thing		player		local
+
+end
+</pre>
+
+Our created handler will have to define our two things and then start the pulse to make the player move. It should look something like this:
+
+<pre class="code">
+created:
+	grapple=GetSenderRef();
+	player=GetLocalPlayerThing();
+	SetPulse(0.1);
+
+return;
+</pre>
+
+Our pulse handler will be the most complicated part of this patch. It's not something you can think of in its entirety before starting to write it.
+Basically, it needs to make the player move towards the hook. SetThingVel() can do this easily. But if we do this right away, the player will
+start moving towards the hook before it's landed in a wall somewhere. So we'll need to add a condition to check for the hook's speed. If its
+speed is low enough, then we can start moving the player.
+<p>
+One thing that you should always remember when working with the player is that he can die at any time. If he dies when he's using his
+grappling hook, then he should let go and fall to the ground, so we'll have to add a condition for that too. Our pulse message should look
+something like this:
+
+<pre class="code">
+pulse:
+	// if the player has died, stop the effect.
+	if(GetThingHealth(player) < 1) { SetPulse(0); StopThing(player); return; }
+	// if the grapple is hardly moving (speed is less than 0.1), then pull the player.
+	if(VectorLen(GetThingVel(grapple)) < 0.1) SetThingVel(player, VectorSub(GetThingPos(grapple), GetThingPos(player)));
+
+return;
+</pre>
+
+If you're new to cog and looking through these coding examples, you're probably wondering how you're supposed to find the verbs and flags that
+make this work. There's really not one good way - you need to look at other people's examples, read references, and ask questions if you have to.
+Most of the time, you'll write out some code, and when you get to test it, you'll find something unexpected comes up that prevents your effect
+from working.
+<p>
+In this case, our player keeps attaching himself to the ground instead of flying up to where the hook landed. So we'll need to detach him from
+the ground if he's attached. We don't want to continually detach him, so we'll need to add a condition to make sure he has the 0x1 attachment
+flag which means he's attached to a surface (this correction is made in the completed cog).
+<p>
+And in the removed handler, we need to stop our effect. The hook is given a timer in its template - at the end of that timer, the hook will be taken
+out of the game and the removed message will be sent to its cogs. We also need to make sure that the hook that's being removed is the same one
+we're using. We don't care if an old hook is being removed - only the current one. Our removed handler might look like this:
+
+<pre class="code">
+removed:
+	// make sure this is the current grapple.
+	if(GetSenderRef() != grapple) return;
+
+	// when the grapple is removed from the game,
+	// stop the pulse and stop the player's movement.
+	SetPulse(0);
+	StopThing(player);
+
+return;
+</pre>
+
+And the whole cog should look like:
+
+<pre class="code">
+# class_grapple.cog
+#
+# Class cog for the grappling projectile.
+#
+# [ScreenName]
+#==============================================================#
+symbols
+
+message	created
+message	pulse
+message	removed
+
+thing		grapple		local
+thing		player		local
+
+end
+#==============================================================#
+code
+#------------------------------------------------------
+created:
+	grapple=GetSenderRef();
+	player=GetLocalPlayerThing();
+	SetPulse(0.1);
+
+return;
+#------------------------------------------------------
+pulse:
+	// if the player has died, stop the effect.
+	if(GetThingHealth(player) < 1) { SetPulse(0); StopThing(player); return; }
+	// if the grapple is hardly moving (speed is less than 0.1), then pull the player.
+	if(VectorLen(GetThingVel(grapple)) < 0.1)
+	{
+		if(GetThingAttachFlags(player) & 0x1) DetachThing(player);
+		SetThingVel(player, VectorSub(GetThingPos(grapple), GetThingPos(player)));
+	}
+
+return;
+#------------------------------------------------------
+removed:
+	// make sure this is the current grapple.
+	if(GetSenderRef() != grapple) return;
+
+	// when the grapple is removed from the game,
+	// stop the pulse and stop the player's movement.
+	SetPulse(0);
+	StopThing(player);
+
+return;
+#------------------------------------------------------
+end
+</pre>
+
+And that's it for this patch. Use your shortcut to test it out in a game.
+
+<p>
+<a href="review.html">Continue</a>
+<p>
+
+<hr></body></html>

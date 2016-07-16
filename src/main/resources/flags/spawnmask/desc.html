@@ -1,0 +1,44 @@
+<HTML><HEAD><TITLE>Respawn Mask Flags Description</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>Respawn Mask Flags</H2><HR>
+
+Respawn Mask Flags are a property of multiplayer players that control
+where they're allowed to respawn. As LEC explained, these flags are
+a reverse mask. That is, they set the spawn points that a player is not
+allowed to spawn from whereas a normal mask would set the points that
+he was allowed to use.
+<P>
+<A href="../../cog/verbs/multiplayer/setrespawnmask.html">SetRespawnMask()</A>,
+unlike most flag verbs, sets the total flags instead of only adding flags. So there is
+no ClearRespawnMask(). <A href="../../cog/verbs/multiplayer/getrespawnmask.html">GetRespawnMask()</A>
+is used to retrieve the respawn mask of a player. Respawn masks must be
+set for each level that they're used in, because they will not be saved for
+the next level.
+<P>
+If all respawn points in a level are masked for a player, then he will spawn
+at the first walkplayer. These "spawn points" are the positions of walkplayers
+in the level, but not the players themselves.
+<P>
+The order of spawn points corresponds to the thing numbers of the walkplayers in the
+level. So the first spawn point in a level is the walkplayer with the lowest thing
+number. And the last is the walkplayer with the highest number.
+<P>
+If, for example, you wanted to make a player use only last spawn point
+in a level, and the level had 16 walkplayers, then you would use a mask of 0x7fff.
+Note here that each digit can mask up to 4 spawn points. So the three 'f' digits
+block 12 spawn points. The 0x7000 is the combination of 0x1000, 0x2000, and
+0x4000. The last flag for that digit, 0x8000, is not present. The lack of that flag
+allows the player to use the last of the 16 walkplayers as a spawn point.
+
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Verbs Used:
+	<OPTION value="../../cog/verbs/multiplayer/getrespawnmask.html">GetRespawnMask()
+	<OPTION value="../../cog/verbs/multiplayer/setrespawnmask.html">SetRespawnMask()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR><BODY></HTML>

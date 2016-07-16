@@ -1,0 +1,43 @@
+H1 {text-align: center}
+H2 {text-align: center; font: 23px Times New Roman; font-weight:bold}
+H3 {text-align: center}
+H4.old {text-align: center; font: 17px Times New Roman; font-weight:bold}
+H4 {text-align:left; text-indent:10; font: 13px Verdana; font-weight:bold; border:thin double black; width:250; background:silver; margin-left:0}
+H5 {text-align: center}
+H6 {text-align: center}
+
+BODY {font: 11px Verdana; background: silver; margin-right: 50}
+BODY.specback {font: 11px Verdana; background: gray; margin:0}
+
+SPAN.temp {color: red}
+SPAN.exam {color: green}
+SPAN.var {color: #844; font-weight: bold}
+SPAN.title {color: red; font-size: 10pt; font-weight: bold}
+SPAN.credit {color: purple; font: 9pt verdana}
+
+BLOCKQUOTE {color: red}
+
+PRE.code {color: green; font: 8pt verdana}
+PRE.monocode {color:green; font: 8pt courier new;}
+
+TH {text-align: left}
+TH.big {font-size: 15pt; text-align: center}
+TH.optit {font-size: 12pt; text-align: center}
+
+TABLE {background: silver; font: 10pt Times New Roman}
+TABLE.large {background: silver; font: 10pt Times New Roman}
+TABLE.tutlist {background: silver; font: 8pt Verdana}
+TABLE.oplist {background: silver; font: 8pt Times New Roman}
+
+DIV.silverback {background:silver; padding: 20}
+
+A:link {color: #6600FF; text-decoration: none}
+A:visited {color: #6600FF; text-decoration: none}
+A:hover {color: #000099}
+A:active {color: #000099}
+
+SUP {color: red}
+
+CODE {color:green; font: 8pt Verdana}
+
+UL {margin-top:5; margin-bottom:10}

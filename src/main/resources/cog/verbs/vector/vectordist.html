@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>VectorDist</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>VectorDist</H2><HR>
+Finds the difference between two vectors and returns its length. Syntax:
+<P>
+<SPAN class=return>diff_len</SPAN>=<CODE>VectorDist(vector1, vector2);</CODE>
+<HR>
+<H5>The Math</H5>
+<SPAN class=math>diff_len=sqrt(sqr(x1-x2) + sqr(y1-y2) + sqr(z1-z2));</SPAN>
+<HR>
+<H5>Geometrical Application</H5>
+<IMG src="../../../pics/vectordist.gif" align=left style="margin-right:10">
+When one vector is subtracted from another, the resultant vector becomes a line from the tip of one vector
+to the other. The length of this line is the distance between the vectors.
+<BR clear=left>
+<P>
+<IMG src="../../../pics/vectordist2.gif" align=left style="margin-right:10">
+VectorDist() uses the <EM>displacement</EM> of the vector from <NOBR>'0 0 0'</NOBR> to measure the distance between
+vector1 and vector2. The operation is the same with positions; the difference is how you think of a position as opposed to a
+displacement vector.
+<BR clear=left>
+<HR></BODY></HTML>

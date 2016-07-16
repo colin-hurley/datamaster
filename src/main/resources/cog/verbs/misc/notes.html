@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Misc Verbs</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Misc Verbs</H2><HR>
+
+<A name=saber><H4 style="margin-top:0">The Lightsaber Effect</H4></A>
+
+The lightsaber is a special weapon that is managed by several Cog verbs and
+<A href="../../../flags/jk/jk_frame.html" target="main">Jedi Knight Flags</A>.
+<A href="jksetsaberinfo.html">jkSetSaberInfo()</A> can be used to adjust the visual
+settings of the lightsaber, but this verb does not have to be used normally because JK
+will use default settings.
+<P>
+The 0x4 <A href="../../../flags/jk/jk_frame.html" target="main">Jedi Knight Flag</A> ignites
+the saber, and the 0x1 flag tells the engine that the creature has
+a saber. <A href="jkenablesaber.html">jkEnableSaber()</A> allows the saber to damage
+things, but does not allow the saber to collide. The saber will not collide until the 0x2
+flag is assigned to the creature. This 0x2 flag is normally assigned while the saber fire
+keyframes are played.<SUP>1</SUP>
+<P>
+After the saber is swung, <A href="jkdisablesaber.html">jkDisableSaber()</A> prevents
+the saber from damaging. And when the saber is deselected, the 0x8 flag turns off
+the saber and then clears the 0x1 flag and itself.
+<P>
+Note that the saber can damage a creature once for every time the 0x2 flag is set.
+
+<A name=reticle><H4>Targetting Reticle</H4></A>
+
+The targeting reticle is composed of the three rings that expand and contract around a point.
+It is used to select targets for force powers.
+<P>
+<A href="jksettargetcolors.html">jkSetTargetColors()</A> sets the color to be used by each
+ring, <A href="jksettarget.html">jkSetTarget()</A> puts the reticle on a thing, and
+<A href="jkendtarget.html">jkEndTarget()</A> removes the reticle. You cannot have more
+than one targeting reticle in the game simultaneously.
+<P>
+<HR>
+<SUP>1</SUP>Saber fire anims have special keyframe markers that tell the engine
+which frames assign and clear the 0x2 <A href="../../../flags/jk/jk_frame.html" target="main">Jedi Knight Flag</A>.
+<BR><HR></BODY></HTML>

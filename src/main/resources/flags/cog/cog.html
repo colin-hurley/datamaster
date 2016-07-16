@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Cog Flags</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../../script/option.java"></SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/flags.css">
+</HEAD><BODY>
+
+<TABLE border="1" width="100%" cellpadding=3>
+<TR><TH colspan=3 class=big><A href="desc.html" onclick="ShowPage(this.href); return false" class="title">Cogscript Flags</A></TH></TR>
+<TR><TH width="15%">Hex</TH><TH width="10%">Dec</TH><TH width="*">Purpose</TH></TR>
+<TR><TD colspan="2"><CENTER><A href="none.html" onclick="ShowPage(this.href); return false">none</A></CENTER></TD><TD>Cog runs only on the server, effects are synced, and event messages are forwarded.</TD></TR>
+<TR><TD><A href="0x1.html" onclick="ShowPage(this.href); return false">0x1</A></TD><TD>1</TD><TD>Cog debug messages will be printed.</TD></TR>
+<TR><TD><A href="0x2.html" onclick="ShowPage(this.href); return false">0x2</TD><TD>2</TD><TD>Cog is disabled.</TD></TR>
+<TR><TD>0x4</TD><TD>4</TD><TD>Cog has an active pulse.</TD></TR>
+<TR><TD>0x8</TD><TD>8</TD><TD>Cog has an active timer.</TD></TR>
+<TR><TD><A href="0x10.html" onclick="ShowPage(this.href); return false">0x10</TD><TD>16</TD><TD>Cog is paused and will receive messages, but not handle them.</TD></TR>
+<TR><TD><A href="0x20.html" onclick="ShowPage(this.href); return false">0x20</TD><TD>32</TD><TD>Unknown. Default flag for all class cogs.</TD></TR>
+<TR><TD><A href="0x40.html" onclick="ShowPage(this.href); return false">0x40</TD><TD>64</TD><TD>Cog will run locally on each computer. Default flag for all item and class cogs.</TD></TR>
+<TR><TD><A href="0x80.html" onclick="ShowPage(this.href); return false">0x80</TD><TD>128</TD><TD>MotS only: Cog will not be given the default 0x40 Cog Flag.</TD></TR>
+<TR><TD>0x100</TD><TD>256</TD><TD>Unknown.</TD></TR>
+<TR><TD><A href="0x200.html" onclick="ShowPage(this.href); return false">0x200</TD><TD>512</TD><TD>Cog does not send syncing information to other computers.</TD></TR>
+</TABLE>
+</BODY></HTML>

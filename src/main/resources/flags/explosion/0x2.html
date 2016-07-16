@@ -1,0 +1,16 @@
+<HTML><HEAD><TITLE>0x2 Exposion Flag</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>0x2 Exposion Flag</H2><HR>
+
+Explosion templates have timer and blasttime template settings. Timer sets the time
+for the explosion to exist in the game, and blasttime is the time left that the explosion
+should have when it explodes. When the explosion does "explode," the force, damage,
+debris, etc effects are created. When the 0x2 flag is set, it shows that the explosion
+has not exploded. When it does, the 0x2 will be cleared.
+<P>
+This flag is not only a simple information flag. It is used by the engine to determine whether
+it has already created the explosion effects or not. Clearing 0x2 will cause the explosion
+not to explode, and setting 0x2 after the explosion will cause it to explode again.
+
+<HR><BODY></HTML>

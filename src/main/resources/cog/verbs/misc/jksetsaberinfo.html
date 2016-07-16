@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>jkSetSaberInfo</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>jkSetSaberInfo</H2><HR>
+Sets a creature's saber settings. jkSetSaberInfo() only sets what the saber will look like when it is ignited. The actual
+collision settings for the saber are set with <A href="jkenablesaber.html">jkEnableSaber()</A>, and the ignition of the
+saber is handled by <A href="../../../flags/jk/jk_frame.html" target="main">Jedi Knight Flags</A>. Syntax:
+<P>
+<CODE>jkSetSaberInfo(creature, side_mat, tip_mat, base_rad, tip_rad, length, wall, blood, saber);</CODE>
+<P>
+<SPAN class=param>side_mat:</SPAN> This is the mat that will be displayed on the saber's side.
+<P>
+<SPAN class=param>tip_mat:</SPAN> This is the mat that will be displayed on the saber's base and tip surfaces.
+<P>
+<SPAN class=param>base_rad:</SPAN> This is the radius of the saber at its base in JKUs. Default: 0.003.
+<P>
+<SPAN class=param>tip_rad:</SPAN> This is the radius of the saber at its tip in JKUs. Default: 0.001.
+<P>
+<SPAN class=param>length:</SPAN> This is the length of the saber in JKUs. Default: 0.1.
+<P>
+<SPAN class=param>wall:</SPAN> This is the template that is created when the saber hits a wall.
+<NOBR>Default: <SPAN class=temp>+ssparks_wall</SPAN>.</NOBR>
+<P>
+<SPAN class=param>blood:</SPAN> This is the template that is created when the saber hits a creature.
+<NOBR>Default: <SPAN class=temp>+ssparks_blood</SPAN>.</NOBR>
+<P>
+<SPAN class=param>saber:</SPAN> This is the template that is created when the saber collides with another saber.
+<NOBR>Default: <SPAN class=temp>+ssparks_saber</SPAN>.</NOBR>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="notes.html#saber">The Lightsaber
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

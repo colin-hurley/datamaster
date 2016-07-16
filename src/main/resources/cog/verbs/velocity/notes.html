@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Velocity Verbs</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Velocity Verbs</H2><HR>
+
+<A name=rotvel><H4 style="margin-top:0">Rotation Velocities</H4></A>
+
+Rotation velocities make a thing pitch, yaw, and roll at a certain velocity. Rotvels use higher numbers than regular velocities; for example, a rotvel
+of 360 will rotate a healthpack 360 degrees in about a second. They <EM>may</EM> be measured in degrees per second.
+<P>
+The player's yaw direction is controlled by the engine and rotvels have only a temporary effect on it. A thing will not accept a rotation velocity if
+it does not move by physics, and the rotation will not work properly if the thing is attached to a surface.
+
+<A name=pyr><H4>Pitch, Yaw, and Roll</H4></A>
+
+Rotation velocities use (pitch, yaw, roll) to give direction to a thing's rotation. These directions are relative to the lookvector
+of the thing they are used with.
+<P>
+<STRONG>Pitch:</STRONG> Pitch is the up/down direction. If the player were given a rotvel of (50, 0, 0), his body would
+begin to turn upwards. This is the same direction that the player looks in with the page-down key.
+<P>
+<STRONG>Yaw:</STRONG> This is the sideways direction. When the player looks from side to side with the arrow keys,
+he is yawing.
+<P>
+<STRONG>Roll:</STRONG> Imagine that the player strafes to one side and does a cartwheel. The turn that the player made
+in the cartwheel is an example of roll.
+
+<A name=force><H4>Forces</H4></A>
+
+In some cases, applying force to a thing creates a more natural movement than simply setting its velocity. Remember that applying force
+to different things does not always impart the same speed.
+<P>
+Things with more mass move more slowly than things with less mass. Say you have a baseball bat. If you hit an anvil with the bat, chances
+are it's not going to budge. But if you hit a baseball, it's going to travel for some distance because the baseball has a lot less mass than the anvil.
+<P>
+If a force greater than half the thing's mass is applied to it, any attachment that the thing has will be broken.
+
+<A name=vel><H4>Velocities</H4></A>
+
+Velocities are a type of vector. The direction of a thing's velocity is the direction that the thing is moving. The length of a velocity is the speed
+that the thing is moving in that direction. When giving a velocity as a parameter, remember to give it in vector form.
+
+<A name=thrust><H4>Thrusts</H4></A>
+
+Unlike other measurements related to speed, thrusts are relative to the lookvector of the thing that they are applied to. Instead
+of <SPAN class=exam>'x y z'</SPAN> you have <SPAN class=exam>'sideways forward upward'</SPAN>. Thrusts cannot
+break any attachment and the thing they're applied to must have the 0x2 <A href="../../../flags/physics/physics_frame.html" target="main">Physics Flag</A>
+to accept them.
+<P>
+The player has special thrust applied to him when he walks, strafes, or swims. When <A href="setthingthrust.html">SetThingThrust()</A>
+is used on the player, the walk-thrust is overridden for a short while.
+
+<HR></BODY></HTML>

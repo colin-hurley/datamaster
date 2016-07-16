@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>The Basics of Cog</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/tut.css"></HEAD>
+<body onLoad="top.main.chapter.document.form.select4.selectedIndex = 7;" onUnload="top.main.chapter.document.form.select4.selectedIndex = 0;">
+<H2 style="margin-bottom:0">Learning the Basics of Cog</H2><HR>
+<H4 style="margin-top:0">Hello World</H4>
+
+Cog is an easy language to learn, but it does help if you have some programming experience. This tutorial
+will walk you through the basics.
+<P>
+We'll begin with the infamous Hello World:
+
+<PRE class=code>
+# HelloWorld.cog
+#
+# Print "Hello World" on the screen when the level starts.
+#
+# [SM]
+#==============================================#
+symbols
+
+message startup
+
+end
+#==============================================#
+code
+#-----------------------------------
+startup:
+   Sleep(1);
+   Print("Hello World"); // Print the string
+
+Return;
+#-----------------------------------
+end
+</PRE>
+
+When this cog is run, "Hello World" will appear at the top of the screen when a level is loaded.
+<P>
+The first section is the optional header. The pound sign is used at the beggining of each line so the
+engine will not read the rest of the line. The header usually lists the name of the cog, a description, and
+the author. 
+<P>
+The second section is the symbols section. It defines all of the variables and messages to be used
+in the code section.
+<P>
+The third section is the code section. The code section performs the actual work of the cog.
+Notice that the symbols and code sections begin with their name and end with an <EM>end</EM>.
+<P>
+The two Cog verbs used in that example were Sleep() and Print(). Sleep() was used to pause the code execution for
+one second because startup runs just before the level starts. The Print() command prints a string to the screen.
+<P>
+The message, startup, is listed in the symbols section so the engine will look through the code section for
+startup. The engine will process all code after the startup message until it hits a "return;" command which
+tells it to stop.
+<P>
+The double slashes after the print command is another comment marker used by cog. It works the same way
+as the pound sign, but remember that double-slash comments cannot be used outside of the code or symbols
+sections. If they are, they will be treated by JK as a syntax error and the cog will not function.
+<P>
+Notice the syntax of this example. Each statement ends with a semicolon. Messages in the code section
+have a colon after them. The parameters of the two verbs used are enclosed in parentheses.
+
+<H4>Variables</H4>
+
+A variable is like a storage bin that holds a value. There are different types of variables to hold different types of values.
+You can use a variable anywhere that you can use a number. When JK processes code containing a variable name, it finds
+the value of the variable and uses that in its place. It's as if a number had been written in the place of the variable.
+<P>
+Here's an example of how variables are declared in the symbols section:
+
+<PRE class=code>
+symbols
+
+flex    real1      local
+float   real2
+int      integer
+
+message startup
+
+end
+</PRE>
+
+A symbol declaration has three parts. The first is the type of variable you're defining. The second part is the
+name of the variable. The third part is an optional extension for the variable. All variables to be used in the code
+section should be defined in the symbols section.
+<P>
+Here's an example of assigning values to variables and printing them:
+
+<PRE class=code>
+int1=5;
+int2=10;
+int3=2;
+int4=int1 * int2 / int3;
+PrintFlex(int4);
+</PRE>
+
+Int1, int2, and int3 are assigned to three integer numbers with the assignment operator (=). Int4 is assigned to an expression.
+The expression returns a value which is then assigned to int4. Anything that returns a value can be thought of as an expression.
+<P>
+The mathmatical expression is processed before the assignment because the multiplication and division operators have higher
+precedence than the assignment operator (read the <A href="../cog/operator/operators.html#precedence">Operators</A> document
+for a chart showing the precedence of Cog's operators). The last line in the example prints the value of int4 (25) to the screen.
+
+<H4>Conditional Statements</H4>
+
+In most cogs, you will need to run different code depending on a true or false condition. Here is an example
+of how to do this with the if statement:
+
+<PRE class=code>
+if(integer >= 5)
+{
+     SetTimer(5);
+}
+else
+{
+     SetTimer(1);
+}
+</PRE>
+
+This example is easy enough to read. A different action is performed depending on the value of integer. When only
+one statement is performed by a conditional statement, you don't have to use the brackets to mark a new code block.
+This example will give the same results and save a few lines:
+
+<PRE class=code>
+if(integer >= 5) SetTimer(5);
+else SetTimer(1);
+</PRE>
+
+Notice that the conditional statement itself <EM>does not</EM> end with a semicolon. But the statements after the if statement
+must end with a semicolon.
+<P>
+For more on conditional statements, read the <A href="conditions.html">Conditions</A> tutorial.
+
+<H4>Messages</H4>
+
+Most messages are events that are sent when something happens ingame. The cog then receives the message and
+starts executing code after the message's name in the code section.
+<P>
+Another type of message is the custom message. Here's an example:
+
+<PRE class=code>
+# HelloWorld.cog
+#
+# Print "Hello World" on the screen when the level starts.
+#
+# [SM]
+#==============================================#
+symbols
+
+message startup
+
+end
+#==============================================#
+code
+#-----------------------------------
+startup:
+   Sleep(1);
+   call printtext;
+
+Return;
+#-----------------------------------
+printtext:
+   Print("Hello World");
+
+Return;
+#-----------------------------------
+end
+</PRE>
+
+The custom message in this example is printtext. Notice that it does not have to be defined in the symbols section.
+The call keyword is used to run custom messages, because the engine will normally ignore them.
+
+<H4>Cog Verbs</H4>
+
+Verbs are the commands in the code section that perform all of the work. The set of parentheses after a verb encloses
+its parameters. If there is more than one parameter, they are seperated by a comma. Look at this verb:
+
+<PRE class=code>
+SetTimerEx(0.5, 1, 0, 0);
+</PRE>
+
+Each verb has its own set of parameters. These parameters are values that are passed to the verb so that the verb
+can perform its action. You can use variables, expressions, and other cog verbs as parameters. For example:
+
+<PRE class=code>
+SetTimerEx(0.5, 1, GetSenderRef(), GetSourceRef());
+</PRE>
+
+The verbs GetSenderRef() and GetSourceRef() both return values. These values are then given to SetTimerEx().
+<P>
+Read the <A href="verbs.html">Cog Verb</A> document for more information related to verbs.
+
+<H4>Statements</H4>
+
+Although you can have more than one statement per line, a statement can be considered a line of code that ends with a
+semicolon. It's somewhat like a sentence ending with a period. The two SetTimerEx() examples above are typical
+statements. Look at this example:
+
+<PRE class=code>
+startup:
+   Sleep(1); Print("Hello World"); // Print the string
+
+Return;
+</PRE>
+
+Notice that the two statements from Hello World have been put on one line. Here is another version of the conditional
+statement example:
+
+<PRE class=code>
+if(integer >= 5) SetTimer(5); else SetTimer(1);
+</PRE>
+
+The if statement and the else statement can be put on the same line. But if you put two statements on the same line
+without a semicolon for each, you will get a syntax error and your cog will not run.
+
+<HR>
+<BR>
+Now that you know the basics of cog, read the other tutorials in this section. Also, be sure to
+read some of the tutorials mentioned in the <A href="help.html">More Help</A> document.
+
+<p>
+<a href="loops.html">Continue</a>
+<p>
+
+<HR></BODY></HTML>

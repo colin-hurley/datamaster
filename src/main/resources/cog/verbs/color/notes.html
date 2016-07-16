@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Color Effects</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Color Effects</H2><HR>
+<A name=handle><H4 style="margin-top:0">Effect Handles</H4></A>
+
+An effect_handle is the number of a color effect returned by <A href="newcoloreffect.html">NewColorEffect()</A>.
+The first effect will have a value of 2. The next will have a value of 3 - and so on until 31 when you can have no
+more effects. Once an effect has been "freed," it's number can be used again for another effect.
+<P>
+The first effect_handle value is reserved for level tinting. You can free this default effect with
+<A href="freecoloreffect.html">FreeColorEffect()</A> or <A href="modifycoloreffect.html">ModifyColorEffect()</A>.
+Once the default effect has been freed, it's number can be used for a new effect - this allows you to have 31
+custom effects.
+
+<A name=white><H4>White Effects</H4></A>
+
+An RGB tint of <SPAN class=exam>'1 1 1'</SPAN> is white. If you added this with
+<A href="adddynamictint.html">AddDynamicTint()</A>, you would see a yellowish tint. But, add this tint with
+group 1 or 2 of <A href="newcoloreffect.html">NewColorEffect()</A> and you will not notice
+any change (this does not apply to effects which add to the screen).
+
+<A name=cumulative><H4>Cumulative Effects</H4></A>
+
+Color effects are cumulative. That is, color effects are combined when more than one effect is used
+at the same time. With some graphics cards, using more than one of <A href="newcoloreffect.html">NewColorEffect()'s</A>
+effects will cause problems.
+
+<A name=adding><H4>Adding Color to the Screen</H4></A>
+
+The maximum integer amount of color that can be added to the screen (with
+<A href="adddynamicadd.html">AddDynamicAdd()</A> or <A href="newcoloreffect.html">NewColorEffect()</A>)
+is around 290. The real limit may be higher, but because 290 is opaque, you're not going to notice anything above that.
+<HR></BODY></HTML>

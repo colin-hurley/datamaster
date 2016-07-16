@@ -1,0 +1,18 @@
+<HTML><HEAD><TITLE>0x40 Cog Flag</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>0x40 Cog Flag</H2><HR>
+
+When a cog has this flag, it will function locally. All computers' cogs will still sync their effects,
+but the client cogs will handle all of their messages instead of forwarding some of them to the server.
+<P>
+Note that not all events are the same - some are local and some are global. Events like created
+will occur on all computers when a thing is created. Events like activated only occur on the computer
+of the player that did the activating. So when the 0x40 flag is used, an event message such as
+activated will only run on one of the computers in the game.
+<P>
+The engine will assign this flag to all item and class cogs by default. For most item and class cogs,
+this is the way it should be. By running locally, they can avoid excess communication with the
+server.
+
+<HR><BODY></HTML>

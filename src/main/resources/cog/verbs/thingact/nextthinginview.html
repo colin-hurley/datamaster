@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>NextThingInView</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>NextThingInView</H2><HR>
+Returns the thing in view that has the next lowest thing number. <A href="firstthinginview.html">FirstThingInView()</A> must run before NTIV()
+to set the FOV and mask settings. If FTIV() was not run first, NTIV() will return -1. NTIV() will also return -1 when the last thing returned was
+the thing with the lowest thing number that was visible - at that point, there are no more valid things to return. Syntax:
+<P>
+<SPAN class=return>thing</SPAN>=<CODE>NextThingInView();</CODE>
+<P>
+Cog stores the number of the last thing that FTIV() or NTIV() returned. So that the next time NTIV() runs, it knows to find the thing
+with a thing number lower than the last thing returned. When the cog runs an FTIV() command, the thing number is set back to the
+highest-numbered thing visible.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="firstthinginview.html">FirstThingInView()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

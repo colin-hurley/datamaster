@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Script Parsing</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head>
+<body onLoad="top.main.chapter.document.form.select3.selectedIndex = 9;" onUnload="top.main.chapter.document.form.select3.selectedIndex = 0;">
+
+<H2 style="margin-bottom:0">Script Parsing</h2><hr>
+
+<h4>Introduction</h4>
+
+<i>Parsing</i> is a term used to describe how computers read data from a file. Typically, a program will open the file,
+and then read it line by line or character by character into memory. Sometimes the program won't need to store the file,
+so it will drop one line as soon as it reads the next.
+<p>
+We can't say for certain how JK reads cogs, but most parsers are pretty standard, so we'll go over the simple things
+that will help you understand how cogs are read. At least then you'll know how Parsec works. :-)
+<p>
+Most parsers will ignore extra whitespace (spaces, tabs, and CRLFs which is a combination of two characters: a carriage
+return and a line feed). But JK is very strict about whitespace until it gets to the code section. I.e., you can only have one
+symbol declaraction per line whereas you can have as many statements as you want on one line.
+<p>
+Most parsers work by looking for keywords. They seperate keywords with delimiters - these are special characters like
+operators, colons, semicolons, and the whitespace characters. So at any given line and character in the file, the parser
+will look at a string of characters from its current position until the next delimiter. If this string matches a keyword that
+the parser is looking for, then depending what keyword it is, the parser will look for whatever is supposed to come after it.
+
+<h4>Header and Flags</h4>
+
+The header is, of course, all comments. As soon as the parser sees that pound sign, it's going to ignore the rest of the
+line - it doesn't matter what comes after it.
+<p>
+At this point, JK is looking for two things: the flags keyword or the symbols keyword. So JK is going to look at the beginning
+of each line these words. It's taken for granted that if there's a space or something before the keyword, JK will look for the
+keyword after the space.
+<p>
+Once the parser finds the flags keyword, it's going to look for the assignment afterwords. Now in most cases, spaces can
+be put in anywhere, but JK is very picky about spaces that come after the flags assigment - if it finds any, it will consider it
+a syntax error because it doesn't expect them to be there.
+<p>
+This is probably because JK doesn't care about making the flags line work like a real assignment so it's search for "flags="
+and it's taking from the seventh character to the last non-space character as the assigned number. Once it sees that the
+number's not valid - because there's a space in it, it halts and the cog is not loaded.
+
+<h4>Symbols Parsing</h4>
+
+After the flags, JK's parser looks for the symbols keyword. The parser will go line after line until it reaches the end of the
+file looking for this keyword. If it doesn't find it, there's a syntax error and the parser stops.
+<p>
+When it does find symbols, the parser now has a new list of keywords to look for. These are the symbol type names
+and the "end" for the end of the section. If it finds something else, it will probably try to ignore it and go on to the next
+line, but if it can't (perhaps you forgot the end keyword) it will either reach the end of the cog or assume there's been
+a syntax error.
+<p>
+Once the parser sees a symbol type (e.g., message) it's going to look for the name, and then any extensions which
+might come after it. The only delimiters the parser is allowing at this point are spaces and of course the end of the line (which
+is a CRLF).
+
+<h4>Code Parsing</h4>
+
+After finding the end for the symbols section, the parser will be looking only for the code keyword. Anything else has to
+be an immediate syntax error. But once inside the code section, the parser acts much differently. It will first be expecting
+a word followed by a colon, but once it finds that first label and until it finds the end of the code section, it won't be looking
+for a few specific keywords.
+<p>
+Although we can't know for sure what JK does, it most likely takes in the first word and then looks at the next non-whitespace
+delimiter. If it's an equals sign, then the parser can tell that this is an assignment and the string that came before it must be
+a variable name. If we were doing syntax checking, we'd have stored all of the variables names read in the symbols section
+and then we'd know if this variable has been declared.
+<p>
+After the equals sign, the parser is expecting something that returns a value. This could be a function, a variable, a number,
+or a math operation. The parser will read characters until it finds a delimiter it's looking for. If it finds a opening parentheses,
+this must be a function, so the parser will then look up the function and check for the parameters it's supposed to have.
+<p>
+If the parser finds a delimiter that's a math symbol then it knows there's an operation that needs to be performed, and there could
+be numbers or variables in there. For error checking, we could be checking the type of the assigned variable to make sure that
+it matches the return type of the function. Or in the case of the operation, we could check to make sure all of the variables were
+of a type compatible with that operation. E.g., you can't multiply two strings.
+<p>
+The reason we went over assignments first is that pretty much any type of code can be put somewhere into an assignment. The
+main thing to remember about code parsing is that a parser will usually look to the next delimiter to find out what the previous string
+is. And statements are always ended with a semicolon so that the parser will know that it's just read a complete statement. After
+the semicolon, parsers will be expecting either the beginning of another statement or the end of the line.
+<p>
+JK's parser goes through all of the code like this until it finds an end for the code section. At this point it stops, there's no reason
+to look after this because nothing's supposed to be there - it doesn't matter if there is.
+
+<p>
+<a href="timers.html">Continue</a>
+<p>
+
+<hr></body></html>

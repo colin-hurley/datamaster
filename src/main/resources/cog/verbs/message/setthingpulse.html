@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SetThingPulse</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SetThingPulse</H2><HR>
+Sets a pulse for a thing. A thing pulse acts like a regular pulse but will end when the thing dies. Only a cog that receives the
+thing's messages can set or receive a thing pulse. The pulse message is sent by the thing as an event message and will
+be sent to all of the thing's associated cogs. Syntax:
+<P>
+<CODE>SetThingPulse(thing, flex_delay);</CODE>
+<P>
+To stop the thing pulse, use:
+<P>
+<CODE>SetThingPulse(same_thing, 0);</CODE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="getsenderref.html">GetSenderRef()
+	<OPTION value="../../message/pulse.html">Pulse Message
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="setpulse.html">SetPulse()
+	<OPTION value="settimer.html">SetTimer()
+	<OPTION value="settimerex.html">SetTimerEx()
+	<OPTION value="setthingtimer.html">SetThingTimer()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

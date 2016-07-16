@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Thing Flags</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../../script/option.java"></SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/flags.css">
+</HEAD><BODY>
+
+<TABLE border="1" width="100%" cellpadding=3>
+<TR><TH colspan=2 class=big><A href="desc.html" onclick="ShowPage(this.href); return false" class="title">Thing Flags</A></TH></TR>
+<TR><TH width="15%">Hex</TH><TH width="*">Purpose</TH></TR>
+<TR><TD><A href="0x1.html" onclick="ShowPage(this.href); return false">0x1</A></TD><TD>Thing creates light.</TD></TR>
+<TR><TD>0x2</TD><TD>Thing will be removed from the game.</TD></TR>
+<TR><TD>0x4</TD><TD>Thing is magnetically sealed.</TD></TR>
+<TR><TD><A href="0x8.html" onclick="ShowPage(this.href); return false">0x8</A></TD><TD>Thing will be rendered as level geometry.</TD></TR>
+<TR><TD>0x10</TD><TD>Thing is invisible.</TD></TR>
+<TR><TD>0x20</TD><TD>Unknown.</TD></TR>
+<TR><TD>0x40</TD><TD>Thing's 3do's faces will act as floor surfaces (0x1 <A href="../surface/surface.html">Surface Flag</A>).</TD></TR>
+<TR><TD>0x80</TD><TD>Unknown.</TD></TR>
+<TR><TD><A href="0x100.html" onclick="ShowPage(this.href); return false">0x100</A></TD><TD>Thing cannot be damaged or killed in MP.</TD></TR>
+<TR><TD><A href="0x200.html" onclick="ShowPage(this.href); return false">0x200</A></TD><TD>Thing is dying or dead.</TD></TR>
+<TR><TD><A href="0x400.html" onclick="ShowPage(this.href); return false">0x400</A></TD><TD>Thing will send messages to its associated cogs.</TD></TR>
+<TR><TD>0x800</TD><TD>Thing does not inflict impact damage.</TD></TR>
+<TR><TD>0x1000</TD><TD>Thing will not be created in games of "easy" difficulty.</TD></TR>
+<TR><TD>0x2000</TD><TD>Thing will not be created in games of "medium" difficulty.</TD></TR>
+<TR><TD>0x4000</TD><TD>Thing will not be created in games of "hard" difficulty.</TD></TR>
+<TR><TD>0x8000</TD><TD>Unknown.</TD></TR>
+<TR><TD>0x10000</TD><TD>Unknown, thing is never created.</TD></TR>
+<TR><TD><A href="0x20000.html" onclick="ShowPage(this.href); return false">0x20000</A></TD><TD>Thing has an active thing pulse.</TD></TR>
+<TR><TD><A href="0x40000.html" onclick="ShowPage(this.href); return false">0x40000</A></TD><TD>Thing has an active thing timer.</TD></TR>
+<TR><TD><A href="0x80000.html" onclick="ShowPage(this.href); return false">0x80000</A></TD><TD>Thing is disabled.</TD></TR>
+<TR><TD><A href="0x100000.html" onclick="ShowPage(this.href); return false">0x100000</A></TD><TD>Thing has been in the camera's field of view.</TR>
+<TR><TD>0x200000</TD><TD>Thing of type player will have its model's weapon mesh rendered.</TD></TR>
+<TR><TD>0x400000</TD><TD>Thing's model's surfaces are metal - use with 0x40.</TD></TR>
+<TR><TD>0x800000</TD><TD>Thing's model's surfaces are earth - use with 0x40.</TD></TR>
+<TR><TD>0x1000000</TD><TD>Unknown.</TD></TR>
+<TR><TD>0x2000000</TD><TD>Thing is inside a water sector.</TD></TR>
+<TR><TD>0x4000000</TD><TD>Unknown.</TD></TR>
+<TR><TD>0x8000000</TD><TD>Thing will be destroyed if it enters, or is created in, a water sector.</TD></TR>
+<TR><TD><A href="0x10000000.html" onclick="ShowPage(this.href); return false">0x10000000</A></TD><TD>Thing will be destroyed if it leaves a water sector.</TD></TR>
+<TR><TD>0x20000000</TD><TD>Thing will send a splash message to the local player's cog.</TD></TR>
+</TABLE>
+
+</BODY></HTML>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SetTimerEx</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SetTimerEx</H2><HR>
+Calls the <A href="../../message/timer.html">timer</A> message after the given delay and gives an ID and two parameters to the timer message. 
+With SetTimerEx(), you can set a timer with a delay of zero. <A href="killtimerex.html">KillTimerEx()</A> is used to stop an IDed timer. Syntax:
+<P>
+<CODE>SetTimerEx(flex_delay, ID, param0, param1);</CODE>
+<P>
+<SPAN class=param>ID:</SPAN> The ID of the timer is retrieved in the timer message with <A href="getsenderid.html">GetSenderID()</A>. It is also
+used by  <A href="killtimerex.html">KillTimerEx()</A> to stop the timer before the message is called.
+<P>
+<SPAN class=param>paramX:</SPAN> These parameters become the first and second parameters of the timer message.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../../message/timer.html">Timer
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="setpulse.html">SetPulse()
+	<OPTION value="settimer.html">SetTimer()
+	<OPTION value="setthingpulse.html">SetThingPulse()
+	<OPTION value="setthingtimer.html">SetThingTimer()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

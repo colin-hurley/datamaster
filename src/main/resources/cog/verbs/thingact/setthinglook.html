@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SetThingLook</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SetThingLook</H2><HR>
+Makes the thing look in the given direction. The vector does not have to be normalized because
+the magnitude is not used. Syntax:
+<P>
+<CODE>SetThingLook(thing, vector);</CODE>
+<P>
+Remember that a vector is a direction and magnitude, but not orientation. When a thing is given
+a lookvector, the engine tries to orient the thing to look in that direction. This orientation is not
+part of the lvec. So it is impossible to make a thing look upside-down with an lvec.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="getthinglvec.html">GetThingLVec()
+	<OPTION value="getthingrvec.html">GetThingRVec()
+	<OPTION value="getthinguvec.html">GetThingUVec()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="../ai/aisetlookframe.html">AISetLookFrame()
+	<OPTION value="../ai/aisetlookpos.html">AISetLookPos()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

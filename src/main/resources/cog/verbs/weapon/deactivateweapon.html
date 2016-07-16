@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>DeactivateWeapon</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>DeactivateWeapon</H2><HR>
+Stops the <A href="../../message/fire.html">fire</A> message in weapon cogs. Syntax:
+<P>
+<SPAN class=return>active_time</SPAN>=<CODE>DeactivateWeapon(player, fire_mode);</CODE>
+<P>
+<SPAN class=return>active_time:</SPAN> This is the time (in seconds) that the weapon's hotkey was depressed.
+<P>
+<SPAN class=param>fire_mode:</SPAN> This is the mode of fire: 0 for primary or 1 for secondary. The mode can be easily obtained
+from the senderref of the <A href="../../message/deactivated.html">deactivated</A> message.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="activateweapon.html">ActivateWeapon()
+	<OPTION value="../../message/fire.html">Fire
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

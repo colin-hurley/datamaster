@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>AttachThingToThingEx</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>AttachThingToThingEx</H2><HR>
+Attaches one thing to another and adds the given <A href="../../../flags/attach/attach_frame.html" target="main">Attach Flags</A>
+to the attach_thing. Syntax:
+<P>
+<CODE>AttachThingToThingEx(attach_thing, base_thing, flags);</CODE>
+<P>
+<SPAN class=param>flags:</SPAN> These are the Attach Flags to give to the attach_thing. Note that these flags are optional. The
+attach_thing will be given 0x4 anyway.
+<P>
+AttachThingToThingEx() was probably created to avoid a more complicated system using
+<A href="../thingflags/setthingattachflags.html">SetThingAttachFlags()</A>. That method
+works like this:
+<PRE class=code>
+AttachThingToThing(attach_thing, base_thing);
+SetThingAttachFlags(attach_thing, attach_flags);
+</PRE>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="detachthing.html">DetachThing()
+	<OPTION value="attachment.html">Attachment
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="attachthingtothing.html">AttachThingToThing()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

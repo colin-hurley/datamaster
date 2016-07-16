@@ -1,0 +1,11 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Sector Symbol Type</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Sector Symbol Type</H2><HR>
+This symbol type is used to hold the number of a sector. If the value of the sector is passed from a JKL,
+the cog will receive messages from the sector. Syntax:
+<PRE class=sym>sector      sec1</PRE>
+<P>
+<B>Mask Info:</B> Sectors can send two messages to a cog, entered and exited. These run when a thing passes through
+the walls of a sector. Masking the sector (adding <A href="../../../flags/thingtypemask/thingtypemask_frame.html" target="main">Mask Flags</A>
+to the symbol) will stop these messages from running if the thing is excluded by the flags. The default mask is thought to be 0x400.
+<HR></BODY></HTML>

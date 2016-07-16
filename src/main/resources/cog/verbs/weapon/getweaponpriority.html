@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>GetWeaponPriority</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>GetWeaponPriority</H2><HR>
+Runs the <A href="../../message/autoselect.html">autoselect</A> message of a weapon cog and returns the value that the
+message returned with <A href="../message/returnex.html">ReturnEx()</A>. Syntax:
+<P>
+<SPAN class=return>priority</SPAN>=<CODE>GetWeaponPriority(player, weap_bin, select_mode);</CODE>
+<P>
+<SPAN class=param>select_mode:</SPAN> If valid, this integer becomes the senderref of the autoselect message.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="autoselectweapon.html">AutoselectWeapon()
+	<OPTION value="../../message/autoselect.html">Autoselect
+	<OPTION value="notes.html#selmode">Selection Modes
+	<OPTION value="notes.html#prior">Weapon Priorities
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

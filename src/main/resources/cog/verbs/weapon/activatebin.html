@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>ActivateBin</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>ActivateBin</H2><HR>
+Despite its name, ActivateBin() <EM>does not</EM> literally activate a bin. Instead, it runs the <A href="../../message/fire.html">fire</A> message
+in force power cogs. After the fire message runs, JK waits the length of the firewait and then calls the fire
+message again. The fire message will continue to loop until <A href="deactivatebin.html">DeactivateBin()</A> is used. Syntax:
+<P>
+<CODE>ActivateBin(player, firewait, force_bin);</CODE>
+<P>
+<SPAN class=param>firewait:</SPAN> This is the time to wait before the fire message can run again.
+<P>
+<SPAN class=param>force_bin:</SPAN> This is the bin number of the force power. This bin number can be
+obtained from the senderref of the <A href="../../message/activated.html">activated</A> message.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="deactivatebin.html">DeactivateBin()
+	<OPTION value="../../message/fire.html">Fire
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>AutoselectWeapon</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>AutoselectWeapon</H2><HR>
+Runs the <A href="../../message/autoselect.html">autoselect</A> message in the weapon cogs and returns the bin number of the cog
+that returned the highest number. Syntax:
+<P>
+<SPAN class=return>weap_bin</SPAN>=<CODE>AutoselectWeapon(player, select_mode);</CODE>
+<P>
+<SPAN class=param>select_mode:</SPAN> If the select_mode is valid, it becomes the senderref of the autoselect message.
+The weapon cogs use the variable to find out what type of cog is looking for a selectable weapon.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="getweaponpriority.html">GetWeaponPriority()
+	<OPTION value="../../message/autoselect.html">Autoselect
+	<OPTION value="notes.html#selmode">Selection Modes
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

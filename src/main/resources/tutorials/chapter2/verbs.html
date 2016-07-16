@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Verbs</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head>
+<body>
+
+<h2 style="margin-bottom:0">Verbs</h2><hr>
+
+<h4>Verb Syntax</h4>
+
+Cog's verbs are the commands that do the work in JK. The term <i>verb</i> is most often used to refer to these commands because this
+is an interpreted scripting language (?). But you will also hear these commands refered to as <i>procedures</i> or <i>functions</i>. A 
+procedure is a command that simply performs an action, and a fuction is a command that performs an action and then returns a value
+to whatever is assigned to it.
+<p>
+A typical procedure will look like this:
+
+<pre class="code">
+DoSomething();
+</pre>
+
+The syntax here is simple. The procedure has a name, followed by a set of parentheses to enclose its parameters, and then a semicolon to end
+the command. The naming convention of a verb is different from variables in that the first letter is usually capitalized.
+<p>
+All verbs have a set of parentheses to enclose their parameters. In programming, a parameter is an allotted space for an argument (variable or value)
+to be <i>passed to</i> the verb. When an argument is passed to a verb, the verb will use that value to perform whatever command it is meant to do.
+It is important to remember that a parameter is only a space for a type of variable, parameters do not have a value - arguments are the values. The
+example procedure above has no parameters, but it still must have the parentheses. This procedure has three parameters:
+
+<pre class="code">
+DoSomethingMore(1, 2, var3);
+</pre>
+
+The first two arguments are given directly as numbers, but the third argument is a variable. The value of this variable will be used by the procedure -
+the variable will not be changed (this is known as <i>passing by value</i>). All verbs end with a semicolon - this marks the end of a statement
+(or command).
+<p>
+A function works much the same as a procedure, but the function will return a value to any variable assigned to it. A typical function will look like:
+
+<pre class="code">
+myVar = ReturnSomething();
+</pre>
+
+myVar is a variable that you have declared in your symbols section. The equals sign is cog's assignment operator - the value taken from the right
+will be given to the variable on the left. The function does not need to have a variable assigned to it. Although it's considered bad syntax, you can
+leave out the variable assignment and the function will work the same as a procedure.
+<p>
+When cog reads a verb's parameters, it will start from the right and go to the left. Cog will ignore any extra parameters on the left, and any ones
+not entered will have a default value of -1. Note that it's not bad syntax to leave out arguments if they should be given the default value.
+
+</body></html>

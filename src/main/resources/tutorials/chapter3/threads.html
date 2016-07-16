@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Threads</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head>
+<body onLoad="top.main.chapter.document.form.select3.selectedIndex = 7;" onUnload="top.main.chapter.document.form.select3.selectedIndex = 0;">
+
+
+<H2 style="margin-bottom:0">Threads</h2><hr>
+
+<h4>Definition</h4>
+
+A <i>thread</i> is the standard programming term for the flow of control through code. If you're familiar with operating
+systems and multi-processor systems, then you understand that PCs with more than one processor are capable of
+running two threads simultaneously whereas systems with one processor can create the illusion
+of multi-threading, but they can't actually run two threads at once.
+<p>
+Of course, the threads of a scripting language like Cog aren't going to be the "real" threads used by compiled languages,
+but they are similar, and we can borrow the terminology.
+
+<h4>How They Work</h4>
+
+We've said before that when a cog receives an event that it has a handler for, JK finds that handler's label in the code
+section and code execution begins. But what if that handler contains a sleep and another message is received before
+the sleep ends? And what if it's the same event?
+<p>
+Threads are the answer to that problem. Cog is capable of having multiple threads for one cog, but JK will only work with
+the last-created thread. Here's a coding example that's designed to work with the above scenario:
+
+<pre class="code">
+activated:
+	if(on) return;
+	on = 1;
+	channel=PlaySoundLocal(yourSnd, 1, 0, 0); 
+	Sleep(GetSoundLen(yourSnd));
+	on = 0;
+
+return;
+</pre>
+
+So in our example gameplay, a player activates a console and the above handler is run. The handler first checks to make
+sure it finished playing the sound from the last time it was run. Now if the player activates the console twice in succession
+before the sound finishes, the variable on will still have a value of 1, and the second thread will die with that return statement.
+<p>
+You can have up to five threads for each cog. Threads are local to their cogs - meaning that if one cog has five threads, it
+won't stop another cog from having its five threads. Whenever a cog needs to create a new thread in response to an event,
+the oldest thread that the cog has will die - or in some cases the new thread will not be created (as in a call).
+<p>
+Let's say that you have a lot of calls to carefully encapsulated messages in your code. But you've noticed after some recent
+changes that some of your calls aren't working. You need to check and make sure that you don't have more than four calls
+going at once (remember that the original message handler has a thread too).
+<p>
+Be careful when using sleeps that the sleep's handler won't be run again before the sleep ends. Otherwise, the thread
+limit will be exceeded, and you'll have to wait for the sleeps to end before you can do anything. And because when JK
+looks at the cog to see if it needs to do anything (like wakeup from a sleep), it will only look at the last thread. Now if the
+cog's first four threads slept for only a half second, but the fifth thread slept for five, the cog would wait those five
+seconds before going back to the first four threads.
+<p>
+If for some reason it's impossible for you to avoid too many threads building up or indefinite sleeping, JK provides
+the Reset() verb to kill all threads except the current one. This can be a good safeguard, but if your code is well-written,
+you shouldn't have to use it.
+
+<h4>Affected Verbs</h4>
+
+We've just gone over how calls and sleeps can cause thread problems, but any verb that causes another thread
+to be created in its cog can cause the same problem.
+<p>
+When you use SendTrigger() to send a trigger out, this event message is sent out to all of the local cogs that are listening
+- including the cog that sent the trigger. Whether that cog's trigger handler is looking for that sourceref or not, a thread
+is still created for the handler - if you've already got some sleeps or calls going, two more threads (the thread that ran
+SendTrigger() and the triggered thread) may take you over the limit.
+<p>
+This is true of any verb that waits until all local cogs have had a chance to answer its event message. If you use CreateThing()
+in the class cog of the thing that's created, or if you use SendMessage() to send a message within a cog, you'll have the same
+problem as with SendTrigger().
+
+<h4>Alternatives</h4>
+
+Instead of creating extra threads and waiting on them, you should use timers and pulses when you can. Timers and pulses are
+very similar in implementation and neither of them takes up a thread while they're waiting to run. Although sleeps cause a lot of
+problems, they aren't unstable or error-prone.
+<p>
+The above example, makes good use of a sleep, and there's no reason to switch to a timer. But in most cases, there's nothing
+stopping events from happening almost simultaneously - so even if you have a sleep of a tenth of second, there's still a chance
+of hitting the thread limit.
+<p>
+Imagine that there are ten fuel barrels in your level, and you're standing not too far away with a bryar. A few shots from you
+and all of those barrels will blow within a tenth of a second. If the barrels' class cog has a sleep for the slight pause before
+the explosion, then not all of the barrels will explode correctly. But if timers are used (and you can have a ton of timers), then
+everything will blow up nicely.
+
+<p>
+<a href="flags.html">Continue</a>
+<p>
+
+<hr></body></html>
+
+
+<!-- Researched Post On Threads:
+<P>
+
+This is to follow up the conversion on Hellcat's 'Trigger causes cog to stall' post.
+I've done some more research and here are the results:
+<P>
+The number of threads that can run for one cog is five. The reason for the confusion before is because
+message calls (via the call keyword) will not work after the limit has been reached. But threads will still be
+created for event messages such as activated. An older thread will be killed for the new one to run.
+<P>
+
+But which thread will be killed? I'm fairly positive that the last created thread will be killed - the Cog's fifth thread.
+<P>
+
+SendTrigger() which was causing problems with DeathSythe's example, is not doing anything differently from
+other verbs like it. Other verbs that trigger cog events - and threads to be created for them - work the same
+way (such as SendMessage() and CreateThing()). The verb will finish only when all local cogs have received
+the event - and if they have a message handler for this event, they will start, and if not paused, finish the thread
+for the event before going back to the original cog.
+<P>
+
+At first, this seemed pretty wasteful to me - making one cog wait for others to respond when it tries to do something.
+But this is the way it has to work. If you send a message or trigger, you want the other cogs to have a chance
+to respond before you continue with the rest of your code.
+<P>
+
+Suppose you create five threads for a cog. In an example I had with a hotkey's activated message, I made the first
+four threads wait two seconds and the fifth one wait five seconds before printing a message that they'd finished.
+The first four could not wake from their sleep until the fifth one did. So I think this proves that JK looks only at the
+last created thread for a cog... If this highest thread is not ready to resume execution, JK goes on to the next cog.
+Maybe this explains why JK kills the last created thread when it reaches the thread limit and needs to create a new thread.
+<P>
+
+Threads will not be created for events that do not have message handlers in the code section - even if the
+messages are listed in the symbols section.
+<P>
+
+The purpose of Reset() is to kill all threads running in a cog except the current one - which I think has to be the last
+created. So Reset() kills all threads below its own.
+<P>
+
+Timers and Pulses use a thread only when their timer has expired and a thread is needed to run the code in their
+message. They don't need a thread when they're waiting to run. Pulses must be implemented in almost the same way
+as timers, they use similar verbs, similar cog flags, and they both have a time value stored with the cog. And since
+timers can be IDed, it would be very limiting if you could only have fewer than five timers and pulses at a time.
+<P>
+
+Most of the info above has been pretty well tested, but doubtless there will be discoveries that change some of it.
+I'd appreciate it if some of you could do some testing to verify this.
+<P>
+<HR>
+Post  To DP Explaining Threads (early):
+<P>
+
+A thread is a lot different from a Cog. A Cog is just a file with a list of instructions.
+This list has starting points which are message names and ending points which are
+returns.
+When a message is sent to a Cog, JK starts a thread for it. This thread will begin at the
+message that was sent and keep going until it hits a return statement. When it finds a
+return, the thread dies.
+<P>
+
+I haven't tested with more than one Cog, but I'm assuming that threads are local to the
+memory set aside for each Cog. Meaning, using all available threads in one Cog does not
+stop another Cog from running all of its threads. The limit for threads seems to be
+around six, but that's not certain.
+<P>
+
+The problem that Hellcat has seems to be too many threads running at once. But DeathSythe's
+problem is different in the way that it uses SendTrigger(). Apparently, SendTrigger()
+pauses the current thread, and sends the trigger. And if the thread's Cog has a
+trigger message, it will start a thread there before going back to the SendTrigger() thread.
+<P>
+
+The difference with SetTimer() is that this verb does not pause the current thread. It
+just sets up the timer, and lets the thread finish.
+<P>
+
+But as I said above, I'm still not positive on all of this, I'll have to do a lot more testing. -->

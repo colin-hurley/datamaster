@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SurfaceLightAnim</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SurfaceLightAnim</H2><HR>
+Fades a surface's light from a lower value to a higher one. It seems that LEC originally intended for the light animation
+to repeat, because they started the animation at startup when the player would not even see it. But as it is, this is a 
+one-time effect. Syntax:
+<P>
+<SPAN class=return>animID</SPAN>=<CODE>SurfaceLightAnim(surface, start_light, end_light, change_time);</CODE>
+<P>
+<SPAN class=param>start_light:</SPAN> This is the 0-1 flex light that will be given to the surface when the animation begins.
+<P>
+<SPAN class=param>end_light:</SPAN> This is the 0-1 flex light that the anim will reach at the end of the animation. The end_light must
+be equal to or greater than the start_light or the command will be ignored.
+<P>
+<SPAN class=param>change_time:</SPAN> This is the flex time in which the surface will fade from the start light to the end light. Although
+this time should be in seconds, the unit seems to be closer to a half-second.
+<P>
+<FORM name="relform" class=rel><SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="stopanim.html">StopAnim()
+	<OPTION value="stopsurfaceanim.html">StopSurfaceAnim()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="../surface/setsurfacelight.html">SetSurfaceLight()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

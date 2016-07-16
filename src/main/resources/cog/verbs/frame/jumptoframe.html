@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>JumpToFrame</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>JumpToFrame</H2><HR>
+Makes a path-controlled object teleport to a frame position. Make the frame_sector the sector
+that the new frame position is in - which is not always the sector that the object is currently in. The
+<A href="../../message/arrived.html">arrived</A> message will not be called when the object is jumped.
+<P>
+JumpToFrame() puts the object at the frame position no matter if there's anything already there. With JumpToFrame(),
+the object being moved cannot be blocked. 
+<P>
+This verb does not update the current frame when it jumps the object.
+Syntax:
+<P>
+<CODE>JumpToFrame(object, frame_int, frame_sector);</CODE>
+<P>
+If you don't give JumpToFrame() the correct sector, you'll get errors like:
+<UL>
+<LI>Object has no lighting.
+<LI>Object disappears.
+<LI>Object has no collision.
+</UL>
+If the object to be jumped is paused with <A href="pathmovepause.html">PathMovePause()</A>, JumpToFrame() will jump the object, but it will still be paused.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="movetoframe.html">MoveToFrame()
+	<OPTION value="skiptoframe.html">SkipToFrame()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

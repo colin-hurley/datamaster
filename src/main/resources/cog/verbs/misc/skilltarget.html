@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SkillTarget</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SkillTarget</H2><HR>
+Sends the <A href="../../message/skill.html">skill</A> message to the thing's class cog. The three parameters become properties of the message.
+The skill message will not be received in capture cogs, only in class cogs. Syntax:
+<P>
+<SPAN class=return>retval</SPAN>=<CODE>SkillTarget(thing, source, param0, param1);</CODE>
+<P>
+<SPAN class=return>retval:</SPAN> In singleplayer, any value returned by <A href="../message/returnex.html">ReturnEx()</A> in the skill message will
+be assigned to retval. But SkillTarget() does not return a value from other computers.
+<P>
+<SPAN class=param>source:</SPAN> This value becomes the sourceref of the <A href="../../message/skill.html">skill</A> message.
+<P>
+<SPAN class=param>param0:</SPAN> This value is the first param of the <A href="../../message/skill.html">skill</A> message.
+<P>
+<SPAN class=param>param1:</SPAN> This is the second param.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../../message/skill.html">Skill
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="../message/sendmessage.html">SendMessage()
+	<OPTION value="../message/sendmessageex.html">SendMessageEx()
+	<OPTION value="../message/sendtrigger.html">SendTrigger()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

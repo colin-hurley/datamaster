@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on the Inventory System</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on the Inventory System</H2><HR>
+The items.dat is a list of the bins that will be in a player's inventory. These bins hold a flex (real) value. Only players
+have an inventory - actors do not. The verbs in this section set or retrieve the properties of bins. 
+<P>
+A typical bin in the items.dat looks like this:
+<PRE class=mono>
+#name    ID     min  max  flags bin's cog
+fists    1      0    1    0x024 cog=weap_fists.cog
+</PRE>
+
+Bin properties:
+<P>
+<A HREF=#name>Name</A>
+<BR><A HREF=#id>Bin ID</A>
+<BR><A HREF=#min>Min</A>
+<BR><A HREF=#max>Max</A>
+<BR><A HREF=#flags>Flags</A>
+<BR><A HREF=#cog>Cog</A>
+<BR><A HREF=#avail>Available</A>
+<BR><A HREF=#active>Activated</A>
+<HR>
+<A name=name><H4>The Name of a Bin</H4></A>
+The name of a bin in the items.dat is only used if the bin has an icon. All bins flagged as an item or force power must have
+an icon, or JK will crash. The <A href="../../../tutorials/hotkeys.html" target=main>Hotkey Tutorial</A> explains how to give a bin an icon.
+
+<A name=id><H4>The ID of a Bin</H4></A>
+All bins have an ID number that is used to refer to the bin. If the bin's number is 60, then GetInv(player, 60) is used to find
+the amount held by that bin. In JK, the last bin used by LEC was 115. So if you create a new bin, you should start where
+they left off and create bin 116, then 117, and so on.
+<P>
+Bins don't have to be in order of number, and you can skip numbers. I.e., you
+could create bin 120 in the middle of the items.dat and it would work correctly (though your hotkeys may be messed up).
+
+<A name=min><H4>The Minimum Value</H4></A>
+The minimum value of a bin is the amount that you will always have in it. So if you set the minimum of bin 60 to 100, then you
+would always have 100 shields. <A href="setinv.html">SetInv()</A> and <A href="changeinv.html">ChangeInv()</A> cannot
+set the value of a bin below the minimum of a bin.
+<P>
+Say a bin has a minimum of 10 and a current value of 20. When <A href="setinv.html">SetInv()</A> sets the value of that bin to 0, the value of the bin
+will be reduced to 10 because the bin value cannot be set below the minimum. Use <A href="getinvmin.html">GetInvMin()</A>
+to return the minimum bin value.
+
+<A name=max><H4>The Maximum Value</H4></A>
+The maximum value is the most you can have in a bin. If <A href="setinv.html">SetInv()</A> or <A href="changeinv.html">ChangeInv()</A>
+tries to set the value of the bin over its max limit, then the bin will be given the maximum value. Use <A href="getinvmax.html">GetInvMax()</A>
+to return the maximum bin value.
+
+<A name=flags><H4>The Flags of a Bin</H4></A>
+A bin's flags tell the engine whether the bin is a hotkey, force power, weapon, or item and decide what messages the bin should
+receive. These flags are optional. A bin with only placeholder flags (0x000) will simply hold a value. Use <A href="setinvflags.html">SetInvFlags()</A>
+to set a bin's flags through Cog. Read the <A href="../../../flags/inventory/inventory_frame.html" target=main>Inventory Flags</A>
+document in the Flags section for a description of each flag.
+
+<A name=cog><H4>A Bin's Cog</H4></A>
+A bin's cog performs a different function depending on the flags of the bin. If the bin is flagged as a weapon, then the cog will
+act as a weapon cog and process messages like <A href="../../message/selected.html">selected</A>, <A href="../../message/deselected.html">deselected</A>,
+and <A href="../../message/fire.html">fire</A> for the weapon. Cogs listed in the items.dat
+also receive messages from the local player. When you need to send a message to a cog via
+<A href="../message/sendmessage.html">SendMessage()</A>, you will need a reference to it. Assigning a cog to a bin and using
+<A href="getinvcog.html">GetInvCog()</A> is the easiest way to get a reference to the cog. Assigning a cog to a bin is optional.
+
+<A name=avail><H4>Available</H4></A>
+When a bin is available, the item of that bin is usable. You can have an amount greater than zero in the bin, and yet it won't
+be available. Availability makes forces and items show up in their selection boxes. Use <A href="isinvavailable.html">IsInvAvailable()</A>
+to check if the bin is available or not. A bin <EM>must</EM> be available for its hotkey to work. If a force or item is available,
+but you don't have anything in the bin, the selection boxes will flicker when they view the force or item; however, the cog
+will still work.
+
+<A name=active><H4>Activated</H4></A>
+When a bin is "activated," its icon (if it has one) will be displayed in the top-right corner of the screen. Use <A href="setinvactivated.html">SetInvActivated()</A>
+to activate or deactivate the bin. Use <A href="isinvactivated.html">IsInvActivated()</A> to check if the bin is activated or not. The
+verb, <A href="setbinwait.html">SetBinWait()</A>, is used to pause the activation of a bin until a delay has ended.
+<HR></BODY></HTML>

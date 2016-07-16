@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>JK Operators</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/tut.css">
+<SCRIPT TYPE="text/javascript" SRC="../../script/option.java"></SCRIPT>
+</HEAD><BODY class=specback>
+
+<TABLE border="1" width="100%" cellpadding=3 class=oplist>
+<TR><TH colspan=3 class=optit>Math Operators</TH></TR>
+<TR><TH width=8%>Sign</TH><TH width=15%>Read as</TH><TH>Purpose</TH></TR>
+<TR><TD align="center">+</TD><TD>"plus"</TD><TD>Addition.</TD></TR>
+<TR><TD align="center">-</TD><TD>"minus"</TD><TD>Subtraction.</TD></TR>
+<TR><TD align="center">*</TD><TD>"times"</TD><TD>Multiplication.</TD></TR>
+<TR><TD align="center">/</TD><TD>"divided by"</TD><TD>Real division.</TD></TR>
+<TR><TD align="center">%</TD><TD>"modulo"</TD><TD>Modulus is used to obtain the remainder of an integer division.</TD></TR>
+</TABLE>
+
+<BR>
+<BR>
+
+<TABLE border="1" width="100%" cellpadding=3 class=oplist>
+<TR><TH colspan=3 class=optit>Unary Operators</TH></TR>
+<TR><TH width=8%>Sign</TH><TH width=15%>Read as</TH><TH>Purpose</TH></TR>
+<TR><TD align="center">-</TD><TD>"negative"</TD><TD>Makes a number negative.</TD></TR>
+</TABLE>
+
+<BR>
+<BR>
+
+<A name=rel><TABLE border="1" width="100%" cellpadding=3 class=oplist>
+<TR><TH colspan="3" class=optit>Relational Operators</TH></TR>
+<TR><TH>Sign</TH><TH>Read as</TH><TH>Purpose</TH></TR>
+<TR><TD align="center">==</TD><TD>"is equal to"</TD><TD>Tests two values for equality.</TD></TR>
+<TR><TD align="center">!=</TD><TD>"is not equal to"</TD><TD>Tests two values for inequality. <A href="notequal.html" onclick="Popup(this.href); return false">Notes.</A></TD></TR>
+<TR><TD align="center">>=</TD><TD>"is greater than or equal to"</TD><TD>Tests to see if the left value is greater than or equal to the right value.</TD></TR>
+<TR><TD align="center"><=</TD><TD>"is less than or equal to"</TD><TD>Tests to see if the left value is less than or equal to the right value.</TD></TR>
+<TR><TD align="center">></TD><TD>"is greater than"</TD><TD>Tests to see if the left value is greater than the right value.</TD></TR>
+<TR><TD align="center"><</TD><TD>"is less than"</TD><TD>Tests to see if the left value is less than the right value.</TD></TR>
+<TR><TD colspan="3"><CENTER>Relational Operators compare two numbers and return a boolean value.</CENTER></td></tr>
+</TABLE></A>
+
+<BR>
+<BR>
+
+<A name=logical><TABLE border="1" width="100%" cellpadding=3 class=oplist>
+<TR><TH colspan="3" class=optit>Logical Operators</TH></TR>
+<TR><TH>Sign</TH><TH>Read as</TH><TH>Purpose</TH></TR>
+<TR><TD align="center">!</TD><TD>"not"</TD><TD>Reverses a boolean value.</TD></TR>
+<TR><TD align="center">&&</TD><TD>"and"</TD>	<TD>This operator returns a true value if both of the boolean values on each side of the operator are true.</TD></TR>
+<TR><TD align="center">||</TD><TD>"or"</TD><TD>This operator returns a true value if either of the boolean values on each side of the operator is true.</TD></TR>
+</TABLE></A>
+
+<BR>
+<BR>
+
+
+<A name=bitwise><TABLE border="1" width="100%" cellpadding=3 class=oplist>
+<TR><TH colspan="3" class=optit>Bitwise Operators</TH></TR>
+<TR><TH align=center>Sign</TH><TH>Name</TH><TH>Purpose</TH></TR>
+<TR><TD align=center>&</TD><TD>Bitwise And</TD><TD>Tests the bits of two numbers and returns a number with only the bits that both numbers had.</TD></TR>
+<TR><TD align=center>|</TD><TD>Bitwise Or</TD><TD>Tests the bits of two numbers and returns a number with the bits that either number had.</TD></TR>
+<TR><TD align=center>^</TD><TD>Exclusive Or (XOR)</TD><TD>Tests the bits of two numbers and returns a number with the bits that only one number had.</TD></TR>
+</TABLE></A>
+
+
+<BR>
+<BR>
+
+
+<TABLE border="1" width="100%" cellpadding=3 class=oplist>
+<TR><TH colspan="3" class=optit>Assignment Operators</TH></TR>
+<TR><TH>Sign</TH><TH>Read as</TH><TH>Purpose</TH></TR>
+<TR><TD align="center">=</TD><TD>"is assigned to"</TD><TD>Assigns the variable on the left to the value on the right.</TD></TR>
+</TABLE>
+
+
+<BR>
+<BR>
+
+<A name="precedence"><TABLE align=center border="1" width="60%" cellpadding=3 class=oplist>
+<TR><TH colspan=3 class=optit>Operator Precedence and Associativity</TH></TR>
+<TR><TH>Precedence</TH><TH>Associativity</TH><TH>Category</TH></TR>
+<TR><TD align="center">( )  [ ]</TD><TD>left to right</TD><TD>Function Call, Parentheses, Array Index</TD></TR>
+<TR><TD align="center">-</TD><TD>right to left</TD><TD>Unary Negation</TD></TR>
+<TR><TD align="center">* / %</TD><TD>left to right</TD><TD>Multiplication</TD></TR>
+<TR><TD align="center">+ -</TD><TD>left to right</TD><TD>Addition</TD></TR>
+<TR><TD align="center">>= <= < ></TD><TD>left to right</TD><TD>Relational Operators</TD></TR>
+<TR><TD align="center">== !=</TD><TD>left to right</TD><TD>Equality Operators</TD></TR>
+<TR><TD align="center">!</TD><TD>right to left</TD><TD>Logical "not"</TD></TR>
+<TR><TD align="center">&</TD><TD>left to right</TD><TD>Bitwise "and"</TD></TR>
+<TR><TD align="center">^</TD><TD>left to right</TD><TD>Exclusive "or" (XOR)</TD></TR>
+<TR><TD align="center">|</TD><TD>left to right</TD><TD>Bitwise "or"</TD></TR>
+<TR><TD align="center">&&</TD><TD>left to right</TD><TD>Logical "and"</TD></TR>
+<TR><TD align="center">||</TD><TD>left to right</TD><TD>Logical "or"</TD></TR>
+<TR><TD align="center">=</TD><TD>right to left</TD><TD>Assignment</TD></TR>
+<TR><TD align="center">,</TD><TD>left to right</TD><TD>Comma</TD></TR>
+<TR><TD colspan="3"><CENTER>Operators are listed in order of decending precedence.</CENTER></TD></TR>
+<TR><TD colspan=3>Information on <A href="precedence.html" onclick="Popup(this.href); return false">Precedence</A>.</TD></TR>
+<TR><TD colspan=3>Information on <A href="associativity.html" onclick="Popup(this.href); return false">Associativity</A>.</TD></TR>
+</TABLE></A>
+
+</BODY></HTML>

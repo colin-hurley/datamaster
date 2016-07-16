@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>jkStringOutput</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>jkStringOutput</H2><HR>
+Prints a concatenated string on the screen. When jkStringOutput() sends a message to other computers, the other computers will
+play a beep sound when they receive the message.<SUP>1</SUP> Syntax:
+<P>
+<CODE>jkStringOutput(destination, speaker);</CODE>
+<P>
+<SPAN class=param>destination:</SPAN> The destination determines which computers the string will be printed on.
+<P>
+<SPAN class=param>speaker:</SPAN> This is the player who is to say the outputted string. On all computers but the speaker's,
+the string will be printed as: <SPAN class=exam>Speaker says 'string'</SPAN>. On the speaker's computer, only the string will
+be printed. If you don't want a speaker for the message, use -1 for this parameter.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="jkStringClear.html">jkStringClear()
+	<OPTION value="notes.html#concat">Concatenation
+	<OPTION value="notes.html#dests">Destinations
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR>
+<SUP>1</SUP> The name of the beep sound is <SPAN class=exam>set_vlo2.wav</SPAN>. So if you want to change  the sound or silence
+it, give your new wav that filename and put it in your sound directory.
+<BR><HR></BODY></HTML>

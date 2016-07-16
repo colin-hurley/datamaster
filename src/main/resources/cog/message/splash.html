@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Splash</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css"></HEAD><BODY>
+<H2>Splash</H2><HR>
+The splashes that things make when entering/exiting the water are handled locally by the
+player's cog. So when an actor, player, projectile, etc. enters/exits the water, the splash
+message is sent to the player's cog (usually kyle.cog) to create the splash.
+<P>
+Anything with the 0x20000000 <A href="../../flags/thing.html" target=main>Thing Flag</A> will create a splash.
+<P>
+<TABLE class=msg width=90% bgcolor=#D2D2D2>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD width=20% class=left>Sender</TD><TD class=left>The thing that's splashing.</TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>Will be 1 if the thing is entering or 0 if the thing is exiting the water.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sender Type</TD><TD class=left>Thing (3).</TD></TR>
+<TR><TD class=left>Source Type</TD><TD class=left>None.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+</TABLE>
+<HR></BODY></HTML>

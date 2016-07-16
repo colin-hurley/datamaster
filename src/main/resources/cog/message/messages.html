@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Cog Messages</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../../script/option.java"></SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/section.css">
+<STYLE>
+TD {font: 10pt Times New Roman}
+TH {font: 10pt Times New Roman; font-weight:bold}
+</STYLE>
+</HEAD><BODY>
+
+<!--
+	For those of you who may edit this:
+
+	The commented-out columns in the message table below are
+	for forwarding and local/global information. Some messages
+	are forwarded to the server, and some are not. Some messages
+	are sent locally, others are sent on all computers.
+
+	I decided not to research and release this information because
+	the information is not black and white. For example, activating a
+	thing that's on all computers is normally local and can be forwarded.
+	But try to activate an actor, and the message can't be forwarded.
+
+	Because of this inconsistency, the data would be difficult to
+	interpret and use. Aside from that, this DM update is past its
+	deadline and must be released quickly or not at all.
+-->
+
+<TABLE BORDER=1 CELLPADDING=3 width="70%">
+<TR><TH width="30%">Message</TH><TH width="50%">Sender Type</TH><!--<TH width="20%">Is Forwarded</TH><TH width="20%">Is Global</TH>--><TH width="*">Message ID</TH></TR>
+<TR><TD><A href="activate.html"		onclick="ShowPage(this.href); return false">activate</A></TD><TD>1) thing / surface 2) system</TD><!--<TD>1) forwarded 2) x</TD><TD>1) local 2) local</TD>--><TD>1</TD></TR>
+<TR><TD><A href="activated.html"		onclick="ShowPage(this.href); return false">activated</A></TD><TD>1) thing / surface 2) system</TD><!--<TD>1) forwarded 2) x</TD><TD>1) local 2) local</TD>--><TD>1</TD></TR>
+<TR><TD><A href="aievent.html"		onclick="ShowPage(this.href); return false">aievent</A></TD><TD>thing</TD><!--<TD>not forwarded</TD><TD>local</TD>--><TD>24</TD></TR>
+<TR><TD><A href="arrived.html"		onclick="ShowPage(this.href); return false">arrived</A></TD><TD>thing</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>11</TD></TR>
+<TR><TD><A href="autoselect.html"	onclick="ShowPage(this.href); return false">autoselect</A></TD><TD>system</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>19</TD></TR>
+<TR><TD><A href="blocked.html"		onclick="ShowPage(this.href); return false">blocked</A></TD><TD>1) thing 2) thing</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>5</TD></TR>
+<TR><TD><A href="changed.html"		onclick="ShowPage(this.href); return false">changed</A></TD><TD>none</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>20</TD></TR>
+<TR><TD><A href="created.html"		onclick="ShowPage(this.href); return false">created</A></TD><TD>thing</TD><!--<TD>forwarded</TD><TD>global</TD>--><TD>15</TD></TR>
+<TR><TD><A href="crossed.html"		onclick="ShowPage(this.href); return false">crossed</A></TD><TD>surface</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>8</TD></TR>
+<TR><TD><A href="damaged.html"		onclick="ShowPage(this.href); return false">damaged</A></TD><TD>1) thing / surface</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>10</TD></TR>
+<TR><TD><A href="deactivated.html"	onclick="ShowPage(this.href); return false">deactivated</A></TD><TD>system</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>21</TD></TR>
+<TR><TD><A href="deselected.html"	onclick="ShowPage(this.href); return false">deselected</A></TD><TD>system</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>18</TD></TR>
+<TR><TD><A href="entered.html"		onclick="ShowPage(this.href); return false">entered</A></TD><TD>1) sector 2) thing / surface</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>6</TD></TR>
+<TR><TD><A href="exited.html"			onclick="ShowPage(this.href); return false">exited</A></TD><TD>1) sector 2) thing / surface</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>7</TD></TR>
+<TR><TD><A href="fire.html"				onclick="ShowPage(this.href); return false">fire</A></TD><TD>1) system 2) system 3) thing</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>36</TD></TR>
+<TR><TD><A href="global0.html"		onclick="ShowPage(this.href); return false">global0</A></TD><TD>cog</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>0</TD></TR>
+<TR><TD><A href="join.html"				onclick="ShowPage(this.href); return false">join</A></TD><TD>thing</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>37</TD></TR>
+<TR><TD><A href="killed.html"			onclick="ShowPage(this.href); return false">killed</A></TD><TD>thing</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>12</TD></TR>
+<TR><TD><A href="leave.html"			onclick="ShowPage(this.href); return false">leave</A></TD><TD>thing</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>38</TD></TR>
+<TR><TD><A href="loading.html"		onclick="ShowPage(this.href); return false">loading</A></TD><TD>none</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>16</TD></TR>
+<TR><TD><A href="newplayer.html"	onclick="ShowPage(this.href); return false">newplayer</A></TD><TD>thing</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>35</TD></TR>
+<TR><TD><A href="pulse.html"			onclick="ShowPage(this.href); return false">pulse</A></TD><TD>1) none 2) thing</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>13</TD></TR>
+<TR><TD><A href="removed.html"		onclick="ShowPage(this.href); return false">removed</A></TD><TD>thing</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>2</TD></TR>
+<TR><TD><A href="respawn.html"		onclick="ShowPage(this.href); return false">respawn</A></TD><TD>thing</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>23</TD></TR>
+<TR><TD><A href="selected.html"		onclick="ShowPage(this.href); return false">selected</A></TD><TD>1) system 2) N/A</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>17</TD></TR>
+<TR><TD><A href="shutdown.html"	onclick="ShowPage(this.href); return false">shutdown</A></TD><TD>none</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>22</TD></TR>
+<TR><TD><A href="sighted.html"		onclick="ShowPage(this.href); return false">sighted</A></TD><TD>thing</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>9</TD></TR>
+<TR><TD><A href="skill.html"				onclick="ShowPage(this.href); return false">skill</A></TD><TD>thing</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>25</TD></TR>
+<TR><TD><A href="splash.html"			onclick="ShowPage(this.href); return false">splash</A></TD><TD>thing</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>39</TD></TR>
+<TR><TD><A href="startup.html"		onclick="ShowPage(this.href); return false">startup</A></TD><TD>none</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>3</TD></TR>
+<TR><TD><A href="taken.html"			onclick="ShowPage(this.href); return false">taken</A></TD><TD>thing</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>26</TD></TR>
+<TR><TD><A href="timer.html"			onclick="ShowPage(this.href); return false">timer</A></TD><TD>1) none 2) thing</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>4</TD></TR>
+<TR><TD><A href="touched.html"		onclick="ShowPage(this.href); return false">touched</A></TD><TD>1) thing / surface</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>14</TD></TR>
+<TR><TD><A href="trigger.html"			onclick="ShowPage(this.href); return false">trigger</A></TD><TD>thing</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>40</TD></TR>
+<TR><TD><A href="user0.html"			onclick="ShowPage(this.href); return false">user0</A></TD><TD>cog</TD><!--<TD>forward</TD><TD>unknown</TD>--><TD>27-34</TD></TR>
+<TR><TD colspan=5>&nbsp;</TD></TR>
+<TR><TD colspan=5><A href="messval.html" onclick="ShowPage(this.href); return false"><CENTER>Message Type Values</CENTER></A></TD></TR>
+</TABLE></BODY></HTML>

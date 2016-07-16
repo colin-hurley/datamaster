@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>jkSetWaggle</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>jkSetWaggle</H2><HR>
+Makes the player swing his weapon in internal view. Syntax:
+<P>
+<CODE>jkSetWaggle(player, move_vec, speed);</CODE>
+<P>
+<SPAN class=param>move_vec:</SPAN> This vector consists of three measurements that tell JK how far to move the weapon
+from its original orientation. The vector is in this form: <SPAN class=exam>'down side twist'</SPAN>.
+<P>
+<STRONG>down:</STRONG> This is how far down the model should move. Making this value negative will bring the model
+up. A value of -25 would bring the internal bryar model up into the middle of the screen.
+<P>
+<STRONG>side:</STRONG> This is how far to each side that the pov model should travel to. A value of 20 would make the
+internal model travel across 2/3 of the screen.
+<P>
+<STRONG>twist:</STRONG> This is the degrees that the model should rotate. A value of 360 would make the model
+twist all the way around as it waggles.
+<P>
+<SPAN class=param>speed:</SPAN> This is the speed that the internal model should move at. The usual waggle speed is 350.
+<HR>
+To stop the waggling, use:
+<P>
+<CODE>jkSetWaggle(player, '0 0 0', 0);</CODE>
+<HR></BODY></HTML>

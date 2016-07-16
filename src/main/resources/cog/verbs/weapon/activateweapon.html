@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>ActivateWeapon</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>ActivateWeapon</H2><HR>
+Runs a weapon cog's <A href="../../message/fire.html">fire</A> message. After the message runs, JK waits for the firewait
+delay and then runs the message again. The fire message will keep looping until <A href="deactivateweapon.html">DeactivateWeapon()</A>
+stops it. Syntax:
+<P>
+<CODE>ActivateWeapon(player, firewait, fire_mode);</CODE>
+<P>
+<SPAN class=param>firewait:</SPAN> This is the time to wait before running the fire message again.
+<P>
+<SPAN class=param>fire_mode:</SPAN> This is the mode of fire: 0 for primary or 1 for secondary fire.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="deactivateweapon.html">DeactivateWeapon()
+	<OPTION value="../../message/fire.html">Fire
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

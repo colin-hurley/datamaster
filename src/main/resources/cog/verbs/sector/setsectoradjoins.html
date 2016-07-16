@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SetSectorAdjoins</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SetSectorAdjoins</H2><HR>
+Enables or disables rendering through a sector's adjoins. Make the second param 1 to enable the rendering or 0 to disable it. Syntax:
+<P>
+<CODE>SetSectorAdjoins(sector, boolean);</CODE>
+<P>
+Disabling the rendering with SetSectorAdjoins() produces the same effect as removing an adjoin's 0x1
+<A href="../../../flags/surfaceadjoin/surfaceadjoin_frame.html" target="main">Surface Adjoin
+Flag</A>. However, this verb cannot enable / disable the rendering unless the adjoin has the 0x1 flag.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="notes.html#adjoin">Sector Adjoins
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="../surface/clearsurfaceflags.html">ClearSurfaceFlags()
+	<OPTION value="../surface/setsurfaceflags.html">SetSurfaceFlags()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

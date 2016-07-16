@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>GetLocalPlayerThing</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>GetLocalPlayerThing</H2><HR>
+Returns the thing number of the local player. Syntax:
+<P>
+<SPAN class=return>player</SPAN>=<CODE>GetLocalPlayerThing();</CODE>
+<P>
+It's been said that GetLocalPlayerThing(), jkGetLocalPlayer(), or both have problems in MP with returning
+the correct player - these verbs allegedly returned only the host player's thing number. Testing does not
+confirm this, and the problem with these verbs is probably the fault of users not understanding how
+their cogs were acting in MP.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="getplayernum.html">GetPlayerNum()
+	<OPTION value="notes.html#handle">Player's Handle
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="getplayerthing.html">GetPlayerThing()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

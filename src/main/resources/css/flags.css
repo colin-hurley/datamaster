@@ -1,0 +1,22 @@
+BODY {font-family: Times; background: gray; margin:0; padding:0}
+
+TH {text-align: left}
+TH.big {font-size: 15pt; text-align: center}
+
+SUP {color: red}
+
+TABLE {background: silver; font-size: 10pt; margin:0}
+
+CODE {color:green; font: 11px Verdana}
+
+A:link {color: #6600FF; text-decoration: none}
+A:visited {color: #6600FF; text-decoration: none}
+A:hover {color: #000099}
+A:active {color: #000099}
+
+A:link.title {color: black; text-decoration: underline}
+A:visited.title {color: black; text-decoration: underline}
+A:hover.title {color: #333399; text-decoration: underline}
+A:active.title {color: #333399; text-decoration: underline}
+
+SPAN.link {color: black; text-decoration: underline}

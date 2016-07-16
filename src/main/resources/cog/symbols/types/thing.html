@@ -1,0 +1,16 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Thing Symbol Type</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Thing Symbol Type</H2><HR>
+The thing symbol type is used to store a reference to a thing. Syntax:
+<PRE class=sym>thing     thing1</PRE>
+<P>
+<B>Mask Info:</B> Masking things (by adding <A href="../../../flags/thingtypemask/thingtypemask_frame.html" target="main">Mask Flags</A>
+to the symbol) controls what event messages sent by the thing will be handled by the cog. If the thing which caused the event was
+excluded by the mask, then the event message will be ignored.
+<P>
+Normally, when a projectile hits an actor, the touched message does not run in the actor's cog - the default
+mask does not allow projectiles. But if we give the thing a mask of 0xfff, every type of thing that touches
+the actor will cause the touched message to run.
+<P>
+The default thing mask may be 0x404.
+<HR></BODY></HTML>

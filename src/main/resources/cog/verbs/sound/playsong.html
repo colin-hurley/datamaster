@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>PlaySong</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>PlaySong</H2><HR>
+Plays the tracks of a CD - remember that the first track on the CD is data. When PlaySong() is 
+run, it resets the music volume to 1. Syntax:
+<P>
+<CODE>PlaySong(start, end, loopto);</CODE>
+<P>
+<SPAN class=param>start:</SPAN> This is the track JK will start playing at.
+<P>
+<SPAN class=param>end:</SPAN> When JK reaches the end track, it starts on the loopto track.
+<P>
+<SPAN class=param>loopto:</SPAN> After JK plays the end track, it will go to the loopto track
+and start over.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="setmusicvol.html">SetMusicVol()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

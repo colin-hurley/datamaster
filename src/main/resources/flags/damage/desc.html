@@ -1,0 +1,22 @@
+<HTML><HEAD><TITLE>Damage Flags Description</TITLE>
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>Damage Flags</H2><HR>
+
+Damage Flags show what type of damage a thing has been given. They can be retrieved from the second parameter
+of the <A href="../../cog/message/damaged.html">damaged</A> message.
+<P>
+Damage caused by contact with things (such as projectiles and explosions) will use the thing's damageclass template
+property as the Damage Flag. DamageThing() has a parameter to set the Damage Flags for the target's
+damage.
+
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Verbs Used:
+	<OPTION value="../../cog/verbs/thingact/damagething.html">DamageThing()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR><BODY></HTML>

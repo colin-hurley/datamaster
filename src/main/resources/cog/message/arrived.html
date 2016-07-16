@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Arrived</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>Arrived</H2><HR>
+Arrived is sent by a path-controlled object when it reaches the frame that it was told to move or
+rotate to. Arrived will not work with AI using frame movement.
+<P>
+<TABLE class=msg width=90% bgcolor=#D2D2D2>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD width=30% class=left>Sender</TD><TD class=left>The path-controlled object.</TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>None.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sender Type</TD><TD class=left>Thing (3).</TD></TR>
+<TR><TD class=left>Source Type</TD><TD class=left>None.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+</TABLE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../verbs/frame/movetoframe.html">MoveToFrame()
+	<OPTION value="../verbs/frame/rotatepivot.html">RotatePivot()
+	<OPTION value="../verbs/frame/skiptoframe.html">SkipToFrame()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

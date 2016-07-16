@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Timer</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>Timer</H2><HR>
+<B>1)</B> The timer message is used to run code after a delay has elapsed. The verbs
+<A href="../verbs/message/settimer.html">SetTimer()</A> and <A href="../verbs/message/settimerex.html">SetTimerEx()</A>
+are used to set the delay and start the timer for the cog that ran the command. SetTimerEx() can also send an ID and two parameters.
+<P>
+<TABLE class=msg width=90% bgcolor=#D2D2D2>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD width=30% class=left>Sender</TD><TD class=left>None.</TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>None.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sender Type</TD><TD class=left>None.</TD></TR>
+<TR><TD class=left>Source Type</TD><TD class=left>None.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Param0</TD><TD class=left>Third param of SetTimerEx().</TD></TR>
+<TR><TD class=left>Param1</TD><TD class=left> Fourth param of SetTimerEx().</TD></TR>
+<TR><TD class=left>Param2</TD><TD class=left>None.</TD></TR>
+<TR><TD class=left>Param3</TD><TD class=left>None.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>ID</TD><TD class=left>Second param of SetTimerEx().</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+</TABLE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../verbs/message/settimer.html">SetTimer()
+	<OPTION value="../verbs/message/settimerex.html">SetTimerEx()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives
+	<OPTION value="pulse.html">Pulse
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<P>
+<B>2)</B> <A href="../verbs/message/setthingtimer.html">SetThingTimer()</A> is used to set a thing timer. A thing timer
+acts like a regular timer, but the timer message will be sent to all of the thing's cogs with the thing as the sender.
+<P>
+<TABLE class=msg width="90%" bgcolor=#D2D2D2>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD width=30% class=left>Sender</TD><TD class=left>First param of SetThingTimer().</TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>None.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sender Type</TD><TD class=left>Thing (3).</TD></TR>
+<TR><TD class=left>Source Type</TD><TD class=left>None.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+</TABLE>
+<P>
+<FORM name="relform2" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../verbs/message/setthingtimer.html">SetThingTimer()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel3()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives
+	<OPTION value="pulse.html">Pulse
+</SELECT><INPUT type="button" value="Travel" onClick="Travel4()">
+</FORM>
+<HR></BODY></HTML>

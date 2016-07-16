@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>New Hotkeys</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/tut.css"></HEAD>
+<body onLoad="top.main.chapter.document.form.select4.selectedIndex = 5;" onUnload="top.main.chapter.document.form.select4.selectedIndex = 0;">
+<H2 style="margin-bottom:0">Creating New Hotkeys</H2><HR>
+A "hotkey" is a key on your keyboard which has a command assigned to it in the keyboard control options.
+Many of these hotkeys are linked to a cog; others, such as jump, are handled by the engine. This tutorial will show
+you how to create your own hotkey and link it to a cog.
+<P>
+Here's an example of a hotkey's cog:
+<PRE class=code>
+# Hotkey.cog
+#
+#==================================================#
+symbols
+
+message	activated
+
+end
+#==================================================#
+code
+#--------------------------------------------------------
+activated:
+     Print("Acitvated");
+
+Return;
+#--------------------------------------------------------
+end
+</PRE>
+
+The activated message will be sent when the hotkey is pressed. So when you press a hotkey linked to this cog, you
+should see "Activated" appear on the screen. If your hotkeyable bin is for an item (explained later), the deactivated message
+will be sent when you release the hotkey.
+<P>
+Now that we have the hotkey cog, we need to make the hotkey to run it.
+<P>
+First, put the cog you want to assign a hotkey to in Resource\cog<SUP>1</SUP>, put the items.dat in the Resource\misc
+folder, and then put the jkstrings.uni in the Resource\ui folder. You can copy the items.dat and the
+jkstrings.uni out of the gob files in your resource folder.
+<P>
+Open up the items.dat. Scroll down to the bottom. The last bin in the items.dat is 115. We'll take up where LEC
+left off and use bin 116. Add the following into the items.dat after bin 115:
+
+<PRE class=code>
+binName               116             1        1         0x120    cog=hotkey.cog
+</PRE>
+
+Replace binName with whatever you want the bin named. The two ones are the minimum and maximum values of
+the bin that you can have. You can use the hotkey when you don't have anything in the bin, but if your bin
+is for an item, the selection box will flicker when it views the item.
+<P>
+The 0x120 is an <A href="../flags/inventory/inventory_frame.html">Inventory Flag</A>. This flag combines the 'hotkeyable' flag (0x100)
+and the 'available by default' flag (0x20). If the bin is not available, the hotkey will not work and it won't be shown in the
+selection box. You can use cog verbs to make the hotkey available, but using the 0x20 flag is easier in this case.
+<P>
+To make the deactivated message run, you must make your hotkey bin an item like the fieldlight. To do this, add
+the flag 0x2 to your inventory flags. EG, 0x122. But as with any item, you will have to give it an icon for the
+item selection box.
+<P>
+To do this, first create an icon and convert it to a .bm file. Then place your bitmap in the Resource\ui\bm folder
+(create it if you have to). The name of the icon has three parts. The name begins with "ic" which stands for icon.
+The next part is the first five letters of your bin name. The last part is the number "8" for 8-bit or "16" for 16-bit.
+You will have to create an 8-bit and a 16-bit version of your icon. Here are the two icons for the example bin
+above:
+<BLOCKQUOTE class=pref>
+icbinna8.bm
+<BR>icbinna16.bm
+</BLOCKQUOTE>
+If the engine doesn't find these icon files, it will crash when you load a level.
+<P>
+Now save and close the items.dat. That's all we have to do with that file. Open up the jkstrings.uni. It's a big file,
+so search for the phrase "ACTIVATE16". Right under Activate16, add in this:
+
+<PRE class=code>
+"ACTIVATE17"      0 "New Hotkey"
+</PRE>
+
+This will assign a name to your hotkey and make the engine look for another bin in the items.dat with the flag
+0x100 to assign the new hotkey to. Save and close the jkstrings.uni.
+<P>
+Launch JK and go to the keyboard controls box. Scroll all the way down to the bottom. Double-click the new
+hotkey and then press the key you want to use for it. Now load a level and try out your new hotkey. If you used
+the hotkey cog given above, you should see a message print when you press the key.
+<P>
+In Jedi Knight, you can only add three hotkeys, but you can get many more in Mysteries of the Sith. To get
+around this shortage in JK, you can steal hotkeys away from items like the fieldlight. Just remove their 0x100
+flag and take out their entries in the jkstrings.
+<HR>
+<SUP>1</SUP>If you are using the path command line parameter to use another resource directory, you can put the
+cog, misc, and ui folders in your new directory instead of resource.
+
+<p>
+<a href="leadin.html">Continue</a>
+<p>
+
+<HR></BODY></HTML>

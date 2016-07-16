@@ -1,0 +1,43 @@
+H1 {text-align: center}
+H2 {text-align: center; margin: 5; background: gray; border: thick double black; font: 20px Times New Roman; font-weight:bold}
+H3 {text-align: center}
+H4 {text-align:left; text-indent:10; font: 13px Verdana; font-weight:bold; border:thin double black; width:250; background:silver; margin-left:0}
+H5 {text-align: center; margin-bottom:10; margin-top:0}
+H6 {text-align: center}
+
+BODY {font: 11px Verdana; background: #D2D2D2}
+
+PRE.sym {margin-bottom:0; color:red;  font: 12px Arial}
+
+SPAN.temp {color: red}
+SPAN.exam {color: green}
+SPAN.param {color: #844; font: 11px Verdana; font-weight:bold}
+SPAN.return {color: #000; font: 10px Verdana; font-weight:bold}
+SPAN.red {color: red}
+SPAN.math {color: green; font: 8pt Verdana}
+SPAN.code {color:green; font: 11px Verdana}
+
+PRE.mono {font: 9pt Courier; color: red}
+PRE.code {color: green; font: 11px Verdana}
+
+SUP {color: red}
+
+TABLE.small {font: 9pt Times New Roman}
+TABLE.msg {font: 9pt Times New Roman}
+TD {text-align: center}
+TD.left {text-align: left}
+TD.right {text-align: right}
+TH.left {text-align: left}
+TH.right {text-align: right}
+TH.big {font-size: 12pt; text-align: center}
+
+CODE {color:green; font: 11px Verdana}
+
+PRE.exam {color: blue; font: 9pt Times New Roman; text-indent: 30}
+
+FORM.rel {margin:0}
+
+A:link {color: #6600FF; text-decoration: none}
+A:visited {color: #6600FF; text-decoration: none}
+A:hover {color: #000099}
+A:active {color: #000099}

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Communication</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head>
+<body onLoad="top.main.chapter.document.form.select3.selectedIndex = 3;" onUnload="top.main.chapter.document.form.select3.selectedIndex = 0;">
+
+<H2 style="margin-bottom:0">Communication</h2><hr>
+
+<h4>In General</h4>
+
+Whenever you create a new cog and add it to a patch, it will be completely seperate from other cogs. There's no mistake
+you can make that will cause an error in another cog. But when you need your cog to act in response to other cogs, you're going
+to need some way to communicate.
+<p>
+Cog provides several ways to do this, but no matter what method you use, using several cogs to do something makes debugging
+and just understanding your code much harder. If any of you have tried to make sense of Raynar's Rbots code, then you know
+how much more complicated your code can become when you have to break up one cog into several smaller ones. Always
+be sure to write in plenty of commenting beside verbs like SendMessage() and SendTrigger().
+
+<h4>Sending Triggers</h4>
+
+Triggers are the hardest, most professional, and perhaps the most taxing way to get comm between your cogs. A trigger is sent
+out with <a href="../../cog/verbs/message/sendtrigger.html">SendTrigger()</a> and received with the trigger message. The syntax is:
+<p>
+<code>SendTrigger(dest, ID, param0, param1, param2, param3);</code>
+<p>
+For what we're going over, the destination is the most important argument. This tells the verb who the trigger is going to be sent to.
+The integer is either going to be -1 for everybody, or the thing number of the player who's computer we want to talk to. We'll go more
+into this in the multiplayer tutorial.
+<p>
+If a trigger is sent out with a dest of -1, then every cog on all computers in the game will be able to receive that message. Triggers wouldn't
+be that useful if you couldn't tell them apart - that's what the second argument is for. This is the trigger's ID, which will be the sourceref of
+the trigger message.
+<p>
+The fact that all cogs that use triggers have to listen to every trigger makes them somewhat wasteful. In most cases, you'll have one cog
+that needs to tell something to another cog. If you use a trigger and a unique ID, every cog on the receiving computer will have to
+look at that message and compare it's ID to the IDs that it's looking for.
+<p>
+Also, because triggers have only a player as a destination and not a cog, it can be difficult for anyone reading your code (and for you later on)
+to tell which cog is listening for that trigger without any comments.
+<p>
+For example, let's say we're writing a new scoring system and we need to write something that will make the server-side cog send
+a trigger to the client-side cogs to tell them what the new score is. The server code might look like:
+
+<pre class="code">
+broadcast_score:
+	// tell all clients that the new score is curScore.
+	// receiving cog will be client_score.cog.
+	SendTrigger(-1, 33, curScore, oldScore, 0, 0);
+
+return;
+</pre>
+
+And in the client's cog we would have:
+
+<pre class="code">
+trigger:
+	if(GetSourceRef() == 33)
+	{
+		// received trigger from server_score.cog.
+		// first param will be the new score, and the
+		// second will be the old score.
+		curScore = GetParam(0);
+	}
+
+return;
+</pre>
+
+In cases like this, there are an unknown number of recipients, verbs like SendMessage() are designed to send a message
+to a specific cog - and they can't do messages to other computers. So for this example, SendTrigger() is the only choice
+even though only one cog needed to receive the trigger.
+
+<h4>Sending Messages</h4>
+
+For sending messages, the two verbs we'll use are SendMessage() and SendMessageEx(). The syntax looks like:
+
+<pre class="code">
+SendMessage(cog, message); 
+
+retval=SendMessageEx(cog, message, param0, param1, param2, param3); 
+</pre>
+
+SendMessage() is the simple version, it just needs the destination cog, and the message to send. SendMessageEx() is the
+extended version which allows you to send four parameters.
+<p>
+Since an ID is not used when sending messages, you have a range of user messages (user0-user7) to use. There's also
+a global0 message which you can use if you need to. You aren't restricted to using only these messages, you can use
+any of JK's predefined messages.
+<p>
+The downside of these message verbs is that it's hard to get a reference to a cog - it's not the cog file, it's the number of
+the cog in the JKL's cog section. A common way to add custom cogs to a patch is through the items.dat. This avoids
+using the static.jkl, and it allows you to use GetInvCog() to return a reference to that cog. So if you load all of your
+cogs through the inventory, then you won't have a problem sending messages between them.
+<p>
+For an example, let's say that you have two custom cogs. The first one needs to synchronize three variables with the second.
+If we used a trigger in this case, then every local cog would hear the trigger, and we don't need to do that. So the first cog
+might have code like:
+
+<pre class="code">
+comm_sync:
+	SendMessageEx(GetInvCog(GetLocalPlayerThing(), 117), user0, syncVar1, syncVar2, syncVar3, 0);
+
+return;
+</pre>
+
+We're assuming that the first cog is loaded with bin 116, and the second is loaded with 117.
+The second cog would have this code:
+
+<pre class="code">
+user0:
+	syncVar1 = GetParam(0);
+	syncVar2 = GetParam(1);
+	syncVar3 = GetParam(2);
+
+return;
+</pre>
+
+<h4>Using the Inventory</h4>
+
+In that last example, we could have used bins 118 to 120 to hold the three variables. It would depend on whether
+we needed the second cog to act immediately on the change in variables or not. Bins can act as global variables -
+variables that every cog can modify without making a local copy. This would allow both cogs to change and use
+the variables as they needed without talking to each other. If you have bins to waste, this might be a better option.
+
+<h4>Message Parameters</h4>
+
+These parameters are made to accomodate most variable types, but vectors, being as large as they are,
+have to be broken down into three flexes before you can send them. If you've got a few vectors you need to
+send (say you're trying to sync something's position and movement), then you're going to have to use multiple
+triggers. Most of the time it's better if you find another solution than to try that.
+<p>
+As you saw in the syntax of SendMessageEx() you can send a value back to the calling thread with ReturnEx(). The return type
+is flexable just like the other message parameters. ReturnEx() is used the same as in damaged and autoselect.
+
+<p>
+<a href="encapsulation.html">Continue</a>
+<p>
+
+<hr></body></html>

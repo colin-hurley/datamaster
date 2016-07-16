@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Attachment</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Attachment</H2><HR>
+
+<H4 style="margin-top:0">Attachment</H4>
+
+An attachment is the fixation of one thing to another. In any attachment, there is the attached thing and the thing or surface
+that it is attached to - the base of the attachment. An attached thing does not have to be at the same position as the thing
+or surface that it's attached to. Any thing's attachment will be broken if a force greater than half of its mass is applied to it.
+<P>
+The differrent types of attachments use their own <A href="../../../flags/attach/attach_frame.html" target="main">Attach Flag</A>.
+Each of the four known types of attachments is described below.
+
+<H4>0x1 Attachment</H4>
+
+The 0x1 attachment is the most common. The JK engine uses it to attach things to surfaces.
+<A href="attachthingtosurf.html">AttachThingToSurf()</A> also sets this flag. In the 0x1 attachment,
+the attached thing is allowed to move around freely even while it is attached.
+
+<H4>0x4 Attachment</H4>
+
+In a 0x4 attachment, the attached thing copies the movements of the base thing. The attached thing cannot move by itself. The base thing
+of the attachment cannot move if the attached thing cannot move - such as when it's backed up against a wall.
+<P>
+The 0x4 attachment has two major shortcomings. First, the attachment is broken when the attached thing enters a water sector. And second,
+when a thing moves into a wall, it is in fact moving. So if the attached thing is being pushed into a wall it will move into the wall and be set back
+very quickly. But JK counts this wall-pushing as movement and allows the base thing to move. This and other collision problems allow the attached
+thing's original offset from the player to be distorted and the purpose of the attachment may be ruined.
+
+<H4>0x6 Attachments</H4>
+
+The 0x6 <A href="../../../flags/attach/attach_frame.html" target="main">Attach Flag</A> is a combination of 0x4 and 0x2 and is usually created with
+<A href="attachthingtothingex.html">AttachThingToThingEx()</A>. With this attachment, the physics of the attached thing are ignored. The lookvector
+of the attached thing is set to the lookvector of the base. Even with this attachment, wall-pushing is a problem. The base thing can move into a wall
+and the "movement" will be transferred to the attached thing which is not restricted by the wall. However, because the physics of the attached thing
+are not used, the attachment will not be broken when the thing enters water.
+<P>
+But, the big problem with this attachment is that it is unstable.
+
+<H4>0xC Attachment</H4>
+
+The 0xC <A href="../../../flags/attach/attach_frame.html" target="main">Attach Flag</A> is formed by the combination of the 0x4 and 0x8
+Attach Flags. With 0xC attachments, the events and physics of the attached thing are ignored.
+<P>
+The events of the attached thing will mirror the events of the base. For example, the attached thing's splash message will run when
+the base enters/exits a water sector, regardless of where the attached thing is.
+<P>
+Generally, the 0xC attachment should be used with things that should stay at the exact position of the base thing. In some ways, the
+0x8 attachment is an improvement on the 0x4 attachment, because the attached thing doesn't drift away from collision problems.
+<HR></BODY></HTML>

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Pulse</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>Pulse</H2><HR>
+<B>1)</B> <A href="../verbs/message/setpulse.html">SetPulse()</A> is used to set the interval for the pulse
+message run in the cog that ran the command. When the delay has elapsed, pulse will be sent, and then the cog will
+wait for the delay before calling the message again.
+<P>
+<TABLE class=msg width=90% bgcolor=#D2D2D2>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD width=25% class=left>Sender</TD><TD class=left>None.</TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>None.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sender Type</TD><TD class=left>None.</TD></TR>
+<TR><TD class=left>Source Type</TD><TD class=left>None.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+</TABLE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../verbs/message/setpulse.html">SetPulse()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="timer.html">Timer
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<P>
+<B>2)</B> <A href="../verbs/message/setthingpulse.html">SetThingPulse()</A> can be used to start a thing pulse. This is different
+from a normal pulse in that it is treated as a property of a thing rather than of a cog. The pulse message will be sent by the thing
+to all of its associated cogs.
+<P>
+<TABLE class=msg width=90% bgcolor=#D2D2D2>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD width=25% class=left>Sender</TD><TD class=left>First param of SetThingPulse().</TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>None.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sender Type</TD><TD class=left>Thing (3).</TD></TR>
+<TR><TD class=left>Source Type</TD><TD class=left>None.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+</TABLE>
+<P>
+<FORM name="relform2" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../verbs/message/setthingpulse.html">SetThingPulse()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel3()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="timer.html">Timer
+</SELECT><INPUT type="button" value="Travel" onClick="Travel4()">
+</FORM>
+<HR></BODY></HTML>

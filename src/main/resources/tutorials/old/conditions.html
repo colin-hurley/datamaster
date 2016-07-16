@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Conditions</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/tut.css"></HEAD>
+<body onLoad="top.main.chapter.document.form.select4.selectedIndex = 3;" onUnload="top.main.chapter.document.form.select4.selectedIndex = 0;">
+<H2 style="margin-bottom:0">Conditions</H2><HR>
+
+A relational test checks a value with another value to see if a relation is true. These values can be anything that has
+a numerical value. A condition is a group of one or more relational tests or other values that is either true or false. Here's a simple
+example with the if statement:
+<PRE class=code>
+if(var == 1)
+{
+   // Do something
+}
+</PRE>
+The conditional statement is read as: "if var is equal to one, then do something." In the example, var is a variable to
+be tested, '==' is the relation to be tested for, and 1 is the number that will be tested with var for the relation. If
+var had a value of 1, then the condition would be true, and the action inside the brackets would be
+performed. If var had not been equal to one, then the condition would be false and the code inside the brackets
+would be ignored.
+<P>
+Notice that in the above example, the if statement ran a code block (the code inside a pair of brackets) when the
+condition was true. The if statement can run a single statement or a code block.
+EG:
+<PRE class=code>
+if(var == 1) // Do something
+</PRE>
+Conditional statements do not end with a semicolon like other statements. Putting a semicolon on the end of a
+conditional statement will end the statement. Then the code after the statement will run regardless of the condition
+because it is not associated with it.
+<P>
+You may use anything that has a value in a relational test. This includes verbs that return a value, arrays,
+variables, numbers, relational tests, models, cogs, etc. You can use mathmatical expressions like 1+1. Although
+all of the examples in this text use numbers and variables with integer values, keep in mind that that's not all you can
+use.
+<P>
+The if statement will be used for all of the examples in this text. Remember, that all of the information provided here
+(except for the else statement), can be used with any condition.
+<P>
+Here are some examples with other relational operators and variables used:
+<PRE class=code>
+if(integer < 5) // Do something
+</PRE>
+<PRE class=code>
+if(myvar <= integer) // Do something
+</PRE>
+<PRE class=code>
+if(5 > integer) // Do something
+</PRE>
+Here's a chart of <A href="../../cog/operator/operators.html#rel">Relational Operators</A>.
+<P>
+Relational tests are not always used for conditional statements. Because these relations have a value (as discussed
+in the next section), they can be assigned to variables. EG:
+<PRE class=code>
+bool = 5 < 10;
+</PRE>
+Because this condition is true, bool will be given a value of one. This brings us to the next section...
+
+<H4>The Value of a Condition</H4>
+
+Boolean is a variable type like the integer. But unlike an integer, boolean variables are either 0 or 1. That's because
+boolean values are used to mean true or false. Zero means false, and one means true. All conditions return boolean
+values. A condition must have a true value for the action to be performed. Look at this
+example,
+<PRE class=code>
+if(var == 1) // Peform action
+</PRE>
+Suppose var has a value of one. That makes the condition look like this: 1 == 1. And of course, 1 is equal to 1. And
+because the condition is true, it has a value of one. If var was 2, then the condition would be false and would have a
+value of zero. If the condition was true, it would look like this:
+<PRE class=code>
+if(1) // Perform action
+</PRE>
+And if it was false:
+<PRE class=code>
+if(0) // Perform action
+</PRE>
+Note that you can use a boolean value instead of a relational test in a conditional statement. Of course, putting a one
+or zero in place of the relational test is worthless in a functional program. But it is very useful if you have a boolean
+variable. For example:
+<PRE class=code>
+bool=1;
+if(bool)
+{
+   // Do something
+}
+</PRE>
+In this example, bool has a boolean value of one and the condition is true. Had bool been zero, the condition would
+have been false and the code block would have been skipped.
+<P>
+The true/false value used in conditional statements is not strictly the boolean 0 or 1. Any non-zero integer has a value of true.
+<P>
+However, when the engine processes a relational test, it will always return one for true and zero for false.
+
+<H4>Logical Operators</H4>
+
+In this section, we will review <A href="../../cog/operator/operators.html#logical">Logical Operators</A>.
+<P>
+<B>The "not" operator:</B> This operator is symbolized by an exclamation mark. It's purpose is to reverse the value
+of a condition. An example:
+<PRE class=code>
+var=5;
+if(!var < 1) // Do something.
+</PRE>
+Five is not less than one, so the relational test is false. But, the not operator reverses the value to true. Look at this
+example:
+<PRE class=code>
+var=0;
+if(!var) // Run code
+</PRE>
+Var has a value of zero. And since zero is false, the condition would normally be false and would not run the code.
+But the not operator changes the value to 1, and the code is run.
+<P>
+Note that the not operator must be placed at the beginning of the relational test - either inside or outside a pair of
+parentheses. Here are a few more examples that are all true:
+<PRE class=code>
+if(!(0)) // Do stuff
+if(!0) // Do stuff
+if(!(5 < 5)) // Run code
+</PRE>
+<PRE class=code>
+if(!7 == 6)
+{
+   // Run code
+}
+</PRE>
+<B>The "and" operator:</B> This operator, symbolized by two ampersands ( '&&' ), is used to combine two relational
+tests into one condition. For example:
+<PRE class=code>
+if(var1 < 5 && var2 < 10) // Do something
+</PRE>
+The logical "and" operator requires that both relational tests be true for the entire condition to be true. Notice that
+the relational tests are not enclosed by parentheses. LEC and many cog programmers choose to do this, but it is not
+necessary. 
+<P>
+Because <A href="../../cog/operator/operators.html#logical">Logical Operators</A> have a lower precedence than
+<A href="../../cog/operator/operators.html#rel">Relational Operators</A>, the relational tests are performed first,
+and then the "and" operators are processed. It is because of this that you don't have to enclose relational tests in
+parentheses to force them to be processed first. If you did enclose the seperate conditions, they would look like this:
+<PRE class=code>
+if((var1 < 5) && (var2 < 10)) // Run code
+</PRE>
+When the relational tests in a condition are evaulated, the value of the test is used in place of the relational test. It
+would look something like this:
+<PRE class=code>
+if(1 && 0 && 1 && 1 && 1) // Run code
+</PRE>
+In that example, 1 out of five relational tests was false. Because all tests had to be true for the entire condition to be
+true, the condition was false and the code was not run. Here are two more examples:
+<PRE class=code>
+if(var1 == 5 && var2 == 3 && var3 == 0) // Run code
+if(!var1 && var2 && var3 == 10) // Run code
+</PRE>
+<B>The "or" operator:</B> This operator is denoted with two braces like this, ' || '. This operator will make a condition
+true if either of two relational tests is true. For example:
+<PRE class=code>
+if(var1 < 3 || var2 == 10) // Run code
+</PRE>
+If either relational test was true, then the condition would be true and the code would be run. As with the "and"
+operator, the relational tests are usually enclosed by parentheses, but don't have to be.
+
+<H4>Advanced Conditions</H4>
+
+<B>Nesting:</B> Nesting is the term for using multiple conditional statements inside each other. An example:
+<PRE class=code>
+if(var1 < 2)
+{
+   if(var2 == 5)
+   {
+      if(var3 > 10)
+      {
+         // Run code
+      }
+   }
+}
+</PRE>
+There, the if statements are "nested" inside each other. That example could also be written without using a new
+code block for each statement. EG:
+<PRE class=code>
+if(var1 < 2) if(var2 == 5) if(var3 > 10) // Run code
+</PRE>
+The main reason to nest conditional statements and not combine them with logical operators is that you can use
+a seperate else statement for each condition (which is discussed below). If you don't want to use else for each
+relational test, you should combine the conditions into one condition to clean up your code. Like this:
+<PRE class=code>
+if(var1 < 2 && var2 == 5 && var3 > 10) // Run code
+</PRE>
+<B>Else Statement:</B> Else statements are placed after an if statement. They will run the next line or code block if the statement's condition was
+false. If it was true, the else statement will be skipped. Look at this example:
+<PRE class=code>
+if(var == 10)
+{
+   // Run code
+}
+else
+{
+   var=10;
+}
+</PRE>
+
+This code can be read as: if var is equal to 10, then run code, but if var is not equal to 10, then set var to 10.
+You can remove the code blocks as in this example:
+<PRE class=code>
+if(var == 10) // Run code
+else var=10;
+</PRE>
+Note that the else statement will only work after an if statement. It will not work with other conditional statements
+such as while(). Here is a modified version of the nesting example:
+<PRE class=code>
+if(var1 < 2)
+{
+   if(var2 == 5)
+   {
+      if(var3 > 10)
+      {
+         // Run code
+      }
+      else Print("var3 is less than or equal to 10");
+   }
+   else Print("var2 is not equal to 5");
+}
+else Print("var1 is greater than or equal to 2");
+</PRE>
+<B>Combined conditions:</B> Occasionally the need arises for some really complicated conditions. If you have read
+through all of the sections above, then these conditions should be easy to figure out. An example:
+<PRE class=code>
+if(var1 == 3 && var2 == 6 || var1 > 3 && var2 >= 6) // Run code
+</PRE>
+Because the '&&' operator has a higher precedence than the ' || ' operator, the conditions on either side of the "or" operator are
+evaluated first. It will be processed something like this: (Suppose that var1 is 3 and var2 is 6)
+<PRE class=code>
+if(var1 == 3 && var2 == 6 || var1 > 3 && var2 >= 6)
+if(1 && 1 || 0 && 1)
+if(1 || 0)
+if(1)
+</PRE>
+And so, the condition is true and the code is run. Many people, especially beginners, may not know the precedence
+of the <A href="../../cog/operator/operators.html#logical">Logical Operators</A>. So, it would probably be better to write
+that last condition like this:
+<PRE class=code>
+if((var1 == 3 && var2 == 6) || (var1 > 3 && var2 >= 6)) // Run code
+</PRE>
+There is no difference, but the parentheses make the condition easier to read. Here's a chart of
+<A href="../../cog/operator/operators.html#precedence">Operator Precedence</A>.
+<P>
+Now, sometimes you might want to put a "sub-condition" inside a condition. Lets say that you want a code block to
+run if a player is alive or dead, but if he is alive, you want a variable to be equal to one. This can easily be done with
+one condition in this way:
+<PRE class=code>
+health=GetHealth(player);
+if(health == 0 || health >= 1 && var1 == 1) // Run code
+</PRE>
+Now lets say that you want three other variables to all be zero for the code to run:
+<PRE class=code>
+if(!var2 && !var3 && !var4 && (health == 0 || health >= 1 && var1 == 1)) // Run code
+</PRE>
+That is how to put one condition inside another. In certain situations - often in target-finding code - this
+can save quite a few lines of code.
+
+<p>
+<a href="help.html">Continue</a>
+<p>
+
+<HR></BODY></HTML>

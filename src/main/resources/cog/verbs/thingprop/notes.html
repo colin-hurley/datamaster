@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Thing Properties</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Thing Properties</H2><HR>
+
+Most of the verbs in this section modify the template properties of a thing. This template
+property is listed beside the verb.
+
+<A name=userdata><H4>User Data</H4>
+
+All things have a user data assigned to them. By default it is 0. The user data was created so that the "user" could store values
+with a thing. It can be very useful for attaching values to players. Since the user data is often used by patches, the author recommends
+that level authors abstain from using the user data of common things like the player.
+
+<A name=cogs><H4>Class & Capture Cogs</H4></A>
+
+A thing has a class cog and a capture cog. Both of the thing's cogs receive its messages. A thing's class cog is meant to
+control the effects associated with all things of that template. And so it is defined in the template so that all things of the same
+"class" have the same class cog.
+<P>
+A capture cog is meant to "capture" a specific thing once it has been created and receive its messages. And because the
+capture cog captures individual things, it is usually used to handle specific things that have a special role in the game.
+A capture cog can capture as many things as needed.
+
+<A name=life><H4>Template Timers</H4></A>
+
+Called "life left" in cog, template timers control how long the thing should stay in the game before it's removed. Ever notice
+how stormtroopers' bodies don't disappear while you're looking at them? When the body's timer expires, the engine checks to see if you're
+close to the body and if you can see it. Based on that, the engine either removes the thing, or gives it a new lease on life of 3 seconds. When
+the 3 seconds are over, the engine checks again.
+
+<A name=parent><H4>Thing Parents</H4></A>
+
+Here's an analogy to explain parents: Adam was the first human. To Seth, his child, Adam was the parent. To Seth's children, Adam
+was still the parent. But if Seth died and Adam still lived, then the grandchildren will lose their link to Adam and not
+find their parent. When these children (or any thing) cannot find their parent, they substitute themselves instead. But if Adam had died and Seth
+still lived, Seth would then be the parent of his children. This is how thing parents work in JK.
+<P>
+Not all verbs will link the things they create to a parent. Only <A href="../weapon/fireprojectile.html">FireProjectile()</A> is known to in JK.
+The template settings, creatething, fleshhit, and explode will link the things they create to the parent associated with the projectile that
+created them.
+<P>
+When two things that have the same parent (and are not themselves the parent), they will not collide. For example, a player can
+collide with a projectile fired from him, but two projectiles fired from him cannot collide with each other.
+
+<A name=sector><H4>A Thing's Sector</H4></A>
+
+JK bases a lot of operations on things' sectors. <A href="../thingact/setthingpos.html">SetThingPos()</A> would be a good verb to use if it updated
+the thing's sector. But since it doesn't, alternatives will have to be used. If you know the sector where the thing should go, use
+<A href="../thingact/createthingatpos.html">CreateThingAtPos()</A>. If this is MotS, you can use SetThingSector() or SetThingPosEx(). Or if there's
+a thing already there, use <A href="../thingact/teleportthing.html">TeleportThing()</A>.
+<P>
+If you need to use CreateThingAtPos() but do not know the sector, use the <A href="../../../tutorials/possector.html" target="main">Position's Sector</A>
+code from the Tutorial Section's Solution category. This will give you the sector of the position that the thing needs to be created at.
+
+<A name=sig><H4>A Thing's Signature</H4></A>
+
+A thing's signature is a unique number assigned to each thing in the level. Thing signatures start at one greater that the number of the last
+thing created. But unlike thing numbers, they are not reused. Signatures are mainly used as a safeguard so the wrong thing is not used by mistake.
+Look at this example:
+
+<PRE class=code>
+#------------------------
+created:
+   SetTimerEx(5, 0, GetSenderRef(), GetThingSignature(GetSenderRef()));
+
+Return;
+#------------------------
+timer:
+   if(GetThingSignature(GetParam(0)) == GetParam(1)) DestroyThing(GetParam(0));
+
+Return;
+#------------------------
+</PRE>
+
+Because thing numbers are reused, the wrong thing may be used by mistake. In the above example, the signature is stored by
+the <A href="../../message/created.html">created</A> message, and then after the timer, it is compared to the signature that the thing
+is supposed to have. If the signatures are not equal, the sender of the created message had been destroyed. If they match, we
+know the thing still exists, and it is safe to destroy.
+<HR></BODY></HTML>

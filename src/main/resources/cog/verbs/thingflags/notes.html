@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on a Thing's Flags</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on a Thing's Flags</H2><HR>
+This section contains the flag verbs that are used to add, remove, and return a thing's flags. Little description for each
+flag verb is given because most of the information that would be provided does not apply to the verb itself but
+rather to the class of flags. So read the notes here for the information.
+
+<A name=thing><H4>Thing Flags</H4></A>
+
+Every type of thing can have <A href="../../../flags/thing/thing_frame.html" target="main">Thing Flags</A>. These flags can
+be set in the thing's template with <SPAN class=temp>thingflags=0x</SPAN>. Or you can set them through cog with
+<A href="setthingflags.html">SetThingFlags()</A>. These flags control basic options that pertain to things in general.
+
+<A name=phys><H4>Physics Flags</H4></A>
+
+You can set a thing's <A href="../../../flags/physics/physics_frame.html" target="main">Physics Flags</A> in its template
+with <SPAN class=temp>physflags=0x</SPAN>, or you can set them with <A href="setphysicsflags.html">SetPhysicsFlags()</A>.
+Physics Flags control how a thing moves in JK's 3d environment.
+
+<A name=type><H4>Type Flags</H4></A>
+
+Some thing types have their own set of typeflags. These are set in a thing's template with <SPAN class=temp>typeflags=0x</SPAN>
+by Cog after the thing has been created. Perhaps for readability, LEC made a different verb for each type of thing to set the
+typeflags. But all verbs that set a thing's typeflags have the same effect and are interchangeable.
+<P>
+Here's a list of links to the typeflags in the Flags Section:
+<P>
+<A href="../../../flags/actor/actor_frame.html" target=main>Actor Flags</A><BR>
+<A href="../../../flags/explosion/explosion_frame.html" target=main>Explosion Flags</A><BR>
+<A href="../../../flags/item/item_frame.html" target=main>Item Flags</A><BR>
+<A href="../../../flags/particle/particle_frame.html" target=main>Particle Flags</A><BR>
+<A href="../../../flags/weapon/weapon_frame.html" target=main>Weapon Flags</A>
+
+<A name=attach><H4>Attach Flags</H4></A>
+
+<A href="../../../flags/attach/attach_frame.html" target="main">Attach Flags</A> are set when a thing is attached to an object. The base
+thing or surface of the attachment need not have any Attach Flags. Only the attached thing will have these flags. The
+attached thing will have different flags depending on the type of attachment.
+<P>
+For more information on attachments, read the <A href="../thingact/attachment.html">Attachment</A> document in the Thing Action section.
+<HR></BODY></HTML>

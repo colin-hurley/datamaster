@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>jkSetPersuasionInfo</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>jkSetPersuasionInfo</H2><HR>
+Sets the persuasion settings for a creature. The persuasion effects will be created when the creature is
+given the 0x20 <A href="../../../flags/jk/jk_frame.html" target="main">Jedi Knight Flag</A>. Syntax:
+<P>
+<CODE>jkSetPersuasionInfo(creature, min_stars, max_stars);</CODE>
+<P>
+<SPAN class=param>min_stars:</SPAN> This is the minimum number of stars that will be created in a regular burst.
+<P>
+<SPAN class=param>max_stars:</SPAN> This is the maximum number to be created.
+<P>
+<B>Notes:</B> When persuasion is on, JK creates a burst of stars every second. But every dozen or so bursts, JK creates
+a burst with a large number of stars.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../creature/jksetflags.html">jkSetFlags()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

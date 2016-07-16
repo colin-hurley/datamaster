@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SlideSurface</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>SlideSurface</H2><HR>
+Adds velocity to a surface in the given direction. The same velocity will be given to anything on the surface. Syntax:
+<P>
+<SPAN class=return>animID</SPAN>=<CODE>SlideSurface(surface, norm_vec, speed);</CODE>
+<P>
+<SPAN class=param>norm_vec:</SPAN> A normalized vector giving the direction for the surface to move.
+<P>
+<SPAN class=param>speed:</SPAN> This is the flex speed for the movement.
+<P>
+The velocity given to an object on the surface does not have to match the movement of the surface.
+For example, a horizontal surface cannot move up. But, that upwards velocity will be given to the things on the surface
+- creating a sort of trampoline effect.
+<P>
+<FORM name="relform" class=rel><SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="stopanim.html">StopAnim()
+	<OPTION value="stopsurfaceanim.html">StopSurfaceAnim()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="slideceilingsky.html">SlideCeilingSky()
+	<OPTION value="slidehorizonsky.html">SlideHorizonSky()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
+</FORM>
+<HR></BODY></HTML>

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Cog Basics</title>
+<link rel="stylesheet" type="text/css" href="../../css/tut.css">
+</head><body onLoad="top.main.chapter.document.form.select1.selectedIndex = 3;" onUnload="top.main.chapter.document.form.select1.selectedIndex = 0;">
+
+<h2 style="margin-bottom:0">Cog Basics</h2><hr>
+
+<h4>Cog Files</h4>
+
+Cog files are just regular text files with a .cog extension. Jedi Knight will look for cog files in a resource subfolder named cog.
+This folder can be in several different places - which we'll cover later on.
+<P>
+It's easy to think of a "cog" as a simple piece of text. But text won't do anything by itself. When JK loads a level and all the cogs
+needed for it, these cogs are stored in memory. When JK needs to use one of them, it reads the information it loaded from the cog
+file and performs whatever instructions the cog contained. The point is that the cog does nothing - it is simply a text file that
+JK interprets when it needs to.
+<P>
+Each time JK finds a entry for a cog file, it will load that cog into memory. It doesn't matter
+if there's more than entry for a cog - multiple copies of a cog can run in memory with no connection to each other.
+
+<h4>Events</h4>
+
+Cogscripts are event based. An event happens in the game, and JK looks for code to run for that event. There may or may not be code
+for that event, and for some events JK doesn't bother using cogs. But every cog works by associating itself with either some part of the
+level or an object in it. When something happens to one of the cog's associated objects, JK will process the event and look for corresponding
+code in that cog.
+<P>
+Cogs are often called cogscripts (or just scripts) because in programming, a script is interpreted code with subroutines that are run
+when events occur. An event that has a subroutine assigned to it is called a scripted event. You should be able to see how the
+term "script" has been borrowed from it's meaning in theatrical plays.
+
+<h4>Cog Types</h4>
+
+There are three different types of cogs: level, class, and inventory cogs. They're all scripts and have the same syntax, but JK uses them for
+different things. Level cogs are loaded by a jedi knight level file (or jkl). This file contains all of the level's geometry and listings for
+every type of resource that JK needs to load the level. Level cogs are usually loaded to control specific objects in the game like elevators
+and doors.
+<p>
+Class cogs are also listed in the jkl file, but in a different section. Whereas level cogs are loaded to control specific things that will be
+in the level, class cogs are assigned to types of things like players, stormtroopers, and grenades. Class cogs may control many
+objects in the game at once.
+<p>
+Inventory or items cogs are loaded by the items.dat file. The items.dat is responsible for remembering what items your player "owns" while
+he's in a level. And inventory cogs control these items. Your weapons, items, force powers, and shields are all listed in the items.dat
+and controlled by inventory cogs.
+<p>
+<a href="jkls.html">Continue</a>
+<p>
+<hr>
+</body></html>

@@ -1,0 +1,15 @@
+<HTML><HEAD><TITLE>0x10000 Sound Flag</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>0x10000 Sound Flag</H2><HR>
+
+The 0x10000 Sound Flag only affects other Thing and Class sounds that have the flag
+and are associated with the same thing. For a Thing sound to be "associated with a thing,"
+it must be played with the 0x80 Sound Flag so that its origin will be a thing instead of a
+position. Class sounds don't need the 0x80 flag.
+<P>
+When a sound is played with the 0x10000 flag, no other Thing or Class sound with the flag
+can play until the first sound has finished. This flag is typically used with voices so that
+a creature won't say two lines at the same time.
+
+<HR><BODY></HTML>

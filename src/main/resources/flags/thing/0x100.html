@@ -1,0 +1,23 @@
+<HTML><HEAD><TITLE>0x100 Thing Flag</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>0x100 Thing Flag</H2><HR>
+
+When a thing is given this flag, it cannot be damaged or killed in multiplayer. With
+singleplayer or debug MP, the thing can be damaged and killed, but the damaged
+message will not be sent.
+<P>
+This flag is given to all things in MP that were created on another player's computer.
+All things originally in the level are managed by the server, so they do not have the
+0x100 flag on the server's computer - on every other computer they do.
+<P>
+Walkplayers are exceptions, they must have 0x100 on every computer except
+the computer of the player that's using it. So there is only one walkplayer without
+the 0x100 flag on each computer.
+<P>
+It is unclear why the 0x100 flag is used with things of all types. Weapons, for example,
+cannot be damaged or killed, but the flag is given to them anyway. This is perhaps
+done as a safeguard or to show which computer created the thing. This flag may
+be more symbolic than realized...
+
+<HR><BODY></HTML>

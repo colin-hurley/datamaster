@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Autoselect</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>Autoselect</H2><HR>
+The Autoselect message is run when one of four events occurs. The chart below lists the events and corresponding senderrefs.
+Autoselect must return a value to whatever called it. If the player is mounting the weapon or
+<A href="../verbs/weapon/selectweapon.html">SelectWeapon()</A> has been used, autoselect only needs to return a value greater
+than -1. But if it's a powerup or misc cog, there's a good chance that all weapons are being queried and the one with the highest returned value will be
+selected. The <A href="../verbs/weapon/notes.html#prior">Weapon Section's notes</a> includes a chart of the default autoselect
+return values.
+<P>
+<TABLE class=msg width=90% bgcolor=#D2D2D2>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD width=27% class=left>Sender</TD><TD class=left>See the chart below.</NOBR></TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>The player whose weapon is being queried.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sender Type</TD><TD class=left>System (1).</TD></TR>
+<TR><TD class=left>Source Type</TD><TD class=left>Thing (3).</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+<TR><TD class=left>Sleepable</TD><TD class=left>No.</TD></TR>
+<TR><TD colspan=2><HR></TD></TR>
+</TABLE>
+<P>
+<TABLE class=small align=center width=90% bgcolor=silver cellpadding=3 border=1>
+<TR><TH width=15%>Sender</TH><TH>Meaning</TH></TR>
+<TR><TD>-1</TD><TD class=left>Player is mounting the weapon.</TD></TR>
+<TR><TD>0</TD><TD class=left>Next / Prev Weapon keys query the weapon.<BR> Also used when a cog queries for the weapon's priority.</TD></TR>
+<TR><TD>1</TD><TD class=left>A miscellanious cog has queried for the best weapon.</TD></TR>
+<TR><TD>2</TD><TD class=left>A powerup cog has queried for the best weapon.</TD></TR>
+</TABLE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../verbs/weapon/autoselectweapon.html">AutoselectWeapon()
+	<OPTION value="../verbs/weapon/getweaponpriority.html">GetWeaponPriority()
+	<OPTION value="../verbs/message/returnex.html">ReturnEx()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

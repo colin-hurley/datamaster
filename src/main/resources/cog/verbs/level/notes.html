@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Level Verbs</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Level Verbs</H2><HR>
+
+<A name=hor-ceil><H4 style="margin-top:0">Horizon & Ceiling</H4></A>
+
+There are two types of sky used in JK: Horizon and Ceiling. The difference between them is that the horizon scrolls when the player walks
+and turns and the ceiling scrolls only when he walks.
+
+<A name=dispoffset><H4>Display Offsets</H4></A>
+
+Both types of Sky have offsets and display distances. The offset is the horizontal and vertical distance from the 0,0 position. Notice that
+the offset is 2d and has no z axis. However, when this offset is returned, it will be given a z axis of 0 - probably so it can be handled as
+a vector. Horizon and Ceiling offsets are defined seperately in the level's header.
+<P>
+There are verbs designed to set these offsets, but they do not appear to work correctly.
+
+<A name=dispdist><H4>Display Distances</H4></A>
+
+The display distance is how far away the Sky is to be displayed. The Horizon's display distance is defined in the header with <SPAN class=exam>
+Horizon Distance x</SPAN> where x is the flex distance. The normal distance setting for Horizon is 100. The Ceiling's display
+distance is set with <SPAN class=exam>Ceiling Sky Z  x</SPAN> where x is the flex distance. The normal distance is 15.
+Note that these display distances are not returned as the z axis of the offset.
+
+<A name=grav><H4>Gravity</H4></A>
+
+Basically, the gravity of a level controls how quickly things fall. The usual gravity for a level is 4.0. A gravity of zero won't make
+anything fall. For example, when the player jumps, he won't come down; he'll just glide up for a while. But if you double the gravity, a player
+can only jump half as high as normal and will come down more quickly.
+
+<A name=time><H4>Time Verbs</H4></A>
+
+LEC made several verbs to return the time spent in JK. From the verbs' names, it seems that LEC meant that <A href="getleveltime.html">GetLevelTime()</A>
+should return the time spent playing a level while <A href="getgametime.html">GetGameTime()</A> and <A href="getflexgametime.html">GetFlexGameTime()</A>
+should return the overall time spent in an episode. However, all three verbs only return the time spent in the current level.
+
+<BR><HR></BODY></HTML>

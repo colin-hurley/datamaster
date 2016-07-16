@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>A Player's Lookvector</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/tut.css"></HEAD>
+<body onLoad="top.main.chapter.document.form.select4.selectedIndex = 10;" onUnload="top.main.chapter.document.form.select4.selectedIndex = 0;">
+<H2 style="margin-bottom:0">A Player's Lookvector</H2><HR>
+
+When GetThingLVec() is used to find the lookvector of a player, it returns his overall lookvector - not counting headpitch. In some
+circumstances, you will need to find the lvec of the player's torso. Because projectiles are made to look in the direction of the player's
+torso, firing a projectile and finding it's lookvector will give us the lookvector of the player's torso. It would be coded something like this:
+
+<PRE class=code>
+ghost=FireProjectile(player, ghost_template, -1, -1, '0 0 0', '0 0 0', 0, 0, 0, 0);
+lvec=GetThingLVec(ghost);
+DestroyThing(ghost);
+</PRE>
+
+Now the vector, lvec, holds the lookvector of the player with headpitch taken into account.
+<P>
+Instead of destroying the ghost through cog, you can put a timer in its template to remove it from the game after a short delay.
+<P>
+Many Cog editors used to think that the z axis of a lookvector returned by GetThingLVec() did not work. Remember that headpitch only
+affects the upper half of the player, while an lvec is the direction that his whole body is looking.
+
+<p>
+<a href="possector.html">Continue</a>
+<p>
+
+<hr></BODY></HTML>

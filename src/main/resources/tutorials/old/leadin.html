@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Aim Ahead Code</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/tut.css"></HEAD>
+<body onLoad="top.main.chapter.document.form.select4.selectedIndex = 6;" onUnload="top.main.chapter.document.form.select4.selectedIndex = 0;">
+<H2 style="margin-bottom:0">Aim Ahead Code</H2><HR>
+
+Quite often editors will want to make projectiles aim ahead of their target. The code below will take a projectile
+and a target and make the projectile aim at the position that the target should reach by the time the projectile
+reaches it.
+
+<PRE class=code>
+veldif=VectorSub(GetThingVel(projectile), GetThingVel(target));
+speed=VectorLen(veldif);
+distance=VectorDist(GetThingPos(target), GetThingPos(projectile));
+time=distance / speed;
+moved=VectorScale(GetThingVel(target), time);
+meetpos=VectorAdd(GetThingPos(target), moved);
+</PRE>
+
+Now you have the position (meetpos) that the projectile needs to aim at. The code below will make the projectile look and travel
+in the new direction:
+
+<PRE class=code>
+lvec=VectorNorm(VectorSub(meetpos, GetThingPos(projectile)));
+SetThingLook(projectile, lvec);
+projspeed=VectorLen(GetThingVel(projectile));
+SetThingVel(projectile, VectorScale(lvec, projspeed));
+</PRE>
+
+Note that you have to provide a projectile and target for this code. And be sure to define
+all of the variables in the symbols section.
+
+<p>
+<a href="learncog.html">Continue</a>
+<p>
+
+<HR>
+<P>
+<SPAN class=credit>Code provided by *_Seifer_*.</SPAN>
+<HR></BODY></HTML>

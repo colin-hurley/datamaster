@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>VectorSub</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>VectorSub</H2><HR>
+Subtracts the second vector from the first and returns the difference. Syntax:
+<P>
+<SPAN class=return>subvec</SPAN>=<CODE>VectorSub(vector1, vector2);</CODE>
+<HR>
+<H5>The Math</H5>
+<SPAN class=math>subvec=(x1-x2, y1-y2, z1-z2)</SPAN>
+<HR>
+<H5>Geometrical Application</H5>
+<IMG src="../../../pics/vectorsub.gif" align=left style="margin-right:10">
+
+Vector1 is the destination for the subvec and vector2 is the source. Subvec will have the length and
+direction to travel from the displacement of vector2 to the displacement of vector1.
+<P>
+The math for this operation is: <BR>'-2 2 0' - '1 3 0' = '-3 -1 0'
+<P>
+A good use of VectorSub() is to find a lookvector (unnormalized) from one position to another.
+<BR clear=left>
+<HR></BODY></HTML>

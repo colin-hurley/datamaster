@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Notes on Vectors</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
+<H2>Notes on Vectors</H2><HR>
+Vectors are no doubt the hardest thing to learn in Jedi Knight. They involve complex math that most people
+aren't taught in school. The author makes an attempt with this reference to provide a simple way to visualize
+vectors without having to learn too much math. But if you've studied physics or trigonometry, learning how to manipulate
+vectors will be much easier.
+
+<H4>A Vector</H4>
+
+Simply put, a vector is a quantity that has both direction and magnitude. Acceleration, force, and velocity are vectors.
+Not all vectors need the magnitude. These vectors are used for direction only and are called <EM>lookvectors</EM> in cog.
+You can visualize vectors with arrows as in this example from <A href="vectoradd.html">VectorAdds()'s</A> description:
+<P>
+<IMG src="../../../pics/vectoradd2.gif" align=left style="margin-right:10">
+Three vectors are shown in this diagram. The length of each vector's arrow is its magnitude. You can have
+a vector with any number of dimensions. In this 2d picture, only two dimensions are used - x and y. In JK's
+virtual world, a third dimesion - the z axis - is added to simulate the real world.
+<BR clear=left>
+<P>
+A 3d vector is expressed as three numbers - (x, y, z). Each number holds the vector's value on that axis. Because
+you can have vectors with different numbers of dimensions, you can't write all vectors as three numbers. The examples
+in this reference will use three numbers for all vectors, and the z axis will be left at zero if it is not used.
+<P>
+The blue vector in the above diagram can be expressed as '1 -1 0'. That's plus one unit on the x axis and minus one unit
+on the y axis. This gives the vector a direction of -45 degrees on the graph. The length of that vector is nearly 1.4.<SUP>1</SUP>
+<P>
+<IMG src="../../../pics/scaledblue.gif" align=left style="margin-right:10">
+The length can be increased with no change in direction. This graph shows the blue vector from the above diagram.
+The length has been increased to about 2.83, but the direction has not changed. The new vector is expressed as '-2 -2 0'.
+<BR clear=left>
+<P>
+Because vectors can represent different quantities (positions, velocity, acceleration), their unit is not consistent. The length
+of a velocity will be the speed of the velocity while the length of a position vector will be the JKU distance from the center of
+the virtual world.
+
+<H4>Vectors vs. Positions</H4>
+
+This reference makes a distinction between vectors and positions. A vector is a direction and magnitude, and
+a position is a point on a 3d map. Both are used for different things. But if you consider, positions
+are really a type of vector.
+<P>
+<IMG src="../../../pics/vectoradd2.gif" align=left style="margin-right:10">
+Look at this diagram of a vector again. The vectors' displacement is the point
+at the end of the arrow.
+<BR clear=left>
+<P>
+<IMG src="../../../pics/position.gif" align=left style="margin-right:10">
+These dots represent positions in the virtual world. They are expressed the same as the vectors in the above diagram.
+The '0 0 0' on the graph is the center of the world. If you imagine a line from <NOBR>'0 0 0'</NOBR> to any of the positions
+on this map, you'll have drawn one of the vectors from the graph above.
+<BR clear=left>
+<P>
+As you can see in those examples, positions are the same as displacement vectors. But remember this is only one
+type of vector. A position is a vector, but a vector is not always a position.
+
+<H4>Written Vectors</H4>
+
+In Cog, Jedi Knight allows vectors to be given in two ways. First, you can have a variable of type vector. For example:
+<P>
+<CODE>lvec=GetThingLook(player);</CODE>
+<P>
+The variable, lvec, now holds the vector direction that the player is looking. You can use this variable in any
+vector parameter. For example:
+<P>
+<CODE>SetThingLook(some_thing, lvec);</CODE>
+<P>
+some_thing will be set to look in the direction held by lvec. The other way to write a vector is in this form: 'x y z'.
+You can use this anywhere a vector is called for. EG:
+<P>
+<CODE>lvec='1 0 0';</CODE>
+<P>
+Or,
+<P>
+<CODE>SetThingLook(player, '1 0 0');</CODE>
+<P>
+In that last example, the player was set to look straight down the x axis.
+
+<A name=sincos><H4>Sine, Cosine, and Quadrants</H4></A>
+
+These are things you really should learn in Mathmatics. But I'll explain the stuff here anyway. These concepts are only needed for
+<A href="vectordot.html">VectorDot()</A> and <A href="vectorcross.html">VectorCross()</A>, so it's not a big deal if you skip this.
+<P>
+<IMG src="../../../pics/vectordot.gif" align=left style="margin-right:10; margin-bottom:40">
+Two vectors form an angle and a plane.
+<P>
+This picture from VectorDot()'s description shows two vectors and the angle between them.
+Note that the angle starts at the +x black line and extends into the second quadrant(see below).
+Angles always start at the positive x line. Angles can extend positively or negatively. In this case,
+the angle is +120, but the same angle could be written as -240.
+<P>
+Notice that these two vectors form a 2d plane. No matter which way the vectors point, they will always
+form a plane.
+<BR clear=left>
+<P>
+<IMG src="../../../pics/quadrant.gif" align=left style="margin-right:10">
+There are four quadrants on a graph. The results of the cosine and sine functions are negative
+in some quadrants and positive in others. In the above example, the dot product was negative
+because the angle ended in the second quadrant - in which cosine is negative.
+<BR clear=left>
+<P>
+Fully explaining sine and cosine is beyond the scope of this reference (and probably the author). So only the
+results of sine and cosine operations will be explained.
+<P>
+<IMG src="../../../pics/sine.gif" align=left style="margin-right:10">
+Sine returns a number from 0 to 1. The closer the end of the angle is to the y axis, the closer the returned number will
+be to 1. As the VectorDot() picture shows, vector1 is placed on the positive side of the x axis. Wherever vector2 points
+will be the end of the angle formed between the vectors. As the quadrant diagram shows, sine is negative in quadrants
+3 and 4.
+<BR clear=left>
+<P>
+<A name=cosine><IMG src="../../../pics/cosine.gif" align=left style="margin-right:10"></A>
+The closer the end of the angle is to the x axis, the higher the cosine will be. As shown in the quadrant graph, cosine
+is negative in the second and third quadrants.
+<BR clear=left>
+
+<A name=scalars><H4>Vectors and Scalars</H4></A>
+
+Scalars<SUP>2</SUP> are quantities that have only magnitude - no direction. Scalars include time, mass, and speed. You can use
+physics formulas like f=ma with vectors. Scale an acceleration vector by a mass and you will get a force vector. Here are some
+other formulas to use:
+<P>
+<TABLE  width="60%" cellpadding=3 border=3 class=small bgcolor=silver align=center>
+<TR><TH class=right width="50%">Vector * Scalar =</TH><TH>Resultant</TH></TR>
+<TR><TD class=right>velocity * mass =</TD><TD class=left>momentum</TD></TR>
+<TR><TD class=right>acceleration * mass =</TD><TD class=left>force</TD></TR>
+<TR><TD class=right>velocity * time =</TD><TD class=left>displacement</TD></TR>
+<TR><TD class=right>acceleration * time =</TD><TD class=left>velocity</TD></TR>
+<TR><TD class=right>lookvector * speed =</TD><TD class=left>velocity</TD></TR>
+<TR><TD colspan=2>Of course, not all vector and scalar quantities that<BR> you can use are listed here.</TD></TR>
+</TABLE>
+<P>
+<HR>
+<SUP>1</SUP>Read the description of VectorLen() to see the length formula.<BR>
+<SUP>2</SUP>Don't confuse scalar quantities with vector scaling.
+<BR><HR></BODY></HTML>
