@@ -1,0 +1,14 @@
+<HTML><HEAD><TITLE>0x200 Actor Flag</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+</HEAD>
+<BODY>
+<H2>0x200 Actor Flag</H2><HR>
+
+Creature is a dark jedi - uses the Saberfighting, ForcePowers, and SpecialAttack AI instincts.<BR /><BR />
+If an actor has this flag, he can have his weapon mesh rendered using the <A HREF="..\..\cog\verbs\weapon\jksetweaponmesh.html">jkSetWeaponMesh()</A> verb.
+The flag must be present in the actor's template.  Setting the flag after creation will not work.<BR /><BR />
+In addition, the actor must be placed in the level.  The weapon mesh will not be rendered for actors created after startup (I.e. actors created using
+<A HREF="..\..\cog\verbs\thingact\creatething.html">CreateThing()</A>, <A HREF="..\..\cog\verbs\thingact\createthingatpos.html">CreateThingAtPos()</A>, etc.).  This is why Rbots (and MP-created actors in general) are unable to have rendered weapon
+models and lightsaber blades.
+
+
+<HR><BODY></HTML>

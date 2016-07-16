@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>NextThingInCone</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>NextThingInCone</H2><HR>
+Returns the next thing in view that is within a cone. <A href="FirstThingInCone.html">FirstThingInCone()</A> must run before NTIC()
+to set the FOV, distance, and mask settings. If FTIC() was not run first, NTIC() will return -1. NTIC() will also return -1 when there are no
+more valid things to return that meet the FOV, distance, and mask settings. Syntax:
+<P>
+<SPAN class=return>thing</SPAN>=<CODE>NextThingInCone();</CODE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="FirstThingInCone.html">FirstThingInCone()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

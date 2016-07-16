@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>AISetInterest</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>AISetInterest</H2><HR>
+Sets the thing of interest for an actor. Syntax:
+<P>
+<CODE>AISetInterest(actor, interest);</CODE>
+<P>
+If the thing of interest is a player, the actor's interest will instead be set to -1. Otherwise,
+if the actor is not already attacking another target, he will attack the thing of interest. If
+the actor's interest dies or is destroyed, <A href="AIGetInterest.html">AIGetInterest</A>
+continues to return the same interest thing number until another call to AISetInterest is made.
+<P>
+<FORM name="relform" class=rel><SELECT name="selection" size=1>
+<OPTION value="">Related:
+<OPTION value="AIGetInterest.html">AIGetInterest()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()"></FORM>
+<HR></BODY></HTML>

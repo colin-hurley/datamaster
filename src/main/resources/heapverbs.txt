@@ -1,0 +1,30 @@
+HeapNew(size);
+Sets the size of the cog's heap to the value passed.
+In terms of memory used, it will be about 16 bytes per element (enough room for storing vectors, floats, ints, etc.). Indices go from 0 to size - 1, so the first element is 0 and the last size - 1.
+HeapNew(0) has no effect, it doesn't change the array size or the values stored in it. Calling HeapNew() with a size less than the current heap size will truncate the array, leaving the original values intact up to the new size. Calling HeapNew() with a size greater than the current size will destroy all existing values.
+I have tested array sizes up to about 15 million, but beyond that point the values towards the end of the array will not be stored. The point at which this occurs may depend either on jk or on the available memory, but probably more on jk. Values that don't get stored due to this will just return 0 when using HeapGet(), but not crash. Values before the point where they are lost (near the beginning) work just fine.
+Calling HeapNew() multiple times will not cause multiple heaps to be allocated; each time you call it, it resizes the array in memory, so the amount of memory used will just be based on the last call to HeapNew().
+There is only one heap per instance of a cog, they don't overlap with other cogs in any way. Heaps (their values, memory consumption) will remain intact between levels if they are created in a cog that is always loaded (cogs from items.dat, which also retain their symbol/variable values between levels...), or if they are created in a cog that is loaded with the level then they will be unloaded on exiting the level.
+
+The reason the datamaster shows this function as having two parameters and having a return value equal to the first parameter is because of how jk handles parameter passing in cogs. It's probably done like the printf functions in C, so it is designed to handle a variable number of arguments. If a function is passed more parameters than it needs, it will only use the number it needs from the right side, ie, if you pass 4 parameters, and it only needs 3, the 1st one will be ignored and the last 3 will be used. However, if the function has no return value, and you try to assign a variable to that function's return value (which doesn't exist), and you pass extra parameters, then one of the extra parameters will end up being assigned to the variable.
+There is no start/end pointer stuff going on. There's only one heap per cog, and it always starts at index 0.
+
+
+
+HeapSet(index, value);
+Assigns a value to the index.
+Flex, int, vector, etc. Indices go from 0 to size - 1.
+
+
+
+HeapGet(index); returns stored value
+Gets the value assigned to an index.
+If the heap has not been allocated, returns 0. If the heap has been allocated, but no value has been assigned to that index, then jk crashes. So, you should only call this on an index that has had a value assigned with HeapSet() since the last call to HeapNew(), unless the last call to HeapNew() was to resize the array smaller, in which case the values in the heap should still be valid up to the new size. Calling HeapGet() with an index greater than the heap size just returns 0.
+
+
+
+HeapFree();
+HeapFree() should not be used in most cases; it appears to work correctly for small arrays (below a couple hundred elements), but either causes a crash on exiting jk (several hundred or more elements) or a crash in game after the 2nd call (several thousand or more elements). HeapFree()'s purpose is to free the heap and the memory associated with it. Since multiple calls to HeapNew() do not result in memory leaks, there is no real reason to use this function anyway. If you do need to free the memory associated with the cog's heap, you should use HeapNew(1), which does nearly the same thing (HeapNew(0) has no effect). You might want to do this if you are using the heap functions in a cog that stays resident after exiting the level, or if you will possibly be creating many heaps in different cogs.
+
+
+Sige

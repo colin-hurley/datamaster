@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>AISetDistractor</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>AISetDistractor</H2><HR>
+Designates a thing to be a distraction for actors.  Actors will automatically target and attack the distraction.
+To unset the distraction thing, use -1 as the distractor thing reference. Syntax:
+<P>
+<CODE>AISetDistractor(distractor);</CODE>
+<P>
+It seems that actors that use the LookForOpposingTarget instinct do not automatically attack the distraction thing
+unless they are already attacking some other target, although the exact required conditions for this behavior are
+unclear.  If the actor is not attacking another target, he will ignore the distraction thing. One workaround for
+this problem is to use an actor with an opposing <A HREF="notes.html#alignment">AI alignment</A> as the distraction
+(E.g. for enamy actors with alignment -1.0, the distraction thing should be given alignment 1.0).
+<P>
+It should be noted that, in the unmodified MotS cogs, certain actions are programmed to unset the distraction
+thing.  For example, when the player fires a weapon, the weapon cog will send a message to the player class cog,
+which then unsets the distractor thing.
+<P>
+<HR></BODY></HTML>

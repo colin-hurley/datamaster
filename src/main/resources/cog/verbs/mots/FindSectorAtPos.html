@@ -1,0 +1,15 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>FindSectorAtPos</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>FindSectorAtPos</H2><HR>
+Returns the sector that contains a position vector, or -1 if the position is not within any
+sector. Syntax:
+<P>
+<SPAN class=return>sector</SPAN>=<CODE>FindSectorAtPos(pos);</CODE>
+<P>
+If the position lies exactly on a surface of a sector, the position is considered to be within
+that sector and the sector will be returned.  Further, if the surface is an adjoin between two
+sectors, then the sector with the lower number will be returned.
+<HR></BODY></HTML>

@@ -5,7 +5,8 @@
 </HEAD><BODY>
 <H2>GetCurFrame</H2><HR>
 Returns the last frame that a path-controlled object arrived at via <A href="movetoframe.html">MoveToFrame()</A>.
-This includes intermediate frames. It will not return a frame that an object skipped, jumped, or rotated to. Syntax:
+This includes intermediate frames. It will not return a frame that an object skipped, jumped, or rotated to. Returns
+0 if the object has not yet arrived at any frame. Syntax:
 <P>
 <SPAN class=return>cur_frame</SPAN>=<CODE>GetCurFrame(object);</CODE>
 <P>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>AIAddAlignmentPriority</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>AIAddAlignmentPriority</H2><HR>
+Sets AI alignment for the player. Syntax:
+<P>
+<SPAN class=return>effect_handle</SPAN>=<CODE>AIAddAlignmentPriority(alignment, priority);</CODE>
+<P>
+When an alignment is added with AIAddAlignmentPriority, the alignment change will stay in effect until
+it is stopped with <A HREF="AIRemoveAlignmentPriority.html">AIRemoveAlignmentPriority</A>.
+<P>
+When multiple alignments with different priorities are set (in any order), the alignments with lower
+priority will have no effect until the highest priority alignment is stopped.
+<P>
+When multiple alignments with the same priority are set, the first one that was set will have priority
+over the others of the same priority until it is stopped.
+<P>
+<FORM name="relform" class=rel><SELECT name="selection" size=1>
+<OPTION value="">Related:
+<OPTION value="AIRemoveAlignmentPriority.html">AIRemoveAlignmentPriority()
+<OPTION value="notes.html#alignment">AI Alignment
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()"></FORM>
+<HR></BODY></HTML>

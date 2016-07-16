@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>CreateThingAtPosOwner</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>CreateThingAtPosOwner</H2><HR>
+Creates a thing at a position and sets its parent. If the template's model has an insert offset, then that offset will be added to the position. Syntax:
+<P>
+<SPAN class=return>new_thing</SPAN>=<CODE>CreateThingAtPosOwner(template, sector, position, 'p y r', parent);</CODE>
+<P>
+<SPAN class=param>sector:</SPAN> It is important to give the thing the correct sector to avoid sector problems. Use
+the <A href="../../../tutorials/possector.html" target="main">Position's Sector</A> code from the Tutorial Section if you cannot get the sector.
+<P>
+<SPAN class=param>position:</SPAN> This is the position to create the thing at.
+<P>
+<SPAN class=param>'p y r':</SPAN> This is the pitch, yaw, and roll for the created thing's orientation. You can use
+a vector variable or the 'p y r' form.
+<P>
+<SPAN class=param>parent:</SPAN> This is the thing that will become the parent of the created thing
+<P>
+This verb was not used by LEC, but it does appear in a commented code block within the seeking rail detonator weapon cog.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../thingact/destroything.html">DestroyThing()
+	<OPTION value="../thingprop/getthingparent.html">GetThingParent()
+	<OPTION value="../thingprop/notes.html#parent">Thing Parents
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>

@@ -1,40 +1,45 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML><HEAD><TITLE>FirstThingInView</TITLE>
+<HTML><HEAD><TITLE>FirstThingInCone</TITLE>
 <LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
 <SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
 </HEAD><BODY>
-<H2>FirstThingInView</H2><HR>
-Returns the thing with the highest thing number that meets the given FOV and mask requirements. FTIV() will
+<H2>FirstThingInCone</H2><HR>
+Returns the first thing that meets the given FOV, distance, and mask requirements. FTIC() will
 find things behind walls, so <A href="../creature/haslos.html">HasLOS()</A> should be used to make sure the
-player can see whatever FTIV() returns. Like other verbs that return a value, FTIV() will return -1 if given
+player can see whatever FTIC() returns. Like other verbs that return a value, FTIC() will return -1 if given
 the right parameters but cannot find anything. Syntax:
 <P>
-<SPAN class=return>thing</SPAN>=<CODE>FirstThingInView(view_thing, FOV, distance, mask_flags);</CODE>
+<SPAN class=return>thing</SPAN>=<CODE>FirstThingInCone(view_thing, FOV, distance, mask_flags);</CODE>
 <P>
 <SPAN class=param>view_thing:</SPAN> This is the thing whose view will be used.
 <P>
-<SPAN class=param>FOV:</SPAN> This is the field of view to look inside of. See the picture below. Despite
+<SPAN class=param>FOV:</SPAN> This is the field of view to look inside of.<SUP>1</SUP> See the picture below. Despite
 the picture, the field of view is three dimensional.
 <P>
-<SPAN class=param>distance:</SPAN> This should be the distance in JKUs from the view_thing, but FTIV()
-will find things well past the given distance. Set this number to the distance that you want, but use
-<A href="../vector/vectordist.html">VectorDist()</A> and <A href="getthingpos.html">GetThingPos()</A>
-to check the distance.
+<SPAN class=param>distance:</SPAN> The distance in JKUs from the view_thing.
 <P>
 <SPAN class=param>mask_flags:</SPAN> The <A href="../../../flags/thingtypemask/thingtypemask_frame.html" target="main">Mask Flags</A>
 screen out things that should not be returned. The most common combination of Mask Flags is 0x404.
 This will return only players (0x400) and actors (0x4).
 <P>
+Unlike the other FirstThing/NextThing verbs, FirstThingInCone() and NextThingInCone() do not necessarily return thing numbers
+in order from highest to lowest.  The exact details of the ordering scheme are unknown, but it appears to be deterministic,
+although it is affected by the position and orientation of the view_thing.
+<P>
 <FORM name="relform" class=rel>
 <SELECT name="selection" size=1>
 	<OPTION value="">Related:
-	<OPTION value="nextthinginview.html">NextThingInView()
+	<OPTION value="nextthingincone.html">NextThingInCone()
 </SELECT><INPUT type="button" value="Travel" onClick="Travel()">
 <SELECT name="selection2" size=1>
 	<OPTION value="">Alternatives:
 	<OPTION value="../sector/firstthinginsector.html">FirstThingInSector()
+	<OPTION value="../thingact/firstthinginview.html">FirstThingInView()
 </SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
 </FORM>
 <HR>
 <CENTER><IMG style="border:thick double gray" src="../../../pics/ftivfov.gif"></CENTER>
+<HR>
+<SUP>1</SUP>As with <A HREF="../thingact/firstthinginview.html">FirstThingInView()</A>, FOV values above 180 degrees do not work correctly.
+According to a comment in force_chainlight.cog by an LEC developer, this is a bug with the implementation of these verbs.
 <HR></BODY></HTML>

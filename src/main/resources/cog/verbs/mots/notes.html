@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Notes on MotS Verbs</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<STYLE>
+TD {font: 10pt Times New Roman;}
+TH {font: 10pt Times New Roman; font-weight:bold;}
+TABLE {background-color: #BCBCBC;}
+</STYLE>
+</HEAD>
+<BODY>
+<H2>Notes on MotS Verbs</H2><HR>
+
+<A name="alignment"><H4 style="margin-top:0">AI Alignment</H4></A>
+
+The alignment values used by the AI alignment verbs is the same alignment that is specified in an actor's AI definition file.
+In MotS, the following values are used for alignment:
+<P>
+<TABLE BORDER="1" cellpadding="5">
+<TR>
+<TH>Alignment</TH>
+<TH>Usage</TH>
+</TR>
+<TR>
+<TD>-1.0</TD>
+<TD>AI with this alignment are hostile toward the player (E.g. Imperials)</TD>
+</TR>
+<TR>
+<TD>0.0</TD>
+<TD>AI with this alignment are neutral and do not attack (E.g. Civilians)</TD>
+</TR>
+<TR>
+<TD>1.0</TD>
+<TD>AI with this alignment are allied with the player (E.g. Rebels)</TD>
+</TR>
+</TABLE>
+<P>
+
+<A name="bubbles"><H4 style="margin-top:0">Bubbles</H4></A>
+
+MotS introduces the ability to create bubbles.  A bubble is a spherical region around a thing that moves with the thing and
+sends cog messages when the player enters (<A HREF="../../message/enterbubble.html">enterbubble</A>) or exits
+(<A HREF="../../message/exitbubble.html">exitbubble</A>) the bubble region.
+<P>
+Bubbles are always created with <A HREF="jkCreateBubble.html">jkCreateBubble</A>, but a thing's bubble can be destroyed by
+either <A HREF="jkDestroyBubble.html">jkDestroyBubble</A> or some other event that removes the thing from the game.
+<P>
+Every bubble has a type associated with it.  The type is a non-negative integer.  A bubble's type is initially set at creation
+type by <A HREF="jkCreateBubble.html">jkCreateBubble</A>, but the type can later be changed for existing bubbles via
+<A HREF="jkSetBubbleType.html">jkSetBubbleType</A>.
+
+<BR><HR>
+</BODY>
+</HTML>
