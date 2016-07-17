@@ -9,9 +9,26 @@
 	<includeBaseDirectory>true</includeBaseDirectory>
 	<baseDirectory>DataMaster</baseDirectory>
 	<fileSets>
+		<!-- The main page has the DM version, so let's pull it from the pom.xml -->
 		<fileSet>
 			<outputDirectory>/</outputDirectory>
 			<directory>src/main/resources</directory>
+			<filtered>true</filtered>
+			<includes>
+				<include>main/home.html</include>
+			</includes>
+		</fileSet>
+		<!--
+			No other files need to be filtered, so they can be copied as-is.  Good for that,
+			because filtering all html files hikes the build time up to a minute.
+		 -->
+		<fileSet>
+			<outputDirectory>/</outputDirectory>
+			<directory>src/main/resources</directory>
+			<filtered>false</filtered>
+			<excludes>
+				<exclude>main/home.html</exclude>
+			</excludes>
 		</fileSet>
 	</fileSets>
 </assembly>
