@@ -4,7 +4,11 @@
 Exitbubble is sent by a player when he exits another thing's <A HREF="../verbs/mots/notes.html#bubbles">bubble</A> created by
 <A HREF="../verbs/mots/jkCreateBubble.html">jkCreateBubble</A>. The message is sent to all of the player's linked cogs
 (including class, capture, and level-linked cogs), as well as all inventory cogs that are both available and have the
-0x8 <A HREF="../../flags/inventory/inventory.html">inventory flag</A> set.
+0x8 <A HREF="../../flags/inventory/inventory.html">inventory flag</A> set.  Only players cause this message to be sent,
+while other thing types, including actors, do not.
+<P>
+Exitbubble will be sent under any circumstance that causes a player to exit a bubble region.  This could result from
+movement of the player or a bubble thing, or if a bubble is resized or destroyed.
 <P>
 <TABLE class=msg width=90% bgcolor=#D2D2D2>
 <TR><TD colspan=2><HR></TD></TR>

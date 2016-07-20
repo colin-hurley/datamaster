@@ -46,9 +46,11 @@ sends cog messages when the player enters (<A HREF="../../message/enterbubble.ht
 Bubbles are always created with <A HREF="jkCreateBubble.html">jkCreateBubble</A>, but a thing's bubble can be destroyed by
 either <A HREF="jkDestroyBubble.html">jkDestroyBubble</A> or some other event that removes the thing from the game.
 <P>
-Every bubble has a type associated with it.  The type is a non-negative integer.  A bubble's type is initially set at creation
-type by <A HREF="jkCreateBubble.html">jkCreateBubble</A>, but the type can later be changed for existing bubbles via
-<A HREF="jkSetBubbleType.html">jkSetBubbleType</A>.
+Every bubble has a type associated with it.  A bubble's type is initially set at creation time by
+<A HREF="jkCreateBubble.html">jkCreateBubble</A>, but the type can later be changed for existing bubbles via
+<A HREF="jkSetBubbleType.html">jkSetBubbleType</A>.  Although the game will accept negative values for the bubble type, not
+all parts of the mechanism handle the negative values properly, so a non-negative integer should always be used for the
+bubble type to avoid problematic behavior.
 
 <BR><HR>
 </BODY>

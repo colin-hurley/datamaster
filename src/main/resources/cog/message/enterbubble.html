@@ -4,7 +4,11 @@
 Enterbubble is sent by a player when he enters another thing's <A HREF="../verbs/mots/notes.html#bubbles">bubble</A> created by
 <A HREF="../verbs/mots/jkCreateBubble.html">jkCreateBubble</A>. The message is sent to all of the player's linked cogs
 (including class, capture, and level-linked cogs), as well as all inventory cogs that are both available and have the
-0x8 <A HREF="../../flags/inventory/inventory.html">inventory flag</A> set.
+0x8 <A HREF="../../flags/inventory/inventory.html">inventory flag</A> set.  Only players cause this message to be sent,
+while other thing types, including actors, do not.
+<P>
+Enterbubble will be sent under any circumstance that causes a player to enter a bubble region.  This could result from
+movement of the player or a bubble thing, or if a bubble is resized or created.
 <P>
 <TABLE class=msg width=90% bgcolor=#D2D2D2>
 <TR><TD colspan=2><HR></TD></TR>
@@ -14,7 +18,7 @@ Enterbubble is sent by a player when he enters another thing's <A HREF="../verbs
 <TR><TD class=left>Sender Type</TD><TD class=left>Thing (3).</TD></TR>
 <TR><TD class=left>Source Type</TD><TD class=left>Thing (3).</TD></TR>
 <TR><TD colspan=2><HR></TD></TR>
-<TR><TD class=left>Param0</TD><TD class=left>Unknown.  Usually a very large value.</TD></TR>
+<TR><TD class=left>Param0</TD><TD class=left>Unknown.<!-- Seems to consistently return 1022739072 (0x3CF5C280) in my test sandbox. --></TD></TR>
 <TR><TD class=left>Param1</TD><TD class=left>None.</TD></TR>
 <TR><TD class=left>Param2</TD><TD class=left>None.</TD></TR>
 <TR><TD class=left>Param3</TD><TD class=left>None.</TD></TR>
