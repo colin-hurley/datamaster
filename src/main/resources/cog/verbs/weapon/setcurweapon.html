@@ -4,10 +4,15 @@
 <SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
 </HEAD><BODY>
 <H2>SetCurWeapon</H2><HR>
-Makes a weapon the current weapon. This tells the engine in which cog to call the <A href="../../message/activated.html">activated</A>,
-<A href="../../message/fire.html">fire</A>, and <A href="../../message/deactivated.html">deactivated</A> messages. Syntax:
+Sets the current weapon. Syntax:
 <P>
 <CODE>SetCurWeapon(player, weap_num);</CODE>
+<P>
+Making the weapon "current" tells the engine to which weapon the weapon-related messages should be sent, including
+<A href="../../message/activated.html">activated</A>, <A href="../../message/fire.html">fire</A>,
+<A href="../../message/deactivated.html">deactivated</A>, <A href="../../message/deselected.html">deselected</A>, and
+<A href="../../message/autoselect.html">autoselect</A>.  In addition, the HUD ammo counter will display the value of
+the ammo bin that is associated with the current weapon (this association is hard-coded in the game engine).
 <P>
 Note that SetCurWeapon() wants a weapon number and not a bin number. For example, if you add a new weapon with bin 116 (0x4 bin flag),
 you can use SetCurWeapon(player, 11) to select it.
