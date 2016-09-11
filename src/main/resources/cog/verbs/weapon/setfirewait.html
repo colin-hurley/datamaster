@@ -5,15 +5,22 @@
 </HEAD><BODY>
 <H2>SetFireWait</H2><HR>
 Players have to wait for the firewait delay to end before they can fire or mount weapons.
-SetFireWait() resets this delay. Syntax:
+SetFireWait() resets this delay. If called while a weapon is firing, SetFireWait() also
+resets the firewait delay originally set by <A href="activateweapon.html">ActivateWeapon()</A>, which
+will change how long the engine waits before running the <A href="../../message/fire.html">fire</A>
+message again.  Syntax:
 <P>
 <CODE>SetFireWait(player, firewait);</CODE>
 <P>
 <FORM name="relform" class=rel>
 <SELECT name="selection" size=1>
 	<OPTION value="">Related:
-	<OPTION value="changefirerate.html">ChangeFireRate()
 	<OPTION value="setmountwait.html">SetMountWait()
+	<OPTION value="../../message/fire.html">Fire
 </SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="changefirerate.html">ChangeFireRate()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
 </FORM>
 <HR></BODY></HTML>

@@ -5,15 +5,27 @@
 </HEAD><BODY>
 <H2>ChangeFireRate</H2><HR>
 Resets the firewait delay originally set by <A href="activateweapon.html">ActivateWeapon()</A>. The firewait delay is how
-long JK waits before running the <A href="../../message/fire.html">fire</A> message again. Syntax:
+long the engine waits before running the <A href="../../message/fire.html">fire</A> message again. Syntax:
 <P>
 <CODE>ChangeFireRate(player, firewait);</CODE>
+<P>
+Note: Although the behavior of ChangeFireRate() appears to be deterministic, there seem to be inconsistencies with
+when the change in firewait delay takes effect.  Namely, in some instances, the change takes effect after the current
+execution of the fire message (that is, immediately), while in other instances, the change takes effect after the next
+execution of the fire message.  <A href="setfirewait.html">SetFireWait()</A> always changes the firewait delay
+immediately and seems to serve the same purpose as ChangeFireRate(), so SetFireWait() should generally be preferred
+over ChangeFireRate() to ensure consistent results.  It is also interesting to note that weapons affected by the power
+boost powerup (E.g. Bryar Pistol) use ChangeFireRate() to alter the firewait delay, while weapons that are not
+affected by the powerup (E.g. fists, lightsaber) use SetFireWait() instead.
 <P>
 <FORM name="relform" class=rel>
 <SELECT name="selection" size=1>
 	<OPTION value="">Related:
-	<OPTION value="setfirewait.html">SetFireWait()
 	<OPTION value="../../message/fire.html">Fire
 </SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+<SELECT name="selection2" size=1>
+	<OPTION value="">Alternatives:
+	<OPTION value="setfirewait.html">SetFireWait()
+</SELECT><INPUT type="button" value="Travel" onClick="Travel2()">
 </FORM>
 <HR></BODY></HTML>
