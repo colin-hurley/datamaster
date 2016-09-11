@@ -9,6 +9,10 @@ long the engine waits before running the <A href="../../message/fire.html">fire<
 <P>
 <CODE>ChangeFireRate(player, firewait);</CODE>
 <P>
+Resetting the firewait delay will delay certain weapon-related messages from running until the firewait delay has
+elapsed, including <A href="../../message/activated.html">activated</A>, <A href="../../message/fire.html">fire</A>,
+<A href="../../message/selected.html">selected</A>, and <A href="../../message/deselected.html">deselected</A>.
+<P>
 Note: Although the behavior of ChangeFireRate() appears to be deterministic, there seem to be inconsistencies with
 when the change in firewait delay takes effect.  Namely, in some instances, the change takes effect after the current
 execution of the fire message (that is, immediately), while in other instances, the change takes effect after the next
