@@ -66,7 +66,8 @@ When a bin is available, the item of that bin is usable. You can have an amount 
 be available. Availability makes forces and items show up in their selection boxes. Use <A href="isinvavailable.html">IsInvAvailable()</A>
 to check if the bin is available or not. A bin <EM>must</EM> be available for its hotkey to work. If a force or item is available,
 but you don't have anything in the bin, the selection boxes will flicker when they view the force or item; however, the cog
-will still work.
+will still work.  If an item is available and the bin's value is greater than one, the item's icon will display the bin value
+over the corner of the item's icon (this is used, for example, to show how many Bacta Tanks the player has left).
 
 <A name=active><H4>Activated</H4></A>
 When a bin is "activated," its icon (if it has one) will be displayed in the top-right corner of the screen. Use <A href="setinvactivated.html">SetInvActivated()</A>
