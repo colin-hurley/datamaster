@@ -1,8 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML><HEAD><TITLE>Enterbubble</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css"></HEAD><BODY>
+<HTML><HEAD><TITLE>Enterbubble</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
 <H2>Enterbubble</H2><HR>
-Enterbubble is sent by a player when he enters another thing's <A HREF="../verbs/mots/notes.html#bubbles">bubble</A> created by
-<A HREF="../verbs/mots/jkCreateBubble.html">jkCreateBubble</A>. The message is sent to all of the player's linked cogs
+Enterbubble is sent by a player when he enters another thing's bubble. The message is sent to all of the player's linked cogs
 (including class, capture, and level-linked cogs), as well as all inventory cogs that are both available and have the
 0x8 <A HREF="../../flags/inventory/inventory.html">inventory flag</A> set.  Only players cause this message to be sent,
 while other thing types, including actors, do not.
@@ -24,4 +26,20 @@ movement of the player or a bubble thing, or if a bubble is resized or created.
 <TR><TD class=left>Param3</TD><TD class=left>None.</TD></TR>
 <TR><TD colspan=2><HR></TD></TR>
 </TABLE>
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../verbs/mots/jkCreateBubble.html">jkCreateBubble()
+	<OPTION value="../verbs/mots/jkDestroyBubble.html">jkDestroyBubble()
+	<OPTION value="../verbs/mots/jkGetBubbleDistance.html">jkGetBubbleDistance()
+	<OPTION value="../verbs/mots/jkGetBubbleRadius.html">jkGetBubbleRadius()
+	<OPTION value="../verbs/mots/jkGetBubbleType.html">jkGetBubbleType()
+	<OPTION value="../verbs/mots/jkSetBubbleRadius.html">jkSetBubbleRadius()
+	<OPTION value="../verbs/mots/jkSetBubbleType.html">jkSetBubbleType()
+	<OPTION value="../verbs/mots/jkThingInBubble.html">jkThingInBubble()
+	<OPTION value="exitbubble.html">exitbubble
+	<OPTION value="../verbs/mots/notes.html#bubbles">Bubbles
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
 <HR></BODY></HTML>
