@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>jkGetNextBubble</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
+</HEAD><BODY>
+<H2>jkGetNextBubble</H2><HR>
+Returns the next thing in the level that has a bubble.  If there are no more things in the level that
+have a bubble, jkGetNextBubble() will return -1.  Syntax:
+<P>
+<SPAN class=return>thing</SPAN>=<CODE>jkGetNextBubble();</CODE>
+<P>
+Cog stores the number of the last thing that <A HREF="jkGetFirstBubble.html">jkGetFirstBubble()</A> or
+jkGetNextBubble() returned, so that the next time jkGetNextBubble() is called, it knows to find the next
+thing in the level after the last returned thing.  When the cog calls jkGetFirstBubble(), the thing number
+is set back to the first thing in the level with a bubble, thereby starting a new iteration and canceling
+the previous iteration.
+<P>
+Note: Unlike other thing iteration verbs, jkGetNextBubble() can be called before (or without) calling
+jkGetFirstBubble().  If the last returned thing is -1 or jkGetFirstBubble() was never called, calling
+jkGetNextBubble() starts a new iteration as though jkGetFirstBubble() were called.  This means that you
+can technically perform a complete iteration over all bubble things in the level using only jkGetNextBubble()
+without making any calls to jkGetFirstBubble(); however, the best practice is to call jkGetFirstBubble()
+first to ensure that the iteration always starts on the first bubble thing (E.g. in case another cog only
+iterates partially through the list).
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="jkGetFirstBubble.html">jkGetFirstBubble()
+	<OPTION value="notes.html#bubbles">Bubbles
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
+<HR></BODY></HTML>
