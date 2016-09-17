@@ -17,11 +17,11 @@ the previous iteration.
 <P>
 Note: Unlike other thing iteration verbs, jkGetNextBubble() can be called before (or without) calling
 jkGetFirstBubble().  If the last returned thing is -1 or jkGetFirstBubble() was never called, calling
-jkGetNextBubble() starts a new iteration as though jkGetFirstBubble() were called.  This means that you
-can technically perform a complete iteration over all bubble things in the level using only jkGetNextBubble()
-without making any calls to jkGetFirstBubble(); however, the best practice is to call jkGetFirstBubble()
-first to ensure that the iteration always starts on the first bubble thing (E.g. in case another cog only
-iterates partially through the list).
+jkGetNextBubble() starts a new iteration as though jkGetFirstBubble() were called, instead of simply
+returning -1.  This means that you can technically perform a complete iteration over all bubble things
+in the level using only jkGetNextBubble() without making any calls to jkGetFirstBubble(); however, the
+best practice is to call jkGetFirstBubble() first to ensure that the iteration always starts on the first
+bubble thing (E.g. in case another cog only iterates partially through the list).
 <P>
 <FORM name="relform" class=rel>
 <SELECT name="selection" size=1>
