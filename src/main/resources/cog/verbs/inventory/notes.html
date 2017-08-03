@@ -20,6 +20,10 @@ Bin properties:
 <BR><A HREF=#cog>Cog</A>
 <BR><A HREF=#avail>Available</A>
 <BR><A HREF=#active>Activated</A>
+
+<P>
+Some bins also have <A HREF="#specialbins">special meaning</A> to the game engine that cannot be altered through cog.
+
 <HR>
 <A name=name><H4>The Name of a Bin</H4></A>
 The name of a bin in the items.dat is only used if the bin has an icon. All bins flagged as an item or force power must have
@@ -73,4 +77,243 @@ over the corner of the item's icon (this is used, for example, to show how many 
 When a bin is "activated," its icon (if it has one) will be displayed in the top-right corner of the screen. Use <A href="setinvactivated.html">SetInvActivated()</A>
 to activate or deactivate the bin. Use <A href="isinvactivated.html">IsInvActivated()</A> to check if the bin is activated or not. The
 verb, <A href="setbinwait.html">SetBinWait()</A>, is used to pause the activation of a bin until a delay has ended.
+
+<A name="specialbins"><H4>Special Bins</H4></A>
+Some of the bins are handled specially by the game engine.  These special behaviors cannot be altered through cog.
+
+<TABLE class="small" align="center" width="80%" bgcolor="silver" cellpadding="3" border="1">
+<TR><TH width="15%">Bin(s)</TH><TH class="left">Special Behavior</TH></TR>
+<TR>
+<TD>2, 3</TD>
+<TD class="left">
+When one of these bins is set as the current weapon, the ammunition counter on the HUD will display the value of bin 11.
+</TD>
+</TR>
+<TR>
+<TD>4</TD>
+<TD class="left">
+When this bin is set as the current weapon, the ammunition counter on the HUD will display the value of bin 4.
+</TD>
+</TR>
+<TR>
+<TD>5, 6, 9</TD>
+<TD class="left">
+When one of these bins is set as the current weapon,the ammunition counter on the HUD will display the value of bin 12.
+</TD>
+</TR>
+<TR>
+<TD>7</TD>
+<TD class="left">
+When this bin is set as the current weapon, the ammunition counter on the HUD will display the value of bin 15.
+</TD>
+</TR>
+<TR>
+<TD>8</TD>
+<TD class="left">
+When this bin is set as the current weapon, the ammunition counter on the HUD will display the value of bin 8.
+</TD>
+</TR>
+<TR>
+<TD>11</TD>
+<TD class="left">
+The ammunition counter on the HUD will display the value of this bin when the current weapon is set to either bin 2 or 3.
+</TD>
+</TR>
+<TR>
+<TD>12</TD>
+<TD class="left">
+The ammunition counter on the HUD will display the value of this bin when the current weapon is set to either bin 5, 6, or 9.
+</TD>
+</TR>
+<TR>
+<TD>13</TD>
+<TD class="left">
+The battery power indicator on the HUD reflects the value of this bin.
+</TD>
+</TR>
+<TR>
+<TD>14</TD>
+<TD class="left">
+The force mana indicator on the HUD reflects the value of this bin.
+</TD>
+</TR>
+<TR>
+<TD>15</TD>
+<TD class="left">
+The ammunition counter on the HUD will display the value of this bin when the current weapon is set to bin 7.
+</TD>
+</TR>
+<TR>
+<TD>16</TD>
+<TD class="left">
+This bin indicates how many stars the player earned for completing the level.  Between levels, the game uses this to determine
+how many stars to show on the &quot;tally&quot; screen.  In addition, the game automatically increments bin 17 by this bin's
+value to increase the player's number of spendable stars (resetting this bin to zero in the process).  Usually, a level script
+would increment this bin in a <A HREF="../../message/shutdown.html">shutdown</A> message to grant the player two stars for
+completion of the level and/or one additional star for finding all of the secret areas in the level.
+</TD>
+</TR>
+<TR>
+<TD>17</TD>
+<TD class="left">
+This bin indicates the number of unallocated stars that the player can spend on force powers using the &quot;Force Power&quot;
+screen.  After completing a level, this bin is incremented by the value of bin 16 to make newly-earned stars available for
+spending.  If the value of this bin is changed by a cog script, the game reflects the change immediately.
+</TD>
+</TR>
+<TR>
+<TD>18</TD>
+<TD class="left">
+This bin indicates the <A HREF="../player/notes.html#align">alignment</A> of the player.  The game automatically sets the value
+for this bin upon reaching a DECIDE entry in the episode.jk file.
+<BR> TODO: Remember to note cheat code effects, too!  I.e. red5 sets bin values to what
+</TD>
+</TR>
+<TR>
+<TD>20</TD>
+<TD class="left">
+This bin indicates the Jedi Rank that should be displayed on several menu screens.  In multiplayer sessions, the game sets this
+bin to the rank of the player's selected multiplayer character.
+</TD>
+</TR>
+<TR>
+<TD>21</TD>
+<TD class="left">
+TODO: __BINNAME__
+</TD>
+</TR>
+<TR>
+<TD>22</TD>
+<TD class="left">
+TODO: __BINNAME__
+</TD>
+</TR>
+<TR>
+<TD>23</TD>
+<TD class="left">
+TODO: __BINNAME__
+</TD>
+</TR>
+<TR>
+<TD>24</TD>
+<TD class="left">
+TODO: __BINNAME__
+</TD>
+</TR>
+<TR>
+<TD>25</TD>
+<TD class="left">
+TODO: __BINNAME__
+</TD>
+</TR>
+<TR>
+<TD>26</TD>
+<TD class="left">
+TODO: __BINNAME__
+</TD>
+</TR>
+<TR>
+<TD>27</TD>
+<TD class="left">
+TODO: __BINNAME__
+</TD>
+</TR>
+<TR>
+<TD>28</TD>
+<TD class="left">
+TODO: __BINNAME__
+</TD>
+</TR>
+<TR>
+<TD>29</TD>
+<TD class="left">
+TODO: __BINNAME__
+</TD>
+</TR>
+<TR>
+<TD>30</TD>
+<TD class="left">
+TODO: __BINNAME__
+</TD>
+</TR>
+<TR>
+<TD>31</TD>
+<TD class="left">
+TODO: __BINNAME__
+</TD>
+</TR>
+<TR>
+<TD>32</TD>
+<TD class="left">
+TODO: __BINNAME__
+</TD>
+</TR>
+<TR>
+<TD>33</TD>
+<TD class="left">
+TODO: __BINNAME__
+</TD>
+</TR>
+<TR>
+<TD>34</TD>
+<TD class="left">
+TODO: __BINNAME__
+</TD>
+</TR>
+<TR>
+<TD>42 ???</TD>
+<TD class="left">
+TODO: fieldlight - XXX possibly hard-coded to show active field light on hud
+</TD>
+</TR>
+<TR>
+<TD>60</TD>
+<TD class="left">
+TODO: shields
+</TD>
+</TR>
+<TR>
+<TD>70</TD>
+<TD class="left">
+TODO: secrets
+</TD>
+</TR>
+<TR>
+<TD>71</TD>
+<TD class="left">
+TODO: maxsecrets
+</TD>
+</TR>
+<TR>
+<TD>74 ???</TD>
+<TD class="left">
+TODO: force_morality
+</TD>
+</TR>
+<TR>
+<TD>75 ???</TD>
+<TD class="left">
+TODO: alignment
+</TD>
+</TR>
+<TR>
+<TD>80 ???</TD>
+<TD class="left">
+TODO: teamcolor - set by game for team play?
+</TD>
+</TR>
+<TR>
+<TD>99</TD>
+<TD class="left">
+TODO: stringOffset
+</TD>
+</TR>
+<TR>
+<TD>100-115</TD>
+<TD class="left">
+TODO: goal##
+</TD>
+</TR>
+</TABLE>
+
 <HR></BODY></HTML>

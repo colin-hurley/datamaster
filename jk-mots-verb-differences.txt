@@ -1,0 +1,16 @@
+GetCurWeapon()
+	JK - returns the bin number of the current weapon
+	MotS - returns the current weapon number (probably a bug fix since SetCurWeapon() wants a weapon number in both games, rather than a bin number)
+AutoselectWeapon()
+	JK - returns the bin number of the weapon chosen by the autoselect query
+	MotS - returns the weapon number of the weapon chosen by the autoselect query
+RotatePivot()
+	See tutorials for detailed comparison of behavior
+
+** Potential differences that need to be confirmed **
+AssignWeapon()
+	JK - accepts bin number of weapon to select
+	MotS - not used, may have been changed to accept weapon number instead of bin, as other verbs were cbanged
+SetCurWeapon()
+	JK - accepts weapon number
+	MotS - may have been changed to accept both weapon numbers and bin numbers, since both seem to be used in the weapon cogs (E.g. bryar uses weapon number while blastech uses bin number)

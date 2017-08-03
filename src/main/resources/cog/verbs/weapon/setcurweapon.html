@@ -13,7 +13,8 @@ Making the weapon "current" tells the engine to which weapon the weapon-related 
 <A href="../../message/deactivated.html">deactivated</A>, <A href="../../message/deselected.html">deselected</A>, and
 <A href="../../message/autoselect.html">autoselect</A>.  In addition, the HUD ammo counter will display the value of
 the ammo bin that is associated with the current weapon's bin number (this association is hard-coded in the game
-engine).
+engine; for more details, refer to the list of <A href="../inventory/notes.html#specialbins">special bins</A> in the
+Inventory Verbs' section notes).
 <P>
 Note that SetCurWeapon() wants a weapon number and not a bin number. For example, if you add a new weapon with bin 116 (0x4 bin flag),
 you can use SetCurWeapon(player, 11) to select it.
