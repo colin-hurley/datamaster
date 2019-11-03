@@ -6,5 +6,10 @@
 When a thing is given this flag, it will be ignored by the engine. It will
 not be rendered and other objects will be able to move through it without
 collision. This flag is given to taken items while they wait to respawn.
+It is also given to vacant walkplayer things until players join in a
+multiplayer game.  In addition, some verbs, such as
+<A href="../../cog/verbs/thingact/firstthinginview.html">FirstThingInView()</A> and
+<A href="../../cog/verbs/thingact/nextthinginview.html">NextThingInView()</A>,
+will implicitly ignore things that have the 0x80000 flag set,
 
 <HR><BODY></HTML>
