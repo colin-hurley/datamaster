@@ -111,6 +111,13 @@ come from the cogstrings of <EM>The Force Within</EM>.
 In both of these files, strings are defined like this: <SPAN class=exam>"COG_x" 0 "string"</SPAN> - where x is the number of the string. It is this number that cog verbs use
 to locate the string. If you give a verb the number to a string that does not exist, you'll see "COG_yourNum" print on the screen.
 
+<A name=limits><H4>Limits</H4></A>
+
+The internal string used by the jkString verbs can hold up to 128 characters at a time. JK will ignore any attempt to
+concatenate a string that would exceed this limit.  The Print verbs can output much longer strings to the Jedi Console
+(there may not be a limit in this case), but the text shown by the in-game display will still be truncated to the first
+128 characters of the string.
+
 <A name=dests><H4>Destinations</H4></A>
 
 <TABLE class=small align=center width="100%" bgcolor=silver cellpadding=3 border=1>
