@@ -1,10 +1,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML><HEAD><TITLE>Cog Symbol Type</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css"></HEAD><BODY>
 <H2>Cog Symbol Type</H2><HR>
-The cog symbol type is used to store a reference to a cog file. You cannot directly
-assign a cog to the variable, but a cog value can be passed from a JKL to the
-symbol. Syntax:
-
+The cog symbol type is used to store a reference to a cog. Syntax:
 <PRE class=sym>cog     classCog</PRE>
-
+<P>
+Unlike other symbol types that can take a file name as an initial value (e.g.
+keyframe, model, sound), a cog symbol can only be assigned a numerical reference.
+The reason the cog file name cannot be assigned is because there can be multiple
+instances of a single cog file running in the level at the same time, each with
+its own reference number, and the cog file name alone is not sufficient to
+distinctly identify any particular instance.  A cog reference can be passed from
+a JKL - in Jed, this would typically be the number for one of the cogs in the
+Placed Cogs window.
 <HR></BODY></HTML>
