@@ -265,7 +265,15 @@ every one of the objects in your group.
 thing     myThing     nolink
 </pre>
 
+<p>
+In some cases, you may want a single variable to use multiple symbol extensions. To do so, specify both extensions and separate them with a
+comma. For example:
 
+<pre class="code">
+thing     myThing     mask=0x405,linkid=1
+</pre>
+
+<p>
 Remember that all of these symbol extensions are only useful in level cogs. To class and inventory cogs, these are useless. However, it's
 considered proper syntax to add local to all of a class or inventory cog's variables. This is a way of telling the reader
 that all of the variables are being defined within the cog.
