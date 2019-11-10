@@ -11,6 +11,9 @@ All things have a user data assigned to them. By default it is 0. The user data 
 with a thing. It can be very useful for attaching values to players. Since the user data is often used by patches, the author recommends
 that level authors abstain from using the user data of common things like the player.
 
+<P>
+The game does not synchronize user data between computers in multiplayer.
+
 <A name=cogs><H4>Class & Capture Cogs</H4></A>
 
 A thing has a class cog and a capture cog. Both of the thing's cogs receive its messages. A thing's class cog is meant to
@@ -76,4 +79,8 @@ Because thing numbers are reused, the wrong thing may be used by mistake. In the
 the <A href="../../message/created.html">created</A> message, and then after the timer, it is compared to the signature that the thing
 is supposed to have. If the signatures are not equal, the sender of the created message had been destroyed. If they match, we
 know the thing still exists, and it is safe to destroy.
+
+<P>
+As with thing numbers, the game does not synchronize thing signatures between computers in multiplayer.
+
 <HR></BODY></HTML>
