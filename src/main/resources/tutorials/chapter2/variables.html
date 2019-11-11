@@ -266,11 +266,12 @@ thing     myThing     nolink
 </pre>
 
 <p>
-In some cases, you may want a single variable to use multiple symbol extensions. To do so, specify both extensions and separate them with a
-comma. For example:
+In some cases, you may want a single variable to use multiple symbol extensions. To do so, specify both extensions and separate them with either a
+comma or whitespace. For example:
 
 <pre class="code">
-thing     myThing     mask=0x405,linkid=1
+thing     myThing         mask=0x405,linkid=1
+thing     myOtherThing    mask=0x405 linkid=2
 </pre>
 
 <p>
