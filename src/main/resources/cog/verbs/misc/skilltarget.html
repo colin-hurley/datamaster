@@ -18,6 +18,9 @@ be assigned to retval. But SkillTarget() does not return a value from other comp
 <P>
 <SPAN class=param>param1:</SPAN> This is the second param.
 <P>
+If the thing is a player, the skill message will always be sent in singleplayer. However, in multiplayer, it will only be sent to players on other
+computers, never to the local player. If the thing is an actor, the skill message will always be sent in both singleplayer and multiplayer.
+<P>
 <FORM name="relform" class=rel>
 <SELECT name="selection" size=1>
 	<OPTION value="">Related:
