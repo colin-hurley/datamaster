@@ -9,6 +9,13 @@ The look_thing does not have to be facing the target for HasLOS() to return true
 <P>
 <SPAN class=return>boolean</SPAN>=<CODE>HasLOS(look_thing, target);</CODE>
 <P>
+HasLOS will return false if view of the target thing is obstructed by another thing of
+<A HREF="../../../flags/thingtypeval/thingtypeval_frame.html" target="main">type</A>
+'cog' (e.g. doors, elevators, and other 3DO-based geometry). It will also return false
+if the target thing is behind an adjoined surface that does not have the 0x1
+<A HREF="../../../flags/surfaceadjoin/surfaceadjoin_frame.html" target="main">adjoin flag</A>
+set. If HasLOS is given a reference to a non-existent thing, it will return -1.
+<P>
 <FORM name="relform" class=rel>
 <SELECT name="selection2" size=1>
 	<OPTION value="">Alternatives:
