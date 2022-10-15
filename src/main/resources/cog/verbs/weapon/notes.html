@@ -36,9 +36,10 @@ messages use these modes to determine if they should return -1 or a priority num
 <TR><TD>2</TD><TD class=left>The lightsaber.</TD></TR>
 </TABLE>
 <P>
-When the player is not in water, JK uses the Armed Mode as the player's Puppet Mode. And when the player enters water,
-JK adds three to the Armed Mode for the Puppet Mode. This Puppet Mode (AKA "Major Mode") is returned by
-<A href="../keyframe/getmajormode.html">GetMajorMode()</A>.
+When the creature is not in water, JK uses the Armed Mode as the creature's Puppet Mode. And when the creature enters water,
+JK adds three to the Armed Mode for the Puppet Mode. This Puppet Mode (AKA "<A href="../keyframe/notes.html#mmodes">Major Mode</A>")
+is returned by <A href="../keyframe/getmajormode.html">GetMajorMode()</A> and can be changed by setting the Armed Mode with
+<A href="setarmedmode.html">SetArmedMode()</A>.
 
 <A name=prior><H4>Weapon Priorities</H4></A>
 
