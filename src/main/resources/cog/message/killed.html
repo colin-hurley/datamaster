@@ -9,7 +9,7 @@ Killed is sent by an actor or player when it dies.
 <TABLE class=msg width=90% bgcolor=#D2D2D2>
 <TR><TD colspan=2><HR></TD></TR>
 <TR><TD width=30% class=left>Sender</TD><TD class=left>The creature that died.</TD></TR>
-<TR><TD class=left>Source</TD><TD class=left>The thing (EG, explosion) that killed him.</TD></TR>
+<TR><TD class=left>Source</TD><TD class=left>The thing that killed him. This is the parent of whatever projective/explosion dealt the damage, so the killer will usually be another creature. However, it will be the projectile/explosion itself if it does not have a parent.</TD></TR>
 <TR><TD colspan=2><HR></TD></TR>
 <TR><TD class=left>Sender Type</TD><TD class=left>Thing (3).</TD></TR>
 <TR><TD class=left>Source Type</TD><TD class=left>Thing (3).</TD></TR>
@@ -20,6 +20,7 @@ Killed is sent by an actor or player when it dies.
 <SELECT name="selection" size=1>
 	<OPTION value="">Related:
 	<OPTION value="../verbs/thingact/damagething.html">DamageThing()
+	<OPTION value="../verbs/thingprop/notes.html#parent">Thing Parents
 </SELECT><INPUT type="button" value="Travel" onClick="Travel()">
 </FORM>
 <HR></BODY></HTML>
