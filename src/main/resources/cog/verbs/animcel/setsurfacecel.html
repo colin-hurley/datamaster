@@ -5,9 +5,10 @@
 </HEAD><BODY>
 <H2>SetSurfaceCel</H2><HR>
 Sets the cel of a surface's material. Setting the surface's cel to -1 will allow Material Animations
-to use the surface. Setting a surface's cel to -1 will not stop a Surface Animation. Syntax:
+to use the surface. Setting a surface's cel to -1 will not stop a Surface Animation. The current cel
+of the surface will be returned. Syntax:
 <P>
-<CODE>SetSurfaceCel(surface, cel_num);</CODE>
+<SPAN class="return">old_cel_num</SPAN>=<CODE>SetSurfaceCel(surface, cel_num);</CODE>
 <P>
 <FORM name="relform" class=rel><SELECT name="selection" size=1>
 	<OPTION value="">Related:
