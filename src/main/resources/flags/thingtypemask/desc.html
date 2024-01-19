@@ -8,6 +8,11 @@
 Mask Flags are used to mask or screen out things of an unwanted type. They
 are used by symbols that send messages and by some verbs.
 <P>
+Mask flags are directly related to <A href="../thingtypeval/thingtypeval_frame.html" target="main">thing types</A>.
+Eash mask flag is equal to the result of the following bit shift calculation in C:
+<P>
+<SPAN class=return>mask</SPAN> = <CODE>1 &lt;&lt; thing_type;</CODE>
+<P>
 Some of the thing types listed in the mask flags chart, such as free and camera,
 aren't known to exist. However, there is a list in the exe of thing types which
 includes these types. And this exe list matches the mask flags list. So whether
