@@ -23,14 +23,20 @@
 
 </BLOCKQUOTE><HR><SPAN class=title>mask</SPAN><BLOCKQUOTE>
 
-	Mask is used to assign <A href="../../flags/thingtypemask/thingtypemask_frame.html">Mask Flags</A> to a symbol. The Mask Flags control
-	which messages from the symbol are received by the cog. The symbol type descriptions explain the effect of Mask Flags on each symbol
-	type. Mask Flags can only be used with objects whose values are passed from the level's JKL. Example:
-	<P>
-	Symbols of types that can send messages have default <A href="../../flags/thingtypemask/thingtypemask_frame.html">Mask Flags</A>. The
-	mask entension is used to reset the Mask Flags, so the defaults are overwritten.
+	Mask is used to assign <A href="../../flags/thingtypemask/thingtypemask_frame.html">Mask Flags</A> to a symbol.
+	The Mask Flags control which messages sent by the symbol are received by the cog.
+	Mask Flags can only be used with symbols whose values are passed from the level's JKL.
+	Example:
 
 	<PRE class=exam>sector	sec1	mask=0x4</PRE>
+
+	The default mask flags appear to be 0x401 for all symbol types.
+	The mask entension is used to reset the Mask Flags for a symbol, so the default flags are overwritten.
+	<P>
+	When a message is sent by the symbol, the cog will only receive the message if the <A href="../../flags/thingtypeval/thingtypeval_frame.html">thing type</A> of the message source is represented in the mask flags for the symbol.
+	For example, when a projectile hits an actor, the touched message normally does not run in the actor's cog.
+	This is because the default mask only allows messages to be received when the source is a player thing (0x400) or nothing (0x1), not when the source is a projectile (0x8).
+	If we give the thing a mask of 0xfff, every type of thing that touches the actor will cause the touched message to run.
 
 </BLOCKQUOTE><HR><SPAN class=title><A name=linkid>linkid</A></SPAN><BLOCKQUOTE>
 

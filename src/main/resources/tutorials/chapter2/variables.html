@@ -246,8 +246,9 @@ Flags have not been covered yet, so it's ok if 0x8 makes no sense. The 0x8 flag 
 of events that were caused by a weapon. If we wanted the reverse - if we wanted only events caused by the player and nothing else,
 the flag would be 0x400. If we wanted both players and weapons, the flag would be 0x408.
 <p>
-Remember that there are default masks for things, sectors, and surfaces. These are explained in the symbols documentation.
-By using the mask extension, you are overriding this default. To receive all the messages that a thing sends, use a flag of 0xfff.
+Remember that there are default mask flags for things, sectors, and surfaces.
+By using the mask extension, you are overriding this default.
+This is explained in more detail in the symbols documentation.
 <p>
 <b>Linkid</b> is used to make a group out of a bunch of symbols so that it's easier to refer to them in the code section. A declaration looks like:
 
