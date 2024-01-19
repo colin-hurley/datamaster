@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>goto</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css"></HEAD><BODY>
+<H2>goto</H2><HR>
+Goto is used to jump to a message. Syntax:
+<P>
+<CODE>goto newmsg;</CODE>
+<P>
+Upon reaching a call statement, the cog will jump to the specified message before continuing execution.
+After returning from the message, execution will not resume at the code immediately following the goto statement.
+This is the primary difference between <A href="call.html">call</A> and goto.
+<P>
+Call and goto are the only way to run custom messages.
+Goto can be used to loop messages.
+There is no limit to the number of jumps that goto can make.
+Example:
+<PRE class=code style="margin-bottom:0">
+activated:
+     Print("Activated");
+     goto activated;
+
+Return;
+</PRE>
+<HR></BODY></HTML>

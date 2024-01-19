@@ -5,8 +5,13 @@ Call is used to manually run a message. Syntax:
 <P>
 <CODE>call newmsg;</CODE>
 <P>
-Call is the only way to run custom messages. Call can be used to loop messages,
-but it can loop a message no more than five times. Example:
+Upon reaching a call statement, the cog will jump to the specified message before continuing execution.
+After returning from the message, execution will resume at the code immediately following the call statement.
+This is the primary difference between call and <A href="goto.html">goto</A>.
+<P>
+Call and goto are the only way to run custom messages.
+Call can be used to loop messages, but it can loop a message no more than five times.
+Example:
 <PRE class=code style="margin-bottom:0">
 activated:
      Print("Activated");
