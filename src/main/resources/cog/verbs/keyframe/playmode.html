@@ -4,15 +4,15 @@
 <SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
 </HEAD><BODY>
 <H2>PlayMode</H2><HR>
-Plays an animation that is listed in the creature's puppet. Syntax:
+Plays an animation that is listed in a thing's puppet. Syntax:
 <P>
 <SPAN class=return>animID</SPAN>=<CODE>PlayMode(thing, submode);</CODE>
 <P>
-<SPAN class=param>thing:</SPAN> This is the thing whose puppet is used and the thing that the
-animation will be played with.
+<SPAN class=param>thing:</SPAN> This is the thing that the animation will be played with.
 <P>
-<SPAN class=param>submode:</SPAN> This is the number of a submode in a puppet file. Puppet keys
-are not listed in order of their submode number, but a comment beside each key in ky.pup lists its submode number.
+<SPAN class=param>submode:</SPAN> This is the number of the submode to play in the thing's puppet file.
+Puppet keys are not listed in order of their submode number, and most of the comments identifying submode numbers in .pup files are unreliable.
+Refer to the <A href="submodes.html">Submode Listing</A> document for a list of submode numbers and their corresponding actions.
 <P>
 <FORM name="relform" class=rel>
 <SELECT name="selection" size=1>

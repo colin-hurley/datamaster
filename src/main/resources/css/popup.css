@@ -16,6 +16,7 @@ SPAN.return {color: #000; font: 10px Verdana; font-weight:bold}
 SPAN.red {color: red}
 SPAN.math {color: green; font: 8pt Verdana}
 SPAN.code {color:green; font: 11px Verdana}
+SPAN.gamedesc {vertical-align:super; font-size:75%; font-weight: bold; color: #5050A0;}
 
 PRE.mono {font: 9pt Courier; color: red}
 PRE.code {color: green; font: 11px Verdana}
