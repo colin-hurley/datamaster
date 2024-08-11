@@ -9,7 +9,7 @@ have a bubble, jkGetNextBubble() will return -1.  Syntax:
 <P>
 <SPAN class=return>thing</SPAN>=<CODE>jkGetNextBubble();</CODE>
 <P>
-Cog stores the number of the last thing that <A HREF="jkGetFirstBubble.html">jkGetFirstBubble()</A> or
+Cog stores the number of the last thing that <A HREF="jkgetfirstbubble.html">jkGetFirstBubble()</A> or
 jkGetNextBubble() returned, so that the next time jkGetNextBubble() is called, it knows to find the next
 thing in the level after the last returned thing.  When the cog calls jkGetFirstBubble(), the thing number
 is set back to the first thing in the level with a bubble, thereby starting a new iteration and canceling
@@ -26,7 +26,7 @@ bubble thing (E.g. in case another cog only iterates partially through the list)
 <FORM name="relform" class=rel>
 <SELECT name="selection" size=1>
 	<OPTION value="">Related:
-	<OPTION value="jkGetFirstBubble.html">jkGetFirstBubble()
+	<OPTION value="jkgetfirstbubble.html">jkGetFirstBubble()
 	<OPTION value="notes.html#bubbles">Bubbles
 </SELECT><INPUT type="button" value="Travel" onClick="Travel()">
 </FORM>

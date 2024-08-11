@@ -1,17 +1,21 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML><HEAD><TITLE>jkGetBubbleType</TITLE>
+<HTML><HEAD><TITLE>jkCreateBubble</TITLE>
 <LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
 <SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
 </HEAD><BODY>
-<H2>jkGetBubbleType</H2><HR>
-Return the type of a thing's bubble. Syntax:
+<H2>jkCreateBubble</H2><HR>
+Creates a bubble around a thing. Syntax:
 <P>
-<SPAN class=return>type</SPAN>=<CODE>jkGetBubbleType(thing);</CODE>
+<CODE>jkCreateBubble(thing, size, type);</CODE>
+<P>
+<SPAN class="param">size:</SPAN> The flex size of the bubble
+<P>
+<SPAN class="param">type:</SPAN> The bubble type
 <P>
 <FORM name="relform" class=rel>
 <SELECT name="selection" size=1>
 	<OPTION value="">Related:
-	<OPTION value="jkSetBubbleType.html">jkSetBubbleType()
+	<OPTION value="jkdestroybubble.html">jkDestroyBubble()
 	<OPTION value="notes.html#bubbles">Bubbles
 </SELECT><INPUT type="button" value="Travel" onClick="Travel()">
 </FORM>
