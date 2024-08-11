@@ -4,11 +4,14 @@
 <SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
 </HEAD><BODY>
 <H2>PlaySoundClass</H2><HR>
-Plays a sound from a thing's snd file. This verb works the same as <A href="../keyframe/playmode.html">PlayMode()</A> does for puppet keyframes.
-But unlike puppets, snds do not list the subclass numbers of a thing's sounds. Refer to the <A href="subclass.html">Subclass Listing</A>
-document for a list of subclass numbers and their actions. Syntax:
+Plays a sound that is listed in a thing's soundclass. Syntax:
 <P>
 <SPAN class=return>channel</SPAN>=<CODE>PlaySoundClass(thing, subclass);</CODE>
+<P>
+<SPAN class=param>thing:</SPAN> This is the thing that the sound will be played at.
+<P>
+<SPAN class=param>subclass:</SPAN> This is the number of the subclass to play in the thing's soundclass file.
+Refer to the <A href="subclass.html">Subclass Listing</A> document for a list of subclass numbers and their corresponding actions.
 <P>
 <FORM name="relform" class=rel>
 <SELECT name="selection" size=1>
