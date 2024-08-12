@@ -3,11 +3,12 @@
 <LINK REL=stylesheet TYPE="text/css" HREF="../../../css/popup.css">
 </HEAD><BODY>
 <H2>jkThingInBubble</H2><HR>
-This verb was not used by LEC.  It is unknown what this verb does, what parameters it accepts, or if it works correctly.
-<!--
-The verb seems to take three parameters.
-The third parameter seems to crash the game more readily than the first two (I.e. in a brute force test of f(0,0,0), ..., f(0,0,6), f(0,1,0), ..., etc.)
-The game seems to hang whenever the verb is used in a variable assignment (I.e. x=f(...) ).
-Using the string concat verbs to print the value displays -1, but that may be a result of not returning a value.
--->
+This verb was not used by LEC and does not seem to work correctly.
+It may be intended to return the thing whose bubble contains the specified thing.
+However, the verb crashes the game when the specified thing is in a bubble.
+Otherwise, it returns -1.
+Suggested syntax:
+<P>
+<SPAN class=return>bubble_thing</SPAN>=<CODE>jkThingInBubble(thing);</CODE>
+<P>
 <BR><HR></BODY></HTML>
