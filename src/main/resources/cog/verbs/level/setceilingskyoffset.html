@@ -4,11 +4,11 @@
 <SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
 </HEAD><BODY>
 <H2>SetCeilingSkyOffset</H2><HR>
-This verb was not used by LEC and does not seem to work correctly. It may have been discarded when
-ceiling offsets became a part of the level header. When this verb is run, it resets the offset of the ceiling
-to 0,0 regardless of the parameters. Suggested syntax:
+Sets the offset of the level's ceiling sky.
+This offset corresponds to the <EM>u</EM>, <EM>v</EM> coordinate in the level's header.
+The offset is specified in vector form and has a z axis that is not used. Syntax:
 <P>
-<CODE>SetCeilingSkyOffset(u, v);</CODE>
+<CODE>SetCeilingSkyOffset(offset);</CODE>
 <P>
 <FORM name="relform" class=rel>
 <SELECT name="selection" size=1>

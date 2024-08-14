@@ -4,11 +4,11 @@
 <SCRIPT TYPE="text/javascript" SRC="../../../script/travel.java"></SCRIPT>
 </HEAD><BODY>
 <H2>SetHorizonSkyOffset</H2><HR>
-This verb was not used by LEC and apparently does not work. Like <A href="setceilingskyoffset.html">SetCeilingSkyOffset()</A>, it was probably
-discarded in favor of setting the offset in the level's header. When used, this verb will reset the Horizon's
-offset to 0,0 no matter what params are used. Suggested syntax:
+Sets the offset of the level's horizon sky.
+This offset corresponds to the <EM>u</EM>, <EM>v</EM> coordinate in the level's header.
+The offset is specified in vector form and has a z axis that is not used. Syntax:
 <P>
-<CODE>SetHorizonSkyOffset(u, v);</CODE>
+<CODE>SetHorizonSkyOffset(offset);</CODE>
 <P>
 <FORM name="relform" class=rel>
 <SELECT name="selection" size=1>
