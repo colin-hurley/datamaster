@@ -4,6 +4,9 @@
 The touched message is sent by an object when a thing touches it. It is <EM>not</EM> sent by the
 toucher, but by the object that was touched.
 <P>
+After a surface sends a touched message, the game will suppress further touched messages from that surface until 500 milliseconds have passed.
+However, touched messages sent by things are not throttled in this manner.
+<P>
 <TABLE class=msg width=90% bgcolor=#D2D2D2>
 <TR><TD colspan=2><HR></TD></TR>
 <TR><TD width=30% class=left>Sender</TD><TD class=left>The object that was touched.</TD></TR>
