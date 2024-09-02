@@ -2,46 +2,16 @@
 <HTML><HEAD><TITLE>Tutorial Menu</TITLE>
 <LINK REL="stylesheet" TYPE="text/css" HREF="../css/tut.css">
 <script>
-var pageref="";
-function travel1()
+function travel(selectElem)
 {
-	var selected=document.form.select1.selectedIndex;
-	pageref = document.form.select1.options[selected].value;
-	if(selected > 1 && top.main.tutorial.location.href.indexOf(pageref) == -1)
+	var selected = selectElem.selectedIndex;
+	var href = selectElem.options[selected].value;
+	if (href == "")
 	{
-		top.main.tutorial.location.href = pageref;
-		top.main.tutorial.focus();
+		href = "blank.html";
 	}
-}
-function travel2()
-{
-	var selected=document.form.select2.selectedIndex;
-	pageref = document.form.select2.options[selected].value;
-	if(selected > 1 && top.main.tutorial.location.href.indexOf(pageref) == -1)
-	{
-		top.main.tutorial.location.href = pageref;
-		top.main.tutorial.focus();
-	}
-}
-function travel3()
-{
-	var selected=document.form.select3.selectedIndex;
-	pageref = document.form.select3.options[selected].value;
-	if(selected > 1 && top.main.tutorial.location.href.indexOf(pageref) == -1)
-	{
-		top.main.tutorial.location.href = pageref;
-		top.main.tutorial.focus();
-	}
-}
-function travel4()
-{
-	var selected=document.form.select4.selectedIndex;
-	pageref = document.form.select4.options[selected].value;
-	if(selected > 1 && top.main.tutorial.location.href.indexOf(pageref) == -1)
-	{
-		top.main.tutorial.location.href = pageref;
-		top.main.tutorial.focus();
-	}
+	top.main.tutorial.location.href = href;
+	top.main.tutorial.focus();
 }
 </script>
 <style>
@@ -51,7 +21,7 @@ select {width:200px; background-color:silver; font: 12px fixedsys; }
 </HEAD><BODY class="specback">
 
 <CENTER><FORM name="form">
-<SELECT name="select1" size=1 onClick="travel1()">
+<SELECT name="select1" size="1" onChange="travel(this)">
 	<OPTION value="">Chapter 1:
 	<OPTION value="">-----------------------
 	<OPTION value="chapter1/intro.html">Introduction
@@ -63,7 +33,7 @@ select {width:200px; background-color:silver; font: 12px fixedsys; }
 	<OPTION value="chapter1/review.html">Review
 </SELECT>
 
-<SELECT name="select2" size="1" onClick="travel2()">
+<SELECT name="select2" size="1" onChange="travel(this)">
 	<OPTION value="">Chapter 2:
 	<OPTION value="">-----------------------
 	<OPTION value="chapter2/intro.html">Introduction
@@ -77,7 +47,7 @@ select {width:200px; background-color:silver; font: 12px fixedsys; }
 	<OPTION value="chapter2/review.html">Review
 </SELECT>
 
-<SELECT name="select3" size="1" onClick="travel3()">
+<SELECT name="select3" size="1" onChange="travel(this)">
 	<OPTION value="">Chapter 3:
 	<OPTION value="">-----------------------
 	<OPTION value="chapter3/intro.html">Introduction
@@ -92,7 +62,7 @@ select {width:200px; background-color:silver; font: 12px fixedsys; }
 	<OPTION value="chapter3/review.html">Review
 </SELECT>
 
-<SELECT name="select4" size="1" onClick="travel4()">
+<SELECT name="select4" size="1" onChange="travel(this)">
 	<OPTION value="">Old Tutorials:
 	<OPTION value="">-----------------------
 	<OPTION value="old/bases.html"	>Bases
