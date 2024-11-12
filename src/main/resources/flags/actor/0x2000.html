@@ -1,8 +1,23 @@
 <HTML><HEAD><TITLE>0x2000 Actor Flag</TITLE><LINK REL=stylesheet TYPE="text/css" HREF="../../css/popup.css">
+<SCRIPT TYPE="text/javascript" SRC="../../script/travel.java"></SCRIPT>
 </HEAD>
 <BODY>
 <H2>0x2000 Actor Flag</H2><HR>
 
-Actors must also have a target to be given this flag.
-
+An actor or player with this flag will deflect projectiles with their lightsaber.
+<P>
+The game automatically sets and clears this flag in some cases.
+If an actor has the 0x200 actor flag, the 0x2000 flag will be set.
+When an actor uses the SaberFighting instinct, this flag will be cleared during an attack and set after the attack is finished.
+When an actor or player is killed, this flag will be cleared.
+<P>
+In MotS, the <A href="../../cog/message/preblock.html">preblock</A> message must also be handled in order for a player or actor to deflect projectiles.
+<P>
+<FORM name="relform" class=rel>
+<SELECT name="selection" size=1>
+	<OPTION value="">Related:
+	<OPTION value="../../cog/message/blocked.html">Blocked
+	<OPTION value="../../cog/message/preblock.html">Preblock
+</SELECT><INPUT type="button" value="Travel" onClick="Travel()">
+</FORM>
 <HR><BODY></HTML>
